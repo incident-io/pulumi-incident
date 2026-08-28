@@ -1,0 +1,44 @@
+# Generates this repo's GitHub Actions workflows. Regenerate with `make ci-mgmt`.
+#
+# IMPORTANT: use pulumi-labs/ci-mgmt, not pulumi/ci-mgmt. Upstream refuses
+# non-Pulumi orgs (it prints a redirect notice and exits 0, silently generating
+# nothing), and its ESC step hardcodes Pulumi's own OIDC organization, so its
+# output cannot authenticate from this repo.
+#
+#   go run github.com/pulumi-labs/ci-mgmt/provider-ci@master generate
+
+template: external-bridged-provider
+provider: incident
+organization: incident-io
+# This package's OWN Go SDK module major version, not upstream's. Must be
+# present: the generator defaults it to 2, which would put the provider under
+# provider/v2 and the Go SDK under sdk/v2.
+major-version: 1
+upstreamProviderOrg: incident-io
+upstream-provider-repo: terraform-provider-incident
+# Java is excluded because Pulumi's own template notes it "doesn't yet work well
+# for non-internal providers". dotnet is excluded because we do not publish to
+# NuGet; add it back here and in resources.go if that changes.
+languages:
+    - nodejs
+    - python
+    - go
+publish:
+    sdk: "all,!java,!dotnet"
+    # get.pulumi.com is Pulumi-internal; our binaries ship as GitHub release
+    # assets, found via PluginDownloadURL in resources.go.
+    cdn: false
+# create_docs_build dispatches into pulumi/registry, which needs write access
+# we don't have. Registry listing happens via a PR to their community package
+# list instead.
+publishRegistry: false
+# Converts the upstream HCL doc examples into per-language Pulumi examples.
+pulumiConvert: 1
+# Pulumi's internal GitHub App; third parties authenticate with their own
+# repository secrets.
+github-app:
+    enabled: false
+# No daily upstream-bump cron. It opens a separate PR per upstream release and
+# they accumulate (17 releases in Aug 2026), while we would only ever merge the
+# newest. Bumps happen by hand when cutting a release: see CONTRIBUTING.md.
+checkUpstreamUpgrade: false
