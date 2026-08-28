@@ -1,0 +1,152 @@
+// Package incident bridges the incident.io Terraform provider into a Pulumi
+// provider.
+//
+// The upstream provider is built on terraform-plugin-framework and speaks
+// protocol 6 only, so this uses the bridge's plugin-framework path
+// (pkg/pf/tfbridge) rather than the SDKv2 shim, and needs no muxing.
+package incident
+
+import (
+	_ "embed"
+	"os"
+	"path"
+
+	incidentshim "github.com/incident-io/terraform-provider-incident/shim"
+	pf "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+
+	"github.com/incident-io/pulumi-incident/provider/pkg/version"
+)
+
+// The upstream provider is MIT licensed. Without this the bridge defaults to
+// MPL 2.0 and stamps that into every generated SDK's README.
+var upstreamLicense = tfbridge.MITLicenseType
+
+// bridgeMetadata persists the computed token map and auto-alias ledger between
+// tfgen runs. The plugin-framework bridge requires it, and it is what stops a
+// later regeneration from silently renaming a resource out from under users.
+//
+// It also replays the default fixups a previous run decided on. Changing an
+// override below therefore has no effect until this file is reset to `{}` and
+// regenerated — the stale decision wins, silently.
+//
+//go:embed cmd/pulumi-resource-incident/bridge-metadata.json
+var bridgeMetadata []byte
+
+const (
+	mainPkg = "incident"
+	mainMod = "index"
+)
+
+// Provider returns the bridged provider definition.
+func Provider() tfbridge.ProviderInfo {
+	prov := tfbridge.ProviderInfo{
+		P:            pf.ShimProvider(incidentshim.NewProvider(version.Version)),
+		Name:         "incident",
+		Version:      version.Version,
+		DisplayName:  "incident.io",
+		Publisher:    "incident-io",
+		LogoURL:      "https://raw.githubusercontent.com/incident-io/pulumi-incident/master/logos/incident.svg",
+		Description:  "A Pulumi package for managing incident.io resources.",
+		Keywords:     []string{"pulumi", "incident", "incident-io", "category/cloud"},
+		License:      "Apache-2.0",
+		Homepage:     "https://incident.io",
+		Repository:   "https://github.com/incident-io/pulumi-incident",
+		MetadataInfo: tfbridge.NewProviderMetadata(bridgeMetadata),
+
+		TFProviderLicense: &upstreamLicense,
+
+		// Tells the docs generator where the upstream provider's markdown lives,
+		// so HCL examples get converted into per-language Pulumi examples.
+		GitHubOrg: "incident-io",
+
+		// Normally the bridge infers this from where Go downloaded the upstream
+		// module. That inference fails while go.mod carries a filesystem
+		// replace, taking every docs example down with it, so allow an override.
+		UpstreamRepoPath: os.Getenv("UPSTREAM_REPO_PATH"),
+
+		// Binaries are published as GitHub release assets rather than to
+		// Pulumi's CDN, which is only available to Pulumi-internal providers.
+		PluginDownloadURL: "github://api.github.com/incident-io/pulumi-incident",
+
+		Config: map[string]*tfbridge.SchemaInfo{
+			// Upstream reads INCIDENT_API_KEY itself when the config value is
+			// null, so this changes no behaviour. It is declared purely so the
+			// variable shows up in the generated SDKs and registry docs.
+			//
+			// Deliberately not mirrored for `endpoint`: upstream gives
+			// INCIDENT_ENDPOINT precedence *over* the configured value, so a
+			// Pulumi-side default there would be silently ignored.
+			"api_key": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"INCIDENT_API_KEY"},
+				},
+			},
+		},
+
+		Resources: map[string]*tfbridge.ResourceInfo{
+			// The upstream `id` on this resource is an input holding the catalog
+			// *type* id, not the entry's own identity. Pulumi reserves `id` for
+			// the resource output id, so the bridge auto-renames it; we name it
+			// explicitly because the generated name (`catalogEntriesId`)
+			// describes the wrong thing.
+			//
+			// ComputeID must be set alongside the rename. The bridge's default
+			// fixup only delegates the resource id when it is doing the renaming
+			// itself; supplying a name makes it bail early, and the resource
+			// falls through to a fallback that hands every instance the literal
+			// id "missing ID".
+			"incident_catalog_entries": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"id": {Name: "catalogTypeId"},
+				},
+				ComputeID: tfbridge.DelegateIDField(
+					"catalogTypeId", mainPkg, "https://github.com/incident-io/pulumi-incident",
+				),
+			},
+		},
+
+		JavaScript: &tfbridge.JavaScriptInfo{
+			PackageName:          "@incident-io/pulumi",
+			RespectSchemaVersion: true,
+		},
+		Python: &tfbridge.PythonInfo{
+			PackageName:          "pulumi_incident",
+			RespectSchemaVersion: true,
+			PyProject:            struct{ Enabled bool }{true},
+		},
+		Golang: &tfbridge.GolangInfo{
+			// Derived rather than hardcoded: from v2 the Go SDK module path has
+			// to carry a major-version segment, and a literal would silently
+			// publish an import path that does not resolve.
+			ImportBasePath: path.Join(
+				"github.com/incident-io/pulumi-incident/sdk/",
+				tfbridge.GetModuleMajorVersion(version.Version),
+				"go",
+				mainPkg,
+			),
+			GenerateResourceContainerTypes: true,
+			RespectSchemaVersion:           true,
+		},
+		CSharp: &tfbridge.CSharpInfo{
+			// `Pulumi.*` is a reserved prefix on NuGet owned by Pulumi Corp, so
+			// third-party packages use their own.
+			RootNamespace:        "IncidentIO",
+			RespectSchemaVersion: true,
+			// Wildcard so NuGet resolves the newest compatible Pulumi rather
+			// than pinning whatever version codegen happened to see.
+			PackageReferences: map[string]string{"Pulumi": "3.*"},
+		},
+	}
+
+	// Maps every `incident_*` type onto `incident:index/<resource>:<Resource>`
+	// with no per-resource configuration. This produces tokens identical to the
+	// dynamically bridged package already on the Pulumi Registry, so existing
+	// users' programs keep working unchanged.
+	prov.MustComputeTokens(tokens.SingleModule("incident_", mainMod, tokens.MakeStandard(mainPkg)))
+	prov.MustApplyAutoAliases()
+	prov.SetAutonaming(255, "-")
+
+	return prov
+}
