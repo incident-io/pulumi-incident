@@ -1,0 +1,29 @@
+# Overrides mise configuration at .config/mise.toml, which ci-mgmt generates and
+# overwrites. This file is not generated, so settings here survive regeneration.
+
+[tools]
+# tfgen shells out to `pulumi convert` to turn upstream's HCL examples into
+# per-language ones. The generated Makefile points PULUMI_HOME at a repo-local
+# .pulumi and disables plugin acquisition, so the converter has to be on PATH
+# rather than downloaded on demand. Providing it through mise is how the
+# reference third-party providers do it.
+"vfox-pulumi:pulumi/pulumi-converter-terraform" = "latest"
+
+# pulumi-labs/ci-mgmt pins node 20.19.5, but @pulumi/pulumi >=3.260 requires
+# node >=22, so `yarn install` for the nodejs SDK fails on the generated pin.
+node = "24.18.0"
+
+# ci-mgmt pins python 3.11.8, the one build mise cannot verify GitHub artifact
+# attestations for, which fails `mise install` outright. 3.12 is attested.
+python = "3.12.11"
+
+# labs pins golangci-lint 2.5.0, which is built with go1.25 and refuses a
+# go.mod targeting 1.26.7 ("language version used to build golangci-lint is
+# lower than the targeted Go version"). Pulumi's own ci-mgmt pins 2.12.2.
+golangci-lint = "2.12.2"
+
+
+[plugins]
+# Declared so `mise install` fetches it without needing --yes. The vfox backend
+# otherwise treats a community plugin as an interactive confirmation.
+vfox-version-fox-vfox-dotnet = "https://github.com/version-fox/vfox-dotnet"
