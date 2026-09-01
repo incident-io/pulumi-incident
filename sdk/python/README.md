@@ -1,91 +1,95 @@
-# pulumi-incident
+# Pulumi provider for incident.io
 
-A Pulumi provider for [incident.io](https://incident.io), bridged from
-[`incident-io/terraform-provider-incident`](https://github.com/incident-io/terraform-provider-incident)
-using the [Pulumi Terraform Bridge](https://github.com/pulumi/pulumi-terraform-bridge).
+Manage your incident.io configuration as code from a Pulumi program, in TypeScript, Python or Go.
 
-Its purpose is **distribution**. Pulumi can already drive our Terraform
-provider today via `pulumi package add terraform-provider incident-io/incident`,
-but that generates an SDK on the user's own machine and publishes no packages.
-This repo produces pre-built SDKs on npm, PyPI, NuGet and the Go module proxy,
-so incident.io installs like any other dependency.
+Most teams end up configuring incident.io twice. Once by clicking through the dashboard to get set up, and then again every time a team reorganises, a new service ships, or someone joins the on-call rotation. Doing it by hand is fine until it isn't: you lose track of who changed what, staging and production drift apart, and onboarding a new team means repeating a dozen manual steps that live in someone's head.
 
-The resource tokens generated here are **identical** to those the dynamically
-bridged package already serves (`incident:index/alertRoute:AlertRoute` and so
-on), so existing Pulumi users' programs keep working unchanged — with one
-exception. `CatalogEntries` renames its `catalogEntriesId` input to
-`catalogTypeId`, because the dynamic bridge's auto-generated name describes the
-wrong thing. Anyone migrating from `pulumi package add` must rename that one
-property.
+This provider puts that configuration in the same place as the rest of your infrastructure. Your escalation paths, schedules, alert routes, catalog and custom fields become code you review, version and roll back like anything else.
 
-## Status
+If you already manage incident.io with Terraform, this is the same provider underneath. Everything you can do in [`terraform-provider-incident`](https://github.com/incident-io/terraform-provider-incident) works here, because this package is generated from it.
 
-Scaffold. It builds and generates a valid schema; it has never been published.
-
-| | |
-|---|---|
-| Resources / functions | 23 / 19 |
-| Upstream | `terraform-provider-incident` v6.9.0 |
-| Bridge | `pulumi-terraform-bridge` v3.138.0 |
-| Example conversion | 90.6% overall; 97% Python, 97% TypeScript |
-
-## Upstream dependency
-
-This imports `terraform-provider-incident` at its `/v6` module path, using
-`shim.NewProvider` — a small non-internal package upstream exposes because Go
-forbids importing another module's `internal/`. Both of those landed upstream in
-August 2026, so there is no `replace` directive and a fresh clone builds.
-
-`provider/go.mod` pins the released tag **v6.9.0** — the first release carrying
-both changes — so `upgrade-provider` can track upstream by tag as normal.
-
-Note that v6.8.0 and earlier are not usable: they predate the module-path change,
-and the Go proxy rejects them with `go.mod has non-.../v6 module path`.
-
-## Building locally
-
-Needs Go (1.26.7+, fetched automatically) and the `pulumi` CLI on `PATH` — the
-CLI does the HCL→Pulumi example conversion, and tfgen **panics** without it
-rather than degrading gracefully.
+## Installing
 
 ```bash
-make tfgen        # generate schema.json + bridge-metadata.json
-make provider     # build the plugin binary
-make build_sdks   # generate the four language SDKs
+# TypeScript / JavaScript
+npm install @incident-io/pulumi
+
+# Python
+pip install pulumi-incident
+
+# Go
+go get github.com/incident-io/pulumi-incident/sdk/go/incident
 ```
 
-The bridge locates upstream's docs in the Go module cache from `GitHubOrg` and
-`TFProviderModuleVersion` in `resources.go`. Get `TFProviderModuleVersion` wrong
-— including leaving it empty, which makes the bridge look up the unsuffixed
-module path — and tfgen still succeeds, silently emitting a schema with no docs
-and no examples. Watch the example-conversion rate in tfgen's output; it should
-be ~90%, and 0% means the docs lookup broke.
+## Configuring
 
-This is the field to bump when upstream crosses to v7.
+The provider needs an API key. Create one in [Settings → API keys](https://app.incident.io/settings/api-keys), then either set it in your stack config:
 
-## Publishing
+```bash
+pulumi config set --secret incident:apiKey inc_...
+```
 
-Nothing here is published yet. Required accounts:
+or export it as an environment variable:
 
-| Registry | Package | Status |
-|---|---|---|
-| npm | `@incident-io/pulumi` | Org already exists; needs an automation token |
-| Go | `github.com/incident-io/pulumi-incident/sdk/go/...` | No account needed — published by pushing an `sdk/vX.Y.Z` tag |
-| PyPI | `pulumi-incident` | New account + token; name unclaimed |
-| NuGet | `IncidentIO.*` | New account + key. `Pulumi.*` is a reserved prefix owned by Pulumi Corp, so we cannot use `Pulumi.Incident` |
+```bash
+export INCIDENT_API_KEY=inc_...
+```
 
-Registry listing is a PR to
-[`pulumi/registry`](https://github.com/pulumi/registry) adding this repo to
-`community-packages/package-list.json`, plus `docs/_index.md` and
-`docs/installation-configuration.md`. Recent community listings merged
-same-day.
+Stack config is usually the better choice, because it keeps the key encrypted in your Pulumi state alongside the program that uses it, and different stacks can point at different incident.io accounts.
 
-## Known issues
+If you are on a dedicated or self-hosted deployment, set `incident:endpoint` (or `INCIDENT_ENDPOINT`) to your API URL. Everyone else can leave it alone.
 
-- `logos/incident.svg` is referenced by `LogoURL` but not yet added, so the
-  registry listing would render without an icon.
-- tfgen warns `Failure in parsing resource name: incident_escalation_path,
-  subsection: ## Schema`. That resource hand-unrolls its `if_else` recursion
-  five levels deep and accounts for ~86% of the whole schema; its docs page is
-  ~9,000 lines.
-- 23 of 245 examples fail conversion, concentrated in Java and Go.
+## An example
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as incident from "@incident-io/pulumi";
+
+// Create a Major severity with a default assigned rank.
+const trivial = new incident.Severity("trivial", {
+    name: "Trivial",
+    description: "Issues causing no impact. No Immediate response is required.",
+});
+```
+
+Every resource has examples in every supported language on the [Pulumi Registry page](https://www.pulumi.com/registry/packages/incident/), generated from the same source as our Terraform docs.
+
+## What you can manage
+
+23 resources and 19 data sources, covering:
+
+- **On-call**: escalation paths, schedules, and schedule sync rules and targets that keep rotations in step with an external source of truth.
+- **Alerts**: alert sources, alert routes, and the attributes you route on.
+- **Catalog**: catalog types, their attributes, and entries. Useful for modelling your services and teams, and for driving routing decisions from that model.
+- **Incident configuration**: severities, statuses, incident roles, custom fields and their options.
+- **Automation**: workflows and maintenance windows.
+
+Some resources are marked `Beta` in their name. Those track features still changing shape in the product, and their inputs may change in a minor release.
+
+## Importing what you already have
+
+You do not need to start from scratch. Every resource supports `pulumi import`, so you can bring existing configuration under management one piece at a time:
+
+```bash
+pulumi import incident:index/severity:Severity trivial 01ABCDEF...
+```
+
+Resources created or imported this way are tagged in incident.io as managed by code, so it is clear in the dashboard which configuration you should not edit by hand.
+
+## Moving from the Terraform bridge
+
+If you are currently using `pulumi package add terraform-provider incident-io/incident`, this package replaces it. The resource names and properties are identical, so your program does not change. Remove the `packages` entry from `Pulumi.yaml`, delete the locally generated SDK, and install the published package instead.
+
+## Getting help
+
+- [Pulumi Registry docs](https://www.pulumi.com/registry/packages/incident/) for per-resource reference and examples.
+- [incident.io API docs](https://api-docs.incident.io/) for what the underlying API supports.
+- Bugs and feature requests in [GitHub issues](https://github.com/incident-io/pulumi-incident/issues). If the problem is with a resource's behaviour rather than the Pulumi packaging, it probably belongs in [terraform-provider-incident](https://github.com/incident-io/terraform-provider-incident/issues) instead, since that is where the resources are implemented.
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to build the provider and regenerate the SDKs.
+
+## License
+
+MIT. See [LICENSE](./LICENSE).

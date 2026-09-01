@@ -16,17 +16,15 @@ organization: incident-io
 major-version: 1
 upstreamProviderOrg: incident-io
 upstream-provider-repo: terraform-provider-incident
-# Generates docs/_index.md for the registry listing, rather than hand-writing it.
-registryDocs: true
-# Java is excluded: the third-party template notes it "doesn't yet work well
-# for non-internal providers".
+# Java is excluded because Pulumi's own template notes it "doesn't yet work well
+# for non-internal providers". dotnet is excluded because we do not publish to
+# NuGet; add it back here and in resources.go if that changes.
 languages:
     - nodejs
     - python
     - go
-    - dotnet
 publish:
-    sdk: "all,!java"
+    sdk: "all,!java,!dotnet"
     # get.pulumi.com is Pulumi-internal; our binaries ship as GitHub release
     # assets, found via PluginDownloadURL in resources.go.
     cdn: false

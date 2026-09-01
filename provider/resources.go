@@ -110,15 +110,6 @@ func Provider() tfbridge.ProviderInfo {
 			GenerateResourceContainerTypes: true,
 			RespectSchemaVersion:           true,
 		},
-		CSharp: &tfbridge.CSharpInfo{
-			// `Pulumi.*` is a reserved prefix on NuGet owned by Pulumi Corp, so
-			// third-party packages use their own.
-			RootNamespace:        "IncidentIO",
-			RespectSchemaVersion: true,
-			// Wildcard so NuGet resolves the newest compatible Pulumi rather
-			// than pinning whatever version codegen happened to see.
-			PackageReferences: map[string]string{"Pulumi": "3.*"},
-		},
 	}
 
 	// Maps every `incident_*` type onto `incident:index/<resource>:<Resource>`

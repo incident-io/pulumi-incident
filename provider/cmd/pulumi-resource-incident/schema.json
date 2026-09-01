@@ -19,14 +19,6 @@
         "moduleFormat": "(.*)(?:/[^/]*)"
     },
     "language": {
-        "csharp": {
-            "packageReferences": {
-                "Pulumi": "3.*"
-            },
-            "compatibility": "tfbridge20",
-            "rootNamespace": "IncidentIO",
-            "respectSchemaVersion": true
-        },
         "go": {
             "importBasePath": "github.com/incident-io/pulumi-incident/sdk/go/incident",
             "generateResourceContainerTypes": true,

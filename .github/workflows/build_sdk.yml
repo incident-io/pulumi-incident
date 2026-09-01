@@ -31,7 +31,6 @@ jobs:
         - nodejs
         - python
         - go
-        - dotnet
     permissions:
       contents: write # For Renovate SDKs.
     steps:
