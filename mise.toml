@@ -13,10 +13,10 @@
 # node >=22, so `yarn install` for the nodejs SDK fails on the generated pin.
 node = "24.18.0"
 
-[settings]
-# mise cannot verify GitHub artifact attestations for the pinned python build,
-# which fails `mise install` outright. Nothing here needs the attestation check.
-python.github_attestations = false
+# ci-mgmt pins python 3.11.8, the one build mise cannot verify GitHub artifact
+# attestations for, which fails `mise install` outright. 3.12 is attested.
+python = "3.12.11"
+
 
 [plugins]
 # Declared so `mise install` fetches it without needing --yes. The vfox backend
