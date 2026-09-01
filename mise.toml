@@ -17,6 +17,11 @@ node = "24.18.0"
 # attestations for, which fails `mise install` outright. 3.12 is attested.
 python = "3.12.11"
 
+# labs pins golangci-lint 2.5.0, which is built with go1.25 and refuses a
+# go.mod targeting 1.26.7 ("language version used to build golangci-lint is
+# lower than the targeted Go version"). Pulumi's own ci-mgmt pins 2.12.2.
+golangci-lint = "2.12.2"
+
 
 [plugins]
 # Declared so `mise install` fetches it without needing --yes. The vfox backend

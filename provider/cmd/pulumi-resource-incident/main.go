@@ -5,6 +5,8 @@ package main
 
 import (
 	"context"
+
+	// Allow embedding the generated schema in the plugin binary.
 	_ "embed"
 
 	pf "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"

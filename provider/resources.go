@@ -7,10 +7,13 @@
 package incident
 
 import (
-	_ "embed"
 	"path"
 
+	// Allow embedding bridge-metadata.json in the provider.
+	_ "embed"
+
 	incidentshim "github.com/incident-io/terraform-provider-incident/v6/shim"
+
 	pf "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
@@ -36,6 +39,8 @@ var bridgeMetadata []byte
 const (
 	mainPkg = "incident"
 	mainMod = "index"
+	// githubOrg owns both this repo and the upstream Terraform provider.
+	githubOrg = "incident-io"
 )
 
 // Provider returns the bridged provider definition.
@@ -45,10 +50,10 @@ func Provider() tfbridge.ProviderInfo {
 		Name:         "incident",
 		Version:      version.Version,
 		DisplayName:  "incident.io",
-		Publisher:    "incident-io",
+		Publisher:    githubOrg,
 		LogoURL:      "https://raw.githubusercontent.com/incident-io/pulumi-incident/master/logos/incident.svg",
 		Description:  "A Pulumi package for managing incident.io resources.",
-		Keywords:     []string{"pulumi", "incident", "incident-io", "category/cloud"},
+		Keywords:     []string{"pulumi", "incident", githubOrg, "category/cloud"},
 		License:      "MIT",
 		Homepage:     "https://incident.io",
 		Repository:   "https://github.com/incident-io/pulumi-incident",
@@ -61,7 +66,7 @@ func Provider() tfbridge.ProviderInfo {
 		// per-language Pulumi ones. Omitting the module version makes the bridge
 		// look up the unsuffixed module path, which does not exist — and the only
 		// symptom is a schema with no docs and no examples.
-		GitHubOrg:               "incident-io",
+		GitHubOrg:               githubOrg,
 		TFProviderModuleVersion: "v6",
 
 		// Binaries are published as GitHub release assets rather than to
