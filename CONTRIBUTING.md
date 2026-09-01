@@ -58,7 +58,9 @@ cd provider && go get github.com/incident-io/terraform-provider-incident/v6@vX.Y
 cd .. && make build
 ```
 
-Then commit the regenerated schema and SDKs alongside the `go.mod` change. A daily workflow does this automatically and opens a PR, so most bumps arrive that way.
+Then commit the regenerated schema and SDKs alongside the `go.mod` change.
+
+There is deliberately no cron doing this. ci-mgmt ships a daily upstream-bump workflow, but it opens a separate PR per upstream release rather than maintaining one, and upstream ships often enough (17 releases in August 2026) that they pile up when you only ever want the newest. Bumping by hand at release time is two commands and avoids the queue.
 
 If upstream ever crosses to v7, `TFProviderModuleVersion` in `provider/resources.go` has to change too. The bridge uses it to locate upstream's documentation in the Go module cache, and if it is wrong the build still succeeds, just with no examples in the schema. Watch the example conversion rate that `make schema` prints, which should be around 90%. A sudden drop to 0% means the documentation lookup broke.
 

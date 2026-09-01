@@ -38,3 +38,7 @@ pulumiConvert: 1
 # repository secrets.
 github-app:
     enabled: false
+# No daily upstream-bump cron. It opens a separate PR per upstream release and
+# they accumulate (17 releases in Aug 2026), while we would only ever merge the
+# newest. Bumps happen by hand when cutting a release: see CONTRIBUTING.md.
+checkUpstreamUpgrade: false
