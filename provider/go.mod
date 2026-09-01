@@ -3,7 +3,7 @@ module github.com/incident-io/pulumi-incident/provider
 go 1.26.7
 
 require (
-	github.com/incident-io/terraform-provider-incident v0.0.0
+	github.com/incident-io/terraform-provider-incident/v6 v6.9.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.138.0
 )
 
@@ -118,6 +118,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework v1.19.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timetypes v0.5.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework-validators v0.19.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.31.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.11.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.40.1 // indirect
@@ -251,14 +252,3 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
 )
-
-// LOCAL DEVELOPMENT ONLY — two upstream changes are needed before this can go.
-//
-//  1. terraform-provider-incident must expose a non-internal shim package
-//     (see README), because Go forbids importing another module's internal/.
-//  2. Its module path must gain a /v6 suffix. It tagged v6.8.0 while still
-//     declaring the unsuffixed path, so `go get ...@v6.8.0` is rejected and
-//     the proxy serves nothing newer than v1.4.2.
-//
-// Until both land, build against a local checkout.
-replace github.com/incident-io/terraform-provider-incident => /private/tmp/claude-501/-Users-johanna-workspace-core/c4e274c0-f967-4c6b-b0df-df28017ecbe8/scratchpad/terraform-provider-incident

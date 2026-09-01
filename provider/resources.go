@@ -8,10 +8,9 @@ package incident
 
 import (
 	_ "embed"
-	"os"
 	"path"
 
-	incidentshim "github.com/incident-io/terraform-provider-incident/shim"
+	incidentshim "github.com/incident-io/terraform-provider-incident/v6/shim"
 	pf "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
@@ -50,21 +49,20 @@ func Provider() tfbridge.ProviderInfo {
 		LogoURL:      "https://raw.githubusercontent.com/incident-io/pulumi-incident/master/logos/incident.svg",
 		Description:  "A Pulumi package for managing incident.io resources.",
 		Keywords:     []string{"pulumi", "incident", "incident-io", "category/cloud"},
-		License:      "Apache-2.0",
+		License:      "MIT",
 		Homepage:     "https://incident.io",
 		Repository:   "https://github.com/incident-io/pulumi-incident",
 		MetadataInfo: tfbridge.NewProviderMetadata(bridgeMetadata),
 
 		TFProviderLicense: &upstreamLicense,
 
-		// Tells the docs generator where the upstream provider's markdown lives,
-		// so HCL examples get converted into per-language Pulumi examples.
-		GitHubOrg: "incident-io",
-
-		// Normally the bridge infers this from where Go downloaded the upstream
-		// module. That inference fails while go.mod carries a filesystem
-		// replace, taking every docs example down with it, so allow an override.
-		UpstreamRepoPath: os.Getenv("UPSTREAM_REPO_PATH"),
+		// Together these locate the upstream provider's markdown in the Go module
+		// cache, which is what lets tfgen convert its HCL examples into
+		// per-language Pulumi ones. Omitting the module version makes the bridge
+		// look up the unsuffixed module path, which does not exist — and the only
+		// symptom is a schema with no docs and no examples.
+		GitHubOrg:               "incident-io",
+		TFProviderModuleVersion: "v6",
 
 		// Binaries are published as GitHub release assets rather than to
 		// Pulumi's CDN, which is only available to Pulumi-internal providers.
@@ -82,28 +80,6 @@ func Provider() tfbridge.ProviderInfo {
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"INCIDENT_API_KEY"},
 				},
-			},
-		},
-
-		Resources: map[string]*tfbridge.ResourceInfo{
-			// The upstream `id` on this resource is an input holding the catalog
-			// *type* id, not the entry's own identity. Pulumi reserves `id` for
-			// the resource output id, so the bridge auto-renames it; we name it
-			// explicitly because the generated name (`catalogEntriesId`)
-			// describes the wrong thing.
-			//
-			// ComputeID must be set alongside the rename. The bridge's default
-			// fixup only delegates the resource id when it is doing the renaming
-			// itself; supplying a name makes it bail early, and the resource
-			// falls through to a fallback that hands every instance the literal
-			// id "missing ID".
-			"incident_catalog_entries": {
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"id": {Name: "catalogTypeId"},
-				},
-				ComputeID: tfbridge.DelegateIDField(
-					"catalogTypeId", mainPkg, "https://github.com/incident-io/pulumi-incident",
-				),
 			},
 		},
 
