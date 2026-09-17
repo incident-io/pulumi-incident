@@ -28,7 +28,7 @@ If you do not have `mise activate` in your shell, prefix commands with `mise exe
 | `make build_sdks` | Generate and build all three SDKs |
 | `make build_python` | One language at a time, where `python` is any of `nodejs python go` |
 | `make lint_provider` | Lint the provider. `make lint_provider.fix` fixes what it can |
-| `make test` | Run the example tests. Needs `make build` first |
+| `make test` | Run the example tests. Needs `make build` first, plus `PULUMI_ACC=1` and credentials (see below) |
 | `make ci-mgmt` | Regenerate the CI config from `.ci-mgmt.yaml` |
 
 ## What is generated and what is not
@@ -63,6 +63,27 @@ Then commit the regenerated schema and SDKs alongside the `go.mod` change.
 There is deliberately no cron doing this. ci-mgmt ships a daily upstream-bump workflow, but it opens a separate PR per upstream release rather than maintaining one, and upstream ships often enough (17 releases in August 2026) that they pile up when you only ever want the newest. Bumping by hand at release time is two commands and avoids the queue.
 
 If upstream ever crosses to v7, `TFProviderModuleVersion` in `provider/resources.go` has to change too. The bridge uses it to locate upstream's documentation in the Go module cache, and if it is wrong the build still succeeds, just with no examples in the schema. Watch the example conversion rate that `make schema` prints, which should be around 90%. A sudden drop to 0% means the documentation lookup broke.
+
+## Running the example tests
+
+`make test` runs the programs under `examples/` through a real `pulumi up`, so it
+creates, modifies and destroys resources in whatever incident.io account the
+credentials point at. It needs two things, and skips without either:
+
+```bash
+export PULUMI_ACC=1
+export INCIDENT_API_KEY=inc_...
+make build   # the tests use the provider binary and SDKs from ./bin and ./sdk
+make test
+```
+
+`PULUMI_ACC` exists so that an API key sitting in your shell is never enough on
+its own to start writing to an account. It mirrors the `TF_ACC` gate on the
+upstream Terraform provider's acceptance tests.
+
+**Use a throwaway organisation.** Upstream points its acceptance tests at a
+dedicated demo org for this reason. Do not point these at an account anyone
+relies on.
 
 ## Things that will surprise you
 

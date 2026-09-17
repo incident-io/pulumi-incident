@@ -80,6 +80,26 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
+// testAccPreCheck gates the example tests, which run a real `pulumi up` and
+// create, modify and destroy resources in whatever incident.io account the
+// credentials point at.
+//
+// It requires PULUMI_ACC=1 as well as an API key, mirroring the TF_ACC gate on
+// the upstream Terraform provider's acceptance tests. A key left in your shell
+// must never be enough to start writing to an account by itself.
+//
+// Point these at a throwaway organisation, never a real one.
+func testAccPreCheck(t *testing.T) {
+	t.Helper()
+
+	if os.Getenv("PULUMI_ACC") == "" {
+		t.Skip("Example tests skipped unless env 'PULUMI_ACC' set. They write to a real incident.io account.")
+	}
+	if os.Getenv("INCIDENT_API_KEY") == "" {
+		t.Skip("No INCIDENT_API_KEY environment variable set, skipping")
+	}
+}
+
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	t.Helper()
 	binPath, err := filepath.Abs("../bin")
@@ -90,7 +110,7 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return integration.ProgramTestOptions{
 		LocalProviders: []integration.LocalDependency{
 			{
-				Package: "xyz",
+				Package: "incident",
 				Path:    binPath,
 			},
 		},

@@ -12,7 +12,7 @@ import (
 )
 
 func TestBasicTs(t *testing.T) {
-	t.Skip("Skipping until the provider has been implemented")
+	testAccPreCheck(t)
 
 	opts := getJSBaseOptions(t).With(integration.ProgramTestOptions{
 		Dir: filepath.Join(getCwd(t), "basic-ts"),

@@ -12,7 +12,7 @@ import (
 )
 
 func TestBasicPy(t *testing.T) {
-	t.Skip("Skipping until the provider has been implemented")
+	testAccPreCheck(t)
 
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{

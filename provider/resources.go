@@ -12,7 +12,7 @@ import (
 	// Allow embedding bridge-metadata.json in the provider.
 	_ "embed"
 
-	incidentshim "github.com/incident-io/terraform-provider-incident/v6/shim"
+	incidentshim "github.com/incident-io/terraform-provider-incident/v7/shim"
 
 	pf "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -67,7 +67,7 @@ func Provider() tfbridge.ProviderInfo {
 		// look up the unsuffixed module path, which does not exist — and the only
 		// symptom is a schema with no docs and no examples.
 		GitHubOrg:               githubOrg,
-		TFProviderModuleVersion: "v6",
+		TFProviderModuleVersion: "v7",
 
 		// Binaries are published as GitHub release assets rather than to
 		// Pulumi's CDN, which is only available to Pulumi-internal providers.
