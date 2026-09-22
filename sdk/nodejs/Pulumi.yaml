@@ -1,3 +1,0 @@
-name: incident
-description: A Pulumi resource provider for incident.
-language: nodejs
