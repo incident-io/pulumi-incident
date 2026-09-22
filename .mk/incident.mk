@@ -28,3 +28,11 @@ patch_release_dispatch:
 regen:
 	$(MAKE) ci-mgmt
 	$(MAKE) patch_release_dispatch
+
+# `pulumi package publish-sdk` runs `npm publish` with no `--access` flag, so a
+# scoped package would publish private. Runs before build_nodejs copies
+# package.json into bin/.
+.make/build_nodejs: .make/npm_public_access
+.make/npm_public_access: .make/generate_nodejs
+	cd sdk/nodejs && npm pkg set publishConfig.access="public"
+	@touch $@
