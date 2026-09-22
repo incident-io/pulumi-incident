@@ -8,7 +8,17 @@ The incident.io provider lets you manage your incident.io configuration from a P
 
 It is generated from the [official incident.io Terraform provider](https://github.com/incident-io/terraform-provider-incident), so anything you can manage with Terraform you can manage here.
 
-## Example
+## Installation
+
+The incident.io provider is available in three languages:
+
+```bash
+npm install @incident-io/pulumi
+pip install pulumi-incident
+go get github.com/incident-io/pulumi-incident/sdk/go/incident
+```
+
+## Example Usage
 
 {{< chooser language "typescript,python,go" >}}
 {{% choosable language typescript %}}
@@ -59,6 +69,16 @@ func main() {
 
 {{% /choosable %}}
 {{< /chooser >}}
+
+## Configuration
+
+The provider needs an API key, created in [Settings → API keys](https://app.incident.io/settings/api-keys):
+
+```bash
+pulumi config set --secret incident:apiKey inc_...
+```
+
+`INCIDENT_API_KEY` works as an environment variable alternative. On a dedicated or self-hosted deployment, also set `incident:endpoint`. See [Installation & Configuration](/registry/packages/incident/installation-configuration/) for the full reference.
 
 ## What you can manage
 
