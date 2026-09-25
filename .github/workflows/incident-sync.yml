@@ -33,7 +33,12 @@ jobs:
           fetch-depth: 0 # need tags to work out the next version
           persist-credentials: true # the bump is pushed from this checkout
 
-      - uses: jdx/mise-action@v2
+      # Same pin as the generated workflows. The `v2` tag adds only mise's
+      # shims to PATH, which cannot resolve tools outside the repo, and tfgen
+      # runs `pulumi convert` from /tmp.
+      - uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
+        env:
+          MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
           version: 2026.3.7
 

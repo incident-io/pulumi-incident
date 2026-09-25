@@ -17,10 +17,9 @@ node = "24.18.0"
 # attestations for, which fails `mise install` outright. 3.12 is attested.
 python = "3.12.11"
 
-# labs pins golangci-lint 2.5.0, which is built with go1.25 and refuses a
-# go.mod targeting 1.26.7 ("language version used to build golangci-lint is
-# lower than the targeted Go version"). Pulumi's own ci-mgmt pins 2.12.2.
-golangci-lint = "2.12.2"
+# Must be built with a Go at least as new as upstream's go directive, or it
+# refuses to run. Bump when upstream's Go version moves.
+golangci-lint = "2.14.0"
 
 
 [plugins]
