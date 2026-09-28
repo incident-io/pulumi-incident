@@ -169,36 +169,59 @@ jobs:
       # Compare the regenerated schema against the last release. Upstream majors
       # are already refused above, so anything breaking reaching here is
       # unexpected and must not publish unattended.
+      # Classify the schema change. schema-tools flags required-to-optional as
+      # breaking, but relaxing a requirement cannot break a caller, so it is
+      # judged by `kind` rather than by the `breaking` flag.
       - name: Check for breaking changes
+        id: breaking
         if: steps.upstream.outputs.changed == 'true'
         env:
           # schema-tools reads GITHUB_TOKEN, not GH_TOKEN, and needs it to fetch
-          # the previous schema from this private repo.
+          # the previous schema.
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          report="$(schema-tools compare \
+          schema-tools compare \
             --provider incident \
             --repository github://api.github.com/incident-io \
             --old-commit master \
-            --new-commit --local-path=provider/cmd/pulumi-resource-incident/schema.json 2>&1)"
-          echo "$report"
+            --new-commit --local-path=provider/cmd/pulumi-resource-incident/schema.json \
+            --json > /tmp/compare.json
 
-          # Matched on the success string rather than the word "breaking", which
-          # also appears in "No breaking changes found."
-          if ! grep -qF "No breaking changes found" <<< "$report"; then
-            echo "::error::Breaking schema change detected, or the comparison failed. Not releasing."
-            exit 1
-          fi
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, os, sys
 
-      # Mirror upstream's bump type: their minor is our minor, their patch is our
-      # patch. Majors never reach here.
+          # Everything that can break a program that compiled against the last
+          # release. required-to-optional is deliberately absent.
+          BREAKING = {
+              "missing-resource", "missing-function", "missing-input",
+              "missing-property", "optional-to-required", "type-changed",
+              "signature-changed", "token-remapped",
+          }
+
+          report = json.load(open("/tmp/compare.json"))
+          kinds = sorted({c["kind"] for c in report.get("changes", [])})
+          breaking = sorted(k for k in kinds if k in BREAKING)
+
+          print("changes=" + ",".join(kinds))
+          print("breaking=" + ",".join(breaking))
+          print(f"is_breaking={'true' if breaking else 'false'}", file=sys.stderr)
+          print("is_breaking=" + ("true" if breaking else "false"))
+          EOF
+
+          cat /tmp/compare.json | python3 -c "import json,sys; [print(' ', c['kind'], c['path']) for c in json.load(sys.stdin).get('changes',[])]"
+
+      # Mirror upstream's bump type, unless the schema broke: a breaking change
+      # is a major for us regardless of what upstream called it. Upstream majors
+      # are refused earlier.
       - name: Decide next version
         id: version
         if: steps.upstream.outputs.changed == 'true'
         env:
           LATEST: ${{ steps.upstream.outputs.latest }}
           CURRENT: ${{ steps.upstream.outputs.current }}
+          IS_BREAKING: ${{ steps.breaking.outputs.is_breaking }}
+          BREAKING_KINDS: ${{ steps.breaking.outputs.breaking }}
         run: |
           set -euo pipefail
           base="$(git describe --tags --abbrev=0 2>/dev/null || true)"
@@ -211,14 +234,17 @@ jobs:
           IFS=. read -r _ c_minor _ <<< "${CURRENT#v}"
           IFS=. read -r b_major b_minor b_patch <<< "${base#v}"
 
-          if [ "$l_minor" != "$c_minor" ]; then
+          if [ "$IS_BREAKING" = "true" ]; then
+            next="v$((b_major + 1)).0.0"
+            echo "::notice::Breaking schema change (${BREAKING_KINDS}); releasing a major."
+          elif [ "$l_minor" != "$c_minor" ]; then
             next="v${b_major}.$((b_minor + 1)).0"
           else
             next="v${b_major}.${b_minor}.$((b_patch + 1))"
           fi
 
           echo "next=${next}" >> "$GITHUB_OUTPUT"
-          echo "${base} -> ${next} (upstream ${CURRENT} -> ${LATEST})"
+          echo "${base} -> ${next} (upstream ${CURRENT} -> ${LATEST}, breaking=${IS_BREAKING})"
 
       - name: Commit and tag
         id: tag

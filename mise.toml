@@ -21,6 +21,10 @@ python = "3.12.11"
 # refuses to run. Bump when upstream's Go version moves.
 golangci-lint = "2.14.0"
 
+# labs pins the 2023 release, which has no `compare --json`. incident-sync.yml
+# needs it to classify schema changes.
+"github:pulumi/schema-tools" = "0.8.1"
+
 
 [plugins]
 # Declared so `mise install` fetches it without needing --yes. The vfox backend
