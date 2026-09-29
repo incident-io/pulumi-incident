@@ -78,10 +78,10 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			// # Defines the incident template inline, under incident_config.template. This is
-//			// # the most self-contained option: the template lives with the route and is not
-//			// # shared with any other route. See the other examples for reusing a standalone
-//			// # incident_incident_template, or falling back to the organisation's default.
+//			//# Defines the incident template inline, under incident_config.template. This is
+//			//# the most self-contained option: the template lives with the route and is not
+//			//# shared with any other route. See the other examples for reusing a standalone
+//			//# incident_incident_template, or falling back to the organisation's default.
 //			_, err = incident.NewAlertRoute(ctx, "service_alerts", &incident.AlertRouteArgs{
 //				Name:      pulumi.String("Testing Alert Routes"),
 //				Enabled:   pulumi.Bool(true),
@@ -259,10 +259,10 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # References a standalone incident_incident_template instead of defining the
-//			// # template inline. This is the better option when several routes should share
-//			// # one template: edit the template once and every route that references it picks
-//			// # up the change.
+//			//# References a standalone incident_incident_template instead of defining the
+//			//# template inline. This is the better option when several routes should share
+//			//# one template: edit the template once and every route that references it picks
+//			//# up the change.
 //			payments, err := incident.NewIncidentTemplate(ctx, "payments", &incident.IncidentTemplateArgs{
 //				Name:        pulumi.String("Payments incidents"),
 //				Expressions: incident.IncidentTemplateExpressionArray{},
@@ -370,9 +370,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Sets no incident template at all. Both the inline template and the standalone
-//			// # incident_template reference are optional, so when neither is set the incidents
-//			// # this route creates use the organisation's default incident template.
+//			//# Sets no incident template at all. Both the inline template and the standalone
+//			//# incident_template reference are optional, so when neither is set the incidents
+//			//# this route creates use the organisation's default incident template.
 //			_, err := incident.NewAlertRoute(ctx, "default_template_alerts", &incident.AlertRouteArgs{
 //				Name:      pulumi.String("Default template alerts"),
 //				Enabled:   pulumi.Bool(true),
@@ -473,6 +473,8 @@ type AlertRoute struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// IDs of teams that own this alert route
 	OwningTeamIds pulumi.StringArrayOutput `pulumi:"owningTeamIds"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
 }
 
 // NewAlertRoute registers a new resource with the given unique name, arguments, and options.
@@ -557,6 +559,8 @@ type alertRouteState struct {
 	Name *string `pulumi:"name"`
 	// IDs of teams that own this alert route
 	OwningTeamIds []string `pulumi:"owningTeamIds"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 type AlertRouteState struct {
@@ -591,6 +595,8 @@ type AlertRouteState struct {
 	Name pulumi.StringPtrInput
 	// IDs of teams that own this alert route
 	OwningTeamIds pulumi.StringArrayInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (AlertRouteState) ElementType() reflect.Type {
@@ -629,6 +635,8 @@ type alertRouteArgs struct {
 	Name *string `pulumi:"name"`
 	// IDs of teams that own this alert route
 	OwningTeamIds []string `pulumi:"owningTeamIds"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 // The set of arguments for constructing a AlertRoute resource.
@@ -664,6 +672,8 @@ type AlertRouteArgs struct {
 	Name pulumi.StringPtrInput
 	// IDs of teams that own this alert route
 	OwningTeamIds pulumi.StringArrayInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (AlertRouteArgs) ElementType() reflect.Type {
@@ -824,6 +834,11 @@ func (o AlertRouteOutput) Name() pulumi.StringOutput {
 // IDs of teams that own this alert route
 func (o AlertRouteOutput) OwningTeamIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRoute) pulumi.StringArrayOutput { return v.OwningTeamIds }).(pulumi.StringArrayOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o AlertRouteOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRoute) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
 type AlertRouteArrayOutput struct{ *pulumi.OutputState }

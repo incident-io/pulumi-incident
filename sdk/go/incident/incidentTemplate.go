@@ -28,8 +28,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # The simplest useful template: a fixed incident name, with the summary left to
-//			// # AI. Everything else falls back to the organisation's defaults.
+//			//# The simplest useful template: a fixed incident name, with the summary left to
+//			//# AI. Everything else falls back to the organisation's defaults.
 //			_, err := incident.NewIncidentTemplate(ctx, "minimal", &incident.IncidentTemplateArgs{
 //				Name:        pulumi.String("Support escalations"),
 //				Expressions: incident.IncidentTemplateExpressionArray{},
@@ -68,8 +68,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// # Let AI generate both the name and the summary, and start incidents from this
-//			// # template in triage so a human confirms them before they go fully active.
+//			//# Let AI generate both the name and the summary, and start incidents from this
+//			//# template in triage so a human confirms them before they go fully active.
 //			_, err := incident.NewIncidentTemplate(ctx, "ai_generated", &incident.IncidentTemplateArgs{
 //				Name:        pulumi.String("AI-drafted incidents"),
 //				Expressions: incident.IncidentTemplateExpressionArray{},
@@ -116,8 +116,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # A fuller template for the Payments team: a literal name, an AI summary, a
-//			// # severity merge strategy, and a custom field bound through an expression.
+//			//# A fuller template for the Payments team: a literal name, an AI summary, a
+//			//# severity merge strategy, and a custom field bound through an expression.
 //			_, err = incident.NewIncidentTemplate(ctx, "payments", &incident.IncidentTemplateArgs{
 //				Name: pulumi.String("Payments incidents"),
 //				Expressions: incident.IncidentTemplateExpressionArray{
@@ -198,6 +198,8 @@ type IncidentTemplate struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The values an incident template applies to the incidents it creates.
 	Template IncidentTemplateTemplateOutput `pulumi:"template"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
 }
 
 // NewIncidentTemplate registers a new resource with the given unique name, arguments, and options.
@@ -242,6 +244,8 @@ type incidentTemplateState struct {
 	Name *string `pulumi:"name"`
 	// The values an incident template applies to the incidents it creates.
 	Template *IncidentTemplateTemplate `pulumi:"template"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 type IncidentTemplateState struct {
@@ -251,6 +255,8 @@ type IncidentTemplateState struct {
 	Name pulumi.StringPtrInput
 	// The values an incident template applies to the incidents it creates.
 	Template IncidentTemplateTemplatePtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (IncidentTemplateState) ElementType() reflect.Type {
@@ -264,6 +270,8 @@ type incidentTemplateArgs struct {
 	Name *string `pulumi:"name"`
 	// The values an incident template applies to the incidents it creates.
 	Template IncidentTemplateTemplate `pulumi:"template"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 // The set of arguments for constructing a IncidentTemplate resource.
@@ -274,6 +282,8 @@ type IncidentTemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// The values an incident template applies to the incidents it creates.
 	Template IncidentTemplateTemplateInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (IncidentTemplateArgs) ElementType() reflect.Type {
@@ -376,6 +386,11 @@ func (o IncidentTemplateOutput) Name() pulumi.StringOutput {
 // The values an incident template applies to the incidents it creates.
 func (o IncidentTemplateOutput) Template() IncidentTemplateTemplateOutput {
 	return o.ApplyT(func(v *IncidentTemplate) IncidentTemplateTemplateOutput { return v.Template }).(IncidentTemplateTemplateOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o IncidentTemplateOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IncidentTemplate) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
 type IncidentTemplateArrayOutput struct{ *pulumi.OutputState }

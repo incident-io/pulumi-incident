@@ -72,6 +72,8 @@ type LookupScheduleSyncRuleResult struct {
 	ScheduleSyncTargetId string `pulumi:"scheduleSyncTargetId"`
 	// Which schedule members sync to the user group. Possible values are: `onCall`, `allUsers`, `nextOnCall`.
 	SyncType string `pulumi:"syncType"`
+	// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+	UnlockInDashboard bool `pulumi:"unlockInDashboard"`
 }
 
 func LookupScheduleSyncRuleOutput(ctx *pulumi.Context, args LookupScheduleSyncRuleOutputArgs, opts ...pulumi.InvokeOption) LookupScheduleSyncRuleResultOutput {
@@ -134,6 +136,11 @@ func (o LookupScheduleSyncRuleResultOutput) ScheduleSyncTargetId() pulumi.String
 // Which schedule members sync to the user group. Possible values are: `onCall`, `allUsers`, `nextOnCall`.
 func (o LookupScheduleSyncRuleResultOutput) SyncType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupScheduleSyncRuleResult) string { return v.SyncType }).(pulumi.StringOutput)
+}
+
+// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+func (o LookupScheduleSyncRuleResultOutput) UnlockInDashboard() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupScheduleSyncRuleResult) bool { return v.UnlockInDashboard }).(pulumi.BoolOutput)
 }
 
 func init() {

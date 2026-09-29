@@ -361,6 +361,9 @@ export interface AlertRouteEscalationConfig {
      * Targets for escalation
      */
     escalationTargets: outputs.AlertRouteEscalationConfigEscalationTarget[];
+    /**
+     * How to escalate when an alert joins a group. Applies whether or not this route groups alerts, because a team's grouping preference can group its alerts on any route.
+     */
     whenAlertJoinsGroup: outputs.AlertRouteEscalationConfigWhenAlertJoinsGroup;
 }
 
@@ -9967,6 +9970,126 @@ export interface AlertSourceVisibleToTeamsValue {
     reference?: string;
 }
 
+export interface AnnouncementRuleConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.AnnouncementRuleConditionGroupCondition[];
+}
+
+export interface AnnouncementRuleConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.AnnouncementRuleConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface AnnouncementRuleConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.AnnouncementRuleConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.AnnouncementRuleConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface AnnouncementRuleConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AnnouncementRuleConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AnnouncementTemplateAction {
+    /**
+     * Type of this action. Possible values are: `announcementPostActionsHomepage`, `announcementPostActionsSubscribe`, `announcementPostActionsJoinCall`, `announcementPostActionsJiraTicket`, `announcementPostActionsInternalStatusPage`, `announcementPostActionsPublicStatusPage`, `announcementPostActionsPostmortem`, `announcementPostActionsCreateChannel`, `announcementPostActionsViewAlert`, `announcementPostActionsTriage`, `announcementPostActionsEscalate`, `announcementPostActionsShareUpdate`, `announcementPostActionsUpdateStatus`, `announcementPostActionsRequestAccess`.
+     */
+    actionType: string;
+    /**
+     * Emoji shown on this action's button, as a Slack emoji name
+     */
+    emoji?: string;
+}
+
+export interface AnnouncementTemplateField {
+    /**
+     * ID of the custom field to show. Required for custom field fields.
+     */
+    customFieldId?: string;
+    /**
+     * Emoji shown next to this field, as a Slack emoji name
+     */
+    emoji?: string;
+    /**
+     * Type of this field. Possible values are: `announcementPostFieldsStatus`, `announcementPostFieldsIncidentType`, `announcementPostFieldsSeverity`, `announcementPostFieldsRole`, `announcementPostFieldsDescription`, `announcementPostFieldsCustomField`, `announcementPostFieldsTimestamp`, `announcementPostFieldsCreator`, `announcementPostFieldsSlack`, `announcementPostFieldsRichText`.
+     */
+    fieldType: string;
+    /**
+     * ID of the incident role to show. Required for incident role fields.
+     */
+    incidentRoleId?: string;
+    /**
+     * ID of the incident timestamp to show. Required for incident timestamp fields.
+     */
+    incidentTimestampId?: string;
+    /**
+     * Content of a rich text field. The type says how contents is written.
+     */
+    richText?: outputs.AnnouncementTemplateFieldRichText;
+}
+
+export interface AnnouncementTemplateFieldRichText {
+    /**
+     * The content, as markdown. Write incident variables as {{name}}, e.g. {{incident.reference}}.
+     */
+    contents: string;
+    /**
+     * How contents is written. Only markdown is supported today. Possible values are: `markdown`.
+     */
+    type: string;
+}
+
 export interface CatalogEntriesEntries {
     /**
      * Optional aliases that can be used to reference this entry
@@ -10036,6 +10159,55 @@ export interface CustomFieldFixedFilter {
      * The catalog entry IDs (of the type the attribute points at) that the attribute must reference. The options for this custom field are restricted to entries matching one of these values.
      */
     values: string[];
+}
+
+export interface EscalationPathBetaParamBindings {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathBetaParamBindingsArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathBetaParamBindingsValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathBetaParamBindingsArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathBetaParamBindingsValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
 }
 
 export interface EscalationPathBetaRepeatConfig {
@@ -10280,6 +10452,55 @@ export interface EscalationPathBetaWorkingHourWeekdayInterval {
     weekday: string;
 }
 
+export interface EscalationPathParamBindings {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathParamBindingsArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathParamBindingsValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathParamBindingsArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathParamBindingsValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
 export interface EscalationPathRepeatConfig {
     /**
      * When true, incident activity resets the repeat timer.
@@ -10489,6 +10710,769 @@ export interface EscalationPathSequencesNodeNotifyChannelTarget {
      * The urgency of this escalation path target. Possible values are: `high`, `low`.
      */
     urgency: string;
+}
+
+export interface EscalationPathTemplateExpression {
+    /**
+     * The else branch to resort to if all operations fail
+     */
+    elseBranch?: outputs.EscalationPathTemplateExpressionElseBranch;
+    /**
+     * The human readable label of the expression
+     */
+    label: string;
+    /**
+     * The operations to execute in sequence for this expression
+     */
+    operations: outputs.EscalationPathTemplateExpressionOperation[];
+    /**
+     * A short ID that can be used to reference the expression
+     */
+    reference: string;
+    /**
+     * The root reference for this expression (i.e. where the expression starts)
+     */
+    rootReference: string;
+}
+
+export interface EscalationPathTemplateExpressionElseBranch {
+    /**
+     * The result assumed if the else branch is reached
+     */
+    result: outputs.EscalationPathTemplateExpressionElseBranchResult;
+}
+
+export interface EscalationPathTemplateExpressionElseBranchResult {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathTemplateExpressionElseBranchResultArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathTemplateExpressionElseBranchResultValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathTemplateExpressionElseBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionElseBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionOperation {
+    /**
+     * An operation type that allows for a value to be set conditionally by a series of logical branches
+     */
+    branches?: outputs.EscalationPathTemplateExpressionOperationBranches;
+    /**
+     * An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+     */
+    cast?: outputs.EscalationPathTemplateExpressionOperationCast;
+    /**
+     * An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+     */
+    concatenate?: outputs.EscalationPathTemplateExpressionOperationConcatenate;
+    /**
+     * An operation type that allows values to be filtered out by conditions
+     */
+    filter?: outputs.EscalationPathTemplateExpressionOperationFilter;
+    /**
+     * An operation type that allows attributes of a type to be accessed by reference
+     */
+    navigate?: outputs.EscalationPathTemplateExpressionOperationNavigate;
+    /**
+     * Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+     */
+    operationType: string;
+    /**
+     * An operation type that allows a value to parsed from within a JSON object
+     */
+    parse?: outputs.EscalationPathTemplateExpressionOperationParse;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranches {
+    /**
+     * The branches to apply for this operation
+     */
+    branches: outputs.EscalationPathTemplateExpressionOperationBranchesBranch[];
+    /**
+     * The return type of an operation
+     */
+    returns: outputs.EscalationPathTemplateExpressionOperationBranchesReturns;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranch {
+    /**
+     * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+     */
+    conditionGroups: outputs.EscalationPathTemplateExpressionOperationBranchesBranchConditionGroup[];
+    /**
+     * The result assumed if the condition groups are satisfied
+     */
+    result: outputs.EscalationPathTemplateExpressionOperationBranchesBranchResult;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupCondition[];
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchResult {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathTemplateExpressionOperationBranchesBranchResultArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathTemplateExpressionOperationBranchesBranchResultValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationBranchesReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationCast {
+    /**
+     * The return type of an operation
+     */
+    returns: outputs.EscalationPathTemplateExpressionOperationCastReturns;
+}
+
+export interface EscalationPathTemplateExpressionOperationCastReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationConcatenate {
+    /**
+     * The reference within the scope to concatenate with
+     */
+    reference: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationFilter {
+    /**
+     * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+     */
+    conditionGroups: outputs.EscalationPathTemplateExpressionOperationFilterConditionGroup[];
+}
+
+export interface EscalationPathTemplateExpressionOperationFilterConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.EscalationPathTemplateExpressionOperationFilterConditionGroupCondition[];
+}
+
+export interface EscalationPathTemplateExpressionOperationFilterConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.EscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationNavigate {
+    reference: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationParse {
+    /**
+     * The return type of an operation
+     */
+    returns: outputs.EscalationPathTemplateExpressionOperationParseReturns;
+    /**
+     * The ES5 Javascript expression to execute
+     */
+    source: string;
+}
+
+export interface EscalationPathTemplateExpressionOperationParseReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface EscalationPathTemplateParams {
+    /**
+     * Whether this parameter is an array
+     */
+    array: boolean;
+    /**
+     * A string describing the param
+     */
+    description: string;
+    /**
+     * Human readable label for this parameter
+     */
+    label: string;
+    /**
+     * Whether this parameter is optional
+     */
+    optional: boolean;
+    /**
+     * The type of the parameter A schedule is `CatalogEntry["Schedule"]`, a user `CatalogEntry["User"]`, and a catalog type is `CatalogEntry["<type id>"]`.
+     */
+    type: string;
+}
+
+export interface EscalationPathTemplateRepeatConfig {
+    /**
+     * When true, incident activity resets the repeat timer.
+     */
+    delayRepeatOnActivity: boolean;
+    /**
+     * Number of seconds we'll wait before repeating an escalation.
+     */
+    repeatAfterSeconds: number;
+}
+
+export interface EscalationPathTemplateSequences {
+    /**
+     * The nodes in this sequence, in the order they run.
+     */
+    nodes: outputs.EscalationPathTemplateSequencesNode[];
+}
+
+export interface EscalationPathTemplateSequencesNode {
+    /**
+     * Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
+     */
+    branch?: outputs.EscalationPathTemplateSequencesNodeBranch;
+    delay?: outputs.EscalationPathTemplateSequencesNodeDelay;
+    /**
+     * Reassign the escalation to another escalation path, continuing from that path's first node.
+     */
+    escalationPath?: outputs.EscalationPathTemplateSequencesNodeEscalationPath;
+    /**
+     * An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
+     */
+    id?: string;
+    level?: outputs.EscalationPathTemplateSequencesNodeLevel;
+    /**
+     * Go back to an earlier node and run from there again.
+     */
+    loop?: outputs.EscalationPathTemplateSequencesNodeLoop;
+    notifyChannel?: outputs.EscalationPathTemplateSequencesNodeNotifyChannel;
+}
+
+export interface EscalationPathTemplateSequencesNodeBranch {
+    /**
+     * The key of the sequence to continue down when the condition is not met. Leave unset to end the escalation path instead.
+     */
+    else?: string;
+    /**
+     * What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
+     */
+    if: outputs.EscalationPathTemplateSequencesNodeBranchIf;
+    /**
+     * The key of the sequence to continue down when the condition is met.
+     */
+    then: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeBranchIf {
+    /**
+     * Alert priority ids, met when the escalation came in at one of them.
+     */
+    priorityOneOfs?: string[];
+    /**
+     * The `id` of one of this escalation path's `workingHours`, met while those hours are active.
+     */
+    workingHoursActive?: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeDelay {
+    /**
+     * If the delay is relative to a time window, this defines whether we advance when the window is active or inactive. Possible values are: `active`, `inactive`.
+     */
+    delayIntervalCondition?: string;
+    /**
+     * How long to delay before advancing to the next node in the path, in seconds
+     */
+    delaySeconds?: number;
+    /**
+     * If the delay is relative to a time window, this identifies which window it is relative to
+     */
+    delayWeekdayIntervalConfigId?: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeEscalationPath {
+    /**
+     * The ID of the escalation path to reassign to
+     */
+    escalationPathId: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeLevel {
+    /**
+     * Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks. Possible values are: `all`, `first`.
+     */
+    ackMode: string;
+    retryConfig?: outputs.EscalationPathTemplateSequencesNodeLevelRetryConfig;
+    roundRobinConfig?: outputs.EscalationPathTemplateSequencesNodeLevelRoundRobinConfig;
+    /**
+     * The targets (users or schedules), each concrete or a parameter binding.
+     */
+    targets: outputs.EscalationPathTemplateSequencesNodeLevelTarget[];
+    /**
+     * If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+     */
+    timeToAckIntervalCondition?: string;
+    /**
+     * How long should we wait for this level to acknowledge before proceeding to the next node in the path?
+     */
+    timeToAckSeconds?: number;
+    /**
+     * If the time to ack is relative to a time window, this identifies which window it is relative to
+     */
+    timeToAckWeekdayIntervalConfigId?: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeLevelRetryConfig {
+    /**
+     * The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
+     */
+    attempts: number;
+    /**
+     * How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
+     */
+    intervalSeconds: number;
+}
+
+export interface EscalationPathTemplateSequencesNodeLevelRoundRobinConfig {
+    /**
+     * Whether round robin is enabled for this level
+     */
+    enabled: boolean;
+    /**
+     * How long should we wait before rotating to the next target in a round robin, if not set will stick with a single target per level.
+     */
+    rotateAfterSeconds?: number;
+}
+
+export interface EscalationPathTemplateSequencesNodeLevelTarget {
+    /**
+     * Who this target resolves to, decided per templated path. `valueReference` names one of the template's `params`, and `expressionRef` one of its `expressions`. Set exactly one of `id` and `binding`.
+     */
+    binding?: outputs.EscalationPathTemplateSequencesNodeLevelTargetBinding;
+    /**
+     * Uniquely identifies a concrete target. Omitted when binding is set. Set exactly one of `id` and `binding`.
+     */
+    id?: string;
+    /**
+     * Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
+     */
+    scheduleMode: string;
+    /**
+     * For a schedule target with a rota-scoped `scheduleMode`, the rota to page. A bound target can leave this unset and bind to an expression that navigates the schedule's `rotations` and filters them by name instead.
+     */
+    selectedRotaId?: string;
+    /**
+     * Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
+     */
+    type: string;
+    /**
+     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     */
+    urgency: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeLevelTargetBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathTemplateSequencesNodeLevelTargetBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathTemplateSequencesNodeLevelTargetBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathTemplateSequencesNodeLevelTargetBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeLevelTargetBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeLoop {
+    /**
+     * The `id` of the node to repeat from.
+     */
+    backTo: string;
+    /**
+     * How many times to repeat these nodes
+     */
+    times: number;
+}
+
+export interface EscalationPathTemplateSequencesNodeNotifyChannel {
+    /**
+     * The channels to notify, each concrete or a parameter binding.
+     */
+    targets: outputs.EscalationPathTemplateSequencesNodeNotifyChannelTarget[];
+    /**
+     * If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+     */
+    timeToAckIntervalCondition?: string;
+    /**
+     * How long should we wait for this level to acknowledge before moving on to the next node in the path?
+     */
+    timeToAckSeconds?: number;
+    /**
+     * If the time to ack is relative to a time window, this identifies which window it is relative to
+     */
+    timeToAckWeekdayIntervalConfigId?: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeNotifyChannelTarget {
+    /**
+     * Who this target resolves to, decided per templated path. `valueReference` names one of the template's `params`, and `expressionRef` one of its `expressions`. Set exactly one of `id` and `binding`.
+     */
+    binding?: outputs.EscalationPathTemplateSequencesNodeNotifyChannelTargetBinding;
+    /**
+     * Uniquely identifies a concrete target. Omitted when binding is set. Set exactly one of `id` and `binding`.
+     */
+    id?: string;
+    /**
+     * Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
+     */
+    scheduleMode: string;
+    /**
+     * For a schedule target with a rota-scoped `scheduleMode`, the rota to page. A bound target can leave this unset and bind to an expression that navigates the schedule's `rotations` and filters them by name instead.
+     */
+    selectedRotaId?: string;
+    /**
+     * Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
+     */
+    type: string;
+    /**
+     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     */
+    urgency: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeNotifyChannelTargetBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.EscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.EscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface EscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface EscalationPathTemplateWorkingHour {
+    /**
+     * The unique identifier for this set of working intervals
+     */
+    id: string;
+    /**
+     * A human readable label for this set of working intervals
+     */
+    name: string;
+    /**
+     * How to interpret all the intervals
+     */
+    timezone: string;
+    weekdayIntervals: outputs.EscalationPathTemplateWorkingHourWeekdayInterval[];
+}
+
+export interface EscalationPathTemplateWorkingHourWeekdayInterval {
+    /**
+     * End time of the interval, in 24hr format
+     */
+    endTime: string;
+    /**
+     * Start time of the interval, in 24hr format
+     */
+    startTime: string;
+    /**
+     * Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    weekday: string;
 }
 
 export interface EscalationPathWorkingHour {
@@ -16860,6 +17844,105 @@ export interface GetAlertSourceVisibleToTeamsValue {
     reference: string;
 }
 
+export interface GetAnnouncementRuleConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetAnnouncementRuleConditionGroupCondition[];
+}
+
+export interface GetAnnouncementRuleConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetAnnouncementRuleConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetAnnouncementRuleConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAnnouncementRuleConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAnnouncementRuleConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAnnouncementRuleConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAnnouncementRuleConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAnnouncementTemplateAction {
+    /**
+     * Type of this action. Possible values are: `announcementPostActionsHomepage`, `announcementPostActionsSubscribe`, `announcementPostActionsJoinCall`, `announcementPostActionsJiraTicket`, `announcementPostActionsInternalStatusPage`, `announcementPostActionsPublicStatusPage`, `announcementPostActionsPostmortem`, `announcementPostActionsCreateChannel`, `announcementPostActionsViewAlert`, `announcementPostActionsTriage`, `announcementPostActionsEscalate`, `announcementPostActionsShareUpdate`, `announcementPostActionsUpdateStatus`, `announcementPostActionsRequestAccess`.
+     */
+    actionType: string;
+    /**
+     * Emoji shown on this action's button
+     */
+    emoji: string;
+}
+
+export interface GetAnnouncementTemplateField {
+    /**
+     * ID of the custom field to show, for custom field fields
+     */
+    customFieldId: string;
+    /**
+     * Emoji shown next to this field
+     */
+    emoji: string;
+    /**
+     * Type of this field. Possible values are: `announcementPostFieldsStatus`, `announcementPostFieldsIncidentType`, `announcementPostFieldsSeverity`, `announcementPostFieldsRole`, `announcementPostFieldsDescription`, `announcementPostFieldsCustomField`, `announcementPostFieldsTimestamp`, `announcementPostFieldsCreator`, `announcementPostFieldsSlack`, `announcementPostFieldsRichText`.
+     */
+    fieldType: string;
+    /**
+     * ID of the incident role to show, for incident role fields
+     */
+    incidentRoleId: string;
+    /**
+     * ID of the incident timestamp to show, for incident timestamp fields
+     */
+    incidentTimestampId: string;
+    /**
+     * Content of a rich text field. The type says how contents is written.
+     */
+    richText: outputs.GetAnnouncementTemplateFieldRichText;
+}
+
+export interface GetAnnouncementTemplateFieldRichText {
+    /**
+     * The content, as markdown. Write incident variables as {{name}}, e.g. {{incident.reference}}.
+     */
+    contents: string;
+    /**
+     * How contents is written. Only markdown is supported today. Possible values are: `markdown`.
+     */
+    type: string;
+}
+
 export interface GetCatalogEntryAttributeValue {
     /**
      * The value of this element of the array, in a format suitable for this attribute type.
@@ -16895,6 +17978,43 @@ export interface GetCustomFieldFixedFilter {
      * The catalog entry IDs (of the type the attribute points at) that the attribute must reference. The options for this custom field are restricted to entries matching one of these values.
      */
     values: string[];
+}
+
+export interface GetEscalationPathBetaParamBindings {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues: outputs.GetEscalationPathBetaParamBindingsArrayValue[];
+    expressionRef: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value: outputs.GetEscalationPathBetaParamBindingsValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathBetaParamBindingsArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathBetaParamBindingsValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
 }
 
 export interface GetEscalationPathBetaRepeatConfig {
@@ -17137,6 +18257,43 @@ export interface GetEscalationPathBetaWorkingHourWeekdayInterval {
      * Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
      */
     weekday: string;
+}
+
+export interface GetEscalationPathParamBindings {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues: outputs.GetEscalationPathParamBindingsArrayValue[];
+    expressionRef: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value: outputs.GetEscalationPathParamBindingsValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathParamBindingsArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathParamBindingsValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
 }
 
 export interface GetEscalationPathRepeatConfig {
@@ -17989,6 +19146,52 @@ export interface GetIpAllowlistAllowlist {
      * An IP address or a CIDR IP prefix to allow
      */
     value: string;
+}
+
+export interface GetPayConfigOneOffRule {
+    /**
+     * When this rule stops applying
+     */
+    endAt: string;
+    /**
+     * Unique identifier for this rule, stable across edits to the config
+     */
+    id: string;
+    /**
+     * Human readable name for this rule
+     */
+    name: string;
+    /**
+     * Rate paid while this rule applies, in the lowest denomination of the config's currency
+     */
+    rateCents: number;
+    /**
+     * When this rule starts applying
+     */
+    startAt: string;
+}
+
+export interface GetPayConfigWeeklyRule {
+    /**
+     * Time of day this rule ends, in 24 hour format. Equal to startTime means it runs for the whole day. Written as `HH:MM`.
+     */
+    endTime: string;
+    /**
+     * Unique identifier for this rule, stable across edits to the config
+     */
+    id: string;
+    /**
+     * Rate paid while this rule applies, in the lowest denomination of the config's currency
+     */
+    rateCents: number;
+    /**
+     * Time of day this rule starts, in 24 hour format, as `HH:MM`.
+     */
+    startTime: string;
+    /**
+     * Days of the week this rule applies on. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    weekdays: string[];
 }
 
 export interface GetScheduleReplicaSource {
@@ -19492,6 +20695,52 @@ export interface MaintenanceWindowNotifyChannel {
     channelType: string;
 }
 
+export interface PayConfigOneOffRule {
+    /**
+     * When this rule stops applying, as an RFC 3339 timestamp.
+     */
+    endAt: string;
+    /**
+     * Unique identifier for this rule, stable across edits to the config
+     */
+    id: string;
+    /**
+     * Human readable name for this rule
+     */
+    name: string;
+    /**
+     * Rate paid while this rule applies, in the lowest denomination of the config's currency
+     */
+    rateCents: number;
+    /**
+     * When this rule starts applying, as an RFC 3339 timestamp. Any offset works: the API reports the same moment in UTC, and that is not a change.
+     */
+    startAt: string;
+}
+
+export interface PayConfigWeeklyRule {
+    /**
+     * Time of day this rule ends, in 24 hour format, as `HH:MM`. It is read on the same day as `startTime`, so it must be later in that day, or `00:00` for midnight at the end of it — `00:00` to `00:00` is the whole day. A rule that runs past midnight is written as two: one ending at `00:00`, and one starting there on the following days.
+     */
+    endTime: string;
+    /**
+     * Unique identifier for this rule, stable across edits to the config
+     */
+    id: string;
+    /**
+     * Rate paid while this rule applies, in the lowest denomination of the config's currency
+     */
+    rateCents: number;
+    /**
+     * Time of day this rule starts, in 24 hour format, as `HH:MM`.
+     */
+    startTime: string;
+    /**
+     * Days of the week this rule applies on. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    weekdays: string[];
+}
+
 export interface PolicyAssignmentRules {
     /**
      * Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
@@ -20653,6 +21902,39 @@ export interface ScheduleSyncTargetNewSlackUserGroup {
      * Slack workspace ID where the user group should be created. Required for Enterprise Grid organizations with multiple workspaces.
      */
     slackTeamId?: string;
+}
+
+export interface TeamGroupingPreferenceDefault {
+    /**
+     * How a team's alerts are grouped together, on every alert route
+     */
+    settings: outputs.TeamGroupingPreferenceDefaultSettings;
+}
+
+export interface TeamGroupingPreferenceDefaultSettings {
+    /**
+     * Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+     */
+    enabled: boolean;
+    /**
+     * Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+     */
+    groupingKeys?: outputs.TeamGroupingPreferenceDefaultSettingsGroupingKey[];
+    /**
+     * How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+     */
+    windowSeconds?: number;
+    /**
+     * How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     */
+    windowType?: string;
+}
+
+export interface TeamGroupingPreferenceDefaultSettingsGroupingKey {
+    /**
+     * A reference to a property of the alert to group on
+     */
+    reference: string;
 }
 
 export interface WorkflowConditionGroup {

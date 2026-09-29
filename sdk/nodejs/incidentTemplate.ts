@@ -171,6 +171,10 @@ export class IncidentTemplate extends pulumi.CustomResource {
      * The values an incident template applies to the incidents it creates.
      */
     declare public readonly template: pulumi.Output<outputs.IncidentTemplateTemplate>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a IncidentTemplate resource with the given unique name, arguments, and options.
@@ -188,6 +192,7 @@ export class IncidentTemplate extends pulumi.CustomResource {
             resourceInputs["expressions"] = state?.expressions;
             resourceInputs["name"] = state?.name;
             resourceInputs["template"] = state?.template;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
         } else {
             const args = argsOrState as IncidentTemplateArgs | undefined;
             if (args?.expressions === undefined && !opts.urn) {
@@ -199,6 +204,7 @@ export class IncidentTemplate extends pulumi.CustomResource {
             resourceInputs["expressions"] = args?.expressions;
             resourceInputs["name"] = args?.name;
             resourceInputs["template"] = args?.template;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IncidentTemplate.__pulumiType, name, resourceInputs, opts);
@@ -221,6 +227,10 @@ export interface IncidentTemplateState {
      * The values an incident template applies to the incidents it creates.
      */
     template?: pulumi.Input<inputs.IncidentTemplateTemplate | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -239,4 +249,8 @@ export interface IncidentTemplateArgs {
      * The values an incident template applies to the incidents it creates.
      */
     template: pulumi.Input<inputs.IncidentTemplateTemplate>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }

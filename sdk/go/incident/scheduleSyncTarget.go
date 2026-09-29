@@ -64,6 +64,8 @@ type ScheduleSyncTarget struct {
 	SlackTeamId pulumi.StringOutput `pulumi:"slackTeamId"`
 	// Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
 	SlackUserGroupId pulumi.StringOutput `pulumi:"slackUserGroupId"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
 }
 
 // NewScheduleSyncTarget registers a new resource with the given unique name, arguments, and options.
@@ -107,6 +109,8 @@ type scheduleSyncTargetState struct {
 	SlackTeamId *string `pulumi:"slackTeamId"`
 	// Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
 	SlackUserGroupId *string `pulumi:"slackUserGroupId"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 type ScheduleSyncTargetState struct {
@@ -118,6 +122,8 @@ type ScheduleSyncTargetState struct {
 	SlackTeamId pulumi.StringPtrInput
 	// Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
 	SlackUserGroupId pulumi.StringPtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (ScheduleSyncTargetState) ElementType() reflect.Type {
@@ -131,6 +137,8 @@ type scheduleSyncTargetArgs struct {
 	NewSlackUserGroup *ScheduleSyncTargetNewSlackUserGroup `pulumi:"newSlackUserGroup"`
 	// Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
 	SlackUserGroupId *string `pulumi:"slackUserGroupId"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 // The set of arguments for constructing a ScheduleSyncTarget resource.
@@ -141,6 +149,8 @@ type ScheduleSyncTargetArgs struct {
 	NewSlackUserGroup ScheduleSyncTargetNewSlackUserGroupPtrInput
 	// Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
 	SlackUserGroupId pulumi.StringPtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (ScheduleSyncTargetArgs) ElementType() reflect.Type {
@@ -248,6 +258,11 @@ func (o ScheduleSyncTargetOutput) SlackTeamId() pulumi.StringOutput {
 // Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
 func (o ScheduleSyncTargetOutput) SlackUserGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleSyncTarget) pulumi.StringOutput { return v.SlackUserGroupId }).(pulumi.StringOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o ScheduleSyncTargetOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduleSyncTarget) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
 type ScheduleSyncTargetArrayOutput struct{ *pulumi.OutputState }

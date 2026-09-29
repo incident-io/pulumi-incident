@@ -25,7 +25,8 @@ class ApiKeyArgs:
                  rotation_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  team_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_version: pulumi.Input[Optional[_builtins.int]] = None):
+                 token_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
 
@@ -38,6 +39,7 @@ class ApiKeyArgs:
                
                API key role name that may be granted for team-scoped access. Possible values are: `catalog_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `on_call_editor`, `escalation_creator`, `api_keys_manage`, `workflows_editor`, `private_workflows_editor`, `secrets_manage`, `secrets_use`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`.
         :param pulumi.Input[_builtins.int] token_version: The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
@@ -53,6 +55,8 @@ class ApiKeyArgs:
             pulumi.set(__self__, "team_role_names", team_role_names)
         if token_version is not None:
             pulumi.set(__self__, "token_version", token_version)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter
@@ -140,6 +144,18 @@ class ApiKeyArgs:
     def token_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "token_version", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.input_type
 class _ApiKeyState:
@@ -154,7 +170,8 @@ class _ApiKeyState:
                  team_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  token: pulumi.Input[Optional[_builtins.str]] = None,
                  token_last_issued_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 token_version: pulumi.Input[Optional[_builtins.int]] = None):
+                 token_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
 
@@ -171,6 +188,7 @@ class _ApiKeyState:
         :param pulumi.Input[_builtins.str] token: The bearer token to authenticate as this key, which incident.io returns only when it issues one: on create, and on each rotation. Terraform stores it, because nothing can read it back afterwards, so anything with access to your state can read it. Null for a key adopted with `terraform import`, whose token was issued before Terraform knew about it - rotate the key to get one.
         :param pulumi.Input[_builtins.str] token_last_issued_at: When the current token for this API was last issued. This is the last time the token was rotated, or when it was initially created. Older tokens may remain valid for up to an hour after they have been rotated, configured when you call the rotate endpoint.
         :param pulumi.Input[_builtins.int] token_version: The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
@@ -194,6 +212,8 @@ class _ApiKeyState:
             pulumi.set(__self__, "token_last_issued_at", token_last_issued_at)
         if token_version is not None:
             pulumi.set(__self__, "token_version", token_version)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter
@@ -329,6 +349,18 @@ class _ApiKeyState:
     def token_version(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "token_version", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.type_token("incident:index/apiKey:ApiKey")
 class ApiKey(pulumi.CustomResource):
@@ -343,6 +375,7 @@ class ApiKey(pulumi.CustomResource):
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  team_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  token_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manage API keys for your organization.
@@ -469,6 +502,7 @@ class ApiKey(pulumi.CustomResource):
                
                API key role name that may be granted for team-scoped access. Possible values are: `catalog_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `on_call_editor`, `escalation_creator`, `api_keys_manage`, `workflows_editor`, `private_workflows_editor`, `secrets_manage`, `secrets_use`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`.
         :param pulumi.Input[_builtins.int] token_version: The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -612,6 +646,7 @@ class ApiKey(pulumi.CustomResource):
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  team_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  token_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -628,6 +663,7 @@ class ApiKey(pulumi.CustomResource):
             __props__.__dict__["team_ids"] = team_ids
             __props__.__dict__["team_role_names"] = team_role_names
             __props__.__dict__["token_version"] = token_version
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_used_at"] = None
             __props__.__dict__["token"] = None
@@ -654,7 +690,8 @@ class ApiKey(pulumi.CustomResource):
             team_role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             token: pulumi.Input[Optional[_builtins.str]] = None,
             token_last_issued_at: pulumi.Input[Optional[_builtins.str]] = None,
-            token_version: pulumi.Input[Optional[_builtins.int]] = None) -> 'ApiKey':
+            token_version: pulumi.Input[Optional[_builtins.int]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -675,6 +712,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] token: The bearer token to authenticate as this key, which incident.io returns only when it issues one: on create, and on each rotation. Terraform stores it, because nothing can read it back afterwards, so anything with access to your state can read it. Null for a key adopted with `terraform import`, whose token was issued before Terraform knew about it - rotate the key to get one.
         :param pulumi.Input[_builtins.str] token_last_issued_at: When the current token for this API was last issued. This is the last time the token was rotated, or when it was initially created. Older tokens may remain valid for up to an hour after they have been rotated, configured when you call the rotate endpoint.
         :param pulumi.Input[_builtins.int] token_version: The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -691,6 +729,7 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["token"] = token
         __props__.__dict__["token_last_issued_at"] = token_last_issued_at
         __props__.__dict__["token_version"] = token_version
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -782,4 +821,12 @@ class ApiKey(pulumi.CustomResource):
         The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
         """
         return pulumi.get(self, "token_version")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 

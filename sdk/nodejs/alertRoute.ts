@@ -400,6 +400,10 @@ export class AlertRoute extends pulumi.CustomResource {
      * IDs of teams that own this alert route
      */
     declare public readonly owningTeamIds: pulumi.Output<string[] | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AlertRoute resource with the given unique name, arguments, and options.
@@ -428,6 +432,7 @@ export class AlertRoute extends pulumi.CustomResource {
             resourceInputs["messageTemplate"] = state?.messageTemplate;
             resourceInputs["name"] = state?.name;
             resourceInputs["owningTeamIds"] = state?.owningTeamIds;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
         } else {
             const args = argsOrState as AlertRouteArgs | undefined;
             if (args?.alertSources === undefined && !opts.urn) {
@@ -465,6 +470,7 @@ export class AlertRoute extends pulumi.CustomResource {
             resourceInputs["messageTemplate"] = args?.messageTemplate;
             resourceInputs["name"] = args?.name;
             resourceInputs["owningTeamIds"] = args?.owningTeamIds;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRoute.__pulumiType, name, resourceInputs, opts);
@@ -528,6 +534,10 @@ export interface AlertRouteState {
      * IDs of teams that own this alert route
      */
     owningTeamIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -587,4 +597,8 @@ export interface AlertRouteArgs {
      * IDs of teams that own this alert route
      */
     owningTeamIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }

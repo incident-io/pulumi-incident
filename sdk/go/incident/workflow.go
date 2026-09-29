@@ -369,14 +369,14 @@ import (
 //			//
 //			// Four steps sound alike but do different things, so pick deliberately:
 //			//
-//			//	slack.invite_user                   invites users and Slack user groups to
-//			//	                                    the incident's channel (this one)
-//			//	incident.add_member                 grants access to a private incident, and
-//			//	                                    does nothing on a public one
-//			//	incident.assign_role                gives someone an incident role, such as
-//			//	                                    Incident Lead
-//			//	incident.subscribe_user_to_incident subscribes someone to updates without
-//			//	                                    making them a participant
+//			//   slack.invite_user                   invites users and Slack user groups to
+//			//                                       the incident's channel (this one)
+//			//   incident.add_member                 grants access to a private incident, and
+//			//                                       does nothing on a public one
+//			//   incident.assign_role                gives someone an incident role, such as
+//			//                                       Incident Lead
+//			//   incident.subscribe_user_to_incident subscribes someone to updates without
+//			//                                       making them a participant
 //			//
 //			// Narrow this with conditions on whatever marks the incidents you care about -
 //			// a custom field, the incident's type, or its severity.
@@ -485,9 +485,9 @@ import (
 //			//
 //			// Three Slack steps send messages, and they take different first parameters:
 //			//
-//			//	slack.post_message     posts to a channel, which is where this one goes
-//			//	slack.send_message     sends a DM to users
-//			//	slack.reply_in_thread  replies to a message already in the scope
+//			//   slack.post_message     posts to a channel, which is where this one goes
+//			//   slack.send_message     sends a DM to users
+//			//   slack.reply_in_thread  replies to a message already in the scope
 //			//
 //			// On Microsoft Teams the equivalent is ms_teams.post_message, whose channel
 //			// parameter takes a MicrosoftTeamsChatChannel and defaults to
@@ -588,8 +588,8 @@ import (
 //			// It's the clearest example of how condition groups combine. Conditions within
 //			// a group are ANDed, and the groups are ORed with each other, so this reads as:
 //			//
-//			//	severity is Critical
-//			//	  OR (severity is Major AND affected customers is All customers)
+//			//   severity is Critical
+//			//     OR (severity is Major AND affected customers is All customers)
 //			//
 //			// Two conditions that must both hold go in one group. Two alternatives, as
 //			// here, need a group each - putting all three conditions in a single group
@@ -730,6 +730,8 @@ type Workflow struct {
 	Steps WorkflowStepArrayOutput `pulumi:"steps"`
 	// Unique name of the trigger
 	Trigger pulumi.StringOutput `pulumi:"trigger"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
 }
 
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
@@ -827,6 +829,8 @@ type workflowState struct {
 	Steps []WorkflowStep `pulumi:"steps"`
 	// Unique name of the trigger
 	Trigger *string `pulumi:"trigger"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 type WorkflowState struct {
@@ -868,6 +872,8 @@ type WorkflowState struct {
 	Steps WorkflowStepArrayInput
 	// Unique name of the trigger
 	Trigger pulumi.StringPtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {
@@ -913,6 +919,8 @@ type workflowArgs struct {
 	Steps []WorkflowStep `pulumi:"steps"`
 	// Unique name of the trigger
 	Trigger string `pulumi:"trigger"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -955,6 +963,8 @@ type WorkflowArgs struct {
 	Steps WorkflowStepArrayInput
 	// Unique name of the trigger
 	Trigger pulumi.StringInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {
@@ -1134,6 +1144,11 @@ func (o WorkflowOutput) Steps() WorkflowStepArrayOutput {
 // Unique name of the trigger
 func (o WorkflowOutput) Trigger() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Trigger }).(pulumi.StringOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o WorkflowOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
 type WorkflowArrayOutput struct{ *pulumi.OutputState }

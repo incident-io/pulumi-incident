@@ -127,10 +127,14 @@ export interface GetAlertSourceResult {
      */
     readonly secretToken: string;
     /**
-     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
      */
     readonly sourceType: string;
     readonly title: outputs.GetAlertSourceTitle;
+    /**
+     * Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+     */
+    readonly unlockInDashboard: boolean;
     /**
      * The source's current version, which increments on every write. Pass it back as expectedVersion to reject a write built from a stale read.
      */

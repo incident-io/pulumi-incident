@@ -26,7 +26,7 @@ class GetCatalogTypeResult:
     """
     A collection of values returned by getCatalogType.
     """
-    def __init__(__self__, attribute_type=None, categories=None, description=None, id=None, name=None, owning_team_ids=None, source_repo_url=None, type_name=None, use_name_as_identifier=None):
+    def __init__(__self__, attribute_type=None, categories=None, description=None, id=None, name=None, owning_team_ids=None, source_repo_url=None, type_name=None, unlock_in_dashboard=None, use_name_as_identifier=None):
         if attribute_type and not isinstance(attribute_type, str):
             raise TypeError("Expected argument 'attribute_type' to be a str")
         pulumi.set(__self__, "attribute_type", attribute_type)
@@ -51,6 +51,9 @@ class GetCatalogTypeResult:
         if type_name and not isinstance(type_name, str):
             raise TypeError("Expected argument 'type_name' to be a str")
         pulumi.set(__self__, "type_name", type_name)
+        if unlock_in_dashboard and not isinstance(unlock_in_dashboard, bool):
+            raise TypeError("Expected argument 'unlock_in_dashboard' to be a bool")
+        pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if use_name_as_identifier and not isinstance(use_name_as_identifier, bool):
             raise TypeError("Expected argument 'use_name_as_identifier' to be a bool")
         pulumi.set(__self__, "use_name_as_identifier", use_name_as_identifier)
@@ -120,6 +123,14 @@ class GetCatalogTypeResult:
         return pulumi.get(self, "type_name")
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> _builtins.bool:
+        """
+        Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @_builtins.property
     @pulumi.getter(name="useNameAsIdentifier")
     def use_name_as_identifier(self) -> _builtins.bool:
         """
@@ -142,6 +153,7 @@ class AwaitableGetCatalogTypeResult(GetCatalogTypeResult):
             owning_team_ids=self.owning_team_ids,
             source_repo_url=self.source_repo_url,
             type_name=self.type_name,
+            unlock_in_dashboard=self.unlock_in_dashboard,
             use_name_as_identifier=self.use_name_as_identifier)
 
 
@@ -205,6 +217,7 @@ def get_catalog_type(categories: Optional[Sequence[_builtins.str]] = None,
         owning_team_ids=pulumi.get(__ret__, 'owning_team_ids'),
         source_repo_url=pulumi.get(__ret__, 'source_repo_url'),
         type_name=pulumi.get(__ret__, 'type_name'),
+        unlock_in_dashboard=pulumi.get(__ret__, 'unlock_in_dashboard'),
         use_name_as_identifier=pulumi.get(__ret__, 'use_name_as_identifier'))
 def get_catalog_type_output(categories: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                             name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -265,4 +278,5 @@ def get_catalog_type_output(categories: pulumi.Input[Optional[Optional[Sequence[
         owning_team_ids=pulumi.get(__response__, 'owning_team_ids'),
         source_repo_url=pulumi.get(__response__, 'source_repo_url'),
         type_name=pulumi.get(__response__, 'type_name'),
+        unlock_in_dashboard=pulumi.get(__response__, 'unlock_in_dashboard'),
         use_name_as_identifier=pulumi.get(__response__, 'use_name_as_identifier')))

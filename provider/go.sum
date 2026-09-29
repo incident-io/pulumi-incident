@@ -373,8 +373,8 @@ github.com/huandu/xstrings v1.5.0/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq
 github.com/iancoleman/strcase v0.3.0 h1:nTXanmYxhfFAMjZL34Ov6gkzEsSJZ5DbhxWjvSASxEI=
 github.com/iancoleman/strcase v0.3.0/go.mod h1:iwCmte+B7n89clKwxIoIXy/HfoL7AsD47ZCWhYzw7ho=
 github.com/imdario/mergo v0.3.11/go.mod h1:jmQim1M+e3UYxmgPu/WyfjB3N3VflVyUjjjwH0dnCYA=
-github.com/incident-io/terraform-provider-incident/v7 v7.0.0 h1:JhogJOQBFSLoHIF+dI7Ou3iWrwJrSj48zEohe2fKwbQ=
-github.com/incident-io/terraform-provider-incident/v7 v7.0.0/go.mod h1:ugiCkHxIOzqei3PIkSes5YOJVqPNTCjrNkeD+DFZkHA=
+github.com/incident-io/terraform-provider-incident/v7 v7.3.0 h1:qEysadnBcbiDptzTCcPcIeK0/7dGfn/KMAnWPwpy+aQ=
+github.com/incident-io/terraform-provider-incident/v7 v7.3.0/go.mod h1:M7RKBAmYtwM+SnhBnStwVUH5IODwL+Z5jtPdJM/fGlY=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jhump/protoreflect v1.17.0 h1:qOEr613fac2lOuTgWN4tPAtLL7fUSbuJL5X5XumQh94=

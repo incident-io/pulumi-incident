@@ -27,7 +27,7 @@ class GetIncidentTemplateResult:
     """
     A collection of values returned by getIncidentTemplate.
     """
-    def __init__(__self__, expressions=None, id=None, name=None, template=None):
+    def __init__(__self__, expressions=None, id=None, name=None, template=None, unlock_in_dashboard=None):
         if expressions and not isinstance(expressions, list):
             raise TypeError("Expected argument 'expressions' to be a list")
         pulumi.set(__self__, "expressions", expressions)
@@ -40,6 +40,9 @@ class GetIncidentTemplateResult:
         if template and not isinstance(template, dict):
             raise TypeError("Expected argument 'template' to be a dict")
         pulumi.set(__self__, "template", template)
+        if unlock_in_dashboard and not isinstance(unlock_in_dashboard, bool):
+            raise TypeError("Expected argument 'unlock_in_dashboard' to be a bool")
+        pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter
@@ -73,6 +76,14 @@ class GetIncidentTemplateResult:
         """
         return pulumi.get(self, "template")
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> _builtins.bool:
+        """
+        Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
 
 class AwaitableGetIncidentTemplateResult(GetIncidentTemplateResult):
     # pylint: disable=using-constant-test
@@ -83,7 +94,8 @@ class AwaitableGetIncidentTemplateResult(GetIncidentTemplateResult):
             expressions=self.expressions,
             id=self.id,
             name=self.name,
-            template=self.template)
+            template=self.template,
+            unlock_in_dashboard=self.unlock_in_dashboard)
 
 
 def get_incident_template(id: Optional[_builtins.str] = None,
@@ -122,7 +134,8 @@ def get_incident_template(id: Optional[_builtins.str] = None,
         expressions=pulumi.get(__ret__, 'expressions'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        template=pulumi.get(__ret__, 'template'))
+        template=pulumi.get(__ret__, 'template'),
+        unlock_in_dashboard=pulumi.get(__ret__, 'unlock_in_dashboard'))
 def get_incident_template_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentTemplateResult]:
@@ -158,4 +171,5 @@ def get_incident_template_output(id: pulumi.Input[Optional[Optional[_builtins.st
         expressions=pulumi.get(__response__, 'expressions'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        template=pulumi.get(__response__, 'template')))
+        template=pulumi.get(__response__, 'template'),
+        unlock_in_dashboard=pulumi.get(__response__, 'unlock_in_dashboard')))

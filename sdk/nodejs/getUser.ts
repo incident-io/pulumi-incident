@@ -23,11 +23,17 @@ export function getUser(args?: GetUserArgs, opts?: pulumi.InvokeOptions): Promis
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
+    /**
+     * Look up the user by email address.
+     */
     email?: string;
     /**
-     * The ID of this resource.
+     * Look up the user by ID.
      */
     id?: string;
+    /**
+     * Look up the user by Slack user ID.
+     */
     slackUserId?: string;
 }
 
@@ -35,17 +41,23 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    readonly email?: string;
     /**
-     * The ID of this resource.
+     * Look up the user by email address.
      */
-    readonly id?: string;
+    readonly email: string;
+    /**
+     * Look up the user by ID.
+     */
+    readonly id: string;
     /**
      * Whether the user is active. False if the user has been deactivated (e.g. offboarded) or is not yet active.
      */
     readonly isActive: boolean;
     readonly name: string;
-    readonly slackUserId?: string;
+    /**
+     * Look up the user by Slack user ID.
+     */
+    readonly slackUserId: string;
 }
 /**
  * View users.
@@ -66,10 +78,16 @@ export function getUserOutput(args?: GetUserOutputArgs, opts?: pulumi.InvokeOutp
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
+    /**
+     * Look up the user by email address.
+     */
     email?: pulumi.Input<string | undefined>;
     /**
-     * The ID of this resource.
+     * Look up the user by ID.
      */
     id?: pulumi.Input<string | undefined>;
+    /**
+     * Look up the user by Slack user ID.
+     */
     slackUserId?: pulumi.Input<string | undefined>;
 }

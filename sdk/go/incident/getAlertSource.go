@@ -109,9 +109,11 @@ type LookupAlertSourceResult struct {
 	RateLimitSharding GetAlertSourceRateLimitSharding `pulumi:"rateLimitSharding"`
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
 	SecretToken string `pulumi:"secretToken"`
-	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
 	SourceType string              `pulumi:"sourceType"`
 	Title      GetAlertSourceTitle `pulumi:"title"`
+	// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+	UnlockInDashboard bool `pulumi:"unlockInDashboard"`
 	// The source's current version, which increments on every write. Pass it back as expectedVersion to reject a write built from a stale read.
 	Version        int                          `pulumi:"version"`
 	VisibleToTeams GetAlertSourceVisibleToTeams `pulumi:"visibleToTeams"`
@@ -245,13 +247,18 @@ func (o LookupAlertSourceResultOutput) SecretToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAlertSourceResult) string { return v.SecretToken }).(pulumi.StringOutput)
 }
 
-// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
 func (o LookupAlertSourceResultOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAlertSourceResult) string { return v.SourceType }).(pulumi.StringOutput)
 }
 
 func (o LookupAlertSourceResultOutput) Title() GetAlertSourceTitleOutput {
 	return o.ApplyT(func(v LookupAlertSourceResult) GetAlertSourceTitle { return v.Title }).(GetAlertSourceTitleOutput)
+}
+
+// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+func (o LookupAlertSourceResultOutput) UnlockInDashboard() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAlertSourceResult) bool { return v.UnlockInDashboard }).(pulumi.BoolOutput)
 }
 
 // The source's current version, which increments on every write. Pass it back as expectedVersion to reject a write built from a stale read.

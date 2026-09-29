@@ -38,7 +38,8 @@ class WorkflowArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  private_incident_scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 shortform: pulumi.Input[Optional[_builtins.str]] = None):
+                 shortform: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Workflow resource.
 
@@ -60,6 +61,7 @@ class WorkflowArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this workflow
         :param pulumi.Input[_builtins.str] private_incident_scope: Which private incidents this workflow acts on: every private incident (all), those an owning team can see (owning_teams), or none. Possible values are: `all`, `owning_teams`, `none`.
         :param pulumi.Input[_builtins.str] shortform: The shortform used to trigger this workflow (only applicable for manual triggers)
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "condition_groups", condition_groups)
         pulumi.set(__self__, "continue_on_step_error", continue_on_step_error)
@@ -91,6 +93,8 @@ class WorkflowArgs:
             pulumi.set(__self__, "private_incident_scope", private_incident_scope)
         if shortform is not None:
             pulumi.set(__self__, "shortform", shortform)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="conditionGroups")
@@ -309,6 +313,18 @@ class WorkflowArgs:
     def shortform(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shortform", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.input_type
 class _WorkflowState:
@@ -330,7 +346,8 @@ class _WorkflowState:
                  shortform: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  steps: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
-                 trigger: pulumi.Input[Optional[_builtins.str]] = None):
+                 trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
 
@@ -352,6 +369,7 @@ class _WorkflowState:
         :param pulumi.Input[_builtins.str] state: What state this workflow is in. Possible values are: `active`, `disabled`, `draft`, `error`.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Steps that are executed as part of the workflow
         :param pulumi.Input[_builtins.str] trigger: Unique name of the trigger
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if condition_groups is not None:
             pulumi.set(__self__, "condition_groups", condition_groups)
@@ -392,6 +410,8 @@ class _WorkflowState:
             pulumi.set(__self__, "steps", steps)
         if trigger is not None:
             pulumi.set(__self__, "trigger", trigger)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="conditionGroups")
@@ -610,6 +630,18 @@ class _WorkflowState:
     def trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.type_token("incident:index/workflow:Workflow")
 class Workflow(pulumi.CustomResource):
@@ -635,6 +667,7 @@ class Workflow(pulumi.CustomResource):
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict']]]]] = None,
                  trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         This resource is used to manage Workflows.
@@ -1100,6 +1133,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] state: What state this workflow is in. Possible values are: `active`, `disabled`, `draft`, `error`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict']]]] steps: Steps that are executed as part of the workflow
         :param pulumi.Input[_builtins.str] trigger: Unique name of the trigger
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -1584,6 +1618,7 @@ class Workflow(pulumi.CustomResource):
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict']]]]] = None,
                  trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1629,6 +1664,7 @@ class Workflow(pulumi.CustomResource):
             if trigger is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger'")
             __props__.__dict__["trigger"] = trigger
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         super(Workflow, __self__).__init__(
             'incident:index/workflow:Workflow',
             resource_name,
@@ -1656,7 +1692,8 @@ class Workflow(pulumi.CustomResource):
             shortform: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
             steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict']]]]] = None,
-            trigger: pulumi.Input[Optional[_builtins.str]] = None) -> 'Workflow':
+            trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Workflow':
         """
         Get an existing Workflow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1682,6 +1719,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] state: What state this workflow is in. Possible values are: `active`, `disabled`, `draft`, `error`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowStepArgs', 'WorkflowStepArgsDict']]]] steps: Steps that are executed as part of the workflow
         :param pulumi.Input[_builtins.str] trigger: Unique name of the trigger
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1705,6 +1743,7 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["state"] = state
         __props__.__dict__["steps"] = steps
         __props__.__dict__["trigger"] = trigger
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return Workflow(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -1851,4 +1890,12 @@ class Workflow(pulumi.CustomResource):
         Unique name of the trigger
         """
         return pulumi.get(self, "trigger")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 

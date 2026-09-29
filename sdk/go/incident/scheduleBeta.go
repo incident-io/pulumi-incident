@@ -51,6 +51,8 @@ type ScheduleBeta struct {
 	TeamIds pulumi.StringArrayOutput `pulumi:"teamIds"`
 	// Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
 }
 
 // NewScheduleBeta registers a new resource with the given unique name, arguments, and options.
@@ -94,6 +96,8 @@ type scheduleBetaState struct {
 	TeamIds []string `pulumi:"teamIds"`
 	// Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
 	Timezone *string `pulumi:"timezone"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 type ScheduleBetaState struct {
@@ -105,6 +109,8 @@ type ScheduleBetaState struct {
 	TeamIds pulumi.StringArrayInput
 	// Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
 	Timezone pulumi.StringPtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (ScheduleBetaState) ElementType() reflect.Type {
@@ -120,6 +126,8 @@ type scheduleBetaArgs struct {
 	TeamIds []string `pulumi:"teamIds"`
 	// Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
 	Timezone string `pulumi:"timezone"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 }
 
 // The set of arguments for constructing a ScheduleBeta resource.
@@ -132,6 +140,8 @@ type ScheduleBetaArgs struct {
 	TeamIds pulumi.StringArrayInput
 	// Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
 	Timezone pulumi.StringInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 }
 
 func (ScheduleBetaArgs) ElementType() reflect.Type {
@@ -239,6 +249,11 @@ func (o ScheduleBetaOutput) TeamIds() pulumi.StringArrayOutput {
 // Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
 func (o ScheduleBetaOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduleBeta) pulumi.StringOutput { return v.Timezone }).(pulumi.StringOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o ScheduleBetaOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduleBeta) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
 type ScheduleBetaArrayOutput struct{ *pulumi.OutputState }

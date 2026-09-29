@@ -27,13 +27,19 @@ class GetEscalationPathBetaResult:
     """
     A collection of values returned by getEscalationPathBeta.
     """
-    def __init__(__self__, id=None, name=None, repeat_config=None, sequences=None, start=None, team_ids=None, working_hours=None):
+    def __init__(__self__, id=None, kind=None, name=None, param_bindings=None, repeat_config=None, sequences=None, start=None, team_ids=None, template_id=None, unlock_in_dashboard=None, working_hours=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if param_bindings and not isinstance(param_bindings, dict):
+            raise TypeError("Expected argument 'param_bindings' to be a dict")
+        pulumi.set(__self__, "param_bindings", param_bindings)
         if repeat_config and not isinstance(repeat_config, dict):
             raise TypeError("Expected argument 'repeat_config' to be a dict")
         pulumi.set(__self__, "repeat_config", repeat_config)
@@ -46,6 +52,12 @@ class GetEscalationPathBetaResult:
         if team_ids and not isinstance(team_ids, list):
             raise TypeError("Expected argument 'team_ids' to be a list")
         pulumi.set(__self__, "team_ids", team_ids)
+        if template_id and not isinstance(template_id, str):
+            raise TypeError("Expected argument 'template_id' to be a str")
+        pulumi.set(__self__, "template_id", template_id)
+        if unlock_in_dashboard and not isinstance(unlock_in_dashboard, bool):
+            raise TypeError("Expected argument 'unlock_in_dashboard' to be a bool")
+        pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if working_hours and not isinstance(working_hours, list):
             raise TypeError("Expected argument 'working_hours' to be a list")
         pulumi.set(__self__, "working_hours", working_hours)
@@ -60,11 +72,27 @@ class GetEscalationPathBetaResult:
 
     @_builtins.property
     @pulumi.getter
+    def kind(self) -> _builtins.str:
+        """
+        Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`.
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> _builtins.str:
         """
         The name of this escalation path, for the user's reference.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Mapping[str, 'outputs.GetEscalationPathBetaParamBindingsResult']:
+        """
+        For a templated path, the value bound to each of the template's params, keyed by the param's name.
+        """
+        return pulumi.get(self, "param_bindings")
 
     @_builtins.property
     @pulumi.getter(name="repeatConfig")
@@ -99,10 +127,26 @@ class GetEscalationPathBetaResult:
         return pulumi.get(self, "team_ids")
 
     @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> _builtins.str:
+        """
+        For a templated path, the `EscalationPathTemplate` it is built from.
+        """
+        return pulumi.get(self, "template_id")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> _builtins.bool:
+        """
+        Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @_builtins.property
     @pulumi.getter(name="workingHours")
     def working_hours(self) -> Sequence['outputs.GetEscalationPathBetaWorkingHourResult']:
         """
-        The working hours for this escalation path.
+        The working hours for this escalation path. Absent for a templated path, which takes them from its template.
         """
         return pulumi.get(self, "working_hours")
 
@@ -114,11 +158,15 @@ class AwaitableGetEscalationPathBetaResult(GetEscalationPathBetaResult):
             yield self
         return GetEscalationPathBetaResult(
             id=self.id,
+            kind=self.kind,
             name=self.name,
+            param_bindings=self.param_bindings,
             repeat_config=self.repeat_config,
             sequences=self.sequences,
             start=self.start,
             team_ids=self.team_ids,
+            template_id=self.template_id,
+            unlock_in_dashboard=self.unlock_in_dashboard,
             working_hours=self.working_hours)
 
 
@@ -154,11 +202,15 @@ def get_escalation_path_beta(id: Optional[_builtins.str] = None,
 
     return AwaitableGetEscalationPathBetaResult(
         id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
+        param_bindings=pulumi.get(__ret__, 'param_bindings'),
         repeat_config=pulumi.get(__ret__, 'repeat_config'),
         sequences=pulumi.get(__ret__, 'sequences'),
         start=pulumi.get(__ret__, 'start'),
         team_ids=pulumi.get(__ret__, 'team_ids'),
+        template_id=pulumi.get(__ret__, 'template_id'),
+        unlock_in_dashboard=pulumi.get(__ret__, 'unlock_in_dashboard'),
         working_hours=pulumi.get(__ret__, 'working_hours'))
 def get_escalation_path_beta_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -191,9 +243,13 @@ def get_escalation_path_beta_output(id: pulumi.Input[Optional[Optional[_builtins
     __ret__ = pulumi.runtime.invoke_output('incident:index/getEscalationPathBeta:getEscalationPathBeta', __args__, opts=opts, typ=GetEscalationPathBetaResult)
     return __ret__.apply(lambda __response__: GetEscalationPathBetaResult(
         id=pulumi.get(__response__, 'id'),
+        kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),
+        param_bindings=pulumi.get(__response__, 'param_bindings'),
         repeat_config=pulumi.get(__response__, 'repeat_config'),
         sequences=pulumi.get(__response__, 'sequences'),
         start=pulumi.get(__response__, 'start'),
         team_ids=pulumi.get(__response__, 'team_ids'),
+        template_id=pulumi.get(__response__, 'template_id'),
+        unlock_in_dashboard=pulumi.get(__response__, 'unlock_in_dashboard'),
         working_hours=pulumi.get(__response__, 'working_hours')))

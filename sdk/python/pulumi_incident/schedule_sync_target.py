@@ -23,19 +23,23 @@ class ScheduleSyncTargetArgs:
     def __init__(__self__, *,
                  add_bot_to_group: pulumi.Input[_builtins.bool],
                  new_slack_user_group: pulumi.Input[Optional['ScheduleSyncTargetNewSlackUserGroupArgs']] = None,
-                 slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ScheduleSyncTarget resource.
 
         :param pulumi.Input[_builtins.bool] add_bot_to_group: Whether the incident.io bot should be added to the group as a member. This is needed for some Slack configurations to let us manage the group's membership.
         :param pulumi.Input['ScheduleSyncTargetNewSlackUserGroupArgs'] new_slack_user_group: Configuration for creating a new Slack user group. Mutually exclusive with `slack_user_group_id`.
         :param pulumi.Input[_builtins.str] slack_user_group_id: Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "add_bot_to_group", add_bot_to_group)
         if new_slack_user_group is not None:
             pulumi.set(__self__, "new_slack_user_group", new_slack_user_group)
         if slack_user_group_id is not None:
             pulumi.set(__self__, "slack_user_group_id", slack_user_group_id)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="addBotToGroup")
@@ -73,6 +77,18 @@ class ScheduleSyncTargetArgs:
     def slack_user_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slack_user_group_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.input_type
 class _ScheduleSyncTargetState:
@@ -80,7 +96,8 @@ class _ScheduleSyncTargetState:
                  add_bot_to_group: pulumi.Input[Optional[_builtins.bool]] = None,
                  new_slack_user_group: pulumi.Input[Optional['ScheduleSyncTargetNewSlackUserGroupArgs']] = None,
                  slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ScheduleSyncTarget resources.
 
@@ -88,6 +105,7 @@ class _ScheduleSyncTargetState:
         :param pulumi.Input['ScheduleSyncTargetNewSlackUserGroupArgs'] new_slack_user_group: Configuration for creating a new Slack user group. Mutually exclusive with `slack_user_group_id`.
         :param pulumi.Input[_builtins.str] slack_team_id: Slack team (workspace) ID the user group lives in. On Enterprise Grid this identifies which workspace within the org the group belongs to.
         :param pulumi.Input[_builtins.str] slack_user_group_id: Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if add_bot_to_group is not None:
             pulumi.set(__self__, "add_bot_to_group", add_bot_to_group)
@@ -97,6 +115,8 @@ class _ScheduleSyncTargetState:
             pulumi.set(__self__, "slack_team_id", slack_team_id)
         if slack_user_group_id is not None:
             pulumi.set(__self__, "slack_user_group_id", slack_user_group_id)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="addBotToGroup")
@@ -146,6 +166,18 @@ class _ScheduleSyncTargetState:
     def slack_user_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slack_user_group_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.type_token("incident:index/scheduleSyncTarget:ScheduleSyncTarget")
 class ScheduleSyncTarget(pulumi.CustomResource):
@@ -156,6 +188,7 @@ class ScheduleSyncTarget(pulumi.CustomResource):
                  add_bot_to_group: pulumi.Input[Optional[_builtins.bool]] = None,
                  new_slack_user_group: pulumi.Input[Optional[Union['ScheduleSyncTargetNewSlackUserGroupArgs', 'ScheduleSyncTargetNewSlackUserGroupArgsDict']]] = None,
                  slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manage schedule sync targets (Slack user groups that schedules can sync to).
@@ -186,6 +219,7 @@ class ScheduleSyncTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] add_bot_to_group: Whether the incident.io bot should be added to the group as a member. This is needed for some Slack configurations to let us manage the group's membership.
         :param pulumi.Input[Union['ScheduleSyncTargetNewSlackUserGroupArgs', 'ScheduleSyncTargetNewSlackUserGroupArgsDict']] new_slack_user_group: Configuration for creating a new Slack user group. Mutually exclusive with `slack_user_group_id`.
         :param pulumi.Input[_builtins.str] slack_user_group_id: Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -235,6 +269,7 @@ class ScheduleSyncTarget(pulumi.CustomResource):
                  add_bot_to_group: pulumi.Input[Optional[_builtins.bool]] = None,
                  new_slack_user_group: pulumi.Input[Optional[Union['ScheduleSyncTargetNewSlackUserGroupArgs', 'ScheduleSyncTargetNewSlackUserGroupArgsDict']]] = None,
                  slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,6 +284,7 @@ class ScheduleSyncTarget(pulumi.CustomResource):
             __props__.__dict__["add_bot_to_group"] = add_bot_to_group
             __props__.__dict__["new_slack_user_group"] = new_slack_user_group
             __props__.__dict__["slack_user_group_id"] = slack_user_group_id
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["slack_team_id"] = None
         super(ScheduleSyncTarget, __self__).__init__(
             'incident:index/scheduleSyncTarget:ScheduleSyncTarget',
@@ -263,7 +299,8 @@ class ScheduleSyncTarget(pulumi.CustomResource):
             add_bot_to_group: pulumi.Input[Optional[_builtins.bool]] = None,
             new_slack_user_group: pulumi.Input[Optional[Union['ScheduleSyncTargetNewSlackUserGroupArgs', 'ScheduleSyncTargetNewSlackUserGroupArgsDict']]] = None,
             slack_team_id: pulumi.Input[Optional[_builtins.str]] = None,
-            slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScheduleSyncTarget':
+            slack_user_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ScheduleSyncTarget':
         """
         Get an existing ScheduleSyncTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -275,6 +312,7 @@ class ScheduleSyncTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['ScheduleSyncTargetNewSlackUserGroupArgs', 'ScheduleSyncTargetNewSlackUserGroupArgsDict']] new_slack_user_group: Configuration for creating a new Slack user group. Mutually exclusive with `slack_user_group_id`.
         :param pulumi.Input[_builtins.str] slack_team_id: Slack team (workspace) ID the user group lives in. On Enterprise Grid this identifies which workspace within the org the group belongs to.
         :param pulumi.Input[_builtins.str] slack_user_group_id: Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -284,6 +322,7 @@ class ScheduleSyncTarget(pulumi.CustomResource):
         __props__.__dict__["new_slack_user_group"] = new_slack_user_group
         __props__.__dict__["slack_team_id"] = slack_team_id
         __props__.__dict__["slack_user_group_id"] = slack_user_group_id
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return ScheduleSyncTarget(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -317,4 +356,12 @@ class ScheduleSyncTarget(pulumi.CustomResource):
         Slack ID of the user group whose membership is kept in sync. This is the Slack-assigned group ID (starting with 'S'), not the @-handle.
         """
         return pulumi.get(self, "slack_user_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 

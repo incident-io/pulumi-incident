@@ -32,6 +32,7 @@ class PolicyArgs:
                  post_mortem: pulumi.Input[Optional['PolicyPostMortemArgs']] = None,
                  schedule: pulumi.Input[Optional['PolicyScheduleArgs']] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional['PolicyVacationConflictArgs']] = None):
         """
         The set of arguments for constructing a Policy resource.
@@ -47,6 +48,7 @@ class PolicyArgs:
         :param pulumi.Input['PolicyPostMortemArgs'] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input['PolicyScheduleArgs'] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input['PolicyVacationConflictArgs'] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` cannot be set alongside it.
         """
         pulumi.set(__self__, "condition_groups", condition_groups)
@@ -69,6 +71,8 @@ class PolicyArgs:
             pulumi.set(__self__, "schedule", schedule)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if vacation_conflict is not None:
             pulumi.set(__self__, "vacation_conflict", vacation_conflict)
 
@@ -205,6 +209,18 @@ class PolicyArgs:
         pulumi.set(self, "status", value)
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="vacationConflict")
     def vacation_conflict(self) -> pulumi.Input[Optional['PolicyVacationConflictArgs']]:
         """
@@ -232,6 +248,7 @@ class _PolicyState:
                  post_mortem: pulumi.Input[Optional['PolicyPostMortemArgs']] = None,
                  schedule: pulumi.Input[Optional['PolicyScheduleArgs']] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional['PolicyVacationConflictArgs']] = None):
         """
         Input properties used for looking up and filtering Policy resources.
@@ -244,10 +261,11 @@ class _PolicyState:
         :param pulumi.Input['PolicyFollowUpArgs'] follow_up: Makes this a follow*up policy, stating what a follow*up must satisfy and when it falls due.
         :param pulumi.Input[_builtins.str] name: Human readable name of the policy
         :param pulumi.Input['PolicyOnCallReadinessArgs'] on_call_readiness: Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignment_rules` cannot be set alongside it.
-        :param pulumi.Input[_builtins.str] policy_type: Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `vacation_conflict`. Determined by which config block is set.
+        :param pulumi.Input[_builtins.str] policy_type: Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `shift_conflict`, `vacation_conflict`. Determined by which config block is set.
         :param pulumi.Input['PolicyPostMortemArgs'] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input['PolicyScheduleArgs'] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input['PolicyVacationConflictArgs'] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` cannot be set alongside it.
         """
         if assignment_rules is not None:
@@ -274,6 +292,8 @@ class _PolicyState:
             pulumi.set(__self__, "schedule", schedule)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if vacation_conflict is not None:
             pulumi.set(__self__, "vacation_conflict", vacation_conflict)
 
@@ -377,7 +397,7 @@ class _PolicyState:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `vacation_conflict`. Determined by which config block is set.
+        Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `shift_conflict`, `vacation_conflict`. Determined by which config block is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -422,6 +442,18 @@ class _PolicyState:
         pulumi.set(self, "status", value)
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="vacationConflict")
     def vacation_conflict(self) -> pulumi.Input[Optional['PolicyVacationConflictArgs']]:
         """
@@ -451,6 +483,7 @@ class Policy(pulumi.CustomResource):
                  post_mortem: pulumi.Input[Optional[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']]] = None,
                  schedule: pulumi.Input[Optional[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']]] = None,
                  __props__=None):
         """
@@ -732,6 +765,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` cannot be set alongside it.
         """
         ...
@@ -1032,6 +1066,7 @@ class Policy(pulumi.CustomResource):
                  post_mortem: pulumi.Input[Optional[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']]] = None,
                  schedule: pulumi.Input[Optional[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1057,6 +1092,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["post_mortem"] = post_mortem
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["vacation_conflict"] = vacation_conflict
             __props__.__dict__["policy_type"] = None
         super(Policy, __self__).__init__(
@@ -1081,6 +1117,7 @@ class Policy(pulumi.CustomResource):
             post_mortem: pulumi.Input[Optional[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']]] = None,
             schedule: pulumi.Input[Optional[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
             vacation_conflict: pulumi.Input[Optional[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
@@ -1097,10 +1134,11 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Union['PolicyFollowUpArgs', 'PolicyFollowUpArgsDict']] follow_up: Makes this a follow*up policy, stating what a follow*up must satisfy and when it falls due.
         :param pulumi.Input[_builtins.str] name: Human readable name of the policy
         :param pulumi.Input[Union['PolicyOnCallReadinessArgs', 'PolicyOnCallReadinessArgsDict']] on_call_readiness: Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignment_rules` cannot be set alongside it.
-        :param pulumi.Input[_builtins.str] policy_type: Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `vacation_conflict`. Determined by which config block is set.
+        :param pulumi.Input[_builtins.str] policy_type: Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `shift_conflict`, `vacation_conflict`. Determined by which config block is set.
         :param pulumi.Input[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` cannot be set alongside it.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1119,6 +1157,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["post_mortem"] = post_mortem
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["status"] = status
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         __props__.__dict__["vacation_conflict"] = vacation_conflict
         return Policy(resource_name, opts=opts, __props__=__props__)
 
@@ -1190,7 +1229,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="policyType")
     def policy_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `vacation_conflict`. Determined by which config block is set.
+        Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `shift_conflict`, `vacation_conflict`. Determined by which config block is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -1217,6 +1256,14 @@ class Policy(pulumi.CustomResource):
         Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 
     @_builtins.property
     @pulumi.getter(name="vacationConflict")

@@ -115,6 +115,8 @@ type LookupCatalogTypeResult struct {
 	SourceRepoUrl string `pulumi:"sourceRepoUrl"`
 	// The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
 	TypeName string `pulumi:"typeName"`
+	// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+	UnlockInDashboard bool `pulumi:"unlockInDashboard"`
 	// If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
 	UseNameAsIdentifier bool `pulumi:"useNameAsIdentifier"`
 }
@@ -191,6 +193,11 @@ func (o LookupCatalogTypeResultOutput) SourceRepoUrl() pulumi.StringOutput {
 // The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
 func (o LookupCatalogTypeResultOutput) TypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCatalogTypeResult) string { return v.TypeName }).(pulumi.StringOutput)
+}
+
+// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+func (o LookupCatalogTypeResultOutput) UnlockInDashboard() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCatalogTypeResult) bool { return v.UnlockInDashboard }).(pulumi.BoolOutput)
 }
 
 // If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.

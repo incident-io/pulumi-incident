@@ -86,6 +86,7 @@ export interface GetWorkflowResult {
     readonly state: string;
     readonly steps: outputs.GetWorkflowStep[];
     readonly trigger: string;
+    readonly unlockInDashboard: boolean;
 }
 /**
  * Use this data source to retrieve the full configuration of an existing workflow by ID.

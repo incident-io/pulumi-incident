@@ -70,6 +70,10 @@ export interface GetScheduleSyncRuleResult {
      * Which schedule members sync to the user group. Possible values are: `onCall`, `allUsers`, `nextOnCall`.
      */
     readonly syncType: string;
+    /**
+     * Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+     */
+    readonly unlockInDashboard: boolean;
 }
 /**
  * Look up an existing schedule sync rule by schedule ID and rule ID.

@@ -23,18 +23,22 @@ class IncidentTemplateArgs:
     def __init__(__self__, *,
                  expressions: pulumi.Input[Sequence[pulumi.Input['IncidentTemplateExpressionArgs']]],
                  template: pulumi.Input['IncidentTemplateTemplateArgs'],
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IncidentTemplate resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['IncidentTemplateExpressionArgs']]] expressions: The expressions to be prepared for use by steps and conditions
         :param pulumi.Input['IncidentTemplateTemplateArgs'] template: The values an incident template applies to the incidents it creates.
         :param pulumi.Input[_builtins.str] name: The name of this incident template, for the user's reference
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "expressions", expressions)
         pulumi.set(__self__, "template", template)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter
@@ -72,19 +76,33 @@ class IncidentTemplateArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.input_type
 class _IncidentTemplateState:
     def __init__(__self__, *,
                  expressions: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentTemplateExpressionArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 template: pulumi.Input[Optional['IncidentTemplateTemplateArgs']] = None):
+                 template: pulumi.Input[Optional['IncidentTemplateTemplateArgs']] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering IncidentTemplate resources.
 
         :param pulumi.Input[Sequence[pulumi.Input['IncidentTemplateExpressionArgs']]] expressions: The expressions to be prepared for use by steps and conditions
         :param pulumi.Input[_builtins.str] name: The name of this incident template, for the user's reference
         :param pulumi.Input['IncidentTemplateTemplateArgs'] template: The values an incident template applies to the incidents it creates.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if expressions is not None:
             pulumi.set(__self__, "expressions", expressions)
@@ -92,6 +110,8 @@ class _IncidentTemplateState:
             pulumi.set(__self__, "name", name)
         if template is not None:
             pulumi.set(__self__, "template", template)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter
@@ -129,6 +149,18 @@ class _IncidentTemplateState:
     def template(self, value: pulumi.Input[Optional['IncidentTemplateTemplateArgs']]):
         pulumi.set(self, "template", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.type_token("incident:index/incidentTemplate:IncidentTemplate")
 class IncidentTemplate(pulumi.CustomResource):
@@ -139,6 +171,7 @@ class IncidentTemplate(pulumi.CustomResource):
                  expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateExpressionArgs', 'IncidentTemplateExpressionArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  template: pulumi.Input[Optional[Union['IncidentTemplateTemplateArgs', 'IncidentTemplateTemplateArgsDict']]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manage incident templates: reusable sets of values applied to incidents created from alerts.
@@ -266,6 +299,7 @@ class IncidentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentTemplateExpressionArgs', 'IncidentTemplateExpressionArgsDict']]]] expressions: The expressions to be prepared for use by steps and conditions
         :param pulumi.Input[_builtins.str] name: The name of this incident template, for the user's reference
         :param pulumi.Input[Union['IncidentTemplateTemplateArgs', 'IncidentTemplateTemplateArgsDict']] template: The values an incident template applies to the incidents it creates.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -412,6 +446,7 @@ class IncidentTemplate(pulumi.CustomResource):
                  expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateExpressionArgs', 'IncidentTemplateExpressionArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  template: pulumi.Input[Optional[Union['IncidentTemplateTemplateArgs', 'IncidentTemplateTemplateArgsDict']]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -428,6 +463,7 @@ class IncidentTemplate(pulumi.CustomResource):
             if template is None and not opts.urn:
                 raise TypeError("Missing required property 'template'")
             __props__.__dict__["template"] = template
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         super(IncidentTemplate, __self__).__init__(
             'incident:index/incidentTemplate:IncidentTemplate',
             resource_name,
@@ -440,7 +476,8 @@ class IncidentTemplate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IncidentTemplateExpressionArgs', 'IncidentTemplateExpressionArgsDict']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            template: pulumi.Input[Optional[Union['IncidentTemplateTemplateArgs', 'IncidentTemplateTemplateArgsDict']]] = None) -> 'IncidentTemplate':
+            template: pulumi.Input[Optional[Union['IncidentTemplateTemplateArgs', 'IncidentTemplateTemplateArgsDict']]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None) -> 'IncidentTemplate':
         """
         Get an existing IncidentTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -451,6 +488,7 @@ class IncidentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentTemplateExpressionArgs', 'IncidentTemplateExpressionArgsDict']]]] expressions: The expressions to be prepared for use by steps and conditions
         :param pulumi.Input[_builtins.str] name: The name of this incident template, for the user's reference
         :param pulumi.Input[Union['IncidentTemplateTemplateArgs', 'IncidentTemplateTemplateArgsDict']] template: The values an incident template applies to the incidents it creates.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -459,6 +497,7 @@ class IncidentTemplate(pulumi.CustomResource):
         __props__.__dict__["expressions"] = expressions
         __props__.__dict__["name"] = name
         __props__.__dict__["template"] = template
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return IncidentTemplate(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -484,4 +523,12 @@ class IncidentTemplate(pulumi.CustomResource):
         The values an incident template applies to the incidents it creates.
         """
         return pulumi.get(self, "template")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 

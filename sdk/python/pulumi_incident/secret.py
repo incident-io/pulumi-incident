@@ -22,6 +22,7 @@ class SecretArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  value_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  value_wo_version: pulumi.Input[Optional[_builtins.int]] = None):
         """
@@ -30,6 +31,7 @@ class SecretArgs:
         :param pulumi.Input[_builtins.str] description: Optional description of what this secret is for
         :param pulumi.Input[_builtins.str] name: Human-readable name, unique within the organisation amongst unarchived secrets. At most 1024 bytes, counted in bytes rather than characters, so a name using multi-byte characters reaches the limit sooner.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The secret's plaintext value, as a [write-only attribute](https://developer.hashicorp.com/terraform/language/resources/ephemeral/write-only): it is sent to incident.io and never written to state or to a plan file. Required when creating a secret. Changing it alone has no effect, as Terraform cannot see that it changed: change `value_wo_version` to rotate the secret.
         :param pulumi.Input[_builtins.int] value_wo_version: The version of `value_wo` this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the secret to the current `value_wo`. It is your own counter, unrelated to the `version` incident.io reports.
@@ -40,6 +42,8 @@ class SecretArgs:
             pulumi.set(__self__, "name", name)
         if owning_team_ids is not None:
             pulumi.set(__self__, "owning_team_ids", owning_team_ids)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if value_wo is not None:
             pulumi.set(__self__, "value_wo", value_wo)
         if value_wo_version is not None:
@@ -82,6 +86,18 @@ class SecretArgs:
         pulumi.set(self, "owning_team_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="valueWo")
     def value_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -115,6 +131,7 @@ class _SecretState:
                  last_four_chars: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  updated_at: pulumi.Input[Optional[_builtins.str]] = None,
                  value_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -127,6 +144,7 @@ class _SecretState:
         :param pulumi.Input[_builtins.str] last_four_chars: The last four characters of the current value, for masked display. Absent when the value is four characters or shorter.
         :param pulumi.Input[_builtins.str] name: Human-readable name, unique within the organisation amongst unarchived secrets. At most 1024 bytes, counted in bytes rather than characters, so a name using multi-byte characters reaches the limit sooner.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.str] updated_at: When this secret was last changed, which includes being rotated as well as having its metadata edited.
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The secret's plaintext value, as a [write-only attribute](https://developer.hashicorp.com/terraform/language/resources/ephemeral/write-only): it is sent to incident.io and never written to state or to a plan file. Required when creating a secret. Changing it alone has no effect, as Terraform cannot see that it changed: change `value_wo_version` to rotate the secret.
@@ -143,6 +161,8 @@ class _SecretState:
             pulumi.set(__self__, "name", name)
         if owning_team_ids is not None:
             pulumi.set(__self__, "owning_team_ids", owning_team_ids)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if updated_at is not None:
             pulumi.set(__self__, "updated_at", updated_at)
         if value_wo is not None:
@@ -213,6 +233,18 @@ class _SecretState:
         pulumi.set(self, "owning_team_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -271,6 +303,7 @@ class Secret(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  value_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -411,6 +444,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Optional description of what this secret is for
         :param pulumi.Input[_builtins.str] name: Human-readable name, unique within the organisation amongst unarchived secrets. At most 1024 bytes, counted in bytes rather than characters, so a name using multi-byte characters reaches the limit sooner.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The secret's plaintext value, as a [write-only attribute](https://developer.hashicorp.com/terraform/language/resources/ephemeral/write-only): it is sent to incident.io and never written to state or to a plan file. Required when creating a secret. Changing it alone has no effect, as Terraform cannot see that it changed: change `value_wo_version` to rotate the secret.
         :param pulumi.Input[_builtins.int] value_wo_version: The version of `value_wo` this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the secret to the current `value_wo`. It is your own counter, unrelated to the `version` incident.io reports.
@@ -571,6 +605,7 @@ class Secret(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  value_wo: pulumi.Input[Optional[_builtins.str]] = None,
                  value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -585,6 +620,7 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["owning_team_ids"] = owning_team_ids
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["value_wo"] = None if value_wo is None else pulumi.Output.secret(value_wo)
             __props__.__dict__["value_wo_version"] = value_wo_version
             __props__.__dict__["created_at"] = None
@@ -608,6 +644,7 @@ class Secret(pulumi.CustomResource):
             last_four_chars: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             value_wo: pulumi.Input[Optional[_builtins.str]] = None,
             value_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
@@ -624,6 +661,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_four_chars: The last four characters of the current value, for masked display. Absent when the value is four characters or shorter.
         :param pulumi.Input[_builtins.str] name: Human-readable name, unique within the organisation amongst unarchived secrets. At most 1024 bytes, counted in bytes rather than characters, so a name using multi-byte characters reaches the limit sooner.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.str] updated_at: When this secret was last changed, which includes being rotated as well as having its metadata edited.
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                The secret's plaintext value, as a [write-only attribute](https://developer.hashicorp.com/terraform/language/resources/ephemeral/write-only): it is sent to incident.io and never written to state or to a plan file. Required when creating a secret. Changing it alone has no effect, as Terraform cannot see that it changed: change `value_wo_version` to rotate the secret.
@@ -639,6 +677,7 @@ class Secret(pulumi.CustomResource):
         __props__.__dict__["last_four_chars"] = last_four_chars
         __props__.__dict__["name"] = name
         __props__.__dict__["owning_team_ids"] = owning_team_ids
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["value_wo"] = value_wo
         __props__.__dict__["value_wo_version"] = value_wo_version
@@ -684,6 +723,14 @@ class Secret(pulumi.CustomResource):
         IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
         """
         return pulumi.get(self, "owning_team_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")

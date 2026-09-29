@@ -3408,7 +3408,8 @@ type AlertRouteEscalationConfig struct {
 	// Should we auto cancel escalations when all alerts are resolved?
 	AutoCancelEscalations bool `pulumi:"autoCancelEscalations"`
 	// Targets for escalation
-	EscalationTargets   []AlertRouteEscalationConfigEscalationTarget   `pulumi:"escalationTargets"`
+	EscalationTargets []AlertRouteEscalationConfigEscalationTarget `pulumi:"escalationTargets"`
+	// How to escalate when an alert joins a group. Applies whether or not this route groups alerts, because a team's grouping preference can group its alerts on any route.
 	WhenAlertJoinsGroup *AlertRouteEscalationConfigWhenAlertJoinsGroup `pulumi:"whenAlertJoinsGroup"`
 }
 
@@ -3427,7 +3428,8 @@ type AlertRouteEscalationConfigArgs struct {
 	// Should we auto cancel escalations when all alerts are resolved?
 	AutoCancelEscalations pulumi.BoolInput `pulumi:"autoCancelEscalations"`
 	// Targets for escalation
-	EscalationTargets   AlertRouteEscalationConfigEscalationTargetArrayInput  `pulumi:"escalationTargets"`
+	EscalationTargets AlertRouteEscalationConfigEscalationTargetArrayInput `pulumi:"escalationTargets"`
+	// How to escalate when an alert joins a group. Applies whether or not this route groups alerts, because a team's grouping preference can group its alerts on any route.
 	WhenAlertJoinsGroup AlertRouteEscalationConfigWhenAlertJoinsGroupPtrInput `pulumi:"whenAlertJoinsGroup"`
 }
 
@@ -3520,6 +3522,7 @@ func (o AlertRouteEscalationConfigOutput) EscalationTargets() AlertRouteEscalati
 	}).(AlertRouteEscalationConfigEscalationTargetArrayOutput)
 }
 
+// How to escalate when an alert joins a group. Applies whether or not this route groups alerts, because a team's grouping preference can group its alerts on any route.
 func (o AlertRouteEscalationConfigOutput) WhenAlertJoinsGroup() AlertRouteEscalationConfigWhenAlertJoinsGroupPtrOutput {
 	return o.ApplyT(func(v AlertRouteEscalationConfig) *AlertRouteEscalationConfigWhenAlertJoinsGroup {
 		return v.WhenAlertJoinsGroup
@@ -3570,6 +3573,7 @@ func (o AlertRouteEscalationConfigPtrOutput) EscalationTargets() AlertRouteEscal
 	}).(AlertRouteEscalationConfigEscalationTargetArrayOutput)
 }
 
+// How to escalate when an alert joins a group. Applies whether or not this route groups alerts, because a team's grouping preference can group its alerts on any route.
 func (o AlertRouteEscalationConfigPtrOutput) WhenAlertJoinsGroup() AlertRouteEscalationConfigWhenAlertJoinsGroupPtrOutput {
 	return o.ApplyT(func(v *AlertRouteEscalationConfig) *AlertRouteEscalationConfigWhenAlertJoinsGroup {
 		if v == nil {

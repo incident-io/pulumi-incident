@@ -75,9 +75,11 @@ type AlertSourceBeta struct {
 	RateLimitSharding AlertSourceBetaRateLimitShardingPtrOutput `pulumi:"rateLimitSharding"`
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
 	SecretToken pulumi.StringOutput `pulumi:"secretToken"`
-	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
 	SourceType pulumi.StringOutput           `pulumi:"sourceType"`
 	Title      AlertSourceBetaTitlePtrOutput `pulumi:"title"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
 	// The source's current version, which increments on every write. Pass it back as expectedVersion to reject a write built from a stale read.
 	Version        pulumi.IntOutput                       `pulumi:"version"`
 	VisibleToTeams AlertSourceBetaVisibleToTeamsPtrOutput `pulumi:"visibleToTeams"`
@@ -152,9 +154,11 @@ type alertSourceBetaState struct {
 	RateLimitSharding *AlertSourceBetaRateLimitSharding `pulumi:"rateLimitSharding"`
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
 	SecretToken *string `pulumi:"secretToken"`
-	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
 	SourceType *string               `pulumi:"sourceType"`
 	Title      *AlertSourceBetaTitle `pulumi:"title"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 	// The source's current version, which increments on every write. Pass it back as expectedVersion to reject a write built from a stale read.
 	Version        *int                           `pulumi:"version"`
 	VisibleToTeams *AlertSourceBetaVisibleToTeams `pulumi:"visibleToTeams"`
@@ -193,9 +197,11 @@ type AlertSourceBetaState struct {
 	RateLimitSharding AlertSourceBetaRateLimitShardingPtrInput
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
 	SecretToken pulumi.StringPtrInput
-	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
 	SourceType pulumi.StringPtrInput
 	Title      AlertSourceBetaTitlePtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 	// The source's current version, which increments on every write. Pass it back as expectedVersion to reject a write built from a stale read.
 	Version        pulumi.IntPtrInput
 	VisibleToTeams AlertSourceBetaVisibleToTeamsPtrInput
@@ -232,10 +238,12 @@ type alertSourceBetaArgs struct {
 	Priority      *AlertSourceBetaPriority `pulumi:"priority"`
 	// Controls how this source's ingest rate limit is split into buckets.
 	RateLimitSharding *AlertSourceBetaRateLimitSharding `pulumi:"rateLimitSharding"`
-	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
-	SourceType     string                         `pulumi:"sourceType"`
-	Title          *AlertSourceBetaTitle          `pulumi:"title"`
-	VisibleToTeams *AlertSourceBetaVisibleToTeams `pulumi:"visibleToTeams"`
+	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+	SourceType string                `pulumi:"sourceType"`
+	Title      *AlertSourceBetaTitle `pulumi:"title"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool                          `pulumi:"unlockInDashboard"`
+	VisibleToTeams    *AlertSourceBetaVisibleToTeams `pulumi:"visibleToTeams"`
 }
 
 // The set of arguments for constructing a AlertSourceBeta resource.
@@ -266,10 +274,12 @@ type AlertSourceBetaArgs struct {
 	Priority      AlertSourceBetaPriorityPtrInput
 	// Controls how this source's ingest rate limit is split into buckets.
 	RateLimitSharding AlertSourceBetaRateLimitShardingPtrInput
-	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
-	SourceType     pulumi.StringInput
-	Title          AlertSourceBetaTitlePtrInput
-	VisibleToTeams AlertSourceBetaVisibleToTeamsPtrInput
+	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+	SourceType pulumi.StringInput
+	Title      AlertSourceBetaTitlePtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
+	VisibleToTeams    AlertSourceBetaVisibleToTeamsPtrInput
 }
 
 func (AlertSourceBetaArgs) ElementType() reflect.Type {
@@ -450,13 +460,18 @@ func (o AlertSourceBetaOutput) SecretToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) pulumi.StringOutput { return v.SecretToken }).(pulumi.StringOutput)
 }
 
-// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
 func (o AlertSourceBetaOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
 }
 
 func (o AlertSourceBetaOutput) Title() AlertSourceBetaTitlePtrOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) AlertSourceBetaTitlePtrOutput { return v.Title }).(AlertSourceBetaTitlePtrOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o AlertSourceBetaOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertSourceBeta) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
 // The source's current version, which increments on every write. Pass it back as expectedVersion to reject a write built from a stale read.

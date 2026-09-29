@@ -21,127 +21,36 @@ __all__ = ['EscalationPathArgs', 'EscalationPath']
 @pulumi.input_type
 class EscalationPathArgs:
     def __init__(__self__, *,
-                 sequences: pulumi.Input[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]],
-                 start: pulumi.Input[_builtins.str],
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 repeat_config: pulumi.Input[Optional['EscalationPathRepeatConfigArgs']] = None,
-                 team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 working_hours: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]] = None):
-        """
-        The set of arguments for constructing a EscalationPath resource.
-
-        :param pulumi.Input[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
-        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with.
-        :param pulumi.Input[_builtins.str] name: The name of this escalation path, for the user's reference.
-        :param pulumi.Input['EscalationPathRepeatConfigArgs'] repeat_config: Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
-        :param pulumi.Input[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]] working_hours: The working hours for this escalation path.
-        """
-        pulumi.set(__self__, "sequences", sequences)
-        pulumi.set(__self__, "start", start)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if repeat_config is not None:
-            pulumi.set(__self__, "repeat_config", repeat_config)
-        if team_ids is not None:
-            pulumi.set(__self__, "team_ids", team_ids)
-        if working_hours is not None:
-            pulumi.set(__self__, "working_hours", working_hours)
-
-    @_builtins.property
-    @pulumi.getter
-    def sequences(self) -> pulumi.Input[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]]:
-        """
-        Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
-        """
-        return pulumi.get(self, "sequences")
-
-    @sequences.setter
-    def sequences(self, value: pulumi.Input[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]]):
-        pulumi.set(self, "sequences", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def start(self) -> pulumi.Input[_builtins.str]:
-        """
-        The key of the sequence this escalation path begins with.
-        """
-        return pulumi.get(self, "start")
-
-    @start.setter
-    def start(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "start", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name of this escalation path, for the user's reference.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="repeatConfig")
-    def repeat_config(self) -> pulumi.Input[Optional['EscalationPathRepeatConfigArgs']]:
-        """
-        Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
-        """
-        return pulumi.get(self, "repeat_config")
-
-    @repeat_config.setter
-    def repeat_config(self, value: pulumi.Input[Optional['EscalationPathRepeatConfigArgs']]):
-        pulumi.set(self, "repeat_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="teamIds")
-    def team_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
-        """
-        return pulumi.get(self, "team_ids")
-
-    @team_ids.setter
-    def team_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "team_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workingHours")
-    def working_hours(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]]:
-        """
-        The working hours for this escalation path.
-        """
-        return pulumi.get(self, "working_hours")
-
-    @working_hours.setter
-    def working_hours(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]]):
-        pulumi.set(self, "working_hours", value)
-
-
-@pulumi.input_type
-class _EscalationPathState:
-    def __init__(__self__, *,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 param_bindings: pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]]] = None,
                  repeat_config: pulumi.Input[Optional['EscalationPathRepeatConfigArgs']] = None,
                  sequences: pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]]] = None,
                  start: pulumi.Input[Optional[_builtins.str]] = None,
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  working_hours: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]] = None):
         """
-        Input properties used for looking up and filtering EscalationPath resources.
+        The set of arguments for constructing a EscalationPath resource.
 
+        :param pulumi.Input[_builtins.str] kind: Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
         :param pulumi.Input[_builtins.str] name: The name of this escalation path, for the user's reference.
+        :param pulumi.Input[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]] param_bindings: For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `value_literal = <schedule id>`.
         :param pulumi.Input['EscalationPathRepeatConfigArgs'] repeat_config: Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
-        :param pulumi.Input[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
-        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with.
+        :param pulumi.Input[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
+        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
-        :param pulumi.Input[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]] working_hours: The working hours for this escalation path.
+        :param pulumi.Input[_builtins.str] template_id: The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `param_bindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]] working_hours: The working hours for this escalation path. Absent for a templated path, which takes them from its template.
         """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if param_bindings is not None:
+            pulumi.set(__self__, "param_bindings", param_bindings)
         if repeat_config is not None:
             pulumi.set(__self__, "repeat_config", repeat_config)
         if sequences is not None:
@@ -150,8 +59,24 @@ class _EscalationPathState:
             pulumi.set(__self__, "start", start)
         if team_ids is not None:
             pulumi.set(__self__, "team_ids", team_ids)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if working_hours is not None:
             pulumi.set(__self__, "working_hours", working_hours)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
@@ -164,6 +89,18 @@ class _EscalationPathState:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]]]:
+        """
+        For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `value_literal = <schedule id>`.
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @param_bindings.setter
+    def param_bindings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]]]):
+        pulumi.set(self, "param_bindings", value)
 
     @_builtins.property
     @pulumi.getter(name="repeatConfig")
@@ -181,7 +118,7 @@ class _EscalationPathState:
     @pulumi.getter
     def sequences(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]]]:
         """
-        Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+        Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
         """
         return pulumi.get(self, "sequences")
 
@@ -193,7 +130,7 @@ class _EscalationPathState:
     @pulumi.getter
     def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The key of the sequence this escalation path begins with.
+        The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
         """
         return pulumi.get(self, "start")
 
@@ -214,10 +151,203 @@ class _EscalationPathState:
         pulumi.set(self, "team_ids", value)
 
     @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `param_bindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "template_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="workingHours")
     def working_hours(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]]:
         """
-        The working hours for this escalation path.
+        The working hours for this escalation path. Absent for a templated path, which takes them from its template.
+        """
+        return pulumi.get(self, "working_hours")
+
+    @working_hours.setter
+    def working_hours(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]]):
+        pulumi.set(self, "working_hours", value)
+
+
+@pulumi.input_type
+class _EscalationPathState:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 param_bindings: pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]]] = None,
+                 repeat_config: pulumi.Input[Optional['EscalationPathRepeatConfigArgs']] = None,
+                 sequences: pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]]] = None,
+                 start: pulumi.Input[Optional[_builtins.str]] = None,
+                 team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 working_hours: pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering EscalationPath resources.
+
+        :param pulumi.Input[_builtins.str] kind: Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+        :param pulumi.Input[_builtins.str] name: The name of this escalation path, for the user's reference.
+        :param pulumi.Input[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]] param_bindings: For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `value_literal = <schedule id>`.
+        :param pulumi.Input['EscalationPathRepeatConfigArgs'] repeat_config: Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
+        :param pulumi.Input[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
+        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
+        :param pulumi.Input[_builtins.str] template_id: The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `param_bindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        :param pulumi.Input[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]] working_hours: The working hours for this escalation path. Absent for a templated path, which takes them from its template.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if param_bindings is not None:
+            pulumi.set(__self__, "param_bindings", param_bindings)
+        if repeat_config is not None:
+            pulumi.set(__self__, "repeat_config", repeat_config)
+        if sequences is not None:
+            pulumi.set(__self__, "sequences", sequences)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if team_ids is not None:
+            pulumi.set(__self__, "team_ids", team_ids)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
+        if working_hours is not None:
+            pulumi.set(__self__, "working_hours", working_hours)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of this escalation path, for the user's reference.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]]]:
+        """
+        For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `value_literal = <schedule id>`.
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @param_bindings.setter
+    def param_bindings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathParamBindingsArgs']]]]):
+        pulumi.set(self, "param_bindings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repeatConfig")
+    def repeat_config(self) -> pulumi.Input[Optional['EscalationPathRepeatConfigArgs']]:
+        """
+        Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
+        """
+        return pulumi.get(self, "repeat_config")
+
+    @repeat_config.setter
+    def repeat_config(self, value: pulumi.Input[Optional['EscalationPathRepeatConfigArgs']]):
+        pulumi.set(self, "repeat_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sequences(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]]]:
+        """
+        Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
+        """
+        return pulumi.get(self, "sequences")
+
+    @sequences.setter
+    def sequences(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EscalationPathSequencesArgs']]]]):
+        pulumi.set(self, "sequences", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def start(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start", value)
+
+    @_builtins.property
+    @pulumi.getter(name="teamIds")
+    def team_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
+        """
+        return pulumi.get(self, "team_ids")
+
+    @team_ids.setter
+    def team_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "team_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `param_bindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "template_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workingHours")
+    def working_hours(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EscalationPathWorkingHourArgs']]]]:
+        """
+        The working hours for this escalation path. Absent for a templated path, which takes them from its template.
         """
         return pulumi.get(self, "working_hours")
 
@@ -232,11 +362,15 @@ class EscalationPath(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 param_bindings: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EscalationPathParamBindingsArgs', 'EscalationPathParamBindingsArgsDict']]]]] = None,
                  repeat_config: pulumi.Input[Optional[Union['EscalationPathRepeatConfigArgs', 'EscalationPathRepeatConfigArgsDict']]] = None,
                  sequences: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EscalationPathSequencesArgs', 'EscalationPathSequencesArgsDict']]]]] = None,
                  start: pulumi.Input[Optional[_builtins.str]] = None,
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  working_hours: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPathWorkingHourArgs', 'EscalationPathWorkingHourArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -378,18 +512,22 @@ class EscalationPath(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] kind: Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
         :param pulumi.Input[_builtins.str] name: The name of this escalation path, for the user's reference.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EscalationPathParamBindingsArgs', 'EscalationPathParamBindingsArgsDict']]]] param_bindings: For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `value_literal = <schedule id>`.
         :param pulumi.Input[Union['EscalationPathRepeatConfigArgs', 'EscalationPathRepeatConfigArgsDict']] repeat_config: Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EscalationPathSequencesArgs', 'EscalationPathSequencesArgsDict']]]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
-        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EscalationPathSequencesArgs', 'EscalationPathSequencesArgsDict']]]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
+        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPathWorkingHourArgs', 'EscalationPathWorkingHourArgsDict']]]] working_hours: The working hours for this escalation path.
+        :param pulumi.Input[_builtins.str] template_id: The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `param_bindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPathWorkingHourArgs', 'EscalationPathWorkingHourArgsDict']]]] working_hours: The working hours for this escalation path. Absent for a templated path, which takes them from its template.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EscalationPathArgs,
+                 args: Optional[EscalationPathArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create and manage escalation paths, written as a flat map of named node sequences.
@@ -543,11 +681,15 @@ class EscalationPath(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 param_bindings: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EscalationPathParamBindingsArgs', 'EscalationPathParamBindingsArgsDict']]]]] = None,
                  repeat_config: pulumi.Input[Optional[Union['EscalationPathRepeatConfigArgs', 'EscalationPathRepeatConfigArgsDict']]] = None,
                  sequences: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EscalationPathSequencesArgs', 'EscalationPathSequencesArgsDict']]]]] = None,
                  start: pulumi.Input[Optional[_builtins.str]] = None,
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 template_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  working_hours: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPathWorkingHourArgs', 'EscalationPathWorkingHourArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -558,15 +700,15 @@ class EscalationPath(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EscalationPathArgs.__new__(EscalationPathArgs)
 
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["name"] = name
+            __props__.__dict__["param_bindings"] = param_bindings
             __props__.__dict__["repeat_config"] = repeat_config
-            if sequences is None and not opts.urn:
-                raise TypeError("Missing required property 'sequences'")
             __props__.__dict__["sequences"] = sequences
-            if start is None and not opts.urn:
-                raise TypeError("Missing required property 'start'")
             __props__.__dict__["start"] = start
             __props__.__dict__["team_ids"] = team_ids
+            __props__.__dict__["template_id"] = template_id
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["working_hours"] = working_hours
         super(EscalationPath, __self__).__init__(
             'incident:index/escalationPath:EscalationPath',
@@ -578,11 +720,15 @@ class EscalationPath(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            kind: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            param_bindings: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EscalationPathParamBindingsArgs', 'EscalationPathParamBindingsArgsDict']]]]] = None,
             repeat_config: pulumi.Input[Optional[Union['EscalationPathRepeatConfigArgs', 'EscalationPathRepeatConfigArgsDict']]] = None,
             sequences: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EscalationPathSequencesArgs', 'EscalationPathSequencesArgsDict']]]]] = None,
             start: pulumi.Input[Optional[_builtins.str]] = None,
             team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            template_id: pulumi.Input[Optional[_builtins.str]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
             working_hours: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EscalationPathWorkingHourArgs', 'EscalationPathWorkingHourArgsDict']]]]] = None) -> 'EscalationPath':
         """
         Get an existing EscalationPath resource's state with the given name, id, and optional extra
@@ -591,24 +737,40 @@ class EscalationPath(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] kind: Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
         :param pulumi.Input[_builtins.str] name: The name of this escalation path, for the user's reference.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EscalationPathParamBindingsArgs', 'EscalationPathParamBindingsArgsDict']]]] param_bindings: For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `value_literal = <schedule id>`.
         :param pulumi.Input[Union['EscalationPathRepeatConfigArgs', 'EscalationPathRepeatConfigArgsDict']] repeat_config: Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EscalationPathSequencesArgs', 'EscalationPathSequencesArgsDict']]]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
-        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['EscalationPathSequencesArgs', 'EscalationPathSequencesArgsDict']]]] sequences: Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
+        :param pulumi.Input[_builtins.str] start: The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPathWorkingHourArgs', 'EscalationPathWorkingHourArgsDict']]]] working_hours: The working hours for this escalation path.
+        :param pulumi.Input[_builtins.str] template_id: The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `param_bindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EscalationPathWorkingHourArgs', 'EscalationPathWorkingHourArgsDict']]]] working_hours: The working hours for this escalation path. Absent for a templated path, which takes them from its template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _EscalationPathState.__new__(_EscalationPathState)
 
+        __props__.__dict__["kind"] = kind
         __props__.__dict__["name"] = name
+        __props__.__dict__["param_bindings"] = param_bindings
         __props__.__dict__["repeat_config"] = repeat_config
         __props__.__dict__["sequences"] = sequences
         __props__.__dict__["start"] = start
         __props__.__dict__["team_ids"] = team_ids
+        __props__.__dict__["template_id"] = template_id
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         __props__.__dict__["working_hours"] = working_hours
         return EscalationPath(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[_builtins.str]:
+        """
+        Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+        """
+        return pulumi.get(self, "kind")
 
     @_builtins.property
     @pulumi.getter
@@ -617,6 +779,14 @@ class EscalationPath(pulumi.CustomResource):
         The name of this escalation path, for the user's reference.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.EscalationPathParamBindings']]]:
+        """
+        For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `value_literal = <schedule id>`.
+        """
+        return pulumi.get(self, "param_bindings")
 
     @_builtins.property
     @pulumi.getter(name="repeatConfig")
@@ -628,17 +798,17 @@ class EscalationPath(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sequences(self) -> pulumi.Output[Mapping[str, 'outputs.EscalationPathSequences']]:
+    def sequences(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.EscalationPathSequences']]]:
         """
-        Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+        Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
         """
         return pulumi.get(self, "sequences")
 
     @_builtins.property
     @pulumi.getter
-    def start(self) -> pulumi.Output[_builtins.str]:
+    def start(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The key of the sequence this escalation path begins with.
+        The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
         """
         return pulumi.get(self, "start")
 
@@ -651,10 +821,26 @@ class EscalationPath(pulumi.CustomResource):
         return pulumi.get(self, "team_ids")
 
     @_builtins.property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `param_bindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+        """
+        return pulumi.get(self, "template_id")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @_builtins.property
     @pulumi.getter(name="workingHours")
     def working_hours(self) -> pulumi.Output[Optional[Sequence['outputs.EscalationPathWorkingHour']]]:
         """
-        The working hours for this escalation path.
+        The working hours for this escalation path. Absent for a templated path, which takes them from its template.
         """
         return pulumi.get(self, "working_hours")
 

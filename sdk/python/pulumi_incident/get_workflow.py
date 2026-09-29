@@ -27,7 +27,7 @@ class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
-    def __init__(__self__, condition_groups=None, continue_on_step_error=None, delay=None, expressions=None, folder=None, form_fields=None, id=None, include_private_escalations=None, include_private_incidents=None, name=None, once_fors=None, owning_team_ids=None, private_incident_scope=None, runs_on_incident_modes=None, runs_on_incidents=None, shortform=None, state=None, steps=None, trigger=None):
+    def __init__(__self__, condition_groups=None, continue_on_step_error=None, delay=None, expressions=None, folder=None, form_fields=None, id=None, include_private_escalations=None, include_private_incidents=None, name=None, once_fors=None, owning_team_ids=None, private_incident_scope=None, runs_on_incident_modes=None, runs_on_incidents=None, shortform=None, state=None, steps=None, trigger=None, unlock_in_dashboard=None):
         if condition_groups and not isinstance(condition_groups, list):
             raise TypeError("Expected argument 'condition_groups' to be a list")
         pulumi.set(__self__, "condition_groups", condition_groups)
@@ -85,6 +85,9 @@ class GetWorkflowResult:
         if trigger and not isinstance(trigger, str):
             raise TypeError("Expected argument 'trigger' to be a str")
         pulumi.set(__self__, "trigger", trigger)
+        if unlock_in_dashboard and not isinstance(unlock_in_dashboard, bool):
+            raise TypeError("Expected argument 'unlock_in_dashboard' to be a bool")
+        pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="conditionGroups")
@@ -203,6 +206,11 @@ class GetWorkflowResult:
     def trigger(self) -> _builtins.str:
         return pulumi.get(self, "trigger")
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> _builtins.bool:
+        return pulumi.get(self, "unlock_in_dashboard")
+
 
 class AwaitableGetWorkflowResult(GetWorkflowResult):
     # pylint: disable=using-constant-test
@@ -228,7 +236,8 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             shortform=self.shortform,
             state=self.state,
             steps=self.steps,
-            trigger=self.trigger)
+            trigger=self.trigger,
+            unlock_in_dashboard=self.unlock_in_dashboard)
 
 
 def get_workflow(id: Optional[_builtins.str] = None,
@@ -274,7 +283,8 @@ def get_workflow(id: Optional[_builtins.str] = None,
         shortform=pulumi.get(__ret__, 'shortform'),
         state=pulumi.get(__ret__, 'state'),
         steps=pulumi.get(__ret__, 'steps'),
-        trigger=pulumi.get(__ret__, 'trigger'))
+        trigger=pulumi.get(__ret__, 'trigger'),
+        unlock_in_dashboard=pulumi.get(__ret__, 'unlock_in_dashboard'))
 def get_workflow_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
@@ -317,4 +327,5 @@ def get_workflow_output(id: pulumi.Input[Optional[_builtins.str]] = None,
         shortform=pulumi.get(__response__, 'shortform'),
         state=pulumi.get(__response__, 'state'),
         steps=pulumi.get(__response__, 'steps'),
-        trigger=pulumi.get(__response__, 'trigger')))
+        trigger=pulumi.get(__response__, 'trigger'),
+        unlock_in_dashboard=pulumi.get(__response__, 'unlock_in_dashboard')))

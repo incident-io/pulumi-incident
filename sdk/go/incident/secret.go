@@ -228,6 +228,8 @@ type Secret struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
 	OwningTeamIds pulumi.StringArrayOutput `pulumi:"owningTeamIds"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
 	// When this secret was last changed, which includes being rotated as well as having its metadata edited.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -286,6 +288,8 @@ type secretState struct {
 	Name *string `pulumi:"name"`
 	// IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
 	OwningTeamIds []string `pulumi:"owningTeamIds"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 	// When this secret was last changed, which includes being rotated as well as having its metadata edited.
 	UpdatedAt *string `pulumi:"updatedAt"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -308,6 +312,8 @@ type SecretState struct {
 	Name pulumi.StringPtrInput
 	// IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
 	OwningTeamIds pulumi.StringArrayInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 	// When this secret was last changed, which includes being rotated as well as having its metadata edited.
 	UpdatedAt pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
@@ -330,6 +336,8 @@ type secretArgs struct {
 	Name *string `pulumi:"name"`
 	// IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
 	OwningTeamIds []string `pulumi:"owningTeamIds"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// The secret's plaintext value, as a [write-only attribute](https://developer.hashicorp.com/terraform/language/resources/ephemeral/write-only): it is sent to incident.io and never written to state or to a plan file. Required when creating a secret. Changing it alone has no effect, as Terraform cannot see that it changed: change `valueWoVersion` to rotate the secret.
 	ValueWo *string `pulumi:"valueWo"`
@@ -345,6 +353,8 @@ type SecretArgs struct {
 	Name pulumi.StringPtrInput
 	// IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
 	OwningTeamIds pulumi.StringArrayInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
 	// The secret's plaintext value, as a [write-only attribute](https://developer.hashicorp.com/terraform/language/resources/ephemeral/write-only): it is sent to incident.io and never written to state or to a plan file. Required when creating a secret. Changing it alone has no effect, as Terraform cannot see that it changed: change `valueWoVersion` to rotate the secret.
 	ValueWo pulumi.StringPtrInput
@@ -462,6 +472,11 @@ func (o SecretOutput) Name() pulumi.StringOutput {
 // IDs of the teams that own this secret. Empty means the secret is owned by the whole organisation.
 func (o SecretOutput) OwningTeamIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringArrayOutput { return v.OwningTeamIds }).(pulumi.StringArrayOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o SecretOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
 // When this secret was last changed, which includes being rotated as well as having its metadata edited.

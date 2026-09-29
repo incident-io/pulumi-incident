@@ -72,6 +72,10 @@ export interface GetIncidentTemplateResult {
      * The values an incident template applies to the incidents it creates.
      */
     readonly template: outputs.GetIncidentTemplateTemplate;
+    /**
+     * Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+     */
+    readonly unlockInDashboard: boolean;
 }
 /**
  * Manage incident templates: reusable sets of values applied to incidents created from alerts.

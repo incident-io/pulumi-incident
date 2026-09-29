@@ -28,7 +28,7 @@ class GetAlertSourceResult:
     """
     A collection of values returned by getAlertSource.
     """
-    def __init__(__self__, alert_events_url=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, source_type=None, title=None, version=None, visible_to_teams=None):
+    def __init__(__self__, alert_events_url=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, source_type=None, title=None, unlock_in_dashboard=None, version=None, visible_to_teams=None):
         if alert_events_url and not isinstance(alert_events_url, str):
             raise TypeError("Expected argument 'alert_events_url' to be a str")
         pulumi.set(__self__, "alert_events_url", alert_events_url)
@@ -95,6 +95,9 @@ class GetAlertSourceResult:
         if title and not isinstance(title, dict):
             raise TypeError("Expected argument 'title' to be a dict")
         pulumi.set(__self__, "title", title)
+        if unlock_in_dashboard and not isinstance(unlock_in_dashboard, bool):
+            raise TypeError("Expected argument 'unlock_in_dashboard' to be a bool")
+        pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if version and not isinstance(version, int):
             raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
@@ -248,7 +251,7 @@ class GetAlertSourceResult:
     @pulumi.getter(name="sourceType")
     def source_type(self) -> _builtins.str:
         """
-        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
         """
         return pulumi.get(self, "source_type")
 
@@ -256,6 +259,14 @@ class GetAlertSourceResult:
     @pulumi.getter
     def title(self) -> 'outputs.GetAlertSourceTitleResult':
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> _builtins.bool:
+        """
+        Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 
     @_builtins.property
     @pulumi.getter
@@ -299,6 +310,7 @@ class AwaitableGetAlertSourceResult(GetAlertSourceResult):
             secret_token=self.secret_token,
             source_type=self.source_type,
             title=self.title,
+            unlock_in_dashboard=self.unlock_in_dashboard,
             version=self.version,
             visible_to_teams=self.visible_to_teams)
 
@@ -364,6 +376,7 @@ def get_alert_source(id: Optional[_builtins.str] = None,
         secret_token=pulumi.get(__ret__, 'secret_token'),
         source_type=pulumi.get(__ret__, 'source_type'),
         title=pulumi.get(__ret__, 'title'),
+        unlock_in_dashboard=pulumi.get(__ret__, 'unlock_in_dashboard'),
         version=pulumi.get(__ret__, 'version'),
         visible_to_teams=pulumi.get(__ret__, 'visible_to_teams'))
 def get_alert_source_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -426,5 +439,6 @@ def get_alert_source_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] 
         secret_token=pulumi.get(__response__, 'secret_token'),
         source_type=pulumi.get(__response__, 'source_type'),
         title=pulumi.get(__response__, 'title'),
+        unlock_in_dashboard=pulumi.get(__response__, 'unlock_in_dashboard'),
         version=pulumi.get(__response__, 'version'),
         visible_to_teams=pulumi.get(__response__, 'visible_to_teams')))

@@ -61,8 +61,12 @@ type LookupEscalationPathBetaArgs struct {
 type LookupEscalationPathBetaResult struct {
 	// Unique identifier for this escalation path.
 	Id string `pulumi:"id"`
+	// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`.
+	Kind string `pulumi:"kind"`
 	// The name of this escalation path, for the user's reference.
 	Name string `pulumi:"name"`
+	// For a templated path, the value bound to each of the template's params, keyed by the param's name.
+	ParamBindings map[string]GetEscalationPathBetaParamBindings `pulumi:"paramBindings"`
 	// Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
 	RepeatConfig GetEscalationPathBetaRepeatConfig `pulumi:"repeatConfig"`
 	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
@@ -71,7 +75,11 @@ type LookupEscalationPathBetaResult struct {
 	Start string `pulumi:"start"`
 	// IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds []string `pulumi:"teamIds"`
-	// The working hours for this escalation path.
+	// For a templated path, the `EscalationPathTemplate` it is built from.
+	TemplateId string `pulumi:"templateId"`
+	// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+	UnlockInDashboard bool `pulumi:"unlockInDashboard"`
+	// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 	WorkingHours []GetEscalationPathBetaWorkingHour `pulumi:"workingHours"`
 }
 
@@ -112,9 +120,21 @@ func (o LookupEscalationPathBetaResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEscalationPathBetaResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`.
+func (o LookupEscalationPathBetaResultOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEscalationPathBetaResult) string { return v.Kind }).(pulumi.StringOutput)
+}
+
 // The name of this escalation path, for the user's reference.
 func (o LookupEscalationPathBetaResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEscalationPathBetaResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// For a templated path, the value bound to each of the template's params, keyed by the param's name.
+func (o LookupEscalationPathBetaResultOutput) ParamBindings() GetEscalationPathBetaParamBindingsMapOutput {
+	return o.ApplyT(func(v LookupEscalationPathBetaResult) map[string]GetEscalationPathBetaParamBindings {
+		return v.ParamBindings
+	}).(GetEscalationPathBetaParamBindingsMapOutput)
 }
 
 // Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
@@ -137,7 +157,17 @@ func (o LookupEscalationPathBetaResultOutput) TeamIds() pulumi.StringArrayOutput
 	return o.ApplyT(func(v LookupEscalationPathBetaResult) []string { return v.TeamIds }).(pulumi.StringArrayOutput)
 }
 
-// The working hours for this escalation path.
+// For a templated path, the `EscalationPathTemplate` it is built from.
+func (o LookupEscalationPathBetaResultOutput) TemplateId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEscalationPathBetaResult) string { return v.TemplateId }).(pulumi.StringOutput)
+}
+
+// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+func (o LookupEscalationPathBetaResultOutput) UnlockInDashboard() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupEscalationPathBetaResult) bool { return v.UnlockInDashboard }).(pulumi.BoolOutput)
+}
+
+// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 func (o LookupEscalationPathBetaResultOutput) WorkingHours() GetEscalationPathBetaWorkingHourArrayOutput {
 	return o.ApplyT(func(v LookupEscalationPathBetaResult) []GetEscalationPathBetaWorkingHour { return v.WorkingHours }).(GetEscalationPathBetaWorkingHourArrayOutput)
 }

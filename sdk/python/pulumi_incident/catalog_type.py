@@ -25,6 +25,7 @@ class CatalogTypeArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_name_as_identifier: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a CatalogType resource.
@@ -35,6 +36,7 @@ class CatalogTypeArgs:
         :param pulumi.Input[_builtins.str] name: Name is the human readable name of this type
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this catalog type
         :param pulumi.Input[_builtins.str] type_name: The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.bool] use_name_as_identifier: If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
         """
         pulumi.set(__self__, "description", description)
@@ -47,6 +49,8 @@ class CatalogTypeArgs:
             pulumi.set(__self__, "owning_team_ids", owning_team_ids)
         if type_name is not None:
             pulumi.set(__self__, "type_name", type_name)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if use_name_as_identifier is not None:
             pulumi.set(__self__, "use_name_as_identifier", use_name_as_identifier)
 
@@ -123,6 +127,18 @@ class CatalogTypeArgs:
         pulumi.set(self, "type_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="useNameAsIdentifier")
     def use_name_as_identifier(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -145,6 +161,7 @@ class _CatalogTypeState:
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_name_as_identifier: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering CatalogType resources.
@@ -156,6 +173,7 @@ class _CatalogTypeState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this catalog type
         :param pulumi.Input[_builtins.str] source_repo_url: The url of the external repository where this type is managed. Users will not be able to edit the catalog type (or its entries) via the UI, and will instead be provided a link to this URL.
         :param pulumi.Input[_builtins.str] type_name: The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.bool] use_name_as_identifier: If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
         """
         if attribute_type is not None:
@@ -172,6 +190,8 @@ class _CatalogTypeState:
             pulumi.set(__self__, "source_repo_url", source_repo_url)
         if type_name is not None:
             pulumi.set(__self__, "type_name", type_name)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if use_name_as_identifier is not None:
             pulumi.set(__self__, "use_name_as_identifier", use_name_as_identifier)
 
@@ -260,6 +280,18 @@ class _CatalogTypeState:
         pulumi.set(self, "type_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="useNameAsIdentifier")
     def use_name_as_identifier(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -284,6 +316,7 @@ class CatalogType(pulumi.CustomResource):
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_name_as_identifier: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -334,6 +367,7 @@ class CatalogType(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this catalog type
         :param pulumi.Input[_builtins.str] source_repo_url: The url of the external repository where this type is managed. Users will not be able to edit the catalog type (or its entries) via the UI, and will instead be provided a link to this URL.
         :param pulumi.Input[_builtins.str] type_name: The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.bool] use_name_as_identifier: If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
         """
         ...
@@ -403,6 +437,7 @@ class CatalogType(pulumi.CustomResource):
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_name_as_identifier: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -423,6 +458,7 @@ class CatalogType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_repo_url'")
             __props__.__dict__["source_repo_url"] = source_repo_url
             __props__.__dict__["type_name"] = type_name
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["use_name_as_identifier"] = use_name_as_identifier
             __props__.__dict__["attribute_type"] = None
         super(CatalogType, __self__).__init__(
@@ -442,6 +478,7 @@ class CatalogType(pulumi.CustomResource):
             owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             source_repo_url: pulumi.Input[Optional[_builtins.str]] = None,
             type_name: pulumi.Input[Optional[_builtins.str]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
             use_name_as_identifier: pulumi.Input[Optional[_builtins.bool]] = None) -> 'CatalogType':
         """
         Get an existing CatalogType resource's state with the given name, id, and optional extra
@@ -457,6 +494,7 @@ class CatalogType(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this catalog type
         :param pulumi.Input[_builtins.str] source_repo_url: The url of the external repository where this type is managed. Users will not be able to edit the catalog type (or its entries) via the UI, and will instead be provided a link to this URL.
         :param pulumi.Input[_builtins.str] type_name: The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.bool] use_name_as_identifier: If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -470,6 +508,7 @@ class CatalogType(pulumi.CustomResource):
         __props__.__dict__["owning_team_ids"] = owning_team_ids
         __props__.__dict__["source_repo_url"] = source_repo_url
         __props__.__dict__["type_name"] = type_name
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         __props__.__dict__["use_name_as_identifier"] = use_name_as_identifier
         return CatalogType(resource_name, opts=opts, __props__=__props__)
 
@@ -528,6 +567,14 @@ class CatalogType(pulumi.CustomResource):
         The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
         """
         return pulumi.get(self, "type_name")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 
     @_builtins.property
     @pulumi.getter(name="useNameAsIdentifier")

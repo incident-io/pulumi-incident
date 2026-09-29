@@ -24,7 +24,8 @@ class ScheduleBetaArgs:
                  timezone: pulumi.Input[_builtins.str],
                  holidays_public_config: pulumi.Input[Optional['ScheduleBetaHolidaysPublicConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ScheduleBeta resource.
 
@@ -32,6 +33,7 @@ class ScheduleBetaArgs:
         :param pulumi.Input['ScheduleBetaHolidaysPublicConfigArgs'] holidays_public_config: Public holidays to show on this schedule. Omit the block entirely to show none.
         :param pulumi.Input[_builtins.str] name: Human readable name for the schedule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams that own this schedule
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "timezone", timezone)
         if holidays_public_config is not None:
@@ -40,6 +42,8 @@ class ScheduleBetaArgs:
             pulumi.set(__self__, "name", name)
         if team_ids is not None:
             pulumi.set(__self__, "team_ids", team_ids)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter
@@ -89,6 +93,18 @@ class ScheduleBetaArgs:
     def team_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "team_ids", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.input_type
 class _ScheduleBetaState:
@@ -96,7 +112,8 @@ class _ScheduleBetaState:
                  holidays_public_config: pulumi.Input[Optional['ScheduleBetaHolidaysPublicConfigArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ScheduleBeta resources.
 
@@ -104,6 +121,7 @@ class _ScheduleBetaState:
         :param pulumi.Input[_builtins.str] name: Human readable name for the schedule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams that own this schedule
         :param pulumi.Input[_builtins.str] timezone: Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if holidays_public_config is not None:
             pulumi.set(__self__, "holidays_public_config", holidays_public_config)
@@ -113,6 +131,8 @@ class _ScheduleBetaState:
             pulumi.set(__self__, "team_ids", team_ids)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="holidaysPublicConfig")
@@ -162,6 +182,18 @@ class _ScheduleBetaState:
     def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.type_token("incident:index/scheduleBeta:ScheduleBeta")
 class ScheduleBeta(pulumi.CustomResource):
@@ -173,6 +205,7 @@ class ScheduleBeta(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         `ScheduleBeta` was renamed to `Schedule` in v7.0.
@@ -198,6 +231,7 @@ class ScheduleBeta(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Human readable name for the schedule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams that own this schedule
         :param pulumi.Input[_builtins.str] timezone: Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -242,6 +276,7 @@ class ScheduleBeta(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,6 +292,7 @@ class ScheduleBeta(pulumi.CustomResource):
             if timezone is None and not opts.urn:
                 raise TypeError("Missing required property 'timezone'")
             __props__.__dict__["timezone"] = timezone
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         super(ScheduleBeta, __self__).__init__(
             'incident:index/scheduleBeta:ScheduleBeta',
             resource_name,
@@ -270,7 +306,8 @@ class ScheduleBeta(pulumi.CustomResource):
             holidays_public_config: pulumi.Input[Optional[Union['ScheduleBetaHolidaysPublicConfigArgs', 'ScheduleBetaHolidaysPublicConfigArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            timezone: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScheduleBeta':
+            timezone: pulumi.Input[Optional[_builtins.str]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ScheduleBeta':
         """
         Get an existing ScheduleBeta resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -282,6 +319,7 @@ class ScheduleBeta(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Human readable name for the schedule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams that own this schedule
         :param pulumi.Input[_builtins.str] timezone: Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,6 +329,7 @@ class ScheduleBeta(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["team_ids"] = team_ids
         __props__.__dict__["timezone"] = timezone
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return ScheduleBeta(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -324,4 +363,12 @@ class ScheduleBeta(pulumi.CustomResource):
         Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
         """
         return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 

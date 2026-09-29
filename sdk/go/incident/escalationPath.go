@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/incident-io/pulumi-incident/sdk/go/incident/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -188,17 +187,25 @@ import (
 type EscalationPath struct {
 	pulumi.CustomResourceState
 
+	// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The name of this escalation path, for the user's reference.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `valueLiteral = <schedule id>`.
+	ParamBindings EscalationPathParamBindingsMapOutput `pulumi:"paramBindings"`
 	// Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
 	RepeatConfig EscalationPathRepeatConfigPtrOutput `pulumi:"repeatConfig"`
-	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
 	Sequences EscalationPathSequencesMapOutput `pulumi:"sequences"`
-	// The key of the sequence this escalation path begins with.
-	Start pulumi.StringOutput `pulumi:"start"`
+	// The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
+	Start pulumi.StringPtrOutput `pulumi:"start"`
 	// IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds pulumi.StringArrayOutput `pulumi:"teamIds"`
-	// The working hours for this escalation path.
+	// The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `paramBindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+	TemplateId pulumi.StringPtrOutput `pulumi:"templateId"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
+	// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 	WorkingHours EscalationPathWorkingHourArrayOutput `pulumi:"workingHours"`
 }
 
@@ -206,15 +213,9 @@ type EscalationPath struct {
 func NewEscalationPath(ctx *pulumi.Context,
 	name string, args *EscalationPathArgs, opts ...pulumi.ResourceOption) (*EscalationPath, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EscalationPathArgs{}
 	}
 
-	if args.Sequences == nil {
-		return nil, errors.New("invalid value for required argument 'Sequences'")
-	}
-	if args.Start == nil {
-		return nil, errors.New("invalid value for required argument 'Start'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EscalationPath
 	err := ctx.RegisterResource("incident:index/escalationPath:EscalationPath", name, args, &resource, opts...)
@@ -238,32 +239,48 @@ func GetEscalationPath(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EscalationPath resources.
 type escalationPathState struct {
+	// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+	Kind *string `pulumi:"kind"`
 	// The name of this escalation path, for the user's reference.
 	Name *string `pulumi:"name"`
+	// For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `valueLiteral = <schedule id>`.
+	ParamBindings map[string]EscalationPathParamBindings `pulumi:"paramBindings"`
 	// Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
 	RepeatConfig *EscalationPathRepeatConfig `pulumi:"repeatConfig"`
-	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
 	Sequences map[string]EscalationPathSequences `pulumi:"sequences"`
-	// The key of the sequence this escalation path begins with.
+	// The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
 	Start *string `pulumi:"start"`
 	// IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds []string `pulumi:"teamIds"`
-	// The working hours for this escalation path.
+	// The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `paramBindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+	TemplateId *string `pulumi:"templateId"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
+	// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 	WorkingHours []EscalationPathWorkingHour `pulumi:"workingHours"`
 }
 
 type EscalationPathState struct {
+	// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+	Kind pulumi.StringPtrInput
 	// The name of this escalation path, for the user's reference.
 	Name pulumi.StringPtrInput
+	// For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `valueLiteral = <schedule id>`.
+	ParamBindings EscalationPathParamBindingsMapInput
 	// Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
 	RepeatConfig EscalationPathRepeatConfigPtrInput
-	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
 	Sequences EscalationPathSequencesMapInput
-	// The key of the sequence this escalation path begins with.
+	// The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
 	Start pulumi.StringPtrInput
 	// IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds pulumi.StringArrayInput
-	// The working hours for this escalation path.
+	// The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `paramBindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+	TemplateId pulumi.StringPtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
+	// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 	WorkingHours EscalationPathWorkingHourArrayInput
 }
 
@@ -272,33 +289,49 @@ func (EscalationPathState) ElementType() reflect.Type {
 }
 
 type escalationPathArgs struct {
+	// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+	Kind *string `pulumi:"kind"`
 	// The name of this escalation path, for the user's reference.
 	Name *string `pulumi:"name"`
+	// For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `valueLiteral = <schedule id>`.
+	ParamBindings map[string]EscalationPathParamBindings `pulumi:"paramBindings"`
 	// Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
 	RepeatConfig *EscalationPathRepeatConfig `pulumi:"repeatConfig"`
-	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
 	Sequences map[string]EscalationPathSequences `pulumi:"sequences"`
-	// The key of the sequence this escalation path begins with.
-	Start string `pulumi:"start"`
+	// The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
+	Start *string `pulumi:"start"`
 	// IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds []string `pulumi:"teamIds"`
-	// The working hours for this escalation path.
+	// The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `paramBindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+	TemplateId *string `pulumi:"templateId"`
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
+	// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 	WorkingHours []EscalationPathWorkingHour `pulumi:"workingHours"`
 }
 
 // The set of arguments for constructing a EscalationPath resource.
 type EscalationPathArgs struct {
+	// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+	Kind pulumi.StringPtrInput
 	// The name of this escalation path, for the user's reference.
 	Name pulumi.StringPtrInput
+	// For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `valueLiteral = <schedule id>`.
+	ParamBindings EscalationPathParamBindingsMapInput
 	// Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
 	RepeatConfig EscalationPathRepeatConfigPtrInput
-	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+	// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
 	Sequences EscalationPathSequencesMapInput
-	// The key of the sequence this escalation path begins with.
-	Start pulumi.StringInput
+	// The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
+	Start pulumi.StringPtrInput
 	// IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
 	TeamIds pulumi.StringArrayInput
-	// The working hours for this escalation path.
+	// The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `paramBindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+	TemplateId pulumi.StringPtrInput
+	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+	UnlockInDashboard pulumi.BoolPtrInput
+	// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 	WorkingHours EscalationPathWorkingHourArrayInput
 }
 
@@ -389,9 +422,19 @@ func (o EscalationPathOutput) ToEscalationPathOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`. Leave it out for a standalone path. A path is one kind for life, so changing this replaces it.
+func (o EscalationPathOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EscalationPath) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
 // The name of this escalation path, for the user's reference.
 func (o EscalationPathOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EscalationPath) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// For a templated path, a value for each of the template's `params`, keyed by the param's `name`. Bindings are values, not references: a schedule param takes `valueLiteral = <schedule id>`.
+func (o EscalationPathOutput) ParamBindings() EscalationPathParamBindingsMapOutput {
+	return o.ApplyT(func(v *EscalationPath) EscalationPathParamBindingsMapOutput { return v.ParamBindings }).(EscalationPathParamBindingsMapOutput)
 }
 
 // Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
@@ -399,14 +442,14 @@ func (o EscalationPathOutput) RepeatConfig() EscalationPathRepeatConfigPtrOutput
 	return o.ApplyT(func(v *EscalationPath) EscalationPathRepeatConfigPtrOutput { return v.RepeatConfig }).(EscalationPathRepeatConfigPtrOutput)
 }
 
-// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key.
+// Named sequences of nodes, keyed by a name you choose. Each sequence either ends with a `branch` node or runs off the end of the escalation path. Branches reference other sequences by key. Required unless `kind` is `templated`.
 func (o EscalationPathOutput) Sequences() EscalationPathSequencesMapOutput {
 	return o.ApplyT(func(v *EscalationPath) EscalationPathSequencesMapOutput { return v.Sequences }).(EscalationPathSequencesMapOutput)
 }
 
-// The key of the sequence this escalation path begins with.
-func (o EscalationPathOutput) Start() pulumi.StringOutput {
-	return o.ApplyT(func(v *EscalationPath) pulumi.StringOutput { return v.Start }).(pulumi.StringOutput)
+// The key of the sequence this escalation path begins with. Required unless `kind` is `templated`.
+func (o EscalationPathOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EscalationPath) pulumi.StringPtrOutput { return v.Start }).(pulumi.StringPtrOutput)
 }
 
 // IDs of the teams that own this escalation path. This will automatically sync escalation paths with the right teams in Catalog. If you have an escalation paths attribute on your Teams, this attribute is required.
@@ -414,7 +457,17 @@ func (o EscalationPathOutput) TeamIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EscalationPath) pulumi.StringArrayOutput { return v.TeamIds }).(pulumi.StringArrayOutput)
 }
 
-// The working hours for this escalation path.
+// The `EscalationPathTemplate` to build this path from, required when `kind` is `templated`. A templated path takes its nodes, working hours and repeat config from the template, so set `paramBindings` in place of `start` and `sequences`. Switching to a different template is an in-place update.
+func (o EscalationPathOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EscalationPath) pulumi.StringPtrOutput { return v.TemplateId }).(pulumi.StringPtrOutput)
+}
+
+// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+func (o EscalationPathOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EscalationPath) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
+}
+
+// The working hours for this escalation path. Absent for a templated path, which takes them from its template.
 func (o EscalationPathOutput) WorkingHours() EscalationPathWorkingHourArrayOutput {
 	return o.ApplyT(func(v *EscalationPath) EscalationPathWorkingHourArrayOutput { return v.WorkingHours }).(EscalationPathWorkingHourArrayOutput)
 }

@@ -352,7 +352,7 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public readonly onCallReadiness: pulumi.Output<outputs.PolicyOnCallReadiness | undefined>;
     /**
-     * Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `vacationConflict`. Determined by which config block is set.
+     * Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`. Determined by which config block is set.
      */
     declare public /*out*/ readonly policyType: pulumi.Output<string>;
     /**
@@ -367,6 +367,10 @@ export class Policy extends pulumi.CustomResource {
      * Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
      */
     declare public readonly status: pulumi.Output<string>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
     /**
      * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
      */
@@ -397,6 +401,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["postMortem"] = state?.postMortem;
             resourceInputs["schedule"] = state?.schedule;
             resourceInputs["status"] = state?.status;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
             resourceInputs["vacationConflict"] = state?.vacationConflict;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
@@ -417,6 +422,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["postMortem"] = args?.postMortem;
             resourceInputs["schedule"] = args?.schedule;
             resourceInputs["status"] = args?.status;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
             resourceInputs["vacationConflict"] = args?.vacationConflict;
             resourceInputs["policyType"] = undefined /*out*/;
         }
@@ -462,7 +468,7 @@ export interface PolicyState {
      */
     onCallReadiness?: pulumi.Input<inputs.PolicyOnCallReadiness | undefined>;
     /**
-     * Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `vacationConflict`. Determined by which config block is set.
+     * Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`. Determined by which config block is set.
      */
     policyType?: pulumi.Input<string | undefined>;
     /**
@@ -477,6 +483,10 @@ export interface PolicyState {
      * Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
      */
@@ -531,6 +541,10 @@ export interface PolicyArgs {
      * Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
      */

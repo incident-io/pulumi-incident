@@ -35,6 +35,16 @@ export type AlertSourceBeta = import("./alertSourceBeta").AlertSourceBeta;
 export const AlertSourceBeta: typeof import("./alertSourceBeta").AlertSourceBeta = null as any;
 utilities.lazyLoad(exports, ["AlertSourceBeta"], () => require("./alertSourceBeta"));
 
+export { AnnouncementRuleArgs, AnnouncementRuleState } from "./announcementRule";
+export type AnnouncementRule = import("./announcementRule").AnnouncementRule;
+export const AnnouncementRule: typeof import("./announcementRule").AnnouncementRule = null as any;
+utilities.lazyLoad(exports, ["AnnouncementRule"], () => require("./announcementRule"));
+
+export { AnnouncementTemplateArgs, AnnouncementTemplateState } from "./announcementTemplate";
+export type AnnouncementTemplate = import("./announcementTemplate").AnnouncementTemplate;
+export const AnnouncementTemplate: typeof import("./announcementTemplate").AnnouncementTemplate = null as any;
+utilities.lazyLoad(exports, ["AnnouncementTemplate"], () => require("./announcementTemplate"));
+
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -80,6 +90,11 @@ export type EscalationPathBeta = import("./escalationPathBeta").EscalationPathBe
 export const EscalationPathBeta: typeof import("./escalationPathBeta").EscalationPathBeta = null as any;
 utilities.lazyLoad(exports, ["EscalationPathBeta"], () => require("./escalationPathBeta"));
 
+export { EscalationPathTemplateArgs, EscalationPathTemplateState } from "./escalationPathTemplate";
+export type EscalationPathTemplate = import("./escalationPathTemplate").EscalationPathTemplate;
+export const EscalationPathTemplate: typeof import("./escalationPathTemplate").EscalationPathTemplate = null as any;
+utilities.lazyLoad(exports, ["EscalationPathTemplate"], () => require("./escalationPathTemplate"));
+
 export { GetAlertAttributeArgs, GetAlertAttributeResult, GetAlertAttributeOutputArgs } from "./getAlertAttribute";
 export const getAlertAttribute: typeof import("./getAlertAttribute").getAlertAttribute = null as any;
 export const getAlertAttributeOutput: typeof import("./getAlertAttribute").getAlertAttributeOutput = null as any;
@@ -99,6 +114,16 @@ export { GetAlertSourceAttributeBetaArgs, GetAlertSourceAttributeBetaResult, Get
 export const getAlertSourceAttributeBeta: typeof import("./getAlertSourceAttributeBeta").getAlertSourceAttributeBeta = null as any;
 export const getAlertSourceAttributeBetaOutput: typeof import("./getAlertSourceAttributeBeta").getAlertSourceAttributeBetaOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertSourceAttributeBeta","getAlertSourceAttributeBetaOutput"], () => require("./getAlertSourceAttributeBeta"));
+
+export { GetAnnouncementRuleArgs, GetAnnouncementRuleResult, GetAnnouncementRuleOutputArgs } from "./getAnnouncementRule";
+export const getAnnouncementRule: typeof import("./getAnnouncementRule").getAnnouncementRule = null as any;
+export const getAnnouncementRuleOutput: typeof import("./getAnnouncementRule").getAnnouncementRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getAnnouncementRule","getAnnouncementRuleOutput"], () => require("./getAnnouncementRule"));
+
+export { GetAnnouncementTemplateArgs, GetAnnouncementTemplateResult, GetAnnouncementTemplateOutputArgs } from "./getAnnouncementTemplate";
+export const getAnnouncementTemplate: typeof import("./getAnnouncementTemplate").getAnnouncementTemplate = null as any;
+export const getAnnouncementTemplateOutput: typeof import("./getAnnouncementTemplate").getAnnouncementTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getAnnouncementTemplate","getAnnouncementTemplateOutput"], () => require("./getAnnouncementTemplate"));
 
 export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
 export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
@@ -164,6 +189,11 @@ export { GetIpAllowlistResult } from "./getIpAllowlist";
 export const getIpAllowlist: typeof import("./getIpAllowlist").getIpAllowlist = null as any;
 export const getIpAllowlistOutput: typeof import("./getIpAllowlist").getIpAllowlistOutput = null as any;
 utilities.lazyLoad(exports, ["getIpAllowlist","getIpAllowlistOutput"], () => require("./getIpAllowlist"));
+
+export { GetPayConfigArgs, GetPayConfigResult, GetPayConfigOutputArgs } from "./getPayConfig";
+export const getPayConfig: typeof import("./getPayConfig").getPayConfig = null as any;
+export const getPayConfigOutput: typeof import("./getPayConfig").getPayConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getPayConfig","getPayConfigOutput"], () => require("./getPayConfig"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
@@ -250,6 +280,11 @@ export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
 export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
 utilities.lazyLoad(exports, ["MaintenanceWindow"], () => require("./maintenanceWindow"));
 
+export { PayConfigArgs, PayConfigState } from "./payConfig";
+export type PayConfig = import("./payConfig").PayConfig;
+export const PayConfig: typeof import("./payConfig").PayConfig = null as any;
+utilities.lazyLoad(exports, ["PayConfig"], () => require("./payConfig"));
+
 export { PolicyArgs, PolicyState } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
@@ -308,6 +343,11 @@ export type Status = import("./status").Status;
 export const Status: typeof import("./status").Status = null as any;
 utilities.lazyLoad(exports, ["Status"], () => require("./status"));
 
+export { TeamGroupingPreferenceArgs, TeamGroupingPreferenceState } from "./teamGroupingPreference";
+export type TeamGroupingPreference = import("./teamGroupingPreference").TeamGroupingPreference;
+export const TeamGroupingPreference: typeof import("./teamGroupingPreference").TeamGroupingPreference = null as any;
+utilities.lazyLoad(exports, ["TeamGroupingPreference"], () => require("./teamGroupingPreference"));
+
 export { WorkflowArgs, WorkflowState } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
 export const Workflow: typeof import("./workflow").Workflow = null as any;
@@ -339,6 +379,10 @@ const _module = {
                 return new AlertSourceAttributeBeta(name, <any>undefined, { urn })
             case "incident:index/alertSourceBeta:AlertSourceBeta":
                 return new AlertSourceBeta(name, <any>undefined, { urn })
+            case "incident:index/announcementRule:AnnouncementRule":
+                return new AnnouncementRule(name, <any>undefined, { urn })
+            case "incident:index/announcementTemplate:AnnouncementTemplate":
+                return new AnnouncementTemplate(name, <any>undefined, { urn })
             case "incident:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "incident:index/catalogEntries:CatalogEntries":
@@ -357,12 +401,16 @@ const _module = {
                 return new EscalationPath(name, <any>undefined, { urn })
             case "incident:index/escalationPathBeta:EscalationPathBeta":
                 return new EscalationPathBeta(name, <any>undefined, { urn })
+            case "incident:index/escalationPathTemplate:EscalationPathTemplate":
+                return new EscalationPathTemplate(name, <any>undefined, { urn })
             case "incident:index/incidentRole:IncidentRole":
                 return new IncidentRole(name, <any>undefined, { urn })
             case "incident:index/incidentTemplate:IncidentTemplate":
                 return new IncidentTemplate(name, <any>undefined, { urn })
             case "incident:index/maintenanceWindow:MaintenanceWindow":
                 return new MaintenanceWindow(name, <any>undefined, { urn })
+            case "incident:index/payConfig:PayConfig":
+                return new PayConfig(name, <any>undefined, { urn })
             case "incident:index/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "incident:index/schedule:Schedule":
@@ -385,6 +433,8 @@ const _module = {
                 return new Severity(name, <any>undefined, { urn })
             case "incident:index/status:Status":
                 return new Status(name, <any>undefined, { urn })
+            case "incident:index/teamGroupingPreference:TeamGroupingPreference":
+                return new TeamGroupingPreference(name, <any>undefined, { urn })
             case "incident:index/workflow:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:
@@ -398,6 +448,8 @@ pulumi.runtime.registerResourceModule("incident", "index/alertSource", _module)
 pulumi.runtime.registerResourceModule("incident", "index/alertSourceAttribute", _module)
 pulumi.runtime.registerResourceModule("incident", "index/alertSourceAttributeBeta", _module)
 pulumi.runtime.registerResourceModule("incident", "index/alertSourceBeta", _module)
+pulumi.runtime.registerResourceModule("incident", "index/announcementRule", _module)
+pulumi.runtime.registerResourceModule("incident", "index/announcementTemplate", _module)
 pulumi.runtime.registerResourceModule("incident", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("incident", "index/catalogEntries", _module)
 pulumi.runtime.registerResourceModule("incident", "index/catalogEntry", _module)
@@ -407,9 +459,11 @@ pulumi.runtime.registerResourceModule("incident", "index/customField", _module)
 pulumi.runtime.registerResourceModule("incident", "index/customFieldOption", _module)
 pulumi.runtime.registerResourceModule("incident", "index/escalationPath", _module)
 pulumi.runtime.registerResourceModule("incident", "index/escalationPathBeta", _module)
+pulumi.runtime.registerResourceModule("incident", "index/escalationPathTemplate", _module)
 pulumi.runtime.registerResourceModule("incident", "index/incidentRole", _module)
 pulumi.runtime.registerResourceModule("incident", "index/incidentTemplate", _module)
 pulumi.runtime.registerResourceModule("incident", "index/maintenanceWindow", _module)
+pulumi.runtime.registerResourceModule("incident", "index/payConfig", _module)
 pulumi.runtime.registerResourceModule("incident", "index/policy", _module)
 pulumi.runtime.registerResourceModule("incident", "index/schedule", _module)
 pulumi.runtime.registerResourceModule("incident", "index/scheduleBeta", _module)
@@ -421,6 +475,7 @@ pulumi.runtime.registerResourceModule("incident", "index/scheduleSyncTarget", _m
 pulumi.runtime.registerResourceModule("incident", "index/secret", _module)
 pulumi.runtime.registerResourceModule("incident", "index/severity", _module)
 pulumi.runtime.registerResourceModule("incident", "index/status", _module)
+pulumi.runtime.registerResourceModule("incident", "index/teamGroupingPreference", _module)
 pulumi.runtime.registerResourceModule("incident", "index/workflow", _module)
 pulumi.runtime.registerResourcePackage("incident", {
     version: utilities.getVersion(),

@@ -55,9 +55,17 @@ export interface GetEscalationPathBetaResult {
      */
     readonly id: string;
     /**
+     * Whether this path carries its own nodes, or is built from an escalation path template. Possible values are: `standalone`, `templated`.
+     */
+    readonly kind: string;
+    /**
      * The name of this escalation path, for the user's reference.
      */
     readonly name: string;
+    /**
+     * For a templated path, the value bound to each of the template's params, keyed by the param's name.
+     */
+    readonly paramBindings: {[key: string]: outputs.GetEscalationPathBetaParamBindings};
     /**
      * Controls if an escalation will repeat after acknowledgement, when the alert is unresolved. When configured, it will repeat after the specified delay.
      */
@@ -75,7 +83,15 @@ export interface GetEscalationPathBetaResult {
      */
     readonly teamIds: string[];
     /**
-     * The working hours for this escalation path.
+     * For a templated path, the `incident.EscalationPathTemplate` it is built from.
+     */
+    readonly templateId: string;
+    /**
+     * Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+     */
+    readonly unlockInDashboard: boolean;
+    /**
+     * The working hours for this escalation path. Absent for a templated path, which takes them from its template.
      */
     readonly workingHours: outputs.GetEscalationPathBetaWorkingHour[];
 }

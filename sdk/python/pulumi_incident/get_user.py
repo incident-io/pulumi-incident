@@ -45,14 +45,17 @@ class GetUserResult:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[_builtins.str]:
+    def email(self) -> _builtins.str:
+        """
+        Look up the user by email address.
+        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[_builtins.str]:
+    def id(self) -> _builtins.str:
         """
-        The ID of this resource.
+        Look up the user by ID.
         """
         return pulumi.get(self, "id")
 
@@ -71,7 +74,10 @@ class GetUserResult:
 
     @_builtins.property
     @pulumi.getter(name="slackUserId")
-    def slack_user_id(self) -> Optional[_builtins.str]:
+    def slack_user_id(self) -> _builtins.str:
+        """
+        Look up the user by Slack user ID.
+        """
         return pulumi.get(self, "slack_user_id")
 
 
@@ -98,7 +104,9 @@ def get_user(email: Optional[_builtins.str] = None,
     Users all have a single base role, and can be assigned multiple custom roles. They can be managed via your Slack workspace or SAML provider.
 
 
-    :param _builtins.str id: The ID of this resource.
+    :param _builtins.str email: Look up the user by email address.
+    :param _builtins.str id: Look up the user by ID.
+    :param _builtins.str slack_user_id: Look up the user by Slack user ID.
     """
     __args__ = dict()
     __args__['email'] = email
@@ -123,7 +131,9 @@ def get_user_output(email: pulumi.Input[Optional[Optional[_builtins.str]]] = Non
     Users all have a single base role, and can be assigned multiple custom roles. They can be managed via your Slack workspace or SAML provider.
 
 
-    :param _builtins.str id: The ID of this resource.
+    :param _builtins.str email: Look up the user by email address.
+    :param _builtins.str id: Look up the user by ID.
+    :param _builtins.str slack_user_id: Look up the user by Slack user ID.
     """
     __args__ = dict()
     __args__['email'] = email

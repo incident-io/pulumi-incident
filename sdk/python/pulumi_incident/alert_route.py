@@ -34,7 +34,8 @@ class AlertRouteArgs:
                  message_config: pulumi.Input[Optional['AlertRouteMessageConfigArgs']] = None,
                  message_template: pulumi.Input[Optional['AlertRouteMessageTemplateArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AlertRoute resource.
 
@@ -49,6 +50,7 @@ class AlertRouteArgs:
         :param pulumi.Input['AlertRouteMessageTemplateArgs'] message_template: Deprecated: set the alert message template via `message_config.template` instead. See v5.41.0 in the CHANGELOG for migration guidance: https://github.com/incident-io/terraform-provider-incident/blob/master/CHANGELOG.md
         :param pulumi.Input[_builtins.str] name: The name of this alert route config, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of teams that own this alert route
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "alert_sources", alert_sources)
         pulumi.set(__self__, "condition_groups", condition_groups)
@@ -80,6 +82,8 @@ class AlertRouteArgs:
             pulumi.set(__self__, "name", name)
         if owning_team_ids is not None:
             pulumi.set(__self__, "owning_team_ids", owning_team_ids)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="alertSources")
@@ -243,6 +247,18 @@ class AlertRouteArgs:
     def owning_team_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "owning_team_ids", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.input_type
 class _AlertRouteState:
@@ -260,7 +276,8 @@ class _AlertRouteState:
                  message_config: pulumi.Input[Optional['AlertRouteMessageConfigArgs']] = None,
                  message_template: pulumi.Input[Optional['AlertRouteMessageTemplateArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AlertRoute resources.
 
@@ -275,6 +292,7 @@ class _AlertRouteState:
         :param pulumi.Input['AlertRouteMessageTemplateArgs'] message_template: Deprecated: set the alert message template via `message_config.template` instead. See v5.41.0 in the CHANGELOG for migration guidance: https://github.com/incident-io/terraform-provider-incident/blob/master/CHANGELOG.md
         :param pulumi.Input[_builtins.str] name: The name of this alert route config, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of teams that own this alert route
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if alert_sources is not None:
             pulumi.set(__self__, "alert_sources", alert_sources)
@@ -313,6 +331,8 @@ class _AlertRouteState:
             pulumi.set(__self__, "name", name)
         if owning_team_ids is not None:
             pulumi.set(__self__, "owning_team_ids", owning_team_ids)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="alertSources")
@@ -476,6 +496,18 @@ class _AlertRouteState:
     def owning_team_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "owning_team_ids", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.type_token("incident:index/alertRoute:AlertRoute")
 class AlertRoute(pulumi.CustomResource):
@@ -497,6 +529,7 @@ class AlertRoute(pulumi.CustomResource):
                  message_template: pulumi.Input[Optional[Union['AlertRouteMessageTemplateArgs', 'AlertRouteMessageTemplateArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Configure your alert routes in incident.io.
@@ -822,6 +855,7 @@ class AlertRoute(pulumi.CustomResource):
         :param pulumi.Input[Union['AlertRouteMessageTemplateArgs', 'AlertRouteMessageTemplateArgsDict']] message_template: Deprecated: set the alert message template via `message_config.template` instead. See v5.41.0 in the CHANGELOG for migration guidance: https://github.com/incident-io/terraform-provider-incident/blob/master/CHANGELOG.md
         :param pulumi.Input[_builtins.str] name: The name of this alert route config, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of teams that own this alert route
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -1169,6 +1203,7 @@ class AlertRoute(pulumi.CustomResource):
                  message_template: pulumi.Input[Optional[Union['AlertRouteMessageTemplateArgs', 'AlertRouteMessageTemplateArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1206,6 +1241,7 @@ class AlertRoute(pulumi.CustomResource):
             __props__.__dict__["message_template"] = message_template
             __props__.__dict__["name"] = name
             __props__.__dict__["owning_team_ids"] = owning_team_ids
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         super(AlertRoute, __self__).__init__(
             'incident:index/alertRoute:AlertRoute',
             resource_name,
@@ -1229,7 +1265,8 @@ class AlertRoute(pulumi.CustomResource):
             message_config: pulumi.Input[Optional[Union['AlertRouteMessageConfigArgs', 'AlertRouteMessageConfigArgsDict']]] = None,
             message_template: pulumi.Input[Optional[Union['AlertRouteMessageTemplateArgs', 'AlertRouteMessageTemplateArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'AlertRoute':
+            owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None) -> 'AlertRoute':
         """
         Get an existing AlertRoute resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1248,6 +1285,7 @@ class AlertRoute(pulumi.CustomResource):
         :param pulumi.Input[Union['AlertRouteMessageTemplateArgs', 'AlertRouteMessageTemplateArgsDict']] message_template: Deprecated: set the alert message template via `message_config.template` instead. See v5.41.0 in the CHANGELOG for migration guidance: https://github.com/incident-io/terraform-provider-incident/blob/master/CHANGELOG.md
         :param pulumi.Input[_builtins.str] name: The name of this alert route config, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of teams that own this alert route
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1267,6 +1305,7 @@ class AlertRoute(pulumi.CustomResource):
         __props__.__dict__["message_template"] = message_template
         __props__.__dict__["name"] = name
         __props__.__dict__["owning_team_ids"] = owning_team_ids
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return AlertRoute(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -1374,4 +1413,12 @@ class AlertRoute(pulumi.CustomResource):
         IDs of teams that own this alert route
         """
         return pulumi.get(self, "owning_team_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 

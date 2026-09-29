@@ -39,11 +39,12 @@ class AlertSourceArgs:
                  priority: pulumi.Input[Optional['AlertSourcePriorityArgs']] = None,
                  rate_limit_sharding: pulumi.Input[Optional['AlertSourceRateLimitShardingArgs']] = None,
                  title: pulumi.Input[Optional['AlertSourceTitleArgs']] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  visible_to_teams: pulumi.Input[Optional['AlertSourceVisibleToTeamsArgs']] = None):
         """
         The set of arguments for constructing a AlertSource resource.
 
-        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
         :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
         :param pulumi.Input[_builtins.int] auto_resolve_timeout_minutes: How long to wait before automatically resolving alerts from this source
         :param pulumi.Input[_builtins.bool] disabled: Whether monitoring is paused for this source. Only returned for source types that support being disabled.
@@ -54,6 +55,7 @@ class AlertSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AlertSourceNamedExpressionArgs']]] named_expressions: An expression this resource owns, addressed by name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this alert source
         :param pulumi.Input['AlertSourceRateLimitShardingArgs'] rate_limit_sharding: Controls how this source's ingest rate limit is split into buckets.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "source_type", source_type)
         if auto_resolve_incident_alerts is not None:
@@ -90,6 +92,8 @@ class AlertSourceArgs:
             pulumi.set(__self__, "rate_limit_sharding", rate_limit_sharding)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if visible_to_teams is not None:
             pulumi.set(__self__, "visible_to_teams", visible_to_teams)
 
@@ -97,7 +101,7 @@ class AlertSourceArgs:
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
         """
         return pulumi.get(self, "source_type")
 
@@ -289,6 +293,18 @@ class AlertSourceArgs:
         pulumi.set(self, "title", value)
 
     @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
+    @_builtins.property
     @pulumi.getter(name="visibleToTeams")
     def visible_to_teams(self) -> pulumi.Input[Optional['AlertSourceVisibleToTeamsArgs']]:
         return pulumi.get(self, "visible_to_teams")
@@ -322,6 +338,7 @@ class _AlertSourceState:
                  secret_token: pulumi.Input[Optional[_builtins.str]] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional['AlertSourceTitleArgs']] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  version: pulumi.Input[Optional[_builtins.int]] = None,
                  visible_to_teams: pulumi.Input[Optional['AlertSourceVisibleToTeamsArgs']] = None):
         """
@@ -340,7 +357,8 @@ class _AlertSourceState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this alert source
         :param pulumi.Input['AlertSourceRateLimitShardingArgs'] rate_limit_sharding: Controls how this source's ingest rate limit is split into buckets.
         :param pulumi.Input[_builtins.str] secret_token: The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
-        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.int] version: The source's current version, which increments on every write. Pass it back as expected_version to reject a write built from a stale read.
         """
         if alert_events_url is not None:
@@ -385,6 +403,8 @@ class _AlertSourceState:
             pulumi.set(__self__, "source_type", source_type)
         if title is not None:
             pulumi.set(__self__, "title", title)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
         if version is not None:
             pulumi.set(__self__, "version", version)
         if visible_to_teams is not None:
@@ -604,7 +624,7 @@ class _AlertSourceState:
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
         """
         return pulumi.get(self, "source_type")
 
@@ -620,6 +640,18 @@ class _AlertSourceState:
     @title.setter
     def title(self, value: pulumi.Input[Optional['AlertSourceTitleArgs']]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
 
     @_builtins.property
     @pulumi.getter
@@ -667,6 +699,7 @@ class AlertSource(pulumi.CustomResource):
                  rate_limit_sharding: pulumi.Input[Optional[Union['AlertSourceRateLimitShardingArgs', 'AlertSourceRateLimitShardingArgsDict']]] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[Union['AlertSourceTitleArgs', 'AlertSourceTitleArgsDict']]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  visible_to_teams: pulumi.Input[Optional[Union['AlertSourceVisibleToTeamsArgs', 'AlertSourceVisibleToTeamsArgsDict']]] = None,
                  __props__=None):
         """
@@ -791,7 +824,8 @@ class AlertSource(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertSourceNamedExpressionArgs', 'AlertSourceNamedExpressionArgsDict']]]] named_expressions: An expression this resource owns, addressed by name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this alert source
         :param pulumi.Input[Union['AlertSourceRateLimitShardingArgs', 'AlertSourceRateLimitShardingArgsDict']] rate_limit_sharding: Controls how this source's ingest rate limit is split into buckets.
-        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -942,6 +976,7 @@ class AlertSource(pulumi.CustomResource):
                  rate_limit_sharding: pulumi.Input[Optional[Union['AlertSourceRateLimitShardingArgs', 'AlertSourceRateLimitShardingArgsDict']]] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[Union['AlertSourceTitleArgs', 'AlertSourceTitleArgsDict']]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  visible_to_teams: pulumi.Input[Optional[Union['AlertSourceVisibleToTeamsArgs', 'AlertSourceVisibleToTeamsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -972,6 +1007,7 @@ class AlertSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_type'")
             __props__.__dict__["source_type"] = source_type
             __props__.__dict__["title"] = title
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["visible_to_teams"] = visible_to_teams
             __props__.__dict__["alert_events_url"] = None
             __props__.__dict__["email_address"] = None
@@ -1010,6 +1046,7 @@ class AlertSource(pulumi.CustomResource):
             secret_token: pulumi.Input[Optional[_builtins.str]] = None,
             source_type: pulumi.Input[Optional[_builtins.str]] = None,
             title: pulumi.Input[Optional[Union['AlertSourceTitleArgs', 'AlertSourceTitleArgsDict']]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None,
             visible_to_teams: pulumi.Input[Optional[Union['AlertSourceVisibleToTeamsArgs', 'AlertSourceVisibleToTeamsArgsDict']]] = None) -> 'AlertSource':
         """
@@ -1032,7 +1069,8 @@ class AlertSource(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] owning_team_ids: IDs of the teams that own this alert source
         :param pulumi.Input[Union['AlertSourceRateLimitShardingArgs', 'AlertSourceRateLimitShardingArgsDict']] rate_limit_sharding: Controls how this source's ingest rate limit is split into buckets.
         :param pulumi.Input[_builtins.str] secret_token: The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
-        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.int] version: The source's current version, which increments on every write. Pass it back as expected_version to reject a write built from a stale read.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1060,6 +1098,7 @@ class AlertSource(pulumi.CustomResource):
         __props__.__dict__["secret_token"] = secret_token
         __props__.__dict__["source_type"] = source_type
         __props__.__dict__["title"] = title
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         __props__.__dict__["version"] = version
         __props__.__dict__["visible_to_teams"] = visible_to_teams
         return AlertSource(resource_name, opts=opts, __props__=__props__)
@@ -1202,7 +1241,7 @@ class AlertSource(pulumi.CustomResource):
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+        Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `vercel`, `wiz`, `zendesk`.
         """
         return pulumi.get(self, "source_type")
 
@@ -1210,6 +1249,14 @@ class AlertSource(pulumi.CustomResource):
     @pulumi.getter
     def title(self) -> pulumi.Output[Optional['outputs.AlertSourceTitle']]:
         return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 
     @_builtins.property
     @pulumi.getter

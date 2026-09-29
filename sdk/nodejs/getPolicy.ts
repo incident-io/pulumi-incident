@@ -65,7 +65,7 @@ export interface GetPolicyResult {
      */
     readonly name: string;
     /**
-     * Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `vacationConflict`.
+     * Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`.
      */
     readonly policyType: string;
     /**

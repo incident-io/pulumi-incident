@@ -2824,6 +2824,63 @@
                     }
                 }
             },
+            "incident_announcement_rule": {
+                "current": "incident:index/announcementRule:AnnouncementRule",
+                "majorVersion": 1,
+                "fields": {
+                    "condition_groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "param_bindings": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "array_value": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "microsoft_teams_channel_ids": {
+                        "maxItemsOne": false
+                    },
+                    "owning_team_ids": {
+                        "maxItemsOne": false
+                    },
+                    "slack_channel_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "incident_announcement_template": {
+                "current": "incident:index/announcementTemplate:AnnouncementTemplate",
+                "majorVersion": 1,
+                "fields": {
+                    "actions": {
+                        "maxItemsOne": false
+                    },
+                    "fields": {
+                        "maxItemsOne": false
+                    },
+                    "owning_team_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "incident_api_key": {
                 "current": "incident:index/apiKey:ApiKey",
                 "majorVersion": 1,
@@ -2930,6 +2987,18 @@
                 "current": "incident:index/escalationPath:EscalationPath",
                 "majorVersion": 1,
                 "fields": {
+                    "param_bindings": {
+                        "elem": {
+                            "fields": {
+                                "array_value": {
+                                    "maxItemsOne": false
+                                },
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "sequences": {
                         "elem": {
                             "fields": {
@@ -2987,6 +3056,18 @@
                 "current": "incident:index/escalationPathBeta:EscalationPathBeta",
                 "majorVersion": 1,
                 "fields": {
+                    "param_bindings": {
+                        "elem": {
+                            "fields": {
+                                "array_value": {
+                                    "maxItemsOne": false
+                                },
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "sequences": {
                         "elem": {
                             "fields": {
@@ -3027,6 +3108,195 @@
                     },
                     "team_ids": {
                         "maxItemsOne": false
+                    },
+                    "working_hours": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "weekday_intervals": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "incident_escalation_path_template": {
+                "current": "incident:index/escalationPathTemplate:EscalationPathTemplate",
+                "majorVersion": 1,
+                "fields": {
+                    "expressions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "else_branch": {
+                                    "fields": {
+                                        "result": {
+                                            "fields": {
+                                                "array_value": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "values": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "operations": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "branches": {
+                                                "fields": {
+                                                    "branches": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "condition_groups": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "conditions": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "param_bindings": {
+                                                                                            "maxItemsOne": false,
+                                                                                            "elem": {
+                                                                                                "fields": {
+                                                                                                    "array_value": {
+                                                                                                        "maxItemsOne": false
+                                                                                                    },
+                                                                                                    "values": {
+                                                                                                        "maxItemsOne": false
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "result": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "filter": {
+                                                "fields": {
+                                                    "condition_groups": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "conditions": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "param_bindings": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "array_value": {
+                                                                                            "maxItemsOne": false
+                                                                                        },
+                                                                                        "values": {
+                                                                                            "maxItemsOne": false
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "sequences": {
+                        "elem": {
+                            "fields": {
+                                "nodes": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "branch": {
+                                                "fields": {
+                                                    "if": {
+                                                        "fields": {
+                                                            "priority_one_of": {
+                                                                "maxItemsOne": false
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "level": {
+                                                "fields": {
+                                                    "targets": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "binding": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "notify_channel": {
+                                                "fields": {
+                                                    "targets": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "binding": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "working_hours": {
                         "maxItemsOne": false,
@@ -3306,6 +3576,25 @@
                     },
                     "notify_channels": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "incident_pay_config": {
+                "current": "incident:index/payConfig:PayConfig",
+                "majorVersion": 1,
+                "fields": {
+                    "one_off_rules": {
+                        "maxItemsOne": false
+                    },
+                    "weekly_rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "weekdays": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -3734,6 +4023,23 @@
             "incident_status": {
                 "current": "incident:index/status:Status",
                 "majorVersion": 1
+            },
+            "incident_team_grouping_preference": {
+                "current": "incident:index/teamGroupingPreference:TeamGroupingPreference",
+                "majorVersion": 1,
+                "fields": {
+                    "default": {
+                        "fields": {
+                            "settings": {
+                                "fields": {
+                                    "grouping_keys": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "incident_workflow": {
                 "current": "incident:index/workflow:Workflow",
@@ -5736,6 +6042,63 @@
                     }
                 }
             },
+            "incident_announcement_rule": {
+                "current": "incident:index/getAnnouncementRule:getAnnouncementRule",
+                "majorVersion": 1,
+                "fields": {
+                    "condition_groups": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "conditions": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "param_bindings": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "array_value": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "microsoft_teams_channel_ids": {
+                        "maxItemsOne": false
+                    },
+                    "owning_team_ids": {
+                        "maxItemsOne": false
+                    },
+                    "slack_channel_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "incident_announcement_template": {
+                "current": "incident:index/getAnnouncementTemplate:getAnnouncementTemplate",
+                "majorVersion": 1,
+                "fields": {
+                    "actions": {
+                        "maxItemsOne": false
+                    },
+                    "fields": {
+                        "maxItemsOne": false
+                    },
+                    "owning_team_ids": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "incident_api_key": {
                 "current": "incident:index/getApiKey:getApiKey",
                 "majorVersion": 1,
@@ -5812,6 +6175,18 @@
                 "current": "incident:index/getEscalationPath:getEscalationPath",
                 "majorVersion": 1,
                 "fields": {
+                    "param_bindings": {
+                        "elem": {
+                            "fields": {
+                                "array_value": {
+                                    "maxItemsOne": false
+                                },
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "sequences": {
                         "elem": {
                             "fields": {
@@ -5869,6 +6244,18 @@
                 "current": "incident:index/getEscalationPathBeta:getEscalationPathBeta",
                 "majorVersion": 1,
                 "fields": {
+                    "param_bindings": {
+                        "elem": {
+                            "fields": {
+                                "array_value": {
+                                    "maxItemsOne": false
+                                },
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "sequences": {
                         "elem": {
                             "fields": {
@@ -6147,6 +6534,25 @@
                 "fields": {
                     "allowlist": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "incident_pay_config": {
+                "current": "incident:index/getPayConfig:getPayConfig",
+                "majorVersion": 1,
+                "fields": {
+                    "one_off_rules": {
+                        "maxItemsOne": false
+                    },
+                    "weekly_rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "weekdays": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -6460,6 +6866,8 @@
                 }
             },
             "incident_alert_source_beta": {},
+            "incident_announcement_rule": {},
+            "incident_announcement_template": {},
             "incident_api_key": {},
             "incident_catalog_entries": {
                 "fields": {
@@ -6479,9 +6887,11 @@
             "incident_custom_field_option": {},
             "incident_escalation_path": {},
             "incident_escalation_path_beta": {},
+            "incident_escalation_path_template": {},
             "incident_incident_role": {},
             "incident_incident_template": {},
             "incident_maintenance_window": {},
+            "incident_pay_config": {},
             "incident_policy": {},
             "incident_schedule": {},
             "incident_schedule_beta": {},
@@ -6493,6 +6903,7 @@
             "incident_secret": {},
             "incident_severity": {},
             "incident_status": {},
+            "incident_team_grouping_preference": {},
             "incident_workflow": {}
         }
     }

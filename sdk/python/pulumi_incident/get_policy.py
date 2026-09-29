@@ -71,7 +71,7 @@ class GetPolicyResult:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> _builtins.str:
         """
-        Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `vacation_conflict`.
+        Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `shift_conflict`, `vacation_conflict`.
         """
         return pulumi.get(self, "policy_type")
 

@@ -74,7 +74,7 @@ type LookupPolicyResult struct {
 	Id string `pulumi:"id"`
 	// Human readable name of the policy
 	Name string `pulumi:"name"`
-	// Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `vacationConflict`.
+	// Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`.
 	PolicyType string `pulumi:"policyType"`
 	// Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
 	Status string `pulumi:"status"`
@@ -127,7 +127,7 @@ func (o LookupPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `vacationConflict`.
+// Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`.
 func (o LookupPolicyResultOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.PolicyType }).(pulumi.StringOutput)
 }

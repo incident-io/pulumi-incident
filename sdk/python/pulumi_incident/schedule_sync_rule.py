@@ -23,7 +23,8 @@ class ScheduleSyncRuleArgs:
                  schedule_sync_target_id: pulumi.Input[_builtins.str],
                  sync_type: pulumi.Input[_builtins.str],
                  permanent_member_user_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 rotation_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 rotation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ScheduleSyncRule resource.
 
@@ -32,6 +33,7 @@ class ScheduleSyncRuleArgs:
         :param pulumi.Input[_builtins.str] sync_type: Which schedule members sync to the user group. Possible values are: `on_call`, `all_users`, `next_on_call`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permanent_member_user_ids: IDs of users always kept in the Slack user group, regardless of who is on call. Useful for keeping e.g. a manager in the group so they see mentions without being paged. Scoped to this rule: when several rules feed the same group, we sync the union of their permanent members.
         :param pulumi.Input[_builtins.str] rotation_id: If set, only members of this rotation sync to the user group. When unset, all rotations on the schedule are synced.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "schedule_id", schedule_id)
         pulumi.set(__self__, "schedule_sync_target_id", schedule_sync_target_id)
@@ -40,6 +42,8 @@ class ScheduleSyncRuleArgs:
             pulumi.set(__self__, "permanent_member_user_ids", permanent_member_user_ids)
         if rotation_id is not None:
             pulumi.set(__self__, "rotation_id", rotation_id)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="scheduleId")
@@ -101,6 +105,18 @@ class ScheduleSyncRuleArgs:
     def rotation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rotation_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.input_type
 class _ScheduleSyncRuleState:
@@ -109,7 +125,8 @@ class _ScheduleSyncRuleState:
                  rotation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_sync_target_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_type: pulumi.Input[Optional[_builtins.str]] = None):
+                 sync_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ScheduleSyncRule resources.
 
@@ -118,6 +135,7 @@ class _ScheduleSyncRuleState:
         :param pulumi.Input[_builtins.str] schedule_id: The schedule this rule belongs to
         :param pulumi.Input[_builtins.str] schedule_sync_target_id: The sync target ID this rule links to
         :param pulumi.Input[_builtins.str] sync_type: Which schedule members sync to the user group. Possible values are: `on_call`, `all_users`, `next_on_call`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         if permanent_member_user_ids is not None:
             pulumi.set(__self__, "permanent_member_user_ids", permanent_member_user_ids)
@@ -129,6 +147,8 @@ class _ScheduleSyncRuleState:
             pulumi.set(__self__, "schedule_sync_target_id", schedule_sync_target_id)
         if sync_type is not None:
             pulumi.set(__self__, "sync_type", sync_type)
+        if unlock_in_dashboard is not None:
+            pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter(name="permanentMemberUserIds")
@@ -190,6 +210,18 @@ class _ScheduleSyncRuleState:
     def sync_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
+    @unlock_in_dashboard.setter
+    def unlock_in_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unlock_in_dashboard", value)
+
 
 @pulumi.type_token("incident:index/scheduleSyncRule:ScheduleSyncRule")
 class ScheduleSyncRule(pulumi.CustomResource):
@@ -202,6 +234,7 @@ class ScheduleSyncRule(pulumi.CustomResource):
                  schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_sync_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manage schedule sync rules that link schedules to sync targets (Slack user groups).
@@ -262,6 +295,7 @@ class ScheduleSyncRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] schedule_id: The schedule this rule belongs to
         :param pulumi.Input[_builtins.str] schedule_sync_target_id: The sync target ID this rule links to
         :param pulumi.Input[_builtins.str] sync_type: Which schedule members sync to the user group. Possible values are: `on_call`, `all_users`, `next_on_call`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         ...
     @overload
@@ -341,6 +375,7 @@ class ScheduleSyncRule(pulumi.CustomResource):
                  schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  schedule_sync_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,6 +396,7 @@ class ScheduleSyncRule(pulumi.CustomResource):
             if sync_type is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_type'")
             __props__.__dict__["sync_type"] = sync_type
+            __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         super(ScheduleSyncRule, __self__).__init__(
             'incident:index/scheduleSyncRule:ScheduleSyncRule',
             resource_name,
@@ -375,7 +411,8 @@ class ScheduleSyncRule(pulumi.CustomResource):
             rotation_id: pulumi.Input[Optional[_builtins.str]] = None,
             schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
             schedule_sync_target_id: pulumi.Input[Optional[_builtins.str]] = None,
-            sync_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScheduleSyncRule':
+            sync_type: pulumi.Input[Optional[_builtins.str]] = None,
+            unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ScheduleSyncRule':
         """
         Get an existing ScheduleSyncRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -388,6 +425,7 @@ class ScheduleSyncRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] schedule_id: The schedule this rule belongs to
         :param pulumi.Input[_builtins.str] schedule_sync_target_id: The sync target ID this rule links to
         :param pulumi.Input[_builtins.str] sync_type: Which schedule members sync to the user group. Possible values are: `on_call`, `all_users`, `next_on_call`.
+        :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -398,6 +436,7 @@ class ScheduleSyncRule(pulumi.CustomResource):
         __props__.__dict__["schedule_id"] = schedule_id
         __props__.__dict__["schedule_sync_target_id"] = schedule_sync_target_id
         __props__.__dict__["sync_type"] = sync_type
+        __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return ScheduleSyncRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -439,4 +478,12 @@ class ScheduleSyncRule(pulumi.CustomResource):
         Which schedule members sync to the user group. Possible values are: `on_call`, `all_users`, `next_on_call`.
         """
         return pulumi.get(self, "sync_type")
+
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
 

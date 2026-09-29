@@ -583,6 +583,10 @@ export class Workflow extends pulumi.CustomResource {
      * Unique name of the trigger
      */
     declare public readonly trigger: pulumi.Output<string>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -615,6 +619,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["state"] = state?.state;
             resourceInputs["steps"] = state?.steps;
             resourceInputs["trigger"] = state?.trigger;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
             if (args?.conditionGroups === undefined && !opts.urn) {
@@ -662,6 +667,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["state"] = args?.state;
             resourceInputs["steps"] = args?.steps;
             resourceInputs["trigger"] = args?.trigger;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
@@ -746,6 +752,10 @@ export interface WorkflowState {
      * Unique name of the trigger
      */
     trigger?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -826,4 +836,8 @@ export interface WorkflowArgs {
      * Unique name of the trigger
      */
     trigger: pulumi.Input<string>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }

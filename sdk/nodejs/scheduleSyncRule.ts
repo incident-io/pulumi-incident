@@ -109,6 +109,10 @@ export class ScheduleSyncRule extends pulumi.CustomResource {
      * Which schedule members sync to the user group. Possible values are: `onCall`, `allUsers`, `nextOnCall`.
      */
     declare public readonly syncType: pulumi.Output<string>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ScheduleSyncRule resource with the given unique name, arguments, and options.
@@ -128,6 +132,7 @@ export class ScheduleSyncRule extends pulumi.CustomResource {
             resourceInputs["scheduleId"] = state?.scheduleId;
             resourceInputs["scheduleSyncTargetId"] = state?.scheduleSyncTargetId;
             resourceInputs["syncType"] = state?.syncType;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
         } else {
             const args = argsOrState as ScheduleSyncRuleArgs | undefined;
             if (args?.scheduleId === undefined && !opts.urn) {
@@ -144,6 +149,7 @@ export class ScheduleSyncRule extends pulumi.CustomResource {
             resourceInputs["scheduleId"] = args?.scheduleId;
             resourceInputs["scheduleSyncTargetId"] = args?.scheduleSyncTargetId;
             resourceInputs["syncType"] = args?.syncType;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduleSyncRule.__pulumiType, name, resourceInputs, opts);
@@ -174,6 +180,10 @@ export interface ScheduleSyncRuleState {
      * Which schedule members sync to the user group. Possible values are: `onCall`, `allUsers`, `nextOnCall`.
      */
     syncType?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -200,4 +210,8 @@ export interface ScheduleSyncRuleArgs {
      * Which schedule members sync to the user group. Possible values are: `onCall`, `allUsers`, `nextOnCall`.
      */
     syncType: pulumi.Input<string>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }

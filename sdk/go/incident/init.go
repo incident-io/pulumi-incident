@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertSourceAttributeBeta{}
 	case "incident:index/alertSourceBeta:AlertSourceBeta":
 		r = &AlertSourceBeta{}
+	case "incident:index/announcementRule:AnnouncementRule":
+		r = &AnnouncementRule{}
+	case "incident:index/announcementTemplate:AnnouncementTemplate":
+		r = &AnnouncementTemplate{}
 	case "incident:index/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "incident:index/catalogEntries:CatalogEntries":
@@ -51,12 +55,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EscalationPath{}
 	case "incident:index/escalationPathBeta:EscalationPathBeta":
 		r = &EscalationPathBeta{}
+	case "incident:index/escalationPathTemplate:EscalationPathTemplate":
+		r = &EscalationPathTemplate{}
 	case "incident:index/incidentRole:IncidentRole":
 		r = &IncidentRole{}
 	case "incident:index/incidentTemplate:IncidentTemplate":
 		r = &IncidentTemplate{}
 	case "incident:index/maintenanceWindow:MaintenanceWindow":
 		r = &MaintenanceWindow{}
+	case "incident:index/payConfig:PayConfig":
+		r = &PayConfig{}
 	case "incident:index/policy:Policy":
 		r = &Policy{}
 	case "incident:index/schedule:Schedule":
@@ -79,6 +87,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Severity{}
 	case "incident:index/status:Status":
 		r = &Status{}
+	case "incident:index/teamGroupingPreference:TeamGroupingPreference":
+		r = &TeamGroupingPreference{}
 	case "incident:index/workflow:Workflow":
 		r = &Workflow{}
 	default:
@@ -144,6 +154,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"incident",
+		"index/announcementRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/announcementTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
 		"index/apiKey",
 		&module{version},
 	)
@@ -189,6 +209,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"incident",
+		"index/escalationPathTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
 		"index/incidentRole",
 		&module{version},
 	)
@@ -200,6 +225,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"incident",
 		"index/maintenanceWindow",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/payConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -255,6 +285,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"incident",
 		"index/status",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/teamGroupingPreference",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

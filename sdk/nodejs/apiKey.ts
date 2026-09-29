@@ -195,6 +195,10 @@ export class ApiKey extends pulumi.CustomResource {
      * The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
      */
     declare public readonly tokenVersion: pulumi.Output<number | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -220,6 +224,7 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["token"] = state?.token;
             resourceInputs["tokenLastIssuedAt"] = state?.tokenLastIssuedAt;
             resourceInputs["tokenVersion"] = state?.tokenVersion;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
             resourceInputs["comments"] = args?.comments;
@@ -229,6 +234,7 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["teamIds"] = args?.teamIds;
             resourceInputs["teamRoleNames"] = args?.teamRoleNames;
             resourceInputs["tokenVersion"] = args?.tokenVersion;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUsedAt"] = undefined /*out*/;
             resourceInputs["token"] = undefined /*out*/;
@@ -291,6 +297,10 @@ export interface ApiKeyState {
      * The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
      */
     tokenVersion?: pulumi.Input<number | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -327,4 +337,8 @@ export interface ApiKeyArgs {
      * The version of the token this configuration holds. Terraform stores this number, so changing it - conventionally by incrementing it - is what asks incident.io to rotate the key. It is your own counter, and incident.io never sees it. Leave it unset to manage a key's name and roles without ever rotating it.
      */
     tokenVersion?: pulumi.Input<number | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }

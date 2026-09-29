@@ -111,6 +111,10 @@ export interface GetCatalogTypeResult {
      */
     readonly typeName: string;
     /**
+     * Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+     */
+    readonly unlockInDashboard: boolean;
+    /**
      * If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
      */
     readonly useNameAsIdentifier: boolean;

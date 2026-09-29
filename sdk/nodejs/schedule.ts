@@ -83,6 +83,10 @@ export class Schedule extends pulumi.CustomResource {
      * Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
      */
     declare public readonly timezone: pulumi.Output<string>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -101,6 +105,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["teamIds"] = state?.teamIds;
             resourceInputs["timezone"] = state?.timezone;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
             if (args?.timezone === undefined && !opts.urn) {
@@ -110,6 +115,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["teamIds"] = args?.teamIds;
             resourceInputs["timezone"] = args?.timezone;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
@@ -136,6 +142,10 @@ export interface ScheduleState {
      * Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
      */
     timezone?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -158,4 +168,8 @@ export interface ScheduleArgs {
      * Timezone the schedule's rotations are anchored to, as an IANA name. Changing this replaces the schedule: a timezone is what its rotations are anchored to, and we don't support moving an existing schedule to another one.
      */
     timezone: pulumi.Input<string>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
 }

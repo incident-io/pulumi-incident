@@ -101,6 +101,10 @@ export class CatalogType extends pulumi.CustomResource {
      */
     declare public readonly typeName: pulumi.Output<string>;
     /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
+    /**
      * If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
      */
     declare public readonly useNameAsIdentifier: pulumi.Output<boolean>;
@@ -125,6 +129,7 @@ export class CatalogType extends pulumi.CustomResource {
             resourceInputs["owningTeamIds"] = state?.owningTeamIds;
             resourceInputs["sourceRepoUrl"] = state?.sourceRepoUrl;
             resourceInputs["typeName"] = state?.typeName;
+            resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
             resourceInputs["useNameAsIdentifier"] = state?.useNameAsIdentifier;
         } else {
             const args = argsOrState as CatalogTypeArgs | undefined;
@@ -140,6 +145,7 @@ export class CatalogType extends pulumi.CustomResource {
             resourceInputs["owningTeamIds"] = args?.owningTeamIds;
             resourceInputs["sourceRepoUrl"] = args?.sourceRepoUrl;
             resourceInputs["typeName"] = args?.typeName;
+            resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
             resourceInputs["useNameAsIdentifier"] = args?.useNameAsIdentifier;
             resourceInputs["attributeType"] = undefined /*out*/;
         }
@@ -181,6 +187,10 @@ export interface CatalogTypeState {
      */
     typeName?: pulumi.Input<string | undefined>;
     /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
+    /**
      * If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
      */
     useNameAsIdentifier?: pulumi.Input<boolean | undefined>;
@@ -214,6 +224,10 @@ export interface CatalogTypeArgs {
      * The type name of this catalog type, to be used when defining attributes. This is immutable once a CatalogType has been created. For non-externally sync types, it must follow the pattern Custom["SomeName"]
      */
     typeName?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
+     */
+    unlockInDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * If enabled, you can refer to entries of this type by their name, as well as their external ID and any aliases.
      */

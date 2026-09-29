@@ -78,6 +78,8 @@ type LookupIncidentTemplateResult struct {
 	Name string `pulumi:"name"`
 	// The values an incident template applies to the incidents it creates.
 	Template GetIncidentTemplateTemplate `pulumi:"template"`
+	// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+	UnlockInDashboard bool `pulumi:"unlockInDashboard"`
 }
 
 func LookupIncidentTemplateOutput(ctx *pulumi.Context, args LookupIncidentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupIncidentTemplateResultOutput {
@@ -130,6 +132,11 @@ func (o LookupIncidentTemplateResultOutput) Name() pulumi.StringOutput {
 // The values an incident template applies to the incidents it creates.
 func (o LookupIncidentTemplateResultOutput) Template() GetIncidentTemplateTemplateOutput {
 	return o.ApplyT(func(v LookupIncidentTemplateResult) GetIncidentTemplateTemplate { return v.Template }).(GetIncidentTemplateTemplateOutput)
+}
+
+// Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+func (o LookupIncidentTemplateResultOutput) UnlockInDashboard() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupIncidentTemplateResult) bool { return v.UnlockInDashboard }).(pulumi.BoolOutput)
 }
 
 func init() {

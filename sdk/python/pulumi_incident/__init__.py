@@ -12,6 +12,8 @@ from .alert_source import *
 from .alert_source_attribute import *
 from .alert_source_attribute_beta import *
 from .alert_source_beta import *
+from .announcement_rule import *
+from .announcement_template import *
 from .api_key import *
 from .catalog_entries import *
 from .catalog_entry import *
@@ -21,10 +23,13 @@ from .custom_field import *
 from .custom_field_option import *
 from .escalation_path import *
 from .escalation_path_beta import *
+from .escalation_path_template import *
 from .get_alert_attribute import *
 from .get_alert_source import *
 from .get_alert_source_attribute import *
 from .get_alert_source_attribute_beta import *
+from .get_announcement_rule import *
+from .get_announcement_template import *
 from .get_api_key import *
 from .get_catalog_entry import *
 from .get_catalog_type import *
@@ -38,6 +43,7 @@ from .get_incident_template import *
 from .get_incident_timestamp import *
 from .get_incident_type import *
 from .get_ip_allowlist import *
+from .get_pay_config import *
 from .get_policy import *
 from .get_rich_text import *
 from .get_schedule import *
@@ -55,6 +61,7 @@ from .get_workflow import *
 from .incident_role import *
 from .incident_template import *
 from .maintenance_window import *
+from .pay_config import *
 from .policy import *
 from .provider import *
 from .schedule import *
@@ -67,6 +74,7 @@ from .schedule_sync_target import *
 from .secret import *
 from .severity import *
 from .status import *
+from .team_grouping_preference import *
 from .workflow import *
 from ._inputs import *
 from . import outputs
@@ -127,6 +135,22 @@ _utilities.register(
   "fqn": "pulumi_incident",
   "classes": {
    "incident:index/alertSourceBeta:AlertSourceBeta": "AlertSourceBeta"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/announcementRule",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/announcementRule:AnnouncementRule": "AnnouncementRule"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/announcementTemplate",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/announcementTemplate:AnnouncementTemplate": "AnnouncementTemplate"
   }
  },
  {
@@ -203,6 +227,14 @@ _utilities.register(
  },
  {
   "pkg": "incident",
+  "mod": "index/escalationPathTemplate",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/escalationPathTemplate:EscalationPathTemplate": "EscalationPathTemplate"
+  }
+ },
+ {
+  "pkg": "incident",
   "mod": "index/incidentRole",
   "fqn": "pulumi_incident",
   "classes": {
@@ -223,6 +255,14 @@ _utilities.register(
   "fqn": "pulumi_incident",
   "classes": {
    "incident:index/maintenanceWindow:MaintenanceWindow": "MaintenanceWindow"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/payConfig",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/payConfig:PayConfig": "PayConfig"
   }
  },
  {
@@ -311,6 +351,14 @@ _utilities.register(
   "fqn": "pulumi_incident",
   "classes": {
    "incident:index/status:Status": "Status"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/teamGroupingPreference",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/teamGroupingPreference:TeamGroupingPreference": "TeamGroupingPreference"
   }
  },
  {

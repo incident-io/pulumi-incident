@@ -26,7 +26,7 @@ class GetScheduleSyncRuleResult:
     """
     A collection of values returned by getScheduleSyncRule.
     """
-    def __init__(__self__, id=None, permanent_member_user_ids=None, rotation_id=None, schedule_id=None, schedule_sync_target_id=None, sync_type=None):
+    def __init__(__self__, id=None, permanent_member_user_ids=None, rotation_id=None, schedule_id=None, schedule_sync_target_id=None, sync_type=None, unlock_in_dashboard=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +45,9 @@ class GetScheduleSyncRuleResult:
         if sync_type and not isinstance(sync_type, str):
             raise TypeError("Expected argument 'sync_type' to be a str")
         pulumi.set(__self__, "sync_type", sync_type)
+        if unlock_in_dashboard and not isinstance(unlock_in_dashboard, bool):
+            raise TypeError("Expected argument 'unlock_in_dashboard' to be a bool")
+        pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
     @pulumi.getter
@@ -94,6 +97,14 @@ class GetScheduleSyncRuleResult:
         """
         return pulumi.get(self, "sync_type")
 
+    @_builtins.property
+    @pulumi.getter(name="unlockInDashboard")
+    def unlock_in_dashboard(self) -> _builtins.bool:
+        """
+        Not populated: whether Terraform claims a resource is configuration, and no read endpoint reports it.
+        """
+        return pulumi.get(self, "unlock_in_dashboard")
+
 
 class AwaitableGetScheduleSyncRuleResult(GetScheduleSyncRuleResult):
     # pylint: disable=using-constant-test
@@ -106,7 +117,8 @@ class AwaitableGetScheduleSyncRuleResult(GetScheduleSyncRuleResult):
             rotation_id=self.rotation_id,
             schedule_id=self.schedule_id,
             schedule_sync_target_id=self.schedule_sync_target_id,
-            sync_type=self.sync_type)
+            sync_type=self.sync_type,
+            unlock_in_dashboard=self.unlock_in_dashboard)
 
 
 def get_schedule_sync_rule(id: Optional[_builtins.str] = None,
@@ -142,7 +154,8 @@ def get_schedule_sync_rule(id: Optional[_builtins.str] = None,
         rotation_id=pulumi.get(__ret__, 'rotation_id'),
         schedule_id=pulumi.get(__ret__, 'schedule_id'),
         schedule_sync_target_id=pulumi.get(__ret__, 'schedule_sync_target_id'),
-        sync_type=pulumi.get(__ret__, 'sync_type'))
+        sync_type=pulumi.get(__ret__, 'sync_type'),
+        unlock_in_dashboard=pulumi.get(__ret__, 'unlock_in_dashboard'))
 def get_schedule_sync_rule_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                   schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleSyncRuleResult]:
@@ -175,4 +188,5 @@ def get_schedule_sync_rule_output(id: pulumi.Input[Optional[_builtins.str]] = No
         rotation_id=pulumi.get(__response__, 'rotation_id'),
         schedule_id=pulumi.get(__response__, 'schedule_id'),
         schedule_sync_target_id=pulumi.get(__response__, 'schedule_sync_target_id'),
-        sync_type=pulumi.get(__response__, 'sync_type')))
+        sync_type=pulumi.get(__response__, 'sync_type'),
+        unlock_in_dashboard=pulumi.get(__response__, 'unlock_in_dashboard')))

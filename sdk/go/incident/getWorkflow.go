@@ -85,6 +85,7 @@ type LookupWorkflowResult struct {
 	State                   string            `pulumi:"state"`
 	Steps                   []GetWorkflowStep `pulumi:"steps"`
 	Trigger                 string            `pulumi:"trigger"`
+	UnlockInDashboard       bool              `pulumi:"unlockInDashboard"`
 }
 
 func LookupWorkflowOutput(ctx *pulumi.Context, args LookupWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowResultOutput {
@@ -199,6 +200,10 @@ func (o LookupWorkflowResultOutput) Steps() GetWorkflowStepArrayOutput {
 
 func (o LookupWorkflowResultOutput) Trigger() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) string { return v.Trigger }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkflowResultOutput) UnlockInDashboard() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) bool { return v.UnlockInDashboard }).(pulumi.BoolOutput)
 }
 
 func init() {

@@ -26,21 +26,25 @@ func GetUser(ctx *pulumi.Context, args *GetUserArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getUser.
 type GetUserArgs struct {
+	// Look up the user by email address.
 	Email *string `pulumi:"email"`
-	// The ID of this resource.
-	Id          *string `pulumi:"id"`
+	// Look up the user by ID.
+	Id *string `pulumi:"id"`
+	// Look up the user by Slack user ID.
 	SlackUserId *string `pulumi:"slackUserId"`
 }
 
 // A collection of values returned by getUser.
 type GetUserResult struct {
-	Email *string `pulumi:"email"`
-	// The ID of this resource.
-	Id *string `pulumi:"id"`
+	// Look up the user by email address.
+	Email string `pulumi:"email"`
+	// Look up the user by ID.
+	Id string `pulumi:"id"`
 	// Whether the user is active. False if the user has been deactivated (e.g. offboarded) or is not yet active.
-	IsActive    bool    `pulumi:"isActive"`
-	Name        string  `pulumi:"name"`
-	SlackUserId *string `pulumi:"slackUserId"`
+	IsActive bool   `pulumi:"isActive"`
+	Name     string `pulumi:"name"`
+	// Look up the user by Slack user ID.
+	SlackUserId string `pulumi:"slackUserId"`
 }
 
 func GetUserOutput(ctx *pulumi.Context, args GetUserOutputArgs, opts ...pulumi.InvokeOption) GetUserResultOutput {
@@ -50,9 +54,11 @@ func GetUserOutput(ctx *pulumi.Context, args GetUserOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getUser.
 type GetUserOutputArgs struct {
+	// Look up the user by email address.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The ID of this resource.
-	Id          pulumi.StringPtrInput `pulumi:"id"`
+	// Look up the user by ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Look up the user by Slack user ID.
 	SlackUserId pulumi.StringPtrInput `pulumi:"slackUserId"`
 }
 
@@ -75,13 +81,14 @@ func (o GetUserResultOutput) ToGetUserResultOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o GetUserResultOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetUserResult) *string { return v.Email }).(pulumi.StringPtrOutput)
+// Look up the user by email address.
+func (o GetUserResultOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
-// The ID of this resource.
-func (o GetUserResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// Look up the user by ID.
+func (o GetUserResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Whether the user is active. False if the user has been deactivated (e.g. offboarded) or is not yet active.
@@ -93,8 +100,9 @@ func (o GetUserResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o GetUserResultOutput) SlackUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetUserResult) *string { return v.SlackUserId }).(pulumi.StringPtrOutput)
+// Look up the user by Slack user ID.
+func (o GetUserResultOutput) SlackUserId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserResult) string { return v.SlackUserId }).(pulumi.StringOutput)
 }
 
 func init() {
