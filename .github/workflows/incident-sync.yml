@@ -186,7 +186,16 @@ jobs:
             --repository github://api.github.com/incident-io \
             --old-commit master \
             --new-commit --local-path=provider/cmd/pulumi-resource-incident/schema.json \
-            --json > /tmp/compare.json
+            --json > /tmp/compare.json && rc=0 || rc=$?
+
+          # A failed comparison is not the same as a clean one. A truncated
+          # fetch or an HTML error page must stop the run rather than release as
+          # if nothing changed.
+          if [ "$rc" -ne 0 ] || ! python3 -c "import json,sys; json.load(open('/tmp/compare.json'))" 2>/dev/null; then
+            echo "::error::schema-tools exited $rc without producing a comparison."
+            cat /tmp/compare.json || true
+            exit 1
+          fi
 
           python3 - <<'EOF' >> "$GITHUB_OUTPUT"
           import json, os, sys
@@ -263,7 +272,10 @@ jobs:
           fi
           git commit -m "Upgrade terraform-provider-incident to ${LATEST}"
           git tag "$NEXT"
-          git push origin HEAD --tags
+          # --atomic: otherwise the tag can land while the branch push is
+          # refused, and every later run recomputes this version and dies on a
+          # tag that already exists.
+          git push --atomic origin HEAD "refs/tags/$NEXT"
 
       - name: Release
         if: steps.upstream.outputs.changed == 'true'
