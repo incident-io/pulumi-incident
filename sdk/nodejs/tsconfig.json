@@ -71,6 +71,7 @@
         "getSecret.ts",
         "getSeverity.ts",
         "getStatus.ts",
+        "getStatusPage.ts",
         "getUser.ts",
         "getWorkflow.ts",
         "incidentRole.ts",

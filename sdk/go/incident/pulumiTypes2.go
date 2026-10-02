@@ -49517,7 +49517,7 @@ type GetEscalationPathBetaSequencesNode struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it.
 	Id    string                                  `pulumi:"id"`
 	Level GetEscalationPathBetaSequencesNodeLevel `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          GetEscalationPathBetaSequencesNodeLoop          `pulumi:"loop"`
 	NotifyChannel GetEscalationPathBetaSequencesNodeNotifyChannel `pulumi:"notifyChannel"`
 }
@@ -49542,7 +49542,7 @@ type GetEscalationPathBetaSequencesNodeArgs struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it.
 	Id    pulumi.StringInput                           `pulumi:"id"`
 	Level GetEscalationPathBetaSequencesNodeLevelInput `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          GetEscalationPathBetaSequencesNodeLoopInput          `pulumi:"loop"`
 	NotifyChannel GetEscalationPathBetaSequencesNodeNotifyChannelInput `pulumi:"notifyChannel"`
 }
@@ -49623,7 +49623,7 @@ func (o GetEscalationPathBetaSequencesNodeOutput) Level() GetEscalationPathBetaS
 	return o.ApplyT(func(v GetEscalationPathBetaSequencesNode) GetEscalationPathBetaSequencesNodeLevel { return v.Level }).(GetEscalationPathBetaSequencesNodeLevelOutput)
 }
 
-// Go back to an earlier node and run from there again.
+// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 func (o GetEscalationPathBetaSequencesNodeOutput) Loop() GetEscalationPathBetaSequencesNodeLoopOutput {
 	return o.ApplyT(func(v GetEscalationPathBetaSequencesNode) GetEscalationPathBetaSequencesNodeLoop { return v.Loop }).(GetEscalationPathBetaSequencesNodeLoopOutput)
 }
@@ -51251,7 +51251,7 @@ type GetEscalationPathSequencesNode struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it.
 	Id    string                              `pulumi:"id"`
 	Level GetEscalationPathSequencesNodeLevel `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          GetEscalationPathSequencesNodeLoop          `pulumi:"loop"`
 	NotifyChannel GetEscalationPathSequencesNodeNotifyChannel `pulumi:"notifyChannel"`
 }
@@ -51276,7 +51276,7 @@ type GetEscalationPathSequencesNodeArgs struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it.
 	Id    pulumi.StringInput                       `pulumi:"id"`
 	Level GetEscalationPathSequencesNodeLevelInput `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          GetEscalationPathSequencesNodeLoopInput          `pulumi:"loop"`
 	NotifyChannel GetEscalationPathSequencesNodeNotifyChannelInput `pulumi:"notifyChannel"`
 }
@@ -51357,7 +51357,7 @@ func (o GetEscalationPathSequencesNodeOutput) Level() GetEscalationPathSequences
 	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeLevel { return v.Level }).(GetEscalationPathSequencesNodeLevelOutput)
 }
 
-// Go back to an earlier node and run from there again.
+// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 func (o GetEscalationPathSequencesNodeOutput) Loop() GetEscalationPathSequencesNodeLoopOutput {
 	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeLoop { return v.Loop }).(GetEscalationPathSequencesNodeLoopOutput)
 }

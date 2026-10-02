@@ -234,12 +234,18 @@ import * as utilities from "./utilities";
  * // An on-call readiness policy, which checks that responders have a notification
  * // method that reaches them quickly enough.
  * //
- * // It takes no assignment_rules: this type always assigns the user the finding is
- * // about, and the API picks that assignee itself.
+ * // Its assignment_rules take reminders but no bindings: this type always assigns
+ * // the user the finding is about, and the API picks that assignee itself.
  * const respondersCanBeReached = new incident.Policy("responders_can_be_reached", {
  *     name: "Responders carry a phone",
  *     description: "Anyone on call needs a notification method that reaches them quickly.",
  *     conditionGroups: [],
+ *     assignmentRules: {
+ *         reminderDueDateOffsetHours: [24],
+ *         reminderCadenceAfter: {
+ *             interval: "daily",
+ *         },
+ *     },
  *     onCallReadiness: {
  *         highUrgencies: [{
  *             methodTypes: [
@@ -266,8 +272,8 @@ import * as utilities from "./utilities";
  * // away. The type has nothing to configure, so its block is empty: it is only
  * // there to say which type this is.
  * //
- * // Like on-call readiness, it takes no assignment_rules: the API assigns the user
- * // the finding is about.
+ * // Like on-call readiness, it needs no assignment_rules: the API assigns the user
+ * // the finding is about. Add the block without bindings to set reminders.
  * const vacationConflicts = new incident.Policy("vacation_conflicts", {
  *     name: "No on-call during vacation",
  *     description: "Flag anyone scheduled on call while they are on leave.",
@@ -320,7 +326,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+     * Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
      */
     declare public readonly assignmentRules: pulumi.Output<outputs.PolicyAssignmentRules | undefined>;
     /**
@@ -348,7 +354,7 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+     * Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
      */
     declare public readonly onCallReadiness: pulumi.Output<outputs.PolicyOnCallReadiness | undefined>;
     /**
@@ -372,7 +378,7 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public readonly unlockInDashboard: pulumi.Output<boolean | undefined>;
     /**
-     * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+     * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
      */
     declare public readonly vacationConflict: pulumi.Output<outputs.PolicyVacationConflict | undefined>;
 
@@ -436,7 +442,7 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyState {
     /**
-     * Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+     * Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
      */
     assignmentRules?: pulumi.Input<inputs.PolicyAssignmentRules | undefined>;
     /**
@@ -464,7 +470,7 @@ export interface PolicyState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+     * Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
      */
     onCallReadiness?: pulumi.Input<inputs.PolicyOnCallReadiness | undefined>;
     /**
@@ -488,7 +494,7 @@ export interface PolicyState {
      */
     unlockInDashboard?: pulumi.Input<boolean | undefined>;
     /**
-     * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+     * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
      */
     vacationConflict?: pulumi.Input<inputs.PolicyVacationConflict | undefined>;
 }
@@ -498,7 +504,7 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+     * Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
      */
     assignmentRules?: pulumi.Input<inputs.PolicyAssignmentRules | undefined>;
     /**
@@ -526,7 +532,7 @@ export interface PolicyArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+     * Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
      */
     onCallReadiness?: pulumi.Input<inputs.PolicyOnCallReadiness | undefined>;
     /**
@@ -546,7 +552,7 @@ export interface PolicyArgs {
      */
     unlockInDashboard?: pulumi.Input<boolean | undefined>;
     /**
-     * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+     * Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
      */
     vacationConflict?: pulumi.Input<inputs.PolicyVacationConflict | undefined>;
 }

@@ -56,6 +56,7 @@ from .get_schedule_sync_target import *
 from .get_secret import *
 from .get_severity import *
 from .get_status import *
+from .get_status_page import *
 from .get_user import *
 from .get_workflow import *
 from .incident_role import *

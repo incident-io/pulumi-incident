@@ -255,6 +255,11 @@ export const getStatus: typeof import("./getStatus").getStatus = null as any;
 export const getStatusOutput: typeof import("./getStatus").getStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getStatus","getStatusOutput"], () => require("./getStatus"));
 
+export { GetStatusPageArgs, GetStatusPageResult, GetStatusPageOutputArgs } from "./getStatusPage";
+export const getStatusPage: typeof import("./getStatusPage").getStatusPage = null as any;
+export const getStatusPageOutput: typeof import("./getStatusPage").getStatusPageOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPage","getStatusPageOutput"], () => require("./getStatusPage"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;

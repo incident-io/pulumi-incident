@@ -6671,6 +6671,10 @@
                 "current": "incident:index/getStatus:getStatus",
                 "majorVersion": 1
             },
+            "incident_status_page": {
+                "current": "incident:index/getStatusPage:getStatusPage",
+                "majorVersion": 1
+            },
             "incident_user": {
                 "current": "incident:index/getUser:getUser",
                 "majorVersion": 1

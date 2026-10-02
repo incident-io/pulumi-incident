@@ -10244,7 +10244,7 @@ export interface EscalationPathBetaSequencesNode {
     id?: string;
     level?: outputs.EscalationPathBetaSequencesNodeLevel;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop?: outputs.EscalationPathBetaSequencesNodeLoop;
     notifyChannel?: outputs.EscalationPathBetaSequencesNodeNotifyChannel;
@@ -10535,7 +10535,7 @@ export interface EscalationPathSequencesNode {
     id?: string;
     level?: outputs.EscalationPathSequencesNodeLevel;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop?: outputs.EscalationPathSequencesNodeLoop;
     notifyChannel?: outputs.EscalationPathSequencesNodeNotifyChannel;
@@ -11161,7 +11161,7 @@ export interface EscalationPathTemplateSequencesNode {
     id?: string;
     level?: outputs.EscalationPathTemplateSequencesNodeLevel;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop?: outputs.EscalationPathTemplateSequencesNodeLoop;
     notifyChannel?: outputs.EscalationPathTemplateSequencesNodeNotifyChannel;
@@ -18051,7 +18051,7 @@ export interface GetEscalationPathBetaSequencesNode {
     id: string;
     level: outputs.GetEscalationPathBetaSequencesNodeLevel;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop: outputs.GetEscalationPathBetaSequencesNodeLoop;
     notifyChannel: outputs.GetEscalationPathBetaSequencesNodeNotifyChannel;
@@ -18330,7 +18330,7 @@ export interface GetEscalationPathSequencesNode {
     id: string;
     level: outputs.GetEscalationPathSequencesNodeLevel;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop: outputs.GetEscalationPathSequencesNodeLoop;
     notifyChannel: outputs.GetEscalationPathSequencesNodeNotifyChannel;
@@ -20743,9 +20743,9 @@ export interface PayConfigWeeklyRule {
 
 export interface PolicyAssignmentRules {
     /**
-     * Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+     * Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
      */
-    bindings: outputs.PolicyAssignmentRulesBinding[];
+    bindings?: outputs.PolicyAssignmentRulesBinding[];
     /**
      * A recurring reminder, which repeats once per interval until the finding is resolved.
      */

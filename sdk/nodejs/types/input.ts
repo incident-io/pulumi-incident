@@ -10244,7 +10244,7 @@ export interface EscalationPathBetaSequencesNode {
     id?: pulumi.Input<string | undefined>;
     level?: pulumi.Input<inputs.EscalationPathBetaSequencesNodeLevel | undefined>;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop?: pulumi.Input<inputs.EscalationPathBetaSequencesNodeLoop | undefined>;
     notifyChannel?: pulumi.Input<inputs.EscalationPathBetaSequencesNodeNotifyChannel | undefined>;
@@ -10535,7 +10535,7 @@ export interface EscalationPathSequencesNode {
     id?: pulumi.Input<string | undefined>;
     level?: pulumi.Input<inputs.EscalationPathSequencesNodeLevel | undefined>;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop?: pulumi.Input<inputs.EscalationPathSequencesNodeLoop | undefined>;
     notifyChannel?: pulumi.Input<inputs.EscalationPathSequencesNodeNotifyChannel | undefined>;
@@ -11161,7 +11161,7 @@ export interface EscalationPathTemplateSequencesNode {
     id?: pulumi.Input<string | undefined>;
     level?: pulumi.Input<inputs.EscalationPathTemplateSequencesNodeLevel | undefined>;
     /**
-     * Go back to an earlier node and run from there again.
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
      */
     loop?: pulumi.Input<inputs.EscalationPathTemplateSequencesNodeLoop | undefined>;
     notifyChannel?: pulumi.Input<inputs.EscalationPathTemplateSequencesNodeNotifyChannel | undefined>;
@@ -24681,9 +24681,9 @@ export interface PayConfigWeeklyRule {
 
 export interface PolicyAssignmentRules {
     /**
-     * Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+     * Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
      */
-    bindings: pulumi.Input<pulumi.Input<inputs.PolicyAssignmentRulesBinding>[]>;
+    bindings?: pulumi.Input<pulumi.Input<inputs.PolicyAssignmentRulesBinding>[] | undefined>;
     /**
      * A recurring reminder, which repeats once per interval until the finding is resolved.
      */

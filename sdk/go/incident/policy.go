@@ -370,12 +370,20 @@ import (
 //			// An on-call readiness policy, which checks that responders have a notification
 //			// method that reaches them quickly enough.
 //			//
-//			// It takes no assignment_rules: this type always assigns the user the finding is
-//			// about, and the API picks that assignee itself.
+//			// Its assignment_rules take reminders but no bindings: this type always assigns
+//			// the user the finding is about, and the API picks that assignee itself.
 //			_, err := incident.NewPolicy(ctx, "responders_can_be_reached", &incident.PolicyArgs{
 //				Name:            pulumi.String("Responders carry a phone"),
 //				Description:     pulumi.String("Anyone on call needs a notification method that reaches them quickly."),
 //				ConditionGroups: incident.PolicyConditionGroupArray{},
+//				AssignmentRules: &incident.PolicyAssignmentRulesArgs{
+//					ReminderDueDateOffsetHours: pulumi.IntArray{
+//						pulumi.Int(24),
+//					},
+//					ReminderCadenceAfter: &incident.PolicyAssignmentRulesReminderCadenceAfterArgs{
+//						Interval: pulumi.String("daily"),
+//					},
+//				},
 //				OnCallReadiness: &incident.PolicyOnCallReadinessArgs{
 //					HighUrgencies: incident.PolicyOnCallReadinessHighUrgencyArray{
 //						&incident.PolicyOnCallReadinessHighUrgencyArgs{
@@ -423,8 +431,8 @@ import (
 //			// away. The type has nothing to configure, so its block is empty: it is only
 //			// there to say which type this is.
 //			//
-//			// Like on-call readiness, it takes no assignment_rules: the API assigns the user
-//			// the finding is about.
+//			// Like on-call readiness, it needs no assignment_rules: the API assigns the user
+//			// the finding is about. Add the block without bindings to set reminders.
 //			_, err := incident.NewPolicy(ctx, "vacation_conflicts", &incident.PolicyArgs{
 //				Name:             pulumi.String("No on-call during vacation"),
 //				Description:      pulumi.String("Flag anyone scheduled on call while they are on leave."),
@@ -457,7 +465,7 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+	// Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
 	AssignmentRules PolicyAssignmentRulesPtrOutput `pulumi:"assignmentRules"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups PolicyConditionGroupArrayOutput `pulumi:"conditionGroups"`
@@ -471,7 +479,7 @@ type Policy struct {
 	FollowUp PolicyFollowUpPtrOutput `pulumi:"followUp"`
 	// Human readable name of the policy
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
 	OnCallReadiness PolicyOnCallReadinessPtrOutput `pulumi:"onCallReadiness"`
 	// Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`. Determined by which config block is set.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
@@ -483,7 +491,7 @@ type Policy struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
 	UnlockInDashboard pulumi.BoolPtrOutput `pulumi:"unlockInDashboard"`
-	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
 	VacationConflict PolicyVacationConflictPtrOutput `pulumi:"vacationConflict"`
 }
 
@@ -523,7 +531,7 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+	// Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
 	AssignmentRules *PolicyAssignmentRules `pulumi:"assignmentRules"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups []PolicyConditionGroup `pulumi:"conditionGroups"`
@@ -537,7 +545,7 @@ type policyState struct {
 	FollowUp *PolicyFollowUp `pulumi:"followUp"`
 	// Human readable name of the policy
 	Name *string `pulumi:"name"`
-	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
 	OnCallReadiness *PolicyOnCallReadiness `pulumi:"onCallReadiness"`
 	// Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`. Determined by which config block is set.
 	PolicyType *string `pulumi:"policyType"`
@@ -549,12 +557,12 @@ type policyState struct {
 	Status *string `pulumi:"status"`
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
 	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
-	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
 	VacationConflict *PolicyVacationConflict `pulumi:"vacationConflict"`
 }
 
 type PolicyState struct {
-	// Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+	// Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
 	AssignmentRules PolicyAssignmentRulesPtrInput
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups PolicyConditionGroupArrayInput
@@ -568,7 +576,7 @@ type PolicyState struct {
 	FollowUp PolicyFollowUpPtrInput
 	// Human readable name of the policy
 	Name pulumi.StringPtrInput
-	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
 	OnCallReadiness PolicyOnCallReadinessPtrInput
 	// Type of the policy, specifying what this applies to. Possible values are: `debrief`, `followUp`, `onCallReadiness`, `postMortem`, `schedule`, `shiftConflict`, `vacationConflict`. Determined by which config block is set.
 	PolicyType pulumi.StringPtrInput
@@ -580,7 +588,7 @@ type PolicyState struct {
 	Status pulumi.StringPtrInput
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
 	UnlockInDashboard pulumi.BoolPtrInput
-	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
 	VacationConflict PolicyVacationConflictPtrInput
 }
 
@@ -589,7 +597,7 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+	// Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
 	AssignmentRules *PolicyAssignmentRules `pulumi:"assignmentRules"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups []PolicyConditionGroup `pulumi:"conditionGroups"`
@@ -603,7 +611,7 @@ type policyArgs struct {
 	FollowUp *PolicyFollowUp `pulumi:"followUp"`
 	// Human readable name of the policy
 	Name *string `pulumi:"name"`
-	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
 	OnCallReadiness *PolicyOnCallReadiness `pulumi:"onCallReadiness"`
 	// Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
 	PostMortem *PolicyPostMortem `pulumi:"postMortem"`
@@ -613,13 +621,13 @@ type policyArgs struct {
 	Status *string `pulumi:"status"`
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
 	UnlockInDashboard *bool `pulumi:"unlockInDashboard"`
-	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
 	VacationConflict *PolicyVacationConflict `pulumi:"vacationConflict"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+	// Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
 	AssignmentRules PolicyAssignmentRulesPtrInput
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups PolicyConditionGroupArrayInput
@@ -633,7 +641,7 @@ type PolicyArgs struct {
 	FollowUp PolicyFollowUpPtrInput
 	// Human readable name of the policy
 	Name pulumi.StringPtrInput
-	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
 	OnCallReadiness PolicyOnCallReadinessPtrInput
 	// Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
 	PostMortem PolicyPostMortemPtrInput
@@ -643,7 +651,7 @@ type PolicyArgs struct {
 	Status pulumi.StringPtrInput
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
 	UnlockInDashboard pulumi.BoolPtrInput
-	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+	// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
 	VacationConflict PolicyVacationConflictPtrInput
 }
 
@@ -734,7 +742,7 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// Who to assign a finding to, and when to remind them. Omit it for a policy type that assigns the user the finding is about.
+// Who to assign a finding to, and when to remind them. On a policy type that assigns the user the finding is about (`onCallReadiness` and `vacationConflict`), set only the reminders and leave out `bindings`.
 func (o PolicyOutput) AssignmentRules() PolicyAssignmentRulesPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyAssignmentRulesPtrOutput { return v.AssignmentRules }).(PolicyAssignmentRulesPtrOutput)
 }
@@ -769,7 +777,7 @@ func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+// Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminderDueDateOffsetHours` and `reminderCadenceAfter` apply.
 func (o PolicyOutput) OnCallReadiness() PolicyOnCallReadinessPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyOnCallReadinessPtrOutput { return v.OnCallReadiness }).(PolicyOnCallReadinessPtrOutput)
 }
@@ -799,7 +807,7 @@ func (o PolicyOutput) UnlockInDashboard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.UnlockInDashboard }).(pulumi.BoolPtrOutput)
 }
 
-// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` cannot be set alongside it.
+// Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`.
 func (o PolicyOutput) VacationConflict() PolicyVacationConflictPtrOutput {
 	return o.ApplyT(func(v *Policy) PolicyVacationConflictPtrOutput { return v.VacationConflict }).(PolicyVacationConflictPtrOutput)
 }

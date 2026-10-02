@@ -49614,7 +49614,7 @@ class EscalationPathBetaSequencesNodeArgsDict(TypedDict):
     level: NotRequired[pulumi.Input[Optional['EscalationPathBetaSequencesNodeLevelArgsDict']]]
     loop: NotRequired[pulumi.Input[Optional['EscalationPathBetaSequencesNodeLoopArgsDict']]]
     """
-    Go back to an earlier node and run from there again.
+    Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
     """
     notify_channel: NotRequired[pulumi.Input[Optional['EscalationPathBetaSequencesNodeNotifyChannelArgsDict']]]
 
@@ -49632,7 +49632,7 @@ class EscalationPathBetaSequencesNodeArgs:
         :param pulumi.Input['EscalationPathBetaSequencesNodeBranchArgs'] branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param pulumi.Input['EscalationPathBetaSequencesNodeEscalationPathArgs'] escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param pulumi.Input[_builtins.str] id: An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
-        :param pulumi.Input['EscalationPathBetaSequencesNodeLoopArgs'] loop: Go back to an earlier node and run from there again.
+        :param pulumi.Input['EscalationPathBetaSequencesNodeLoopArgs'] loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -49707,7 +49707,7 @@ class EscalationPathBetaSequencesNodeArgs:
     @pulumi.getter
     def loop(self) -> pulumi.Input[Optional['EscalationPathBetaSequencesNodeLoopArgs']]:
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 
@@ -50977,7 +50977,7 @@ class EscalationPathSequencesNodeArgsDict(TypedDict):
     level: NotRequired[pulumi.Input[Optional['EscalationPathSequencesNodeLevelArgsDict']]]
     loop: NotRequired[pulumi.Input[Optional['EscalationPathSequencesNodeLoopArgsDict']]]
     """
-    Go back to an earlier node and run from there again.
+    Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
     """
     notify_channel: NotRequired[pulumi.Input[Optional['EscalationPathSequencesNodeNotifyChannelArgsDict']]]
 
@@ -50995,7 +50995,7 @@ class EscalationPathSequencesNodeArgs:
         :param pulumi.Input['EscalationPathSequencesNodeBranchArgs'] branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param pulumi.Input['EscalationPathSequencesNodeEscalationPathArgs'] escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param pulumi.Input[_builtins.str] id: An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
-        :param pulumi.Input['EscalationPathSequencesNodeLoopArgs'] loop: Go back to an earlier node and run from there again.
+        :param pulumi.Input['EscalationPathSequencesNodeLoopArgs'] loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -51070,7 +51070,7 @@ class EscalationPathSequencesNodeArgs:
     @pulumi.getter
     def loop(self) -> pulumi.Input[Optional['EscalationPathSequencesNodeLoopArgs']]:
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 
@@ -53838,7 +53838,7 @@ class EscalationPathTemplateSequencesNodeArgsDict(TypedDict):
     level: NotRequired[pulumi.Input[Optional['EscalationPathTemplateSequencesNodeLevelArgsDict']]]
     loop: NotRequired[pulumi.Input[Optional['EscalationPathTemplateSequencesNodeLoopArgsDict']]]
     """
-    Go back to an earlier node and run from there again.
+    Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
     """
     notify_channel: NotRequired[pulumi.Input[Optional['EscalationPathTemplateSequencesNodeNotifyChannelArgsDict']]]
 
@@ -53856,7 +53856,7 @@ class EscalationPathTemplateSequencesNodeArgs:
         :param pulumi.Input['EscalationPathTemplateSequencesNodeBranchArgs'] branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param pulumi.Input['EscalationPathTemplateSequencesNodeEscalationPathArgs'] escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param pulumi.Input[_builtins.str] id: An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
-        :param pulumi.Input['EscalationPathTemplateSequencesNodeLoopArgs'] loop: Go back to an earlier node and run from there again.
+        :param pulumi.Input['EscalationPathTemplateSequencesNodeLoopArgs'] loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -53931,7 +53931,7 @@ class EscalationPathTemplateSequencesNodeArgs:
     @pulumi.getter
     def loop(self) -> pulumi.Input[Optional['EscalationPathTemplateSequencesNodeLoopArgs']]:
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 
@@ -60301,13 +60301,13 @@ class PayConfigWeeklyRuleArgs:
 
 
 class PolicyAssignmentRulesArgsDict(TypedDict):
-    bindings: pulumi.Input[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgsDict']]]
-    """
-    Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
-    """
     reminder_due_date_offset_hours: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
     """
     List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
+    """
+    bindings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgsDict']]]]]
+    """
+    Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
     """
     reminder_cadence_after: NotRequired[pulumi.Input[Optional['PolicyAssignmentRulesReminderCadenceAfterArgsDict']]]
     """
@@ -60325,38 +60325,27 @@ class PolicyAssignmentRulesArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyAssignmentRulesArgs:
     def __init__(__self__, *,
-                 bindings: pulumi.Input[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]],
                  reminder_due_date_offset_hours: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]],
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]]] = None,
                  reminder_cadence_after: pulumi.Input[Optional['PolicyAssignmentRulesReminderCadenceAfterArgs']] = None,
                  reminder_cadence_before: pulumi.Input[Optional['PolicyAssignmentRulesReminderCadenceBeforeArgs']] = None,
                  reminder_detected_date_offset_hours: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]] bindings: Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] reminder_due_date_offset_hours: List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]] bindings: Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
         :param pulumi.Input['PolicyAssignmentRulesReminderCadenceAfterArgs'] reminder_cadence_after: A recurring reminder, which repeats once per interval until the finding is resolved.
         :param pulumi.Input['PolicyAssignmentRulesReminderCadenceBeforeArgs'] reminder_cadence_before: A recurring reminder, which repeats once per interval until the finding is resolved.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] reminder_detected_date_offset_hours: List of hours relative to when the finding was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
         """
-        pulumi.set(__self__, "bindings", bindings)
         pulumi.set(__self__, "reminder_due_date_offset_hours", reminder_due_date_offset_hours)
+        if bindings is not None:
+            pulumi.set(__self__, "bindings", bindings)
         if reminder_cadence_after is not None:
             pulumi.set(__self__, "reminder_cadence_after", reminder_cadence_after)
         if reminder_cadence_before is not None:
             pulumi.set(__self__, "reminder_cadence_before", reminder_cadence_before)
         if reminder_detected_date_offset_hours is not None:
             pulumi.set(__self__, "reminder_detected_date_offset_hours", reminder_detected_date_offset_hours)
-
-    @_builtins.property
-    @pulumi.getter
-    def bindings(self) -> pulumi.Input[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]]:
-        """
-        Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
-        """
-        return pulumi.get(self, "bindings")
-
-    @bindings.setter
-    def bindings(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]]):
-        pulumi.set(self, "bindings", value)
 
     @_builtins.property
     @pulumi.getter(name="reminderDueDateOffsetHours")
@@ -60369,6 +60358,18 @@ class PolicyAssignmentRulesArgs:
     @reminder_due_date_offset_hours.setter
     def reminder_due_date_offset_hours(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]):
         pulumi.set(self, "reminder_due_date_offset_hours", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bindings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]]]:
+        """
+        Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
+        """
+        return pulumi.get(self, "bindings")
+
+    @bindings.setter
+    def bindings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyAssignmentRulesBindingArgs']]]]):
+        pulumi.set(self, "bindings", value)
 
     @_builtins.property
     @pulumi.getter(name="reminderCadenceAfter")

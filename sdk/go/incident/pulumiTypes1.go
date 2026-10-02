@@ -29132,7 +29132,7 @@ type EscalationPathBetaSequencesNode struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
 	Id    *string                               `pulumi:"id"`
 	Level *EscalationPathBetaSequencesNodeLevel `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          *EscalationPathBetaSequencesNodeLoop          `pulumi:"loop"`
 	NotifyChannel *EscalationPathBetaSequencesNodeNotifyChannel `pulumi:"notifyChannel"`
 }
@@ -29157,7 +29157,7 @@ type EscalationPathBetaSequencesNodeArgs struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
 	Id    pulumi.StringPtrInput                        `pulumi:"id"`
 	Level EscalationPathBetaSequencesNodeLevelPtrInput `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          EscalationPathBetaSequencesNodeLoopPtrInput          `pulumi:"loop"`
 	NotifyChannel EscalationPathBetaSequencesNodeNotifyChannelPtrInput `pulumi:"notifyChannel"`
 }
@@ -29238,7 +29238,7 @@ func (o EscalationPathBetaSequencesNodeOutput) Level() EscalationPathBetaSequenc
 	return o.ApplyT(func(v EscalationPathBetaSequencesNode) *EscalationPathBetaSequencesNodeLevel { return v.Level }).(EscalationPathBetaSequencesNodeLevelPtrOutput)
 }
 
-// Go back to an earlier node and run from there again.
+// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 func (o EscalationPathBetaSequencesNodeOutput) Loop() EscalationPathBetaSequencesNodeLoopPtrOutput {
 	return o.ApplyT(func(v EscalationPathBetaSequencesNode) *EscalationPathBetaSequencesNodeLoop { return v.Loop }).(EscalationPathBetaSequencesNodeLoopPtrOutput)
 }
@@ -31997,7 +31997,7 @@ type EscalationPathSequencesNode struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
 	Id    *string                           `pulumi:"id"`
 	Level *EscalationPathSequencesNodeLevel `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          *EscalationPathSequencesNodeLoop          `pulumi:"loop"`
 	NotifyChannel *EscalationPathSequencesNodeNotifyChannel `pulumi:"notifyChannel"`
 }
@@ -32022,7 +32022,7 @@ type EscalationPathSequencesNodeArgs struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
 	Id    pulumi.StringPtrInput                    `pulumi:"id"`
 	Level EscalationPathSequencesNodeLevelPtrInput `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          EscalationPathSequencesNodeLoopPtrInput          `pulumi:"loop"`
 	NotifyChannel EscalationPathSequencesNodeNotifyChannelPtrInput `pulumi:"notifyChannel"`
 }
@@ -32103,7 +32103,7 @@ func (o EscalationPathSequencesNodeOutput) Level() EscalationPathSequencesNodeLe
 	return o.ApplyT(func(v EscalationPathSequencesNode) *EscalationPathSequencesNodeLevel { return v.Level }).(EscalationPathSequencesNodeLevelPtrOutput)
 }
 
-// Go back to an earlier node and run from there again.
+// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 func (o EscalationPathSequencesNodeOutput) Loop() EscalationPathSequencesNodeLoopPtrOutput {
 	return o.ApplyT(func(v EscalationPathSequencesNode) *EscalationPathSequencesNodeLoop { return v.Loop }).(EscalationPathSequencesNodeLoopPtrOutput)
 }
@@ -38383,7 +38383,7 @@ type EscalationPathTemplateSequencesNode struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
 	Id    *string                                   `pulumi:"id"`
 	Level *EscalationPathTemplateSequencesNodeLevel `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          *EscalationPathTemplateSequencesNodeLoop          `pulumi:"loop"`
 	NotifyChannel *EscalationPathTemplateSequencesNodeNotifyChannel `pulumi:"notifyChannel"`
 }
@@ -38408,7 +38408,7 @@ type EscalationPathTemplateSequencesNodeArgs struct {
 	// An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
 	Id    pulumi.StringPtrInput                            `pulumi:"id"`
 	Level EscalationPathTemplateSequencesNodeLevelPtrInput `pulumi:"level"`
-	// Go back to an earlier node and run from there again.
+	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 	Loop          EscalationPathTemplateSequencesNodeLoopPtrInput          `pulumi:"loop"`
 	NotifyChannel EscalationPathTemplateSequencesNodeNotifyChannelPtrInput `pulumi:"notifyChannel"`
 }
@@ -38491,7 +38491,7 @@ func (o EscalationPathTemplateSequencesNodeOutput) Level() EscalationPathTemplat
 	return o.ApplyT(func(v EscalationPathTemplateSequencesNode) *EscalationPathTemplateSequencesNodeLevel { return v.Level }).(EscalationPathTemplateSequencesNodeLevelPtrOutput)
 }
 
-// Go back to an earlier node and run from there again.
+// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
 func (o EscalationPathTemplateSequencesNodeOutput) Loop() EscalationPathTemplateSequencesNodeLoopPtrOutput {
 	return o.ApplyT(func(v EscalationPathTemplateSequencesNode) *EscalationPathTemplateSequencesNodeLoop { return v.Loop }).(EscalationPathTemplateSequencesNodeLoopPtrOutput)
 }
@@ -52213,7 +52213,7 @@ func (o PayConfigWeeklyRuleArrayOutput) Index(i pulumi.IntInput) PayConfigWeekly
 }
 
 type PolicyAssignmentRules struct {
-	// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+	// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
 	Bindings []PolicyAssignmentRulesBinding `pulumi:"bindings"`
 	// A recurring reminder, which repeats once per interval until the finding is resolved.
 	ReminderCadenceAfter *PolicyAssignmentRulesReminderCadenceAfter `pulumi:"reminderCadenceAfter"`
@@ -52237,7 +52237,7 @@ type PolicyAssignmentRulesInput interface {
 }
 
 type PolicyAssignmentRulesArgs struct {
-	// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+	// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
 	Bindings PolicyAssignmentRulesBindingArrayInput `pulumi:"bindings"`
 	// A recurring reminder, which repeats once per interval until the finding is resolved.
 	ReminderCadenceAfter PolicyAssignmentRulesReminderCadenceAfterPtrInput `pulumi:"reminderCadenceAfter"`
@@ -52326,7 +52326,7 @@ func (o PolicyAssignmentRulesOutput) ToPolicyAssignmentRulesPtrOutputWithContext
 	}).(PolicyAssignmentRulesPtrOutput)
 }
 
-// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
 func (o PolicyAssignmentRulesOutput) Bindings() PolicyAssignmentRulesBindingArrayOutput {
 	return o.ApplyT(func(v PolicyAssignmentRules) []PolicyAssignmentRulesBinding { return v.Bindings }).(PolicyAssignmentRulesBindingArrayOutput)
 }
@@ -52379,7 +52379,7 @@ func (o PolicyAssignmentRulesPtrOutput) Elem() PolicyAssignmentRulesOutput {
 	}).(PolicyAssignmentRulesOutput)
 }
 
-// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
+// Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
 func (o PolicyAssignmentRulesPtrOutput) Bindings() PolicyAssignmentRulesBindingArrayOutput {
 	return o.ApplyT(func(v *PolicyAssignmentRules) []PolicyAssignmentRulesBinding {
 		if v == nil {

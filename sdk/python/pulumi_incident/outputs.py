@@ -35902,7 +35902,7 @@ class EscalationPathBetaSequencesNode(dict):
         :param 'EscalationPathBetaSequencesNodeBranchArgs' branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param 'EscalationPathBetaSequencesNodeEscalationPathArgs' escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param _builtins.str id: An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
-        :param 'EscalationPathBetaSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again.
+        :param 'EscalationPathBetaSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -35957,7 +35957,7 @@ class EscalationPathBetaSequencesNode(dict):
     @pulumi.getter
     def loop(self) -> Optional['outputs.EscalationPathBetaSequencesNodeLoop']:
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 
@@ -37051,7 +37051,7 @@ class EscalationPathSequencesNode(dict):
         :param 'EscalationPathSequencesNodeBranchArgs' branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param 'EscalationPathSequencesNodeEscalationPathArgs' escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param _builtins.str id: An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
-        :param 'EscalationPathSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again.
+        :param 'EscalationPathSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -37106,7 +37106,7 @@ class EscalationPathSequencesNode(dict):
     @pulumi.getter
     def loop(self) -> Optional['outputs.EscalationPathSequencesNodeLoop']:
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 
@@ -39265,7 +39265,7 @@ class EscalationPathTemplateSequencesNode(dict):
         :param 'EscalationPathTemplateSequencesNodeBranchArgs' branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param 'EscalationPathTemplateSequencesNodeEscalationPathArgs' escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param _builtins.str id: An id for this node, unique within the escalation path, so a `loop` can name it. Leave it unset unless something loops back here: we derive one from the node's position, which keeps it stable across applies.
-        :param 'EscalationPathTemplateSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again.
+        :param 'EscalationPathTemplateSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
@@ -39320,7 +39320,7 @@ class EscalationPathTemplateSequencesNode(dict):
     @pulumi.getter
     def loop(self) -> Optional['outputs.EscalationPathTemplateSequencesNodeLoop']:
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 
@@ -44209,20 +44209,21 @@ class PolicyAssignmentRules(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 bindings: Sequence['outputs.PolicyAssignmentRulesBinding'],
                  reminder_due_date_offset_hours: Sequence[_builtins.int],
+                 bindings: Optional[Sequence['outputs.PolicyAssignmentRulesBinding']] = None,
                  reminder_cadence_after: Optional['outputs.PolicyAssignmentRulesReminderCadenceAfter'] = None,
                  reminder_cadence_before: Optional['outputs.PolicyAssignmentRulesReminderCadenceBefore'] = None,
                  reminder_detected_date_offset_hours: Optional[Sequence[_builtins.int]] = None):
         """
-        :param Sequence['PolicyAssignmentRulesBindingArgs'] bindings: Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
         :param Sequence[_builtins.int] reminder_due_date_offset_hours: List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
+        :param Sequence['PolicyAssignmentRulesBindingArgs'] bindings: Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
         :param 'PolicyAssignmentRulesReminderCadenceAfterArgs' reminder_cadence_after: A recurring reminder, which repeats once per interval until the finding is resolved.
         :param 'PolicyAssignmentRulesReminderCadenceBeforeArgs' reminder_cadence_before: A recurring reminder, which repeats once per interval until the finding is resolved.
         :param Sequence[_builtins.int] reminder_detected_date_offset_hours: List of hours relative to when the finding was detected to remind the assignee. Non-negative only; 0 means immediately on detection. Only valid for policy types that support detection reminders (e.g. schedule).
         """
-        pulumi.set(__self__, "bindings", bindings)
         pulumi.set(__self__, "reminder_due_date_offset_hours", reminder_due_date_offset_hours)
+        if bindings is not None:
+            pulumi.set(__self__, "bindings", bindings)
         if reminder_cadence_after is not None:
             pulumi.set(__self__, "reminder_cadence_after", reminder_cadence_after)
         if reminder_cadence_before is not None:
@@ -44231,20 +44232,20 @@ class PolicyAssignmentRules(dict):
             pulumi.set(__self__, "reminder_detected_date_offset_hours", reminder_detected_date_offset_hours)
 
     @_builtins.property
-    @pulumi.getter
-    def bindings(self) -> Sequence['outputs.PolicyAssignmentRulesBinding']:
-        """
-        Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values
-        """
-        return pulumi.get(self, "bindings")
-
-    @_builtins.property
     @pulumi.getter(name="reminderDueDateOffsetHours")
     def reminder_due_date_offset_hours(self) -> Sequence[_builtins.int]:
         """
         List of hours relative to the due date to remind the assignee. Negative values are before the due date, positive after.
         """
         return pulumi.get(self, "reminder_due_date_offset_hours")
+
+    @_builtins.property
+    @pulumi.getter
+    def bindings(self) -> Optional[Sequence['outputs.PolicyAssignmentRulesBinding']]:
+        """
+        Bindings which define the user to be assigned. We will assign the first user which evaluates; the rest are fallback values. Required, except on a policy type that assigns the user the finding is about, where it cannot be set.
+        """
+        return pulumi.get(self, "bindings")
 
     @_builtins.property
     @pulumi.getter(name="reminderCadenceAfter")
@@ -67768,7 +67769,7 @@ class GetEscalationPathBetaSequencesNodeResult(dict):
         :param 'GetEscalationPathBetaSequencesNodeBranchArgs' branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param 'GetEscalationPathBetaSequencesNodeEscalationPathArgs' escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param _builtins.str id: An id for this node, unique within the escalation path, so a `loop` can name it.
-        :param 'GetEscalationPathBetaSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again.
+        :param 'GetEscalationPathBetaSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "delay", delay)
@@ -67816,7 +67817,7 @@ class GetEscalationPathBetaSequencesNodeResult(dict):
     @pulumi.getter
     def loop(self) -> 'outputs.GetEscalationPathBetaSequencesNodeLoopResult':
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 
@@ -68554,7 +68555,7 @@ class GetEscalationPathSequencesNodeResult(dict):
         :param 'GetEscalationPathSequencesNodeBranchArgs' branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
         :param 'GetEscalationPathSequencesNodeEscalationPathArgs' escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
         :param _builtins.str id: An id for this node, unique within the escalation path, so a `loop` can name it.
-        :param 'GetEscalationPathSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again.
+        :param 'GetEscalationPathSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "delay", delay)
@@ -68602,7 +68603,7 @@ class GetEscalationPathSequencesNodeResult(dict):
     @pulumi.getter
     def loop(self) -> 'outputs.GetEscalationPathSequencesNodeLoopResult':
         """
-        Go back to an earlier node and run from there again.
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
         """
         return pulumi.get(self, "loop")
 

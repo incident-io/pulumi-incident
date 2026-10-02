@@ -1,6 +1,6 @@
 mode: set
+github.com/incident-io/pulumi-incident/provider/cmd/pulumi-tfgen-incident/main.go:12.2,13.1 1 0
+github.com/incident-io/pulumi-incident/provider/cmd/pulumi-resource-incident/main.go:24.2,27.1 1 0
 github.com/incident-io/pulumi-incident/provider/resources.go:48.2,113.1 5 0
 github.com/incident-io/pulumi-incident/provider/resources.go:119.2,122.1 5 0
 github.com/incident-io/pulumi-incident/provider/resources.go:123.2,124.1 5 0
-github.com/incident-io/pulumi-incident/provider/cmd/pulumi-tfgen-incident/main.go:12.2,13.1 1 0
-github.com/incident-io/pulumi-incident/provider/cmd/pulumi-resource-incident/main.go:24.2,27.1 1 0
