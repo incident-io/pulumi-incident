@@ -1,29 +1,18 @@
 # Local additions. The generated Makefile ends with `include $(wildcard .mk/*.mk)`,
 # so this file survives `make ci-mgmt`.
 
-# ci-mgmt generates release.yml without a workflow_dispatch trigger, and
-# regenerating drops the one we add by hand. incident-sync.yml tags with
-# github.token, and GitHub refuses to start a workflow from a tag created that
-# way, so without the trigger the tag lands and nothing ever publishes.
+# Two fixes to the generated resync-build.yml, which regenerates the workflows
+# monthly and opens a PR with the result.
 #
-# Re-add it after every regeneration. Idempotent, so running it twice is safe.
-.PHONY: patch_release_dispatch
-patch_release_dispatch:
-	@if grep -q 'workflow_dispatch' .github/workflows/release.yml; then \
-		echo "release.yml already has workflow_dispatch"; \
-	else \
-		perl -0pi -e 's/(on:\n  push:\n    tags:\n    - v\*\.\*\.\*\n    - "!v\*\.\*\.\*-\*\*"\n)/$$1  # Added by .mk\/incident.mk. incident-sync.yml tags with github.token, and\n  # GitHub will not start a workflow from a tag created that way, so it\n  # dispatches this instead.\n  workflow_dispatch: {}\n/' .github/workflows/release.yml; \
-		grep -q 'workflow_dispatch' .github/workflows/release.yml \
-			&& echo "patched release.yml with workflow_dispatch" \
-			|| { echo "FAILED to patch release.yml; the trigger block must have changed shape"; exit 1; }; \
-	fi
-
-# ci-mgmt hardcodes `base: main` in resync-build.yml and never substitutes
-# providerDefaultBranch (which defaults to master, and is why master.yml is
-# named that). Our default branch is master, so the generated workflow opens its
-# PR against a branch that does not exist and the run fails at the last step.
+# 1. ci-mgmt hardcodes `base: main` and never substitutes providerDefaultBranch
+#    (which defaults to master, and is why master.yml is named that). Our
+#    default branch is master, so the PR targets a branch that does not exist.
 #
-# Re-point it after every regeneration. Idempotent, so running it twice is safe.
+# 2. The job runs `make ci-mgmt`, so its own PR would revert every patch in this
+#    file, including both of these. Running `make regen` instead reapplies them,
+#    which makes the PR self-consistent.
+#
+# Idempotent, so running it twice is safe.
 .PHONY: patch_resync_base
 patch_resync_base:
 	@if grep -q '^          base: master$$' .github/workflows/resync-build.yml; then \
@@ -34,17 +23,21 @@ patch_resync_base:
 			&& echo "patched resync-build.yml to target master" \
 			|| { echo "FAILED to patch resync-build.yml; the base line must have changed shape"; exit 1; }; \
 	fi
+	@if grep -q '^          make regen$$' .github/workflows/resync-build.yml; then \
+		echo "resync-build.yml already runs make regen"; \
+	else \
+		perl -pi -e 's/^(          make )ci-mgmt$$/$${1}regen/' .github/workflows/resync-build.yml; \
+		grep -q '^          make regen$$' .github/workflows/resync-build.yml \
+			&& echo "patched resync-build.yml to run make regen" \
+			|| { echo "FAILED to patch resync-build.yml; the regenerate step must have changed shape"; exit 1; }; \
+	fi
 
-# Use this instead of `make ci-mgmt`. The patch has to run after the generator,
-# and make runs prerequisites before a target's recipe, so it cannot be hooked
-# onto ci-mgmt directly.
-#
-# incident-sync.yml also checks the trigger is present and fails loudly if it is
-# not, so forgetting this is noisy rather than silent.
+# Use this instead of `make ci-mgmt`. The patches have to run after the
+# generator, and make runs prerequisites before a target's recipe, so they
+# cannot be hooked onto ci-mgmt directly.
 .PHONY: regen
 regen:
 	$(MAKE) ci-mgmt
-	$(MAKE) patch_release_dispatch
 	$(MAKE) patch_resync_base
 
 # `pulumi package publish-sdk` runs `npm publish` with no `--access` flag, so a

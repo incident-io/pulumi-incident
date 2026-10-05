@@ -74,8 +74,22 @@ After changing `resources.go`, run `make build` and inspect the `schema.json` di
 
 ## Releases
 
-`incident-sync.yml` runs daily. When upstream has a newer release it bumps, regenerates, verifies, commits to master, tags mirroring upstream's bump type, and dispatches `release.yml`. It uses only `github.token`, with no PAT and no branch protection, following the same shape as `incident-io/sdk-go`.
+`incident-sync.yml` runs daily and does the whole release itself: when upstream has a newer release it bumps, regenerates, verifies, builds the six platform binaries, publishes the Node, Python and Go SDKs, commits, tags and creates the GitHub release. It uses only `github.token`. There is no PAT.
 
-It refuses two things and opens an issue instead of guessing: a major upstream bump, because that moves the Go module path and needs `resources.go` edited by hand, and a breaking schema change as judged by `schema-tools compare` against the last release.
+It publishes inline, in one job, rather than handing off to `release.yml`. That is forced, not a preference. A release version can only come from a pushed tag: `pulumi/provider-version-action` derives it from `refs/tags/` on a `push` event, and on `workflow_dispatch` or `repository_dispatch` it returns a dev version instead. GitHub also refuses to start a workflow from a tag pushed with `github.token`. So without a PAT nothing can trigger a second workflow at a release version, and everything has to happen in the run that computed it. `incident-io/sdk-python` reaches the same conclusion and says so in its own `sync.yml`.
+
+The build steps call the same `make provider-<os>-<arch>` and `make provider_dist-<os>-<arch>` targets `build_provider.yml` uses, and publishing uses the same `pulumi/pulumi-package-publisher` action as `publish.yml`, so there is one source of truth for how an artifact is built and packaged. The only difference is that the platforms build in sequence rather than across a matrix of runners.
+
+Tagging happens before publishing. If a publish step fails, the tag exists with nothing released, and `release.yml` can be re-run on that tag by hand to finish the job. That hand-pushed tag path is unchanged and still works.
+
+Run it with `dry_run` to exercise the bump, build and verification without committing or publishing anything.
+
+It refuses one thing and opens an issue instead of guessing: a major upstream bump, because that moves the Go module path and needs `resources.go` edited by hand. A breaking schema change no longer stops the run; `schema-tools compare --json` classifies the change by `kind`, and anything that can break a program that compiled against the last release makes this a major. `required-to-optional` is deliberately not in that set, because relaxing a requirement cannot break a caller even though schema-tools flags it as breaking.
+
+### Things that will break again
+
+- **`golangci-lint` must be built with a Go at least as new as upstream's `go` directive**, or it refuses to run. Bump the pin in `mise.toml` whenever upstream's Go version moves. This is the usual follow-up to an upstream bump, and the Go toolchain itself needs nothing: `GOTOOLCHAIN` handles it.
+- **Use `make regen`, never `make ci-mgmt`.** We carry patches to generated workflows in `.mk/incident.mk`, and only `regen` reapplies them.
+- **The `pulumi-labs/ci-mgmt` fork pins stale tool versions.** Root `mise.toml` overrides node, python, golangci-lint and schema-tools. Those overrides are not generated and survive regeneration.
 
 ci-mgmt's own daily upstream-bump workflow is off (`checkUpstreamUpgrade: false`). It opens a separate PR per upstream release rather than maintaining one, and upstream ships often enough that they pile up when you only ever want the newest.

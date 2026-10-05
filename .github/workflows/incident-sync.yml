@@ -12,11 +12,15 @@ name: sync
 on:
   schedule:
     - cron: "0 4 * * *" # daily, 04:00 UTC
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Bump, build and verify, but do not tag, release or publish"
+        type: boolean
+        default: false
 
 permissions:
-  contents: write # commit the bump, push the tag
-  actions: write # dispatch release.yml
+  contents: write # commit the bump, push the tag, create the release
   issues: write # report a failed run or a refused major bump
 
 concurrency:
@@ -41,17 +45,6 @@ jobs:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
           version: 2026.3.7
-
-      # release.yml is generated, and regenerating drops the workflow_dispatch
-      # trigger this job needs. Without it the tag lands and nothing publishes,
-      # so check before doing any work rather than discovering it at the end.
-      - name: Check release.yml can be dispatched
-        run: |
-          set -euo pipefail
-          if ! grep -q 'workflow_dispatch' .github/workflows/release.yml; then
-            echo "::error::release.yml has no workflow_dispatch trigger. Run 'make regen' (see .mk/incident.mk)."
-            exit 1
-          fi
 
       # Upstream's latest release, and what we currently pin. Both are read
       # rather than assumed so the job is a no-op whenever they already agree.
@@ -253,11 +246,64 @@ jobs:
           fi
 
           echo "next=${next}" >> "$GITHUB_OUTPUT"
+          # Publishing tools take the version without the leading "v"; tags and
+          # releases carry it.
+          echo "next_bare=${next#v}" >> "$GITHUB_OUTPUT"
           echo "${base} -> ${next} (upstream ${CURRENT} -> ${LATEST}, breaking=${IS_BREAKING})"
 
+      # Everything so far was built with the Makefile's default dev version, so
+      # the SDK packages carry 1.0.0-alpha.0+dev. Rebuild with the real one
+      # before anything is published. PROVIDER_VERSION must not carry the "v".
+      - name: Rebuild at the release version
+        if: steps.upstream.outputs.changed == 'true'
+        env:
+          NEXT: ${{ steps.version.outputs.next }}
+        run: |
+          set -euo pipefail
+          make clean
+          make build PROVIDER_VERSION="${NEXT#v}"
+
+      # The same targets build_provider.yml calls, run in sequence rather than
+      # across a matrix of runners. Slower, but it keeps one source of truth for
+      # how a platform binary is built.
+      - name: Build the platform binaries
+        if: steps.upstream.outputs.changed == 'true'
+        env:
+          NEXT: ${{ steps.version.outputs.next }}
+          SKIP_SIGNING: "true" # no Azure signing secrets in this repo
+        run: |
+          set -euo pipefail
+          ver="${NEXT#v}"
+          for p in linux-amd64 linux-arm64 darwin-amd64 darwin-arm64 windows-amd64 windows-arm64; do
+            echo "::group::$p"
+            make "provider-$p" PROVIDER_VERSION="$ver"
+            make "provider_dist-$p" PROVIDER_VERSION="$ver"
+            echo "::endgroup::"
+          done
+
+          mkdir -p dist
+          cp bin/*.tar.gz dist/
+          (cd dist && shasum ./*.tar.gz > "pulumi-incident_${ver}_checksums.txt")
+
+          # Six platforms plus the checksum file. A missing binary means a
+          # silently skipped target, which must not reach a release.
+          n=$(ls dist/*.tar.gz | wc -l | tr -d ' ')
+          test "$n" -eq 6 || { echo "::error::expected 6 platform archives, got $n"; exit 1; }
+          ls -la dist/
+
+      - name: Stop here on a dry run
+        if: steps.upstream.outputs.changed == 'true' && inputs.dry_run
+        env:
+          NEXT: ${{ steps.version.outputs.next }}
+        run: |
+          echo "### Dry run: built and verified ${NEXT}, published nothing" >> "$GITHUB_STEP_SUMMARY"
+
+      # Tag before publishing. If a publish step then fails, the tag exists with
+      # nothing released, and release.yml can be re-run on that tag by hand to
+      # finish the job.
       - name: Commit and tag
         id: tag
-        if: steps.upstream.outputs.changed == 'true'
+        if: steps.upstream.outputs.changed == 'true' && !inputs.dry_run
         env:
           LATEST: ${{ steps.upstream.outputs.latest }}
           NEXT: ${{ steps.version.outputs.next }}
@@ -265,7 +311,8 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add --all
+          # dist/ and build output are not part of the commit.
+          git add --all -- ':!dist'
           if git diff --cached --quiet; then
             echo "::error::Upstream moved to ${LATEST} but regeneration changed nothing. Not tagging."
             exit 1
@@ -276,17 +323,49 @@ jobs:
           # refused, and every later run recomputes this version and dies on a
           # tag that already exists.
           git push --atomic origin HEAD "refs/tags/$NEXT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
-      - name: Release
-        if: steps.upstream.outputs.changed == 'true'
+      # The same action and the same sdk list publish.yml uses, so the packaging
+      # rules stay in one place. The action only knows dotnet, java, nodejs and
+      # python, so this publishes Node and Python; Go is handled below.
+      - name: Publish the Node and Python SDKs
+        if: steps.upstream.outputs.changed == 'true' && !inputs.dry_run
+        uses: pulumi/pulumi-package-publisher@3ec1409d3e894142b9825c7859be8e57d362762a # v0.0.23
+        with:
+          sdk: all,!java,!dotnet
+          version: ${{ steps.version.outputs.next_bare }}
         env:
-          GH_TOKEN: ${{ github.token }}
-          NEXT: ${{ steps.version.outputs.next }}
-        run: |
-          # A tag pushed with github.token does not start a workflow, so
-          # release.yml is dispatched explicitly. workflow_dispatch is exempt
-          # from that rule.
-          gh workflow run release.yml --ref "$NEXT"
+          PYPI_USERNAME: __token__
+          PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # Pushes a commit plus an `sdk/vX.Y.Z` tag, which is what the Go module
+      # proxy resolves. base-ref is the commit we just pushed, not github.sha,
+      # which still points at master as it was when this run started.
+      - name: Publish the Go SDK
+        if: steps.upstream.outputs.changed == 'true' && !inputs.dry_run
+        uses: pulumi/publish-go-sdk-action@v1
+        with:
+          repository: ${{ github.repository }}
+          base-ref: ${{ steps.tag.outputs.sha }}
+          source: sdk
+          path: sdk
+          version: ${{ steps.version.outputs.next_bare }}
+          additive: false
+          files: |
+            go.*
+            go/**
+
+      - name: Create the GitHub release
+        if: steps.upstream.outputs.changed == 'true' && !inputs.dry_run
+        uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2
+        with:
+          tag_name: ${{ steps.version.outputs.next }}
+          body: |
+            Bridged from [terraform-provider-incident ${{ steps.upstream.outputs.latest }}](https://github.com/incident-io/terraform-provider-incident/releases/tag/${{ steps.upstream.outputs.latest }}).
+
+            Schema changes: ${{ steps.breaking.outputs.changes || 'none' }}
+          files: dist/*
 
       - name: Report failure
         if: failure() && steps.major.outcome != 'failure'
