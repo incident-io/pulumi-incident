@@ -61,10 +61,31 @@ jobs:
             --repo incident-io/terraform-provider-incident \
             --json tagName --jq .tagName)"
 
+          # Compare against the upstream version our last PUBLISHED release was
+          # built from, not against the version HEAD pins. They are usually the
+          # same, but a bump that was committed and never published leaves the
+          # pin ahead of what users can install, and comparing against the pin
+          # would then report nothing to do while the release is still missing.
+          base="$(gh release list --repo "$GITHUB_REPOSITORY" \
+            --exclude-drafts --exclude-pre-releases \
+            --json tagName --jq '.[0].tagName // empty')"
+          if [ -z "$base" ]; then
+            echo "::error::No published release to compare against. Cut the first one by hand."
+            exit 1
+          fi
+
           # The module path carries the major version, so the require line looks
           # like `.../terraform-provider-incident/v7 v7.0.0`.
-          current="$(grep -oE 'terraform-provider-incident/v[0-9]+ v[0-9]+\.[0-9]+\.[0-9]+' provider/go.mod \
+          current="$(git show "${base}:provider/go.mod" \
+            | grep -oE 'terraform-provider-incident/v[0-9]+ v[0-9]+\.[0-9]+\.[0-9]+' \
             | awk '{print $2}')"
+          if [ -z "$current" ]; then
+            echo "::error::Could not read the upstream version from provider/go.mod at ${base}."
+            exit 1
+          fi
+
+          echo "base=${base}" >> "$GITHUB_OUTPUT"
+          echo "last released: ${base}, built from upstream ${current}"
 
           echo "upstream latest: ${latest}, we pin: ${current}"
           echo "latest=${latest}" >> "$GITHUB_OUTPUT"
@@ -232,15 +253,20 @@ jobs:
         env:
           LATEST: ${{ steps.upstream.outputs.latest }}
           CURRENT: ${{ steps.upstream.outputs.current }}
+          BASE: ${{ steps.upstream.outputs.base }}
           IS_BREAKING: ${{ steps.breaking.outputs.is_breaking }}
           BREAKING_KINDS: ${{ steps.breaking.outputs.breaking }}
         run: |
           set -euo pipefail
-          base="$(git describe --tags --abbrev=0 2>/dev/null || true)"
-          if [ -z "$base" ]; then
-            echo "::error::No existing tag. Cut the first release by hand so this job has a version to bump from."
+          # The last published release, carried over from the upstream check.
+          # Not `git describe`: that would pick up a tag from a run that failed
+          # after tagging, and recompute a version on top of one nobody can
+          # install.
+          if [ -z "$BASE" ]; then
+            echo "::error::No published release to bump from."
             exit 1
           fi
+          base="$BASE"
 
           IFS=. read -r _ l_minor _ <<< "${LATEST#v}"
           IFS=. read -r _ c_minor _ <<< "${CURRENT#v}"
@@ -253,6 +279,13 @@ jobs:
             next="v${b_major}.$((b_minor + 1)).0"
           else
             next="v${b_major}.${b_minor}.$((b_patch + 1))"
+          fi
+
+          if git rev-parse -q --verify "refs/tags/${next}" >/dev/null; then
+            echo "::error::${next} already exists as a tag but has no release. A"
+            echo "::error::previous run tagged without publishing. Delete the tag or"
+            echo "::error::finish that release by re-running release.yml on it."
+            exit 1
           fi
 
           echo "next=${next}" >> "$GITHUB_OUTPUT"
