@@ -18,6 +18,23 @@ patch_release_dispatch:
 			|| { echo "FAILED to patch release.yml; the trigger block must have changed shape"; exit 1; }; \
 	fi
 
+# ci-mgmt hardcodes `base: main` in resync-build.yml and never substitutes
+# providerDefaultBranch (which defaults to master, and is why master.yml is
+# named that). Our default branch is master, so the generated workflow opens its
+# PR against a branch that does not exist and the run fails at the last step.
+#
+# Re-point it after every regeneration. Idempotent, so running it twice is safe.
+.PHONY: patch_resync_base
+patch_resync_base:
+	@if grep -q '^          base: master$$' .github/workflows/resync-build.yml; then \
+		echo "resync-build.yml already targets master"; \
+	else \
+		perl -pi -e 's/^(          base: )main$$/$$1master/' .github/workflows/resync-build.yml; \
+		grep -q '^          base: master$$' .github/workflows/resync-build.yml \
+			&& echo "patched resync-build.yml to target master" \
+			|| { echo "FAILED to patch resync-build.yml; the base line must have changed shape"; exit 1; }; \
+	fi
+
 # Use this instead of `make ci-mgmt`. The patch has to run after the generator,
 # and make runs prerequisites before a target's recipe, so it cannot be hooked
 # onto ci-mgmt directly.
@@ -28,6 +45,7 @@ patch_release_dispatch:
 regen:
 	$(MAKE) ci-mgmt
 	$(MAKE) patch_release_dispatch
+	$(MAKE) patch_resync_base
 
 # `pulumi package publish-sdk` runs `npm publish` with no `--access` flag, so a
 # scoped package would publish private. Runs before build_nodejs copies
