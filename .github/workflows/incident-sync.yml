@@ -369,6 +369,21 @@ jobs:
           git push --atomic origin HEAD "refs/tags/$NEXT"
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+      # The publisher reads each SDK from a workflow artifact rather than from
+      # the working tree, so they have to be uploaded first even though this all
+      # runs in one job. Same composite action build_sdk.yml uses.
+      - name: Upload the Node SDK
+        if: steps.upstream.outputs.changed == 'true' && !inputs.dry_run
+        uses: ./.github/actions/upload-sdk
+        with:
+          language: nodejs
+
+      - name: Upload the Python SDK
+        if: steps.upstream.outputs.changed == 'true' && !inputs.dry_run
+        uses: ./.github/actions/upload-sdk
+        with:
+          language: python
+
       # The same action and the same sdk list publish.yml uses, so the packaging
       # rules stay in one place. The action only knows dotnet, java, nodejs and
       # python, so this publishes Node and Python; Go is handled below.
