@@ -354,8 +354,9 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # dist/ and build output are not part of the commit.
-          git add --all -- ':!dist'
+          # dist/ is already covered by .gitignore, so --all leaves it out.
+          # Naming it in a pathspec makes git refuse the whole command.
+          git add --all
           if git diff --cached --quiet; then
             echo "::error::Upstream moved to ${LATEST} but regeneration changed nothing. Not tagging."
             exit 1
