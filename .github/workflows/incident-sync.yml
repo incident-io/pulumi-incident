@@ -384,6 +384,14 @@ jobs:
         with:
           language: python
 
+      # Writes the .npmrc that NODE_AUTH_TOKEN plugs into. Without it the publish
+      # fails with ENEEDAUTH. No node-version: mise already installed node.
+      - name: Set up npm auth
+        if: steps.upstream.outputs.changed == 'true' && !inputs.dry_run
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6
+        with:
+          registry-url: https://registry.npmjs.org
+
       # The same action and the same sdk list publish.yml uses, so the packaging
       # rules stay in one place. The action only knows dotnet, java, nodejs and
       # python, so this publishes Node and Python; Go is handled below.
