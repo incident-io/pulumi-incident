@@ -2,12 +2,10 @@
     "auto-aliasing": {
         "resources": {
             "incident_alert_attribute": {
-                "current": "incident:index/alertAttribute:AlertAttribute",
-                "majorVersion": 1
+                "current": "incident:index/alertAttribute:AlertAttribute"
             },
             "incident_alert_route": {
                 "current": "incident:index/alertRoute:AlertRoute",
-                "majorVersion": 1,
                 "fields": {
                     "alert_sources": {
                         "maxItemsOne": false,
@@ -586,7 +584,6 @@
             },
             "incident_alert_source": {
                 "current": "incident:index/alertSource:AlertSource",
-                "majorVersion": 1,
                 "fields": {
                     "email_options": {
                         "fields": {
@@ -1003,7 +1000,6 @@
             },
             "incident_alert_source_attribute": {
                 "current": "incident:index/alertSourceAttribute:AlertSourceAttribute",
-                "majorVersion": 1,
                 "fields": {
                     "array_value": {
                         "maxItemsOne": false
@@ -1706,7 +1702,6 @@
             },
             "incident_alert_source_attribute_beta": {
                 "current": "incident:index/alertSourceAttributeBeta:AlertSourceAttributeBeta",
-                "majorVersion": 1,
                 "fields": {
                     "array_value": {
                         "maxItemsOne": false
@@ -2409,7 +2404,6 @@
             },
             "incident_alert_source_beta": {
                 "current": "incident:index/alertSourceBeta:AlertSourceBeta",
-                "majorVersion": 1,
                 "fields": {
                     "email_options": {
                         "fields": {
@@ -2826,7 +2820,6 @@
             },
             "incident_announcement_rule": {
                 "current": "incident:index/announcementRule:AnnouncementRule",
-                "majorVersion": 1,
                 "fields": {
                     "condition_groups": {
                         "maxItemsOne": false,
@@ -2868,7 +2861,6 @@
             },
             "incident_announcement_template": {
                 "current": "incident:index/announcementTemplate:AnnouncementTemplate",
-                "majorVersion": 1,
                 "fields": {
                     "actions": {
                         "maxItemsOne": false
@@ -2883,7 +2875,6 @@
             },
             "incident_api_key": {
                 "current": "incident:index/apiKey:ApiKey",
-                "majorVersion": 1,
                 "fields": {
                     "role_names": {
                         "maxItemsOne": false
@@ -2898,7 +2889,6 @@
             },
             "incident_catalog_entries": {
                 "current": "incident:index/catalogEntries:CatalogEntries",
-                "majorVersion": 1,
                 "fields": {
                     "entries": {
                         "elem": {
@@ -2925,7 +2915,6 @@
             },
             "incident_catalog_entry": {
                 "current": "incident:index/catalogEntry:CatalogEntry",
-                "majorVersion": 1,
                 "fields": {
                     "aliases": {
                         "maxItemsOne": false
@@ -2947,7 +2936,6 @@
             },
             "incident_catalog_type": {
                 "current": "incident:index/catalogType:CatalogType",
-                "majorVersion": 1,
                 "fields": {
                     "categories": {
                         "maxItemsOne": false
@@ -2959,7 +2947,6 @@
             },
             "incident_catalog_type_attribute": {
                 "current": "incident:index/catalogTypeAttribute:CatalogTypeAttribute",
-                "majorVersion": 1,
                 "fields": {
                     "path": {
                         "maxItemsOne": false
@@ -2968,7 +2955,6 @@
             },
             "incident_custom_field": {
                 "current": "incident:index/customField:CustomField",
-                "majorVersion": 1,
                 "fields": {
                     "fixed_filter": {
                         "fields": {
@@ -2980,12 +2966,10 @@
                 }
             },
             "incident_custom_field_option": {
-                "current": "incident:index/customFieldOption:CustomFieldOption",
-                "majorVersion": 1
+                "current": "incident:index/customFieldOption:CustomFieldOption"
             },
             "incident_escalation_path": {
                 "current": "incident:index/escalationPath:EscalationPath",
-                "majorVersion": 1,
                 "fields": {
                     "param_bindings": {
                         "elem": {
@@ -3054,7 +3038,6 @@
             },
             "incident_escalation_path_beta": {
                 "current": "incident:index/escalationPathBeta:EscalationPathBeta",
-                "majorVersion": 1,
                 "fields": {
                     "param_bindings": {
                         "elem": {
@@ -3123,7 +3106,6 @@
             },
             "incident_escalation_path_template": {
                 "current": "incident:index/escalationPathTemplate:EscalationPathTemplate",
-                "majorVersion": 1,
                 "fields": {
                     "expressions": {
                         "maxItemsOne": false,
@@ -3311,12 +3293,10 @@
                 }
             },
             "incident_incident_role": {
-                "current": "incident:index/incidentRole:IncidentRole",
-                "majorVersion": 1
+                "current": "incident:index/incidentRole:IncidentRole"
             },
             "incident_incident_template": {
                 "current": "incident:index/incidentTemplate:IncidentTemplate",
-                "majorVersion": 1,
                 "fields": {
                     "expressions": {
                         "maxItemsOne": false,
@@ -3518,7 +3498,6 @@
             },
             "incident_maintenance_window": {
                 "current": "incident:index/maintenanceWindow:MaintenanceWindow",
-                "majorVersion": 1,
                 "fields": {
                     "alert_condition_groups": {
                         "maxItemsOne": false,
@@ -3581,7 +3560,6 @@
             },
             "incident_pay_config": {
                 "current": "incident:index/payConfig:PayConfig",
-                "majorVersion": 1,
                 "fields": {
                     "one_off_rules": {
                         "maxItemsOne": false
@@ -3600,7 +3578,6 @@
             },
             "incident_policy": {
                 "current": "incident:index/policy:Policy",
-                "majorVersion": 1,
                 "fields": {
                     "assignment_rules": {
                         "fields": {
@@ -3922,7 +3899,6 @@
             },
             "incident_schedule": {
                 "current": "incident:index/schedule:Schedule",
-                "majorVersion": 1,
                 "fields": {
                     "holidays_public_config": {
                         "fields": {
@@ -3938,7 +3914,6 @@
             },
             "incident_schedule_beta": {
                 "current": "incident:index/scheduleBeta:ScheduleBeta",
-                "majorVersion": 1,
                 "fields": {
                     "holidays_public_config": {
                         "fields": {
@@ -3954,7 +3929,6 @@
             },
             "incident_schedule_replica": {
                 "current": "incident:index/scheduleReplica:ScheduleReplica",
-                "majorVersion": 1,
                 "fields": {
                     "sources": {
                         "maxItemsOne": false
@@ -3966,7 +3940,6 @@
             },
             "incident_schedule_rotation": {
                 "current": "incident:index/scheduleRotation:ScheduleRotation",
-                "majorVersion": 1,
                 "fields": {
                     "handovers": {
                         "maxItemsOne": false
@@ -3981,7 +3954,6 @@
             },
             "incident_schedule_rotation_beta": {
                 "current": "incident:index/scheduleRotationBeta:ScheduleRotationBeta",
-                "majorVersion": 1,
                 "fields": {
                     "handovers": {
                         "maxItemsOne": false
@@ -3996,7 +3968,6 @@
             },
             "incident_schedule_sync_rule": {
                 "current": "incident:index/scheduleSyncRule:ScheduleSyncRule",
-                "majorVersion": 1,
                 "fields": {
                     "permanent_member_user_ids": {
                         "maxItemsOne": false
@@ -4004,12 +3975,10 @@
                 }
             },
             "incident_schedule_sync_target": {
-                "current": "incident:index/scheduleSyncTarget:ScheduleSyncTarget",
-                "majorVersion": 1
+                "current": "incident:index/scheduleSyncTarget:ScheduleSyncTarget"
             },
             "incident_secret": {
                 "current": "incident:index/secret:Secret",
-                "majorVersion": 1,
                 "fields": {
                     "owning_team_ids": {
                         "maxItemsOne": false
@@ -4017,16 +3986,13 @@
                 }
             },
             "incident_severity": {
-                "current": "incident:index/severity:Severity",
-                "majorVersion": 1
+                "current": "incident:index/severity:Severity"
             },
             "incident_status": {
-                "current": "incident:index/status:Status",
-                "majorVersion": 1
+                "current": "incident:index/status:Status"
             },
             "incident_team_grouping_preference": {
                 "current": "incident:index/teamGroupingPreference:TeamGroupingPreference",
-                "majorVersion": 1,
                 "fields": {
                     "default": {
                         "fields": {
@@ -4043,7 +4009,6 @@
             },
             "incident_workflow": {
                 "current": "incident:index/workflow:Workflow",
-                "majorVersion": 1,
                 "fields": {
                     "condition_groups": {
                         "maxItemsOne": false,
@@ -4216,12 +4181,10 @@
         },
         "datasources": {
             "incident_alert_attribute": {
-                "current": "incident:index/getAlertAttribute:getAlertAttribute",
-                "majorVersion": 1
+                "current": "incident:index/getAlertAttribute:getAlertAttribute"
             },
             "incident_alert_source": {
                 "current": "incident:index/getAlertSource:getAlertSource",
-                "majorVersion": 1,
                 "fields": {
                     "email_options": {
                         "fields": {
@@ -4638,7 +4601,6 @@
             },
             "incident_alert_source_attribute": {
                 "current": "incident:index/getAlertSourceAttribute:getAlertSourceAttribute",
-                "majorVersion": 1,
                 "fields": {
                     "array_value": {
                         "maxItemsOne": false
@@ -5341,7 +5303,6 @@
             },
             "incident_alert_source_attribute_beta": {
                 "current": "incident:index/getAlertSourceAttributeBeta:getAlertSourceAttributeBeta",
-                "majorVersion": 1,
                 "fields": {
                     "array_value": {
                         "maxItemsOne": false
@@ -6044,7 +6005,6 @@
             },
             "incident_announcement_rule": {
                 "current": "incident:index/getAnnouncementRule:getAnnouncementRule",
-                "majorVersion": 1,
                 "fields": {
                     "condition_groups": {
                         "maxItemsOne": false,
@@ -6086,7 +6046,6 @@
             },
             "incident_announcement_template": {
                 "current": "incident:index/getAnnouncementTemplate:getAnnouncementTemplate",
-                "majorVersion": 1,
                 "fields": {
                     "actions": {
                         "maxItemsOne": false
@@ -6101,7 +6060,6 @@
             },
             "incident_api_key": {
                 "current": "incident:index/getApiKey:getApiKey",
-                "majorVersion": 1,
                 "fields": {
                     "role_names": {
                         "maxItemsOne": false
@@ -6116,7 +6074,6 @@
             },
             "incident_catalog_entry": {
                 "current": "incident:index/getCatalogEntry:getCatalogEntry",
-                "majorVersion": 1,
                 "fields": {
                     "aliases": {
                         "maxItemsOne": false
@@ -6135,7 +6092,6 @@
             },
             "incident_catalog_type": {
                 "current": "incident:index/getCatalogType:getCatalogType",
-                "majorVersion": 1,
                 "fields": {
                     "categories": {
                         "maxItemsOne": false
@@ -6147,7 +6103,6 @@
             },
             "incident_catalog_type_attribute": {
                 "current": "incident:index/getCatalogTypeAttribute:getCatalogTypeAttribute",
-                "majorVersion": 1,
                 "fields": {
                     "path": {
                         "maxItemsOne": false
@@ -6156,7 +6111,6 @@
             },
             "incident_custom_field": {
                 "current": "incident:index/getCustomField:getCustomField",
-                "majorVersion": 1,
                 "fields": {
                     "fixed_filter": {
                         "fields": {
@@ -6168,12 +6122,10 @@
                 }
             },
             "incident_custom_field_option": {
-                "current": "incident:index/getCustomFieldOption:getCustomFieldOption",
-                "majorVersion": 1
+                "current": "incident:index/getCustomFieldOption:getCustomFieldOption"
             },
             "incident_escalation_path": {
                 "current": "incident:index/getEscalationPath:getEscalationPath",
-                "majorVersion": 1,
                 "fields": {
                     "param_bindings": {
                         "elem": {
@@ -6242,7 +6194,6 @@
             },
             "incident_escalation_path_beta": {
                 "current": "incident:index/getEscalationPathBeta:getEscalationPathBeta",
-                "majorVersion": 1,
                 "fields": {
                     "param_bindings": {
                         "elem": {
@@ -6310,12 +6261,10 @@
                 }
             },
             "incident_incident_role": {
-                "current": "incident:index/getIncidentRole:getIncidentRole",
-                "majorVersion": 1
+                "current": "incident:index/getIncidentRole:getIncidentRole"
             },
             "incident_incident_template": {
                 "current": "incident:index/getIncidentTemplate:getIncidentTemplate",
-                "majorVersion": 1,
                 "fields": {
                     "expressions": {
                         "maxItemsOne": false,
@@ -6516,12 +6465,10 @@
                 }
             },
             "incident_incident_timestamp": {
-                "current": "incident:index/getIncidentTimestamp:getIncidentTimestamp",
-                "majorVersion": 1
+                "current": "incident:index/getIncidentTimestamp:getIncidentTimestamp"
             },
             "incident_incident_type": {
                 "current": "incident:index/getIncidentType:getIncidentType",
-                "majorVersion": 1,
                 "fields": {
                     "owning_team_ids": {
                         "maxItemsOne": false
@@ -6530,7 +6477,6 @@
             },
             "incident_ip_allowlist": {
                 "current": "incident:index/getIpAllowlist:getIpAllowlist",
-                "majorVersion": 1,
                 "fields": {
                     "allowlist": {
                         "maxItemsOne": false
@@ -6539,7 +6485,6 @@
             },
             "incident_pay_config": {
                 "current": "incident:index/getPayConfig:getPayConfig",
-                "majorVersion": 1,
                 "fields": {
                     "one_off_rules": {
                         "maxItemsOne": false
@@ -6557,12 +6502,10 @@
                 }
             },
             "incident_policy": {
-                "current": "incident:index/getPolicy:getPolicy",
-                "majorVersion": 1
+                "current": "incident:index/getPolicy:getPolicy"
             },
             "incident_rich_text": {
                 "current": "incident:index/getRichText:getRichText",
-                "majorVersion": 1,
                 "fields": {
                     "dropped_content": {
                         "maxItemsOne": false
@@ -6571,7 +6514,6 @@
             },
             "incident_schedule": {
                 "current": "incident:index/getSchedule:getSchedule",
-                "majorVersion": 1,
                 "fields": {
                     "team_ids": {
                         "maxItemsOne": false
@@ -6580,7 +6522,6 @@
             },
             "incident_schedule_beta": {
                 "current": "incident:index/getScheduleBeta:getScheduleBeta",
-                "majorVersion": 1,
                 "fields": {
                     "team_ids": {
                         "maxItemsOne": false
@@ -6589,7 +6530,6 @@
             },
             "incident_schedule_replica": {
                 "current": "incident:index/getScheduleReplica:getScheduleReplica",
-                "majorVersion": 1,
                 "fields": {
                     "sources": {
                         "maxItemsOne": false
@@ -6601,7 +6541,6 @@
             },
             "incident_schedule_rotation": {
                 "current": "incident:index/getScheduleRotation:getScheduleRotation",
-                "majorVersion": 1,
                 "fields": {
                     "handovers": {
                         "maxItemsOne": false
@@ -6616,7 +6555,6 @@
             },
             "incident_schedule_rotation_beta": {
                 "current": "incident:index/getScheduleRotationBeta:getScheduleRotationBeta",
-                "majorVersion": 1,
                 "fields": {
                     "handovers": {
                         "maxItemsOne": false
@@ -6631,7 +6569,6 @@
             },
             "incident_schedule_sync_rule": {
                 "current": "incident:index/getScheduleSyncRule:getScheduleSyncRule",
-                "majorVersion": 1,
                 "fields": {
                     "permanent_member_user_ids": {
                         "maxItemsOne": false
@@ -6640,7 +6577,6 @@
             },
             "incident_schedule_sync_target": {
                 "current": "incident:index/getScheduleSyncTarget:getScheduleSyncTarget",
-                "majorVersion": 1,
                 "fields": {
                     "linked_schedules": {
                         "maxItemsOne": false,
@@ -6656,7 +6592,6 @@
             },
             "incident_secret": {
                 "current": "incident:index/getSecret:getSecret",
-                "majorVersion": 1,
                 "fields": {
                     "owning_team_ids": {
                         "maxItemsOne": false
@@ -6664,24 +6599,19 @@
                 }
             },
             "incident_severity": {
-                "current": "incident:index/getSeverity:getSeverity",
-                "majorVersion": 1
+                "current": "incident:index/getSeverity:getSeverity"
             },
             "incident_status": {
-                "current": "incident:index/getStatus:getStatus",
-                "majorVersion": 1
+                "current": "incident:index/getStatus:getStatus"
             },
             "incident_status_page": {
-                "current": "incident:index/getStatusPage:getStatusPage",
-                "majorVersion": 1
+                "current": "incident:index/getStatusPage:getStatusPage"
             },
             "incident_user": {
-                "current": "incident:index/getUser:getUser",
-                "majorVersion": 1
+                "current": "incident:index/getUser:getUser"
             },
             "incident_workflow": {
                 "current": "incident:index/getWorkflow:getWorkflow",
-                "majorVersion": 1,
                 "fields": {
                     "condition_groups": {
                         "maxItemsOne": false,
