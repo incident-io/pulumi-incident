@@ -19,8 +19,8 @@ import (
 //
 // `policyType` selects exactly one matching config block: a `followUp` policy
 // carries `followUp` config, a `schedule` policy carries `schedule`
-// config, and so on. A `vacationConflict` policy has no configuration of its own and
-// so carries no block.
+// config, and so on. `vacationConflict` and `shiftConflict` policies have no
+// configuration of their own, so their blocks are empty objects.
 //
 // ## Example - Require a post-mortem within five working days
 //
@@ -448,6 +448,51 @@ import (
 //
 // ```
 //
+// ## Example - Flag anyone on call in two places at once
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/incident-io/pulumi-incident/sdk/go/incident"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// A shift conflict policy, which flags users who are on call in two or more
+//			// places at once: two rotations of one schedule, or two different schedules.
+//			// The type has nothing to configure, so its block is empty: it is only there to
+//			// say which type this is.
+//			//
+//			// The API assigns the user the finding is about, so assignment_rules takes
+//			// reminders but no bindings. A finding is due when the conflict starts, so this
+//			// reminds them when it's found and again the day before it starts.
+//			_, err := incident.NewPolicy(ctx, "shift_conflicts", &incident.PolicyArgs{
+//				Name:            pulumi.String("Nobody on call twice"),
+//				Description:     pulumi.String("Flag anyone scheduled on call in two places at once."),
+//				ConditionGroups: incident.PolicyConditionGroupArray{},
+//				AssignmentRules: &incident.PolicyAssignmentRulesArgs{
+//					ReminderDueDateOffsetHours: pulumi.IntArray{
+//						pulumi.Int(-24),
+//					},
+//					ReminderDetectedDateOffsetHours: pulumi.IntArray{
+//						pulumi.Int(0),
+//					},
+//				},
+//				ShiftConflict: &incident.PolicyShiftConflictArgs{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Import is supported using an `import` block or the `pulumi import` command:
@@ -487,6 +532,8 @@ type Policy struct {
 	PostMortem PolicyPostMortemPtrOutput `pulumi:"postMortem"`
 	// Makes this a schedule policy, which detects gaps in on-call coverage.
 	Schedule PolicySchedulePtrOutput `pulumi:"schedule"`
+	// Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+	ShiftConflict PolicyShiftConflictPtrOutput `pulumi:"shiftConflict"`
 	// Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
@@ -553,6 +600,8 @@ type policyState struct {
 	PostMortem *PolicyPostMortem `pulumi:"postMortem"`
 	// Makes this a schedule policy, which detects gaps in on-call coverage.
 	Schedule *PolicySchedule `pulumi:"schedule"`
+	// Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+	ShiftConflict *PolicyShiftConflict `pulumi:"shiftConflict"`
 	// Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
 	Status *string `pulumi:"status"`
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
@@ -584,6 +633,8 @@ type PolicyState struct {
 	PostMortem PolicyPostMortemPtrInput
 	// Makes this a schedule policy, which detects gaps in on-call coverage.
 	Schedule PolicySchedulePtrInput
+	// Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+	ShiftConflict PolicyShiftConflictPtrInput
 	// Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
 	Status pulumi.StringPtrInput
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
@@ -617,6 +668,8 @@ type policyArgs struct {
 	PostMortem *PolicyPostMortem `pulumi:"postMortem"`
 	// Makes this a schedule policy, which detects gaps in on-call coverage.
 	Schedule *PolicySchedule `pulumi:"schedule"`
+	// Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+	ShiftConflict *PolicyShiftConflict `pulumi:"shiftConflict"`
 	// Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
 	Status *string `pulumi:"status"`
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
@@ -647,6 +700,8 @@ type PolicyArgs struct {
 	PostMortem PolicyPostMortemPtrInput
 	// Makes this a schedule policy, which detects gaps in on-call coverage.
 	Schedule PolicySchedulePtrInput
+	// Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+	ShiftConflict PolicyShiftConflictPtrInput
 	// Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
 	Status pulumi.StringPtrInput
 	// Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignoreChanges = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
@@ -795,6 +850,11 @@ func (o PolicyOutput) PostMortem() PolicyPostMortemPtrOutput {
 // Makes this a schedule policy, which detects gaps in on-call coverage.
 func (o PolicyOutput) Schedule() PolicySchedulePtrOutput {
 	return o.ApplyT(func(v *Policy) PolicySchedulePtrOutput { return v.Schedule }).(PolicySchedulePtrOutput)
+}
+
+// Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+func (o PolicyOutput) ShiftConflict() PolicyShiftConflictPtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyShiftConflictPtrOutput { return v.ShiftConflict }).(PolicyShiftConflictPtrOutput)
 }
 
 // Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.

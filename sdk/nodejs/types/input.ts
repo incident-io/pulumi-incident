@@ -879,6 +879,10 @@ export interface AlertRouteGroupingConfig {
 
 export interface AlertRouteGroupingConfigDefault {
     /**
+     * **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * Whether grouping is enabled
      */
     enabled: pulumi.Input<boolean>;
@@ -23644,6 +23648,645 @@ export interface GetAlertSourceNamedExpressionOperationSum {
 export interface GetAlertSourceNamedExpressionOperationSumArgs {
 }
 
+export interface IncidentFormExpression {
+    /**
+     * The else branch to resort to if all operations fail
+     */
+    elseBranch?: pulumi.Input<inputs.IncidentFormExpressionElseBranch | undefined>;
+    /**
+     * The human readable label of the expression
+     */
+    label: pulumi.Input<string>;
+    /**
+     * The operations to execute in sequence for this expression
+     */
+    operations: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperation>[]>;
+    /**
+     * A short ID that can be used to reference the expression
+     */
+    reference: pulumi.Input<string>;
+    /**
+     * The root reference for this expression (i.e. where the expression starts)
+     */
+    rootReference: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionElseBranch {
+    /**
+     * The result assumed if the else branch is reached
+     */
+    result: pulumi.Input<inputs.IncidentFormExpressionElseBranchResult>;
+}
+
+export interface IncidentFormExpressionElseBranchResult {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionElseBranchResultArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.IncidentFormExpressionElseBranchResultValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IncidentFormExpressionElseBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionElseBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionOperation {
+    /**
+     * An operation type that allows for a value to be set conditionally by a series of logical branches
+     */
+    branches?: pulumi.Input<inputs.IncidentFormExpressionOperationBranches | undefined>;
+    /**
+     * An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+     */
+    cast?: pulumi.Input<inputs.IncidentFormExpressionOperationCast | undefined>;
+    /**
+     * An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+     */
+    concatenate?: pulumi.Input<inputs.IncidentFormExpressionOperationConcatenate | undefined>;
+    /**
+     * An operation type that allows values to be filtered out by conditions
+     */
+    filter?: pulumi.Input<inputs.IncidentFormExpressionOperationFilter | undefined>;
+    /**
+     * An operation type that allows attributes of a type to be accessed by reference
+     */
+    navigate?: pulumi.Input<inputs.IncidentFormExpressionOperationNavigate | undefined>;
+    /**
+     * Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+     */
+    operationType: pulumi.Input<string>;
+    /**
+     * An operation type that allows a value to parsed from within a JSON object
+     */
+    parse?: pulumi.Input<inputs.IncidentFormExpressionOperationParse | undefined>;
+}
+
+export interface IncidentFormExpressionOperationBranches {
+    /**
+     * The branches to apply for this operation
+     */
+    branches: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranch>[]>;
+    /**
+     * The return type of an operation
+     */
+    returns: pulumi.Input<inputs.IncidentFormExpressionOperationBranchesReturns>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranch {
+    /**
+     * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+     */
+    conditionGroups: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchConditionGroup>[]>;
+    /**
+     * The result assumed if the condition groups are satisfied
+     */
+    result: pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchResult>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchConditionGroupCondition>[]>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding>[]>;
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchResult {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchResultArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.IncidentFormExpressionOperationBranchesBranchResultValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionOperationBranchesReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: pulumi.Input<boolean>;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionOperationCast {
+    /**
+     * The return type of an operation
+     */
+    returns: pulumi.Input<inputs.IncidentFormExpressionOperationCastReturns>;
+}
+
+export interface IncidentFormExpressionOperationCastReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: pulumi.Input<boolean>;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionOperationConcatenate {
+    /**
+     * The reference within the scope to concatenate with
+     */
+    reference: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionOperationFilter {
+    /**
+     * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+     */
+    conditionGroups: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationFilterConditionGroup>[]>;
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationFilterConditionGroupCondition>[]>;
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding>[]>;
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormExpressionOperationNavigate {
+    reference: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionOperationParse {
+    /**
+     * The return type of an operation
+     */
+    returns: pulumi.Input<inputs.IncidentFormExpressionOperationParseReturns>;
+    /**
+     * The ES5 Javascript expression to execute
+     */
+    source: pulumi.Input<string>;
+}
+
+export interface IncidentFormExpressionOperationParseReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: pulumi.Input<boolean>;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface IncidentFormLifecycleElement {
+    /**
+     * Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+     */
+    canSelectNoValue?: pulumi.Input<boolean | undefined>;
+    config?: pulumi.Input<inputs.IncidentFormLifecycleElementConfig | undefined>;
+    /**
+     * The custom field this element edits. Set only when element*type is custom*field.
+     */
+    customFieldId?: pulumi.Input<string | undefined>;
+    defaultValue?: pulumi.Input<inputs.IncidentFormLifecycleElementDefaultValue | undefined>;
+    /**
+     * Description shown beside this element, as markdown
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * What this element captures. Possible values are: `name`, `status`, `severity`, `incidentRole`, `incidentType`, `summary`, `customField`, `timestamp`, `updateMessage`, `nextUpdateIn`, `triage`, `visibility`, `divider`, `text`, `incidentAttachments`, `slackChannel`, `announceRetroIncident`, `enterPostIncidentFlow`, `investigationFeedback`.
+     */
+    elementType: pulumi.Input<string>;
+    /**
+     * Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * The incident role this element assigns. Set only when element*type is incident*role.
+     */
+    incidentRoleId?: pulumi.Input<string | undefined>;
+    /**
+     * The incident timestamp this element sets. Set only when elementType is timestamp.
+     */
+    incidentTimestampId?: pulumi.Input<string | undefined>;
+    /**
+     * Placeholder text shown in the empty field
+     */
+    placeholder?: pulumi.Input<string | undefined>;
+    /**
+     * When this element must be filled in. Possible values are: `checkEngineConfig`, `alwaysRequire`, `neverRequire`.
+     */
+    requiredIf?: pulumi.Input<string | undefined>;
+    /**
+     * Condition groups that make this element required. Used when required*if is check*engine*config.
+     */
+    requiredIfConditionGroups?: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementRequiredIfConditionGroup>[] | undefined>;
+    /**
+     * The element is shown when any of these condition groups match. Unset means it is always shown.
+     */
+    showIfConditionGroups?: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementShowIfConditionGroup>[] | undefined>;
+}
+
+export interface IncidentFormLifecycleElementConfig {
+    /**
+     * Whether the free-text comment must be filled in, for anyone giving investigation feedback
+     */
+    requireComment: pulumi.Input<boolean>;
+}
+
+export interface IncidentFormLifecycleElementDefaultValue {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementDefaultValueArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.IncidentFormLifecycleElementDefaultValueValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IncidentFormLifecycleElementDefaultValueArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormLifecycleElementDefaultValueValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementRequiredIfConditionGroupCondition>[]>;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding>[]>;
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementShowIfConditionGroupCondition>[]>;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding>[]>;
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
 export interface IncidentTemplateExpression {
     /**
      * The else branch to resort to if all operations fail
@@ -25732,6 +26375,9 @@ export interface PolicySchedule {
     requirementType: pulumi.Input<string>;
 }
 
+export interface PolicyShiftConflict {
+}
+
 export interface PolicyVacationConflict {
 }
 
@@ -25842,6 +26488,67 @@ export interface ScheduleSyncTargetNewSlackUserGroup {
     slackTeamId?: pulumi.Input<string | undefined>;
 }
 
+export interface StatusPageStructureItem {
+    /**
+     * ID of the component to place, shown on its own.
+     */
+    componentId?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+     */
+    displayUptime?: pulumi.Input<boolean | undefined>;
+    /**
+     * A named group of components.
+     */
+    group?: pulumi.Input<inputs.StatusPageStructureItemGroup | undefined>;
+    /**
+     * Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+     */
+    hidden?: pulumi.Input<boolean | undefined>;
+}
+
+export interface StatusPageStructureItemGroup {
+    /**
+     * The components in this group, in display order.
+     */
+    components: pulumi.Input<pulumi.Input<inputs.StatusPageStructureItemGroupComponent>[]>;
+    /**
+     * A description shown under the group's name. Left out, the group has none, so a description set in the dashboard has to be written here to survive an apply.
+     */
+    description?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the page shows uptime aggregated across the group's components. Left out, a group already on the page keeps its setting and a new one shows it when a component allows. It needs a visible component that shows uptime.
+     */
+    displayAggregatedUptime?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the group is hidden from the page. Left out, a group already on the page keeps its setting and a new one is hidden only when every component in it is. A visible group needs a visible component.
+     */
+    hidden?: pulumi.Input<boolean | undefined>;
+    /**
+     * Unique ID of this component group. Assigned by incident.io, and kept while the group keeps its name.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * The name of this component group
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface StatusPageStructureItemGroupComponent {
+    /**
+     * ID of the component to place
+     */
+    componentId: pulumi.Input<string>;
+    /**
+     * Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+     */
+    displayUptime?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+     */
+    hidden?: pulumi.Input<boolean | undefined>;
+}
+
 export interface TeamGroupingPreferenceDefault {
     /**
      * How a team's alerts are grouped together, on every alert route
@@ -25850,6 +26557,10 @@ export interface TeamGroupingPreferenceDefault {
 }
 
 export interface TeamGroupingPreferenceDefaultSettings {
+    /**
+     * Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
      */

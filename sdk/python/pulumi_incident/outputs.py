@@ -805,6 +805,50 @@ __all__ = [
     'EscalationPathTemplateWorkingHourWeekdayInterval',
     'EscalationPathWorkingHour',
     'EscalationPathWorkingHourWeekdayInterval',
+    'IncidentFormExpression',
+    'IncidentFormExpressionElseBranch',
+    'IncidentFormExpressionElseBranchResult',
+    'IncidentFormExpressionElseBranchResultArrayValue',
+    'IncidentFormExpressionElseBranchResultValue',
+    'IncidentFormExpressionOperation',
+    'IncidentFormExpressionOperationBranches',
+    'IncidentFormExpressionOperationBranchesBranch',
+    'IncidentFormExpressionOperationBranchesBranchConditionGroup',
+    'IncidentFormExpressionOperationBranchesBranchConditionGroupCondition',
+    'IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding',
+    'IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue',
+    'IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue',
+    'IncidentFormExpressionOperationBranchesBranchResult',
+    'IncidentFormExpressionOperationBranchesBranchResultArrayValue',
+    'IncidentFormExpressionOperationBranchesBranchResultValue',
+    'IncidentFormExpressionOperationBranchesReturns',
+    'IncidentFormExpressionOperationCast',
+    'IncidentFormExpressionOperationCastReturns',
+    'IncidentFormExpressionOperationConcatenate',
+    'IncidentFormExpressionOperationFilter',
+    'IncidentFormExpressionOperationFilterConditionGroup',
+    'IncidentFormExpressionOperationFilterConditionGroupCondition',
+    'IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding',
+    'IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue',
+    'IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue',
+    'IncidentFormExpressionOperationNavigate',
+    'IncidentFormExpressionOperationParse',
+    'IncidentFormExpressionOperationParseReturns',
+    'IncidentFormLifecycleElement',
+    'IncidentFormLifecycleElementConfig',
+    'IncidentFormLifecycleElementDefaultValue',
+    'IncidentFormLifecycleElementDefaultValueArrayValue',
+    'IncidentFormLifecycleElementDefaultValueValue',
+    'IncidentFormLifecycleElementRequiredIfConditionGroup',
+    'IncidentFormLifecycleElementRequiredIfConditionGroupCondition',
+    'IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding',
+    'IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue',
+    'IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue',
+    'IncidentFormLifecycleElementShowIfConditionGroup',
+    'IncidentFormLifecycleElementShowIfConditionGroupCondition',
+    'IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding',
+    'IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue',
+    'IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue',
     'IncidentTemplateExpression',
     'IncidentTemplateExpressionElseBranch',
     'IncidentTemplateExpressionElseBranchResult',
@@ -950,6 +994,7 @@ __all__ = [
     'PolicyPostMortemRequirementConditionParamBindingArrayValue',
     'PolicyPostMortemRequirementConditionParamBindingValue',
     'PolicySchedule',
+    'PolicyShiftConflict',
     'PolicyVacationConflict',
     'ScheduleBetaHolidaysPublicConfig',
     'ScheduleHolidaysPublicConfig',
@@ -960,6 +1005,9 @@ __all__ = [
     'ScheduleRotationHandover',
     'ScheduleRotationWorkingInterval',
     'ScheduleSyncTargetNewSlackUserGroup',
+    'StatusPageStructureItem',
+    'StatusPageStructureItemGroup',
+    'StatusPageStructureItemGroupComponent',
     'TeamGroupingPreferenceDefault',
     'TeamGroupingPreferenceDefaultSettings',
     'TeamGroupingPreferenceDefaultSettingsGroupingKey',
@@ -1489,6 +1537,50 @@ __all__ = [
     'GetEscalationPathSequencesNodeNotifyChannelTargetResult',
     'GetEscalationPathWorkingHourResult',
     'GetEscalationPathWorkingHourWeekdayIntervalResult',
+    'GetIncidentFormExpressionResult',
+    'GetIncidentFormExpressionElseBranchResult',
+    'GetIncidentFormExpressionElseBranchResultResult',
+    'GetIncidentFormExpressionElseBranchResultArrayValueResult',
+    'GetIncidentFormExpressionElseBranchResultValueResult',
+    'GetIncidentFormExpressionOperationResult',
+    'GetIncidentFormExpressionOperationBranchesResult',
+    'GetIncidentFormExpressionOperationBranchesBranchResult',
+    'GetIncidentFormExpressionOperationBranchesBranchConditionGroupResult',
+    'GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionResult',
+    'GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult',
+    'GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult',
+    'GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult',
+    'GetIncidentFormExpressionOperationBranchesBranchResultResult',
+    'GetIncidentFormExpressionOperationBranchesBranchResultArrayValueResult',
+    'GetIncidentFormExpressionOperationBranchesBranchResultValueResult',
+    'GetIncidentFormExpressionOperationBranchesReturnsResult',
+    'GetIncidentFormExpressionOperationCastResult',
+    'GetIncidentFormExpressionOperationCastReturnsResult',
+    'GetIncidentFormExpressionOperationConcatenateResult',
+    'GetIncidentFormExpressionOperationFilterResult',
+    'GetIncidentFormExpressionOperationFilterConditionGroupResult',
+    'GetIncidentFormExpressionOperationFilterConditionGroupConditionResult',
+    'GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingResult',
+    'GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult',
+    'GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValueResult',
+    'GetIncidentFormExpressionOperationNavigateResult',
+    'GetIncidentFormExpressionOperationParseResult',
+    'GetIncidentFormExpressionOperationParseReturnsResult',
+    'GetIncidentFormLifecycleElementResult',
+    'GetIncidentFormLifecycleElementConfigResult',
+    'GetIncidentFormLifecycleElementDefaultValueResult',
+    'GetIncidentFormLifecycleElementDefaultValueArrayValueResult',
+    'GetIncidentFormLifecycleElementDefaultValueValueResult',
+    'GetIncidentFormLifecycleElementRequiredIfConditionGroupResult',
+    'GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionResult',
+    'GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingResult',
+    'GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValueResult',
+    'GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValueResult',
+    'GetIncidentFormLifecycleElementShowIfConditionGroupResult',
+    'GetIncidentFormLifecycleElementShowIfConditionGroupConditionResult',
+    'GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingResult',
+    'GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValueResult',
+    'GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValueResult',
     'GetIncidentTemplateExpressionResult',
     'GetIncidentTemplateExpressionElseBranchResult',
     'GetIncidentTemplateExpressionElseBranchResultResult',
@@ -4608,7 +4700,9 @@ class AlertRouteGroupingConfigDefault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "groupingKeys":
+        if key == "aiEnabled":
+            suggest = "ai_enabled"
+        elif key == "groupingKeys":
             suggest = "grouping_keys"
         elif key == "windowSeconds":
             suggest = "window_seconds"
@@ -4628,16 +4722,20 @@ class AlertRouteGroupingConfigDefault(dict):
 
     def __init__(__self__, *,
                  enabled: _builtins.bool,
+                 ai_enabled: Optional[_builtins.bool] = None,
                  grouping_keys: Optional[Sequence['outputs.AlertRouteGroupingConfigDefaultGroupingKey']] = None,
                  window_seconds: Optional[_builtins.int] = None,
                  window_type: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Whether grouping is enabled
+        :param _builtins.bool ai_enabled: **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
         :param Sequence['AlertRouteGroupingConfigDefaultGroupingKeyArgs'] grouping_keys: Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
         :param _builtins.int window_seconds: How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
         :param _builtins.str window_type: Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if ai_enabled is not None:
+            pulumi.set(__self__, "ai_enabled", ai_enabled)
         if grouping_keys is not None:
             pulumi.set(__self__, "grouping_keys", grouping_keys)
         if window_seconds is not None:
@@ -4652,6 +4750,14 @@ class AlertRouteGroupingConfigDefault(dict):
         Whether grouping is enabled
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="aiEnabled")
+    def ai_enabled(self) -> Optional[_builtins.bool]:
+        """
+        **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        """
+        return pulumi.get(self, "ai_enabled")
 
     @_builtins.property
     @pulumi.getter(name="groupingKeys")
@@ -40629,6 +40735,2157 @@ class EscalationPathWorkingHourWeekdayInterval(dict):
 
 
 @pulumi.output_type
+class IncidentFormExpression(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rootReference":
+            suggest = "root_reference"
+        elif key == "elseBranch":
+            suggest = "else_branch"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpression. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpression.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpression.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 label: _builtins.str,
+                 operations: Sequence['outputs.IncidentFormExpressionOperation'],
+                 reference: _builtins.str,
+                 root_reference: _builtins.str,
+                 else_branch: Optional['outputs.IncidentFormExpressionElseBranch'] = None):
+        """
+        :param _builtins.str label: The human readable label of the expression
+        :param Sequence['IncidentFormExpressionOperationArgs'] operations: The operations to execute in sequence for this expression
+        :param _builtins.str reference: A short ID that can be used to reference the expression
+        :param _builtins.str root_reference: The root reference for this expression (i.e. where the expression starts)
+        :param 'IncidentFormExpressionElseBranchArgs' else_branch: The else branch to resort to if all operations fail
+        """
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "operations", operations)
+        pulumi.set(__self__, "reference", reference)
+        pulumi.set(__self__, "root_reference", root_reference)
+        if else_branch is not None:
+            pulumi.set(__self__, "else_branch", else_branch)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        The human readable label of the expression
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> Sequence['outputs.IncidentFormExpressionOperation']:
+        """
+        The operations to execute in sequence for this expression
+        """
+        return pulumi.get(self, "operations")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        A short ID that can be used to reference the expression
+        """
+        return pulumi.get(self, "reference")
+
+    @_builtins.property
+    @pulumi.getter(name="rootReference")
+    def root_reference(self) -> _builtins.str:
+        """
+        The root reference for this expression (i.e. where the expression starts)
+        """
+        return pulumi.get(self, "root_reference")
+
+    @_builtins.property
+    @pulumi.getter(name="elseBranch")
+    def else_branch(self) -> Optional['outputs.IncidentFormExpressionElseBranch']:
+        """
+        The else branch to resort to if all operations fail
+        """
+        return pulumi.get(self, "else_branch")
+
+
+@pulumi.output_type
+class IncidentFormExpressionElseBranch(dict):
+    def __init__(__self__, *,
+                 result: 'outputs.IncidentFormExpressionElseBranchResult'):
+        """
+        :param 'IncidentFormExpressionElseBranchResultArgs' result: The result assumed if the else branch is reached
+        """
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.IncidentFormExpressionElseBranchResult':
+        """
+        The result assumed if the else branch is reached
+        """
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class IncidentFormExpressionElseBranchResult(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arrayValues":
+            suggest = "array_values"
+        elif key == "expressionRef":
+            suggest = "expression_ref"
+        elif key == "valueLiteral":
+            suggest = "value_literal"
+        elif key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionElseBranchResult. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionElseBranchResult.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionElseBranchResult.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 array_values: Optional[Sequence['outputs.IncidentFormExpressionElseBranchResultArrayValue']] = None,
+                 expression_ref: Optional[_builtins.str] = None,
+                 value: Optional['outputs.IncidentFormExpressionElseBranchResultValue'] = None,
+                 value_literal: Optional[_builtins.str] = None,
+                 value_reference: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['IncidentFormExpressionElseBranchResultArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.str expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param 'IncidentFormExpressionElseBranchResultValueArgs' value: The literal or reference parameter value
+        :param _builtins.str value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param _builtins.str value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param Sequence[_builtins.str] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Optional[Sequence['outputs.IncidentFormExpressionElseBranchResultArrayValue']]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> Optional[_builtins.str]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.IncidentFormExpressionElseBranchResultValue']:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> Optional[_builtins.str]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> Optional[_builtins.str]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentFormExpressionElseBranchResultArrayValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionElseBranchResultValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationType":
+            suggest = "operation_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation_type: _builtins.str,
+                 branches: Optional['outputs.IncidentFormExpressionOperationBranches'] = None,
+                 cast: Optional['outputs.IncidentFormExpressionOperationCast'] = None,
+                 concatenate: Optional['outputs.IncidentFormExpressionOperationConcatenate'] = None,
+                 filter: Optional['outputs.IncidentFormExpressionOperationFilter'] = None,
+                 navigate: Optional['outputs.IncidentFormExpressionOperationNavigate'] = None,
+                 parse: Optional['outputs.IncidentFormExpressionOperationParse'] = None):
+        """
+        :param _builtins.str operation_type: Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        :param 'IncidentFormExpressionOperationBranchesArgs' branches: An operation type that allows for a value to be set conditionally by a series of logical branches
+        :param 'IncidentFormExpressionOperationCastArgs' cast: An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+        :param 'IncidentFormExpressionOperationConcatenateArgs' concatenate: An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+        :param 'IncidentFormExpressionOperationFilterArgs' filter: An operation type that allows values to be filtered out by conditions
+        :param 'IncidentFormExpressionOperationNavigateArgs' navigate: An operation type that allows attributes of a type to be accessed by reference
+        :param 'IncidentFormExpressionOperationParseArgs' parse: An operation type that allows a value to parsed from within a JSON object
+        """
+        pulumi.set(__self__, "operation_type", operation_type)
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if cast is not None:
+            pulumi.set(__self__, "cast", cast)
+        if concatenate is not None:
+            pulumi.set(__self__, "concatenate", concatenate)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if navigate is not None:
+            pulumi.set(__self__, "navigate", navigate)
+        if parse is not None:
+            pulumi.set(__self__, "parse", parse)
+
+    @_builtins.property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> _builtins.str:
+        """
+        Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> Optional['outputs.IncidentFormExpressionOperationBranches']:
+        """
+        An operation type that allows for a value to be set conditionally by a series of logical branches
+        """
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def cast(self) -> Optional['outputs.IncidentFormExpressionOperationCast']:
+        """
+        An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+        """
+        return pulumi.get(self, "cast")
+
+    @_builtins.property
+    @pulumi.getter
+    def concatenate(self) -> Optional['outputs.IncidentFormExpressionOperationConcatenate']:
+        """
+        An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+        """
+        return pulumi.get(self, "concatenate")
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.IncidentFormExpressionOperationFilter']:
+        """
+        An operation type that allows values to be filtered out by conditions
+        """
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def navigate(self) -> Optional['outputs.IncidentFormExpressionOperationNavigate']:
+        """
+        An operation type that allows attributes of a type to be accessed by reference
+        """
+        return pulumi.get(self, "navigate")
+
+    @_builtins.property
+    @pulumi.getter
+    def parse(self) -> Optional['outputs.IncidentFormExpressionOperationParse']:
+        """
+        An operation type that allows a value to parsed from within a JSON object
+        """
+        return pulumi.get(self, "parse")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranches(dict):
+    def __init__(__self__, *,
+                 branches: Sequence['outputs.IncidentFormExpressionOperationBranchesBranch'],
+                 returns: 'outputs.IncidentFormExpressionOperationBranchesReturns'):
+        """
+        :param Sequence['IncidentFormExpressionOperationBranchesBranchArgs'] branches: The branches to apply for this operation
+        :param 'IncidentFormExpressionOperationBranchesReturnsArgs' returns: The return type of an operation
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> Sequence['outputs.IncidentFormExpressionOperationBranchesBranch']:
+        """
+        The branches to apply for this operation
+        """
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.IncidentFormExpressionOperationBranchesReturns':
+        """
+        The return type of an operation
+        """
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionGroups":
+            suggest = "condition_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperationBranchesBranch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperationBranchesBranch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperationBranchesBranch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroup'],
+                 result: 'outputs.IncidentFormExpressionOperationBranchesBranchResult'):
+        """
+        :param Sequence['IncidentFormExpressionOperationBranchesBranchConditionGroupArgs'] condition_groups: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+        :param 'IncidentFormExpressionOperationBranchesBranchResultArgs' result: The result assumed if the condition groups are satisfied
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroup']:
+        """
+        Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.IncidentFormExpressionOperationBranchesBranchResult':
+        """
+        The result assumed if the condition groups are satisfied
+        """
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchConditionGroup(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupCondition']):
+        """
+        :param Sequence['IncidentFormExpressionOperationBranchesBranchConditionGroupConditionArgs'] conditions: The prerequisite conditions that must all be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupCondition']:
+        """
+        The prerequisite conditions that must all be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchConditionGroupCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paramBindings":
+            suggest = "param_bindings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperationBranchesBranchConditionGroupCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperationBranchesBranchConditionGroupCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperationBranchesBranchConditionGroupCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding'],
+                 subject: _builtins.str):
+        """
+        :param _builtins.str operation: The logical operation to be applied
+        :param Sequence['IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        :param _builtins.str subject: The subject of the condition, on which the operation is applied
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        """
+        The logical operation to be applied
+        """
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The subject of the condition, on which the operation is applied
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arrayValues":
+            suggest = "array_values"
+        elif key == "expressionRef":
+            suggest = "expression_ref"
+        elif key == "valueLiteral":
+            suggest = "value_literal"
+        elif key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 array_values: Optional[Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue']] = None,
+                 expression_ref: Optional[_builtins.str] = None,
+                 value: Optional['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue'] = None,
+                 value_literal: Optional[_builtins.str] = None,
+                 value_reference: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.str expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param 'IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs' value: The literal or reference parameter value
+        :param _builtins.str value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param _builtins.str value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param Sequence[_builtins.str] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Optional[Sequence['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue']]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> Optional[_builtins.str]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue']:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> Optional[_builtins.str]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> Optional[_builtins.str]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchResult(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arrayValues":
+            suggest = "array_values"
+        elif key == "expressionRef":
+            suggest = "expression_ref"
+        elif key == "valueLiteral":
+            suggest = "value_literal"
+        elif key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperationBranchesBranchResult. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperationBranchesBranchResult.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperationBranchesBranchResult.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 array_values: Optional[Sequence['outputs.IncidentFormExpressionOperationBranchesBranchResultArrayValue']] = None,
+                 expression_ref: Optional[_builtins.str] = None,
+                 value: Optional['outputs.IncidentFormExpressionOperationBranchesBranchResultValue'] = None,
+                 value_literal: Optional[_builtins.str] = None,
+                 value_reference: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['IncidentFormExpressionOperationBranchesBranchResultArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.str expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param 'IncidentFormExpressionOperationBranchesBranchResultValueArgs' value: The literal or reference parameter value
+        :param _builtins.str value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param _builtins.str value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param Sequence[_builtins.str] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Optional[Sequence['outputs.IncidentFormExpressionOperationBranchesBranchResultArrayValue']]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> Optional[_builtins.str]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.IncidentFormExpressionOperationBranchesBranchResultValue']:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> Optional[_builtins.str]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> Optional[_builtins.str]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchResultArrayValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesBranchResultValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationBranchesReturns(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationCast(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.IncidentFormExpressionOperationCastReturns'):
+        """
+        :param 'IncidentFormExpressionOperationCastReturnsArgs' returns: The return type of an operation
+        """
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.IncidentFormExpressionOperationCastReturns':
+        """
+        The return type of an operation
+        """
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationCastReturns(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationConcatenate(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: The reference within the scope to concatenate with
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        The reference within the scope to concatenate with
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionGroups":
+            suggest = "condition_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperationFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperationFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperationFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroup']):
+        """
+        :param Sequence['IncidentFormExpressionOperationFilterConditionGroupArgs'] condition_groups: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroup']:
+        """
+        Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+        """
+        return pulumi.get(self, "condition_groups")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationFilterConditionGroup(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroupCondition']):
+        """
+        :param Sequence['IncidentFormExpressionOperationFilterConditionGroupConditionArgs'] conditions: The prerequisite conditions that must all be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroupCondition']:
+        """
+        The prerequisite conditions that must all be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationFilterConditionGroupCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paramBindings":
+            suggest = "param_bindings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperationFilterConditionGroupCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperationFilterConditionGroupCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperationFilterConditionGroupCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding'],
+                 subject: _builtins.str):
+        """
+        :param _builtins.str operation: The logical operation to be applied
+        :param Sequence['IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        :param _builtins.str subject: The subject of the condition, on which the operation is applied
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        """
+        The logical operation to be applied
+        """
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The subject of the condition, on which the operation is applied
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arrayValues":
+            suggest = "array_values"
+        elif key == "expressionRef":
+            suggest = "expression_ref"
+        elif key == "valueLiteral":
+            suggest = "value_literal"
+        elif key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 array_values: Optional[Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue']] = None,
+                 expression_ref: Optional[_builtins.str] = None,
+                 value: Optional['outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue'] = None,
+                 value_literal: Optional[_builtins.str] = None,
+                 value_reference: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.str expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param 'IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValueArgs' value: The literal or reference parameter value
+        :param _builtins.str value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param _builtins.str value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param Sequence[_builtins.str] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Optional[Sequence['outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue']]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> Optional[_builtins.str]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue']:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> Optional[_builtins.str]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> Optional[_builtins.str]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationNavigate(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationParse(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.IncidentFormExpressionOperationParseReturns',
+                 source: _builtins.str):
+        """
+        :param 'IncidentFormExpressionOperationParseReturnsArgs' returns: The return type of an operation
+        :param _builtins.str source: The ES5 Javascript expression to execute
+        """
+        pulumi.set(__self__, "returns", returns)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.IncidentFormExpressionOperationParseReturns':
+        """
+        The return type of an operation
+        """
+        return pulumi.get(self, "returns")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        The ES5 Javascript expression to execute
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class IncidentFormExpressionOperationParseReturns(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elementType":
+            suggest = "element_type"
+        elif key == "canSelectNoValue":
+            suggest = "can_select_no_value"
+        elif key == "customFieldId":
+            suggest = "custom_field_id"
+        elif key == "defaultValue":
+            suggest = "default_value"
+        elif key == "incidentRoleId":
+            suggest = "incident_role_id"
+        elif key == "incidentTimestampId":
+            suggest = "incident_timestamp_id"
+        elif key == "requiredIf":
+            suggest = "required_if"
+        elif key == "requiredIfConditionGroups":
+            suggest = "required_if_condition_groups"
+        elif key == "showIfConditionGroups":
+            suggest = "show_if_condition_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormLifecycleElement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormLifecycleElement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormLifecycleElement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 element_type: _builtins.str,
+                 can_select_no_value: Optional[_builtins.bool] = None,
+                 config: Optional['outputs.IncidentFormLifecycleElementConfig'] = None,
+                 custom_field_id: Optional[_builtins.str] = None,
+                 default_value: Optional['outputs.IncidentFormLifecycleElementDefaultValue'] = None,
+                 description: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 incident_role_id: Optional[_builtins.str] = None,
+                 incident_timestamp_id: Optional[_builtins.str] = None,
+                 placeholder: Optional[_builtins.str] = None,
+                 required_if: Optional[_builtins.str] = None,
+                 required_if_condition_groups: Optional[Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroup']] = None,
+                 show_if_condition_groups: Optional[Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroup']] = None):
+        """
+        :param _builtins.str element_type: What this element captures. Possible values are: `name`, `status`, `severity`, `incident_role`, `incident_type`, `summary`, `custom_field`, `timestamp`, `update_message`, `next_update_in`, `triage`, `visibility`, `divider`, `text`, `incident_attachments`, `slack_channel`, `announce_retro_incident`, `enter_post_incident_flow`, `investigation_feedback`.
+        :param _builtins.bool can_select_no_value: Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+        :param _builtins.str custom_field_id: The custom field this element edits. Set only when element*type is custom*field.
+        :param _builtins.str description: Description shown beside this element, as markdown
+        :param _builtins.str id: Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+        :param _builtins.str incident_role_id: The incident role this element assigns. Set only when element*type is incident*role.
+        :param _builtins.str incident_timestamp_id: The incident timestamp this element sets. Set only when element_type is timestamp.
+        :param _builtins.str placeholder: Placeholder text shown in the empty field
+        :param _builtins.str required_if: When this element must be filled in. Possible values are: `check_engine_config`, `always_require`, `never_require`.
+        :param Sequence['IncidentFormLifecycleElementRequiredIfConditionGroupArgs'] required_if_condition_groups: Condition groups that make this element required. Used when required*if is check*engine*config.
+        :param Sequence['IncidentFormLifecycleElementShowIfConditionGroupArgs'] show_if_condition_groups: The element is shown when any of these condition groups match. Unset means it is always shown.
+        """
+        pulumi.set(__self__, "element_type", element_type)
+        if can_select_no_value is not None:
+            pulumi.set(__self__, "can_select_no_value", can_select_no_value)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if custom_field_id is not None:
+            pulumi.set(__self__, "custom_field_id", custom_field_id)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if incident_role_id is not None:
+            pulumi.set(__self__, "incident_role_id", incident_role_id)
+        if incident_timestamp_id is not None:
+            pulumi.set(__self__, "incident_timestamp_id", incident_timestamp_id)
+        if placeholder is not None:
+            pulumi.set(__self__, "placeholder", placeholder)
+        if required_if is not None:
+            pulumi.set(__self__, "required_if", required_if)
+        if required_if_condition_groups is not None:
+            pulumi.set(__self__, "required_if_condition_groups", required_if_condition_groups)
+        if show_if_condition_groups is not None:
+            pulumi.set(__self__, "show_if_condition_groups", show_if_condition_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="elementType")
+    def element_type(self) -> _builtins.str:
+        """
+        What this element captures. Possible values are: `name`, `status`, `severity`, `incident_role`, `incident_type`, `summary`, `custom_field`, `timestamp`, `update_message`, `next_update_in`, `triage`, `visibility`, `divider`, `text`, `incident_attachments`, `slack_channel`, `announce_retro_incident`, `enter_post_incident_flow`, `investigation_feedback`.
+        """
+        return pulumi.get(self, "element_type")
+
+    @_builtins.property
+    @pulumi.getter(name="canSelectNoValue")
+    def can_select_no_value(self) -> Optional[_builtins.bool]:
+        """
+        Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+        """
+        return pulumi.get(self, "can_select_no_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.IncidentFormLifecycleElementConfig']:
+        return pulumi.get(self, "config")
+
+    @_builtins.property
+    @pulumi.getter(name="customFieldId")
+    def custom_field_id(self) -> Optional[_builtins.str]:
+        """
+        The custom field this element edits. Set only when element*type is custom*field.
+        """
+        return pulumi.get(self, "custom_field_id")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional['outputs.IncidentFormLifecycleElementDefaultValue']:
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        Description shown beside this element, as markdown
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentRoleId")
+    def incident_role_id(self) -> Optional[_builtins.str]:
+        """
+        The incident role this element assigns. Set only when element*type is incident*role.
+        """
+        return pulumi.get(self, "incident_role_id")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentTimestampId")
+    def incident_timestamp_id(self) -> Optional[_builtins.str]:
+        """
+        The incident timestamp this element sets. Set only when element_type is timestamp.
+        """
+        return pulumi.get(self, "incident_timestamp_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def placeholder(self) -> Optional[_builtins.str]:
+        """
+        Placeholder text shown in the empty field
+        """
+        return pulumi.get(self, "placeholder")
+
+    @_builtins.property
+    @pulumi.getter(name="requiredIf")
+    def required_if(self) -> Optional[_builtins.str]:
+        """
+        When this element must be filled in. Possible values are: `check_engine_config`, `always_require`, `never_require`.
+        """
+        return pulumi.get(self, "required_if")
+
+    @_builtins.property
+    @pulumi.getter(name="requiredIfConditionGroups")
+    def required_if_condition_groups(self) -> Optional[Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroup']]:
+        """
+        Condition groups that make this element required. Used when required*if is check*engine*config.
+        """
+        return pulumi.get(self, "required_if_condition_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="showIfConditionGroups")
+    def show_if_condition_groups(self) -> Optional[Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroup']]:
+        """
+        The element is shown when any of these condition groups match. Unset means it is always shown.
+        """
+        return pulumi.get(self, "show_if_condition_groups")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requireComment":
+            suggest = "require_comment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormLifecycleElementConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormLifecycleElementConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormLifecycleElementConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 require_comment: _builtins.bool):
+        """
+        :param _builtins.bool require_comment: Whether the free-text comment must be filled in, for anyone giving investigation feedback
+        """
+        pulumi.set(__self__, "require_comment", require_comment)
+
+    @_builtins.property
+    @pulumi.getter(name="requireComment")
+    def require_comment(self) -> _builtins.bool:
+        """
+        Whether the free-text comment must be filled in, for anyone giving investigation feedback
+        """
+        return pulumi.get(self, "require_comment")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementDefaultValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arrayValues":
+            suggest = "array_values"
+        elif key == "expressionRef":
+            suggest = "expression_ref"
+        elif key == "valueLiteral":
+            suggest = "value_literal"
+        elif key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormLifecycleElementDefaultValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormLifecycleElementDefaultValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormLifecycleElementDefaultValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 array_values: Optional[Sequence['outputs.IncidentFormLifecycleElementDefaultValueArrayValue']] = None,
+                 expression_ref: Optional[_builtins.str] = None,
+                 value: Optional['outputs.IncidentFormLifecycleElementDefaultValueValue'] = None,
+                 value_literal: Optional[_builtins.str] = None,
+                 value_reference: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['IncidentFormLifecycleElementDefaultValueArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.str expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param 'IncidentFormLifecycleElementDefaultValueValueArgs' value: The literal or reference parameter value
+        :param _builtins.str value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param _builtins.str value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param Sequence[_builtins.str] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Optional[Sequence['outputs.IncidentFormLifecycleElementDefaultValueArrayValue']]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> Optional[_builtins.str]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.IncidentFormLifecycleElementDefaultValueValue']:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> Optional[_builtins.str]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> Optional[_builtins.str]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementDefaultValueArrayValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementDefaultValueValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementRequiredIfConditionGroup(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupCondition']):
+        """
+        :param Sequence['IncidentFormLifecycleElementRequiredIfConditionGroupConditionArgs'] conditions: The prerequisite conditions that must all be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupCondition']:
+        """
+        The prerequisite conditions that must all be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementRequiredIfConditionGroupCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paramBindings":
+            suggest = "param_bindings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormLifecycleElementRequiredIfConditionGroupCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormLifecycleElementRequiredIfConditionGroupCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormLifecycleElementRequiredIfConditionGroupCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding'],
+                 subject: _builtins.str):
+        """
+        :param _builtins.str operation: The logical operation to be applied
+        :param Sequence['IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        :param _builtins.str subject: The subject of the condition, on which the operation is applied
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        """
+        The logical operation to be applied
+        """
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The subject of the condition, on which the operation is applied
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arrayValues":
+            suggest = "array_values"
+        elif key == "expressionRef":
+            suggest = "expression_ref"
+        elif key == "valueLiteral":
+            suggest = "value_literal"
+        elif key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 array_values: Optional[Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue']] = None,
+                 expression_ref: Optional[_builtins.str] = None,
+                 value: Optional['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue'] = None,
+                 value_literal: Optional[_builtins.str] = None,
+                 value_reference: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.str expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param 'IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValueArgs' value: The literal or reference parameter value
+        :param _builtins.str value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param _builtins.str value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param Sequence[_builtins.str] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Optional[Sequence['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue']]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> Optional[_builtins.str]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue']:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> Optional[_builtins.str]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> Optional[_builtins.str]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementShowIfConditionGroup(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroupCondition']):
+        """
+        :param Sequence['IncidentFormLifecycleElementShowIfConditionGroupConditionArgs'] conditions: The prerequisite conditions that must all be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroupCondition']:
+        """
+        The prerequisite conditions that must all be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementShowIfConditionGroupCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paramBindings":
+            suggest = "param_bindings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormLifecycleElementShowIfConditionGroupCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormLifecycleElementShowIfConditionGroupCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormLifecycleElementShowIfConditionGroupCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding'],
+                 subject: _builtins.str):
+        """
+        :param _builtins.str operation: The logical operation to be applied
+        :param Sequence['IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        :param _builtins.str subject: The subject of the condition, on which the operation is applied
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        """
+        The logical operation to be applied
+        """
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        """
+        The subject of the condition, on which the operation is applied
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arrayValues":
+            suggest = "array_values"
+        elif key == "expressionRef":
+            suggest = "expression_ref"
+        elif key == "valueLiteral":
+            suggest = "value_literal"
+        elif key == "valueReference":
+            suggest = "value_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 array_values: Optional[Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue']] = None,
+                 expression_ref: Optional[_builtins.str] = None,
+                 value: Optional['outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue'] = None,
+                 value_literal: Optional[_builtins.str] = None,
+                 value_reference: Optional[_builtins.str] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.str expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param 'IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValueArgs' value: The literal or reference parameter value
+        :param _builtins.str value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param _builtins.str value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param Sequence[_builtins.str] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Optional[Sequence['outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue']]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> Optional[_builtins.str]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue']:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> Optional[_builtins.str]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> Optional[_builtins.str]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue(dict):
+    def __init__(__self__, *,
+                 literal: Optional[_builtins.str] = None,
+                 reference: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> Optional[_builtins.str]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
 class IncidentTemplateExpression(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -47834,6 +50091,12 @@ class PolicySchedule(dict):
 
 
 @pulumi.output_type
+class PolicyShiftConflict(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class PolicyVacationConflict(dict):
     def __init__(__self__):
         pass
@@ -48287,6 +50550,235 @@ class ScheduleSyncTargetNewSlackUserGroup(dict):
 
 
 @pulumi.output_type
+class StatusPageStructureItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentId":
+            suggest = "component_id"
+        elif key == "displayUptime":
+            suggest = "display_uptime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusPageStructureItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusPageStructureItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusPageStructureItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_id: Optional[_builtins.str] = None,
+                 display_uptime: Optional[_builtins.bool] = None,
+                 group: Optional['outputs.StatusPageStructureItemGroup'] = None,
+                 hidden: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str component_id: ID of the component to place, shown on its own.
+        :param _builtins.bool display_uptime: Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+        :param 'StatusPageStructureItemGroupArgs' group: A named group of components.
+        :param _builtins.bool hidden: Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+        """
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
+        if display_uptime is not None:
+            pulumi.set(__self__, "display_uptime", display_uptime)
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if hidden is not None:
+            pulumi.set(__self__, "hidden", hidden)
+
+    @_builtins.property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the component to place, shown on its own.
+        """
+        return pulumi.get(self, "component_id")
+
+    @_builtins.property
+    @pulumi.getter(name="displayUptime")
+    def display_uptime(self) -> Optional[_builtins.bool]:
+        """
+        Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+        """
+        return pulumi.get(self, "display_uptime")
+
+    @_builtins.property
+    @pulumi.getter
+    def group(self) -> Optional['outputs.StatusPageStructureItemGroup']:
+        """
+        A named group of components.
+        """
+        return pulumi.get(self, "group")
+
+    @_builtins.property
+    @pulumi.getter
+    def hidden(self) -> Optional[_builtins.bool]:
+        """
+        Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+        """
+        return pulumi.get(self, "hidden")
+
+
+@pulumi.output_type
+class StatusPageStructureItemGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayAggregatedUptime":
+            suggest = "display_aggregated_uptime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusPageStructureItemGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusPageStructureItemGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusPageStructureItemGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 components: Sequence['outputs.StatusPageStructureItemGroupComponent'],
+                 name: _builtins.str,
+                 description: Optional[_builtins.str] = None,
+                 display_aggregated_uptime: Optional[_builtins.bool] = None,
+                 hidden: Optional[_builtins.bool] = None,
+                 id: Optional[_builtins.str] = None):
+        """
+        :param Sequence['StatusPageStructureItemGroupComponentArgs'] components: The components in this group, in display order.
+        :param _builtins.str name: The name of this component group
+        :param _builtins.str description: A description shown under the group's name. Left out, the group has none, so a description set in the dashboard has to be written here to survive an apply.
+        :param _builtins.bool display_aggregated_uptime: Whether the page shows uptime aggregated across the group's components. Left out, a group already on the page keeps its setting and a new one shows it when a component allows. It needs a visible component that shows uptime.
+        :param _builtins.bool hidden: Whether the group is hidden from the page. Left out, a group already on the page keeps its setting and a new one is hidden only when every component in it is. A visible group needs a visible component.
+        :param _builtins.str id: Unique ID of this component group. Assigned by incident.io, and kept while the group keeps its name.
+        """
+        pulumi.set(__self__, "components", components)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_aggregated_uptime is not None:
+            pulumi.set(__self__, "display_aggregated_uptime", display_aggregated_uptime)
+        if hidden is not None:
+            pulumi.set(__self__, "hidden", hidden)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def components(self) -> Sequence['outputs.StatusPageStructureItemGroupComponent']:
+        """
+        The components in this group, in display order.
+        """
+        return pulumi.get(self, "components")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of this component group
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description shown under the group's name. Left out, the group has none, so a description set in the dashboard has to be written here to survive an apply.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="displayAggregatedUptime")
+    def display_aggregated_uptime(self) -> Optional[_builtins.bool]:
+        """
+        Whether the page shows uptime aggregated across the group's components. Left out, a group already on the page keeps its setting and a new one shows it when a component allows. It needs a visible component that shows uptime.
+        """
+        return pulumi.get(self, "display_aggregated_uptime")
+
+    @_builtins.property
+    @pulumi.getter
+    def hidden(self) -> Optional[_builtins.bool]:
+        """
+        Whether the group is hidden from the page. Left out, a group already on the page keeps its setting and a new one is hidden only when every component in it is. A visible group needs a visible component.
+        """
+        return pulumi.get(self, "hidden")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Unique ID of this component group. Assigned by incident.io, and kept while the group keeps its name.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class StatusPageStructureItemGroupComponent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentId":
+            suggest = "component_id"
+        elif key == "displayUptime":
+            suggest = "display_uptime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StatusPageStructureItemGroupComponent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StatusPageStructureItemGroupComponent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StatusPageStructureItemGroupComponent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_id: _builtins.str,
+                 display_uptime: Optional[_builtins.bool] = None,
+                 hidden: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str component_id: ID of the component to place
+        :param _builtins.bool display_uptime: Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+        :param _builtins.bool hidden: Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+        """
+        pulumi.set(__self__, "component_id", component_id)
+        if display_uptime is not None:
+            pulumi.set(__self__, "display_uptime", display_uptime)
+        if hidden is not None:
+            pulumi.set(__self__, "hidden", hidden)
+
+    @_builtins.property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> _builtins.str:
+        """
+        ID of the component to place
+        """
+        return pulumi.get(self, "component_id")
+
+    @_builtins.property
+    @pulumi.getter(name="displayUptime")
+    def display_uptime(self) -> Optional[_builtins.bool]:
+        """
+        Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+        """
+        return pulumi.get(self, "display_uptime")
+
+    @_builtins.property
+    @pulumi.getter
+    def hidden(self) -> Optional[_builtins.bool]:
+        """
+        Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+        """
+        return pulumi.get(self, "hidden")
+
+
+@pulumi.output_type
 class TeamGroupingPreferenceDefault(dict):
     def __init__(__self__, *,
                  settings: 'outputs.TeamGroupingPreferenceDefaultSettings'):
@@ -48309,7 +50801,9 @@ class TeamGroupingPreferenceDefaultSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "groupingKeys":
+        if key == "aiEnabled":
+            suggest = "ai_enabled"
+        elif key == "groupingKeys":
             suggest = "grouping_keys"
         elif key == "windowSeconds":
             suggest = "window_seconds"
@@ -48329,16 +50823,20 @@ class TeamGroupingPreferenceDefaultSettings(dict):
 
     def __init__(__self__, *,
                  enabled: _builtins.bool,
+                 ai_enabled: Optional[_builtins.bool] = None,
                  grouping_keys: Optional[Sequence['outputs.TeamGroupingPreferenceDefaultSettingsGroupingKey']] = None,
                  window_seconds: Optional[_builtins.int] = None,
                  window_type: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+        :param _builtins.bool ai_enabled: Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
         :param Sequence['TeamGroupingPreferenceDefaultSettingsGroupingKeyArgs'] grouping_keys: Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
         :param _builtins.int window_seconds: How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
         :param _builtins.str window_type: How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if ai_enabled is not None:
+            pulumi.set(__self__, "ai_enabled", ai_enabled)
         if grouping_keys is not None:
             pulumi.set(__self__, "grouping_keys", grouping_keys)
         if window_seconds is not None:
@@ -48353,6 +50851,14 @@ class TeamGroupingPreferenceDefaultSettings(dict):
         Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="aiEnabled")
+    def ai_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        """
+        return pulumi.get(self, "ai_enabled")
 
     @_builtins.property
     @pulumi.getter(name="groupingKeys")
@@ -69163,6 +71669,1501 @@ class GetEscalationPathWorkingHourWeekdayIntervalResult(dict):
         Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
         """
         return pulumi.get(self, "weekday")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionResult(dict):
+    def __init__(__self__, *,
+                 else_branch: 'outputs.GetIncidentFormExpressionElseBranchResult',
+                 label: _builtins.str,
+                 operations: Sequence['outputs.GetIncidentFormExpressionOperationResult'],
+                 reference: _builtins.str,
+                 root_reference: _builtins.str):
+        """
+        :param _builtins.str label: The human readable label of the expression
+        :param _builtins.str reference: A short ID that can be used to reference the expression
+        :param _builtins.str root_reference: The root reference for this expression (i.e. where the expression starts)
+        """
+        pulumi.set(__self__, "else_branch", else_branch)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "operations", operations)
+        pulumi.set(__self__, "reference", reference)
+        pulumi.set(__self__, "root_reference", root_reference)
+
+    @_builtins.property
+    @pulumi.getter(name="elseBranch")
+    def else_branch(self) -> 'outputs.GetIncidentFormExpressionElseBranchResult':
+        return pulumi.get(self, "else_branch")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        The human readable label of the expression
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> Sequence['outputs.GetIncidentFormExpressionOperationResult']:
+        return pulumi.get(self, "operations")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        A short ID that can be used to reference the expression
+        """
+        return pulumi.get(self, "reference")
+
+    @_builtins.property
+    @pulumi.getter(name="rootReference")
+    def root_reference(self) -> _builtins.str:
+        """
+        The root reference for this expression (i.e. where the expression starts)
+        """
+        return pulumi.get(self, "root_reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionElseBranchResult(dict):
+    def __init__(__self__, *,
+                 result: 'outputs.GetIncidentFormExpressionElseBranchResultResult'):
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.GetIncidentFormExpressionElseBranchResultResult':
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionElseBranchResultResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetIncidentFormExpressionElseBranchResultArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetIncidentFormExpressionElseBranchResultValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetIncidentFormExpressionElseBranchResultArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetIncidentFormExpressionElseBranchResultArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetIncidentFormExpressionElseBranchResultValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionElseBranchResultArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionElseBranchResultValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationResult(dict):
+    def __init__(__self__, *,
+                 branches: 'outputs.GetIncidentFormExpressionOperationBranchesResult',
+                 cast: 'outputs.GetIncidentFormExpressionOperationCastResult',
+                 concatenate: 'outputs.GetIncidentFormExpressionOperationConcatenateResult',
+                 filter: 'outputs.GetIncidentFormExpressionOperationFilterResult',
+                 navigate: 'outputs.GetIncidentFormExpressionOperationNavigateResult',
+                 operation_type: _builtins.str,
+                 parse: 'outputs.GetIncidentFormExpressionOperationParseResult'):
+        """
+        :param 'GetIncidentFormExpressionOperationCastArgs' cast: The cast target of this operation, set when the operation type is `cast`
+        :param _builtins.str operation_type: The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "cast", cast)
+        pulumi.set(__self__, "concatenate", concatenate)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "navigate", navigate)
+        pulumi.set(__self__, "operation_type", operation_type)
+        pulumi.set(__self__, "parse", parse)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> 'outputs.GetIncidentFormExpressionOperationBranchesResult':
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def cast(self) -> 'outputs.GetIncidentFormExpressionOperationCastResult':
+        """
+        The cast target of this operation, set when the operation type is `cast`
+        """
+        return pulumi.get(self, "cast")
+
+    @_builtins.property
+    @pulumi.getter
+    def concatenate(self) -> 'outputs.GetIncidentFormExpressionOperationConcatenateResult':
+        return pulumi.get(self, "concatenate")
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> 'outputs.GetIncidentFormExpressionOperationFilterResult':
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def navigate(self) -> 'outputs.GetIncidentFormExpressionOperationNavigateResult':
+        return pulumi.get(self, "navigate")
+
+    @_builtins.property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> _builtins.str:
+        """
+        The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def parse(self) -> 'outputs.GetIncidentFormExpressionOperationParseResult':
+        return pulumi.get(self, "parse")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesResult(dict):
+    def __init__(__self__, *,
+                 branches: Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchResult'],
+                 returns: 'outputs.GetIncidentFormExpressionOperationBranchesReturnsResult'):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationBranchesBranchArgs'] branches: The branches to apply for this operation
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchResult']:
+        """
+        The branches to apply for this operation
+        """
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetIncidentFormExpressionOperationBranchesReturnsResult':
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchResult(dict):
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupResult'],
+                 result: 'outputs.GetIncidentFormExpressionOperationBranchesBranchResultResult'):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationBranchesBranchConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.GetIncidentFormExpressionOperationBranchesBranchResultResult':
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionResult']):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchResultResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchResultArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetIncidentFormExpressionOperationBranchesBranchResultValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationBranchesBranchResultArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetIncidentFormExpressionOperationBranchesBranchResultArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetIncidentFormExpressionOperationBranchesBranchResultValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchResultArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesBranchResultValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationBranchesReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationCastResult(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.GetIncidentFormExpressionOperationCastReturnsResult'):
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetIncidentFormExpressionOperationCastReturnsResult':
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationCastReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationConcatenateResult(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: The reference within the scope to concatenate with
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        The reference within the scope to concatenate with
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationFilterResult(dict):
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupResult']):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationFilterConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationFilterConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionResult']):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationFilterConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationFilterConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationNavigateResult(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: The reference within the scope to navigate to
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        The reference within the scope to navigate to
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationParseResult(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.GetIncidentFormExpressionOperationParseReturnsResult',
+                 source: _builtins.str):
+        """
+        :param _builtins.str source: Source expression that is evaluated to a result
+        """
+        pulumi.set(__self__, "returns", returns)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetIncidentFormExpressionOperationParseReturnsResult':
+        return pulumi.get(self, "returns")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Source expression that is evaluated to a result
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class GetIncidentFormExpressionOperationParseReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementResult(dict):
+    def __init__(__self__, *,
+                 can_select_no_value: _builtins.bool,
+                 config: 'outputs.GetIncidentFormLifecycleElementConfigResult',
+                 custom_field_id: _builtins.str,
+                 default_value: 'outputs.GetIncidentFormLifecycleElementDefaultValueResult',
+                 description: _builtins.str,
+                 element_type: _builtins.str,
+                 id: _builtins.str,
+                 incident_role_id: _builtins.str,
+                 incident_timestamp_id: _builtins.str,
+                 placeholder: _builtins.str,
+                 required_if: _builtins.str,
+                 required_if_condition_groups: Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupResult'],
+                 show_if_condition_groups: Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupResult']):
+        """
+        :param _builtins.bool can_select_no_value: Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+        :param _builtins.str custom_field_id: The custom field this element edits. Set only when element*type is custom*field.
+        :param _builtins.str description: Description shown beside this element, as markdown
+        :param _builtins.str element_type: What this element captures. Possible values are: `name`, `status`, `severity`, `incident_role`, `incident_type`, `summary`, `custom_field`, `timestamp`, `update_message`, `next_update_in`, `triage`, `visibility`, `divider`, `text`, `incident_attachments`, `slack_channel`, `announce_retro_incident`, `enter_post_incident_flow`, `investigation_feedback`.
+        :param _builtins.str id: Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+        :param _builtins.str incident_role_id: The incident role this element assigns. Set only when element*type is incident*role.
+        :param _builtins.str incident_timestamp_id: The incident timestamp this element sets. Set only when element_type is timestamp.
+        :param _builtins.str placeholder: Placeholder text shown in the empty field
+        :param _builtins.str required_if: When this element must be filled in. Possible values are: `check_engine_config`, `always_require`, `never_require`.
+        :param Sequence['GetIncidentFormLifecycleElementRequiredIfConditionGroupArgs'] required_if_condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        :param Sequence['GetIncidentFormLifecycleElementShowIfConditionGroupArgs'] show_if_condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "can_select_no_value", can_select_no_value)
+        pulumi.set(__self__, "config", config)
+        pulumi.set(__self__, "custom_field_id", custom_field_id)
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "element_type", element_type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "incident_role_id", incident_role_id)
+        pulumi.set(__self__, "incident_timestamp_id", incident_timestamp_id)
+        pulumi.set(__self__, "placeholder", placeholder)
+        pulumi.set(__self__, "required_if", required_if)
+        pulumi.set(__self__, "required_if_condition_groups", required_if_condition_groups)
+        pulumi.set(__self__, "show_if_condition_groups", show_if_condition_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="canSelectNoValue")
+    def can_select_no_value(self) -> _builtins.bool:
+        """
+        Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+        """
+        return pulumi.get(self, "can_select_no_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def config(self) -> 'outputs.GetIncidentFormLifecycleElementConfigResult':
+        return pulumi.get(self, "config")
+
+    @_builtins.property
+    @pulumi.getter(name="customFieldId")
+    def custom_field_id(self) -> _builtins.str:
+        """
+        The custom field this element edits. Set only when element*type is custom*field.
+        """
+        return pulumi.get(self, "custom_field_id")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> 'outputs.GetIncidentFormLifecycleElementDefaultValueResult':
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description shown beside this element, as markdown
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="elementType")
+    def element_type(self) -> _builtins.str:
+        """
+        What this element captures. Possible values are: `name`, `status`, `severity`, `incident_role`, `incident_type`, `summary`, `custom_field`, `timestamp`, `update_message`, `next_update_in`, `triage`, `visibility`, `divider`, `text`, `incident_attachments`, `slack_channel`, `announce_retro_incident`, `enter_post_incident_flow`, `investigation_feedback`.
+        """
+        return pulumi.get(self, "element_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentRoleId")
+    def incident_role_id(self) -> _builtins.str:
+        """
+        The incident role this element assigns. Set only when element*type is incident*role.
+        """
+        return pulumi.get(self, "incident_role_id")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentTimestampId")
+    def incident_timestamp_id(self) -> _builtins.str:
+        """
+        The incident timestamp this element sets. Set only when element_type is timestamp.
+        """
+        return pulumi.get(self, "incident_timestamp_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def placeholder(self) -> _builtins.str:
+        """
+        Placeholder text shown in the empty field
+        """
+        return pulumi.get(self, "placeholder")
+
+    @_builtins.property
+    @pulumi.getter(name="requiredIf")
+    def required_if(self) -> _builtins.str:
+        """
+        When this element must be filled in. Possible values are: `check_engine_config`, `always_require`, `never_require`.
+        """
+        return pulumi.get(self, "required_if")
+
+    @_builtins.property
+    @pulumi.getter(name="requiredIfConditionGroups")
+    def required_if_condition_groups(self) -> Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "required_if_condition_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="showIfConditionGroups")
+    def show_if_condition_groups(self) -> Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "show_if_condition_groups")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementConfigResult(dict):
+    def __init__(__self__, *,
+                 require_comment: _builtins.bool):
+        """
+        :param _builtins.bool require_comment: Whether the free-text comment must be filled in, for anyone giving investigation feedback
+        """
+        pulumi.set(__self__, "require_comment", require_comment)
+
+    @_builtins.property
+    @pulumi.getter(name="requireComment")
+    def require_comment(self) -> _builtins.bool:
+        """
+        Whether the free-text comment must be filled in, for anyone giving investigation feedback
+        """
+        return pulumi.get(self, "require_comment")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementDefaultValueResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetIncidentFormLifecycleElementDefaultValueArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetIncidentFormLifecycleElementDefaultValueValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetIncidentFormLifecycleElementDefaultValueArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetIncidentFormLifecycleElementDefaultValueArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetIncidentFormLifecycleElementDefaultValueValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementDefaultValueArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementDefaultValueValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementRequiredIfConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionResult']):
+        """
+        :param Sequence['GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementShowIfConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionResult']):
+        """
+        :param Sequence['GetIncidentFormLifecycleElementShowIfConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementShowIfConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
 
 
 @pulumi.output_type

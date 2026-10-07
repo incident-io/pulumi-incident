@@ -8977,6 +8977,8 @@ func (o AlertRouteGroupingConfigPtrOutput) Default() AlertRouteGroupingConfigDef
 }
 
 type AlertRouteGroupingConfigDefault struct {
+	// **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+	AiEnabled *bool `pulumi:"aiEnabled"`
 	// Whether grouping is enabled
 	Enabled bool `pulumi:"enabled"`
 	// Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
@@ -8999,6 +9001,8 @@ type AlertRouteGroupingConfigDefaultInput interface {
 }
 
 type AlertRouteGroupingConfigDefaultArgs struct {
+	// **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+	AiEnabled pulumi.BoolPtrInput `pulumi:"aiEnabled"`
 	// Whether grouping is enabled
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
@@ -9086,6 +9090,11 @@ func (o AlertRouteGroupingConfigDefaultOutput) ToAlertRouteGroupingConfigDefault
 	}).(AlertRouteGroupingConfigDefaultPtrOutput)
 }
 
+// **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+func (o AlertRouteGroupingConfigDefaultOutput) AiEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertRouteGroupingConfigDefault) *bool { return v.AiEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Whether grouping is enabled
 func (o AlertRouteGroupingConfigDefaultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AlertRouteGroupingConfigDefault) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -9130,6 +9139,16 @@ func (o AlertRouteGroupingConfigDefaultPtrOutput) Elem() AlertRouteGroupingConfi
 		var ret AlertRouteGroupingConfigDefault
 		return ret
 	}).(AlertRouteGroupingConfigDefaultOutput)
+}
+
+// **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+func (o AlertRouteGroupingConfigDefaultPtrOutput) AiEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRouteGroupingConfigDefault) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AiEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether grouping is enabled

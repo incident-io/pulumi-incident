@@ -38,6 +38,7 @@ from .get_custom_field import *
 from .get_custom_field_option import *
 from .get_escalation_path import *
 from .get_escalation_path_beta import *
+from .get_incident_form import *
 from .get_incident_role import *
 from .get_incident_template import *
 from .get_incident_timestamp import *
@@ -57,8 +58,10 @@ from .get_secret import *
 from .get_severity import *
 from .get_status import *
 from .get_status_page import *
+from .get_status_page_component import *
 from .get_user import *
 from .get_workflow import *
+from .incident_form import *
 from .incident_role import *
 from .incident_template import *
 from .maintenance_window import *
@@ -75,6 +78,8 @@ from .schedule_sync_target import *
 from .secret import *
 from .severity import *
 from .status import *
+from .status_page_component import *
+from .status_page_structure import *
 from .team_grouping_preference import *
 from .workflow import *
 from ._inputs import *
@@ -236,6 +241,14 @@ _utilities.register(
  },
  {
   "pkg": "incident",
+  "mod": "index/incidentForm",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/incidentForm:IncidentForm": "IncidentForm"
+  }
+ },
+ {
+  "pkg": "incident",
   "mod": "index/incidentRole",
   "fqn": "pulumi_incident",
   "classes": {
@@ -352,6 +365,22 @@ _utilities.register(
   "fqn": "pulumi_incident",
   "classes": {
    "incident:index/status:Status": "Status"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/statusPageComponent",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/statusPageComponent:StatusPageComponent": "StatusPageComponent"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/statusPageStructure",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/statusPageStructure:StatusPageStructure": "StatusPageStructure"
   }
  },
  {

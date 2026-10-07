@@ -13,6 +13,6520 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type WorkflowDelay struct {
+	// If this workflow is delayed, whether the conditions should be rechecked between trigger firing and execution
+	ConditionsApplyOverDelay bool `pulumi:"conditionsApplyOverDelay"`
+	// Delay in seconds between trigger firing and running the workflow
+	ForSeconds int `pulumi:"forSeconds"`
+}
+
+// WorkflowDelayInput is an input type that accepts WorkflowDelayArgs and WorkflowDelayOutput values.
+// You can construct a concrete instance of `WorkflowDelayInput` via:
+//
+//	WorkflowDelayArgs{...}
+type WorkflowDelayInput interface {
+	pulumi.Input
+
+	ToWorkflowDelayOutput() WorkflowDelayOutput
+	ToWorkflowDelayOutputWithContext(context.Context) WorkflowDelayOutput
+}
+
+type WorkflowDelayArgs struct {
+	// If this workflow is delayed, whether the conditions should be rechecked between trigger firing and execution
+	ConditionsApplyOverDelay pulumi.BoolInput `pulumi:"conditionsApplyOverDelay"`
+	// Delay in seconds between trigger firing and running the workflow
+	ForSeconds pulumi.IntInput `pulumi:"forSeconds"`
+}
+
+func (WorkflowDelayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowDelay)(nil)).Elem()
+}
+
+func (i WorkflowDelayArgs) ToWorkflowDelayOutput() WorkflowDelayOutput {
+	return i.ToWorkflowDelayOutputWithContext(context.Background())
+}
+
+func (i WorkflowDelayArgs) ToWorkflowDelayOutputWithContext(ctx context.Context) WorkflowDelayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDelayOutput)
+}
+
+func (i WorkflowDelayArgs) ToWorkflowDelayPtrOutput() WorkflowDelayPtrOutput {
+	return i.ToWorkflowDelayPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowDelayArgs) ToWorkflowDelayPtrOutputWithContext(ctx context.Context) WorkflowDelayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDelayOutput).ToWorkflowDelayPtrOutputWithContext(ctx)
+}
+
+// WorkflowDelayPtrInput is an input type that accepts WorkflowDelayArgs, WorkflowDelayPtr and WorkflowDelayPtrOutput values.
+// You can construct a concrete instance of `WorkflowDelayPtrInput` via:
+//
+//	        WorkflowDelayArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowDelayPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowDelayPtrOutput() WorkflowDelayPtrOutput
+	ToWorkflowDelayPtrOutputWithContext(context.Context) WorkflowDelayPtrOutput
+}
+
+type workflowDelayPtrType WorkflowDelayArgs
+
+func WorkflowDelayPtr(v *WorkflowDelayArgs) WorkflowDelayPtrInput {
+	return (*workflowDelayPtrType)(v)
+}
+
+func (*workflowDelayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowDelay)(nil)).Elem()
+}
+
+func (i *workflowDelayPtrType) ToWorkflowDelayPtrOutput() WorkflowDelayPtrOutput {
+	return i.ToWorkflowDelayPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowDelayPtrType) ToWorkflowDelayPtrOutputWithContext(ctx context.Context) WorkflowDelayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowDelayPtrOutput)
+}
+
+type WorkflowDelayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowDelayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowDelay)(nil)).Elem()
+}
+
+func (o WorkflowDelayOutput) ToWorkflowDelayOutput() WorkflowDelayOutput {
+	return o
+}
+
+func (o WorkflowDelayOutput) ToWorkflowDelayOutputWithContext(ctx context.Context) WorkflowDelayOutput {
+	return o
+}
+
+func (o WorkflowDelayOutput) ToWorkflowDelayPtrOutput() WorkflowDelayPtrOutput {
+	return o.ToWorkflowDelayPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowDelayOutput) ToWorkflowDelayPtrOutputWithContext(ctx context.Context) WorkflowDelayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowDelay) *WorkflowDelay {
+		return &v
+	}).(WorkflowDelayPtrOutput)
+}
+
+// If this workflow is delayed, whether the conditions should be rechecked between trigger firing and execution
+func (o WorkflowDelayOutput) ConditionsApplyOverDelay() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkflowDelay) bool { return v.ConditionsApplyOverDelay }).(pulumi.BoolOutput)
+}
+
+// Delay in seconds between trigger firing and running the workflow
+func (o WorkflowDelayOutput) ForSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v WorkflowDelay) int { return v.ForSeconds }).(pulumi.IntOutput)
+}
+
+type WorkflowDelayPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowDelayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowDelay)(nil)).Elem()
+}
+
+func (o WorkflowDelayPtrOutput) ToWorkflowDelayPtrOutput() WorkflowDelayPtrOutput {
+	return o
+}
+
+func (o WorkflowDelayPtrOutput) ToWorkflowDelayPtrOutputWithContext(ctx context.Context) WorkflowDelayPtrOutput {
+	return o
+}
+
+func (o WorkflowDelayPtrOutput) Elem() WorkflowDelayOutput {
+	return o.ApplyT(func(v *WorkflowDelay) WorkflowDelay {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowDelay
+		return ret
+	}).(WorkflowDelayOutput)
+}
+
+// If this workflow is delayed, whether the conditions should be rechecked between trigger firing and execution
+func (o WorkflowDelayPtrOutput) ConditionsApplyOverDelay() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkflowDelay) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ConditionsApplyOverDelay
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Delay in seconds between trigger firing and running the workflow
+func (o WorkflowDelayPtrOutput) ForSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkflowDelay) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ForSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type WorkflowExpression struct {
+	// The else branch to resort to if all operations fail
+	ElseBranch *WorkflowExpressionElseBranch `pulumi:"elseBranch"`
+	// The human readable label of the expression
+	Label string `pulumi:"label"`
+	// The operations to execute in sequence for this expression
+	Operations []WorkflowExpressionOperation `pulumi:"operations"`
+	// A short ID that can be used to reference the expression
+	Reference string `pulumi:"reference"`
+	// The root reference for this expression (i.e. where the expression starts)
+	RootReference string `pulumi:"rootReference"`
+}
+
+// WorkflowExpressionInput is an input type that accepts WorkflowExpressionArgs and WorkflowExpressionOutput values.
+// You can construct a concrete instance of `WorkflowExpressionInput` via:
+//
+//	WorkflowExpressionArgs{...}
+type WorkflowExpressionInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOutput() WorkflowExpressionOutput
+	ToWorkflowExpressionOutputWithContext(context.Context) WorkflowExpressionOutput
+}
+
+type WorkflowExpressionArgs struct {
+	// The else branch to resort to if all operations fail
+	ElseBranch WorkflowExpressionElseBranchPtrInput `pulumi:"elseBranch"`
+	// The human readable label of the expression
+	Label pulumi.StringInput `pulumi:"label"`
+	// The operations to execute in sequence for this expression
+	Operations WorkflowExpressionOperationArrayInput `pulumi:"operations"`
+	// A short ID that can be used to reference the expression
+	Reference pulumi.StringInput `pulumi:"reference"`
+	// The root reference for this expression (i.e. where the expression starts)
+	RootReference pulumi.StringInput `pulumi:"rootReference"`
+}
+
+func (WorkflowExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpression)(nil)).Elem()
+}
+
+func (i WorkflowExpressionArgs) ToWorkflowExpressionOutput() WorkflowExpressionOutput {
+	return i.ToWorkflowExpressionOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionArgs) ToWorkflowExpressionOutputWithContext(ctx context.Context) WorkflowExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOutput)
+}
+
+// WorkflowExpressionArrayInput is an input type that accepts WorkflowExpressionArray and WorkflowExpressionArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionArrayInput` via:
+//
+//	WorkflowExpressionArray{ WorkflowExpressionArgs{...} }
+type WorkflowExpressionArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionArrayOutput() WorkflowExpressionArrayOutput
+	ToWorkflowExpressionArrayOutputWithContext(context.Context) WorkflowExpressionArrayOutput
+}
+
+type WorkflowExpressionArray []WorkflowExpressionInput
+
+func (WorkflowExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpression)(nil)).Elem()
+}
+
+func (i WorkflowExpressionArray) ToWorkflowExpressionArrayOutput() WorkflowExpressionArrayOutput {
+	return i.ToWorkflowExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionArray) ToWorkflowExpressionArrayOutputWithContext(ctx context.Context) WorkflowExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionArrayOutput)
+}
+
+type WorkflowExpressionOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpression)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOutput) ToWorkflowExpressionOutput() WorkflowExpressionOutput {
+	return o
+}
+
+func (o WorkflowExpressionOutput) ToWorkflowExpressionOutputWithContext(ctx context.Context) WorkflowExpressionOutput {
+	return o
+}
+
+// The else branch to resort to if all operations fail
+func (o WorkflowExpressionOutput) ElseBranch() WorkflowExpressionElseBranchPtrOutput {
+	return o.ApplyT(func(v WorkflowExpression) *WorkflowExpressionElseBranch { return v.ElseBranch }).(WorkflowExpressionElseBranchPtrOutput)
+}
+
+// The human readable label of the expression
+func (o WorkflowExpressionOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpression) string { return v.Label }).(pulumi.StringOutput)
+}
+
+// The operations to execute in sequence for this expression
+func (o WorkflowExpressionOutput) Operations() WorkflowExpressionOperationArrayOutput {
+	return o.ApplyT(func(v WorkflowExpression) []WorkflowExpressionOperation { return v.Operations }).(WorkflowExpressionOperationArrayOutput)
+}
+
+// A short ID that can be used to reference the expression
+func (o WorkflowExpressionOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpression) string { return v.Reference }).(pulumi.StringOutput)
+}
+
+// The root reference for this expression (i.e. where the expression starts)
+func (o WorkflowExpressionOutput) RootReference() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpression) string { return v.RootReference }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpression)(nil)).Elem()
+}
+
+func (o WorkflowExpressionArrayOutput) ToWorkflowExpressionArrayOutput() WorkflowExpressionArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionArrayOutput) ToWorkflowExpressionArrayOutputWithContext(ctx context.Context) WorkflowExpressionArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpression {
+		return vs[0].([]WorkflowExpression)[vs[1].(int)]
+	}).(WorkflowExpressionOutput)
+}
+
+type WorkflowExpressionElseBranch struct {
+	// The result assumed if the else branch is reached
+	Result WorkflowExpressionElseBranchResult `pulumi:"result"`
+}
+
+// WorkflowExpressionElseBranchInput is an input type that accepts WorkflowExpressionElseBranchArgs and WorkflowExpressionElseBranchOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchInput` via:
+//
+//	WorkflowExpressionElseBranchArgs{...}
+type WorkflowExpressionElseBranchInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchOutput() WorkflowExpressionElseBranchOutput
+	ToWorkflowExpressionElseBranchOutputWithContext(context.Context) WorkflowExpressionElseBranchOutput
+}
+
+type WorkflowExpressionElseBranchArgs struct {
+	// The result assumed if the else branch is reached
+	Result WorkflowExpressionElseBranchResultInput `pulumi:"result"`
+}
+
+func (WorkflowExpressionElseBranchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranch)(nil)).Elem()
+}
+
+func (i WorkflowExpressionElseBranchArgs) ToWorkflowExpressionElseBranchOutput() WorkflowExpressionElseBranchOutput {
+	return i.ToWorkflowExpressionElseBranchOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchArgs) ToWorkflowExpressionElseBranchOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchOutput)
+}
+
+func (i WorkflowExpressionElseBranchArgs) ToWorkflowExpressionElseBranchPtrOutput() WorkflowExpressionElseBranchPtrOutput {
+	return i.ToWorkflowExpressionElseBranchPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchArgs) ToWorkflowExpressionElseBranchPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchOutput).ToWorkflowExpressionElseBranchPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionElseBranchPtrInput is an input type that accepts WorkflowExpressionElseBranchArgs, WorkflowExpressionElseBranchPtr and WorkflowExpressionElseBranchPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchPtrInput` via:
+//
+//	        WorkflowExpressionElseBranchArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionElseBranchPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchPtrOutput() WorkflowExpressionElseBranchPtrOutput
+	ToWorkflowExpressionElseBranchPtrOutputWithContext(context.Context) WorkflowExpressionElseBranchPtrOutput
+}
+
+type workflowExpressionElseBranchPtrType WorkflowExpressionElseBranchArgs
+
+func WorkflowExpressionElseBranchPtr(v *WorkflowExpressionElseBranchArgs) WorkflowExpressionElseBranchPtrInput {
+	return (*workflowExpressionElseBranchPtrType)(v)
+}
+
+func (*workflowExpressionElseBranchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionElseBranch)(nil)).Elem()
+}
+
+func (i *workflowExpressionElseBranchPtrType) ToWorkflowExpressionElseBranchPtrOutput() WorkflowExpressionElseBranchPtrOutput {
+	return i.ToWorkflowExpressionElseBranchPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionElseBranchPtrType) ToWorkflowExpressionElseBranchPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchPtrOutput)
+}
+
+type WorkflowExpressionElseBranchOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranch)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchOutput) ToWorkflowExpressionElseBranchOutput() WorkflowExpressionElseBranchOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchOutput) ToWorkflowExpressionElseBranchOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchOutput) ToWorkflowExpressionElseBranchPtrOutput() WorkflowExpressionElseBranchPtrOutput {
+	return o.ToWorkflowExpressionElseBranchPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionElseBranchOutput) ToWorkflowExpressionElseBranchPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionElseBranch) *WorkflowExpressionElseBranch {
+		return &v
+	}).(WorkflowExpressionElseBranchPtrOutput)
+}
+
+// The result assumed if the else branch is reached
+func (o WorkflowExpressionElseBranchOutput) Result() WorkflowExpressionElseBranchResultOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranch) WorkflowExpressionElseBranchResult { return v.Result }).(WorkflowExpressionElseBranchResultOutput)
+}
+
+type WorkflowExpressionElseBranchPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionElseBranch)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchPtrOutput) ToWorkflowExpressionElseBranchPtrOutput() WorkflowExpressionElseBranchPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchPtrOutput) ToWorkflowExpressionElseBranchPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchPtrOutput) Elem() WorkflowExpressionElseBranchOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranch) WorkflowExpressionElseBranch {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionElseBranch
+		return ret
+	}).(WorkflowExpressionElseBranchOutput)
+}
+
+// The result assumed if the else branch is reached
+func (o WorkflowExpressionElseBranchPtrOutput) Result() WorkflowExpressionElseBranchResultPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranch) *WorkflowExpressionElseBranchResult {
+		if v == nil {
+			return nil
+		}
+		return &v.Result
+	}).(WorkflowExpressionElseBranchResultPtrOutput)
+}
+
+type WorkflowExpressionElseBranchResult struct {
+	// The array of literal or reference parameter values
+	ArrayValues []WorkflowExpressionElseBranchResultArrayValue `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef *string `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value *WorkflowExpressionElseBranchResultValue `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral *string `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference *string `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values []string `pulumi:"values"`
+}
+
+// WorkflowExpressionElseBranchResultInput is an input type that accepts WorkflowExpressionElseBranchResultArgs and WorkflowExpressionElseBranchResultOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchResultInput` via:
+//
+//	WorkflowExpressionElseBranchResultArgs{...}
+type WorkflowExpressionElseBranchResultInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchResultOutput() WorkflowExpressionElseBranchResultOutput
+	ToWorkflowExpressionElseBranchResultOutputWithContext(context.Context) WorkflowExpressionElseBranchResultOutput
+}
+
+type WorkflowExpressionElseBranchResultArgs struct {
+	// The array of literal or reference parameter values
+	ArrayValues WorkflowExpressionElseBranchResultArrayValueArrayInput `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef pulumi.StringPtrInput `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value WorkflowExpressionElseBranchResultValuePtrInput `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral pulumi.StringPtrInput `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference pulumi.StringPtrInput `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (WorkflowExpressionElseBranchResultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranchResult)(nil)).Elem()
+}
+
+func (i WorkflowExpressionElseBranchResultArgs) ToWorkflowExpressionElseBranchResultOutput() WorkflowExpressionElseBranchResultOutput {
+	return i.ToWorkflowExpressionElseBranchResultOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchResultArgs) ToWorkflowExpressionElseBranchResultOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultOutput)
+}
+
+func (i WorkflowExpressionElseBranchResultArgs) ToWorkflowExpressionElseBranchResultPtrOutput() WorkflowExpressionElseBranchResultPtrOutput {
+	return i.ToWorkflowExpressionElseBranchResultPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchResultArgs) ToWorkflowExpressionElseBranchResultPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultOutput).ToWorkflowExpressionElseBranchResultPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionElseBranchResultPtrInput is an input type that accepts WorkflowExpressionElseBranchResultArgs, WorkflowExpressionElseBranchResultPtr and WorkflowExpressionElseBranchResultPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchResultPtrInput` via:
+//
+//	        WorkflowExpressionElseBranchResultArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionElseBranchResultPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchResultPtrOutput() WorkflowExpressionElseBranchResultPtrOutput
+	ToWorkflowExpressionElseBranchResultPtrOutputWithContext(context.Context) WorkflowExpressionElseBranchResultPtrOutput
+}
+
+type workflowExpressionElseBranchResultPtrType WorkflowExpressionElseBranchResultArgs
+
+func WorkflowExpressionElseBranchResultPtr(v *WorkflowExpressionElseBranchResultArgs) WorkflowExpressionElseBranchResultPtrInput {
+	return (*workflowExpressionElseBranchResultPtrType)(v)
+}
+
+func (*workflowExpressionElseBranchResultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionElseBranchResult)(nil)).Elem()
+}
+
+func (i *workflowExpressionElseBranchResultPtrType) ToWorkflowExpressionElseBranchResultPtrOutput() WorkflowExpressionElseBranchResultPtrOutput {
+	return i.ToWorkflowExpressionElseBranchResultPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionElseBranchResultPtrType) ToWorkflowExpressionElseBranchResultPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultPtrOutput)
+}
+
+type WorkflowExpressionElseBranchResultOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranchResult)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchResultOutput) ToWorkflowExpressionElseBranchResultOutput() WorkflowExpressionElseBranchResultOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultOutput) ToWorkflowExpressionElseBranchResultOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultOutput) ToWorkflowExpressionElseBranchResultPtrOutput() WorkflowExpressionElseBranchResultPtrOutput {
+	return o.ToWorkflowExpressionElseBranchResultPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionElseBranchResultOutput) ToWorkflowExpressionElseBranchResultPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionElseBranchResult) *WorkflowExpressionElseBranchResult {
+		return &v
+	}).(WorkflowExpressionElseBranchResultPtrOutput)
+}
+
+// The array of literal or reference parameter values
+func (o WorkflowExpressionElseBranchResultOutput) ArrayValues() WorkflowExpressionElseBranchResultArrayValueArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResult) []WorkflowExpressionElseBranchResultArrayValue {
+		return v.ArrayValues
+	}).(WorkflowExpressionElseBranchResultArrayValueArrayOutput)
+}
+
+// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+func (o WorkflowExpressionElseBranchResultOutput) ExpressionRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResult) *string { return v.ExpressionRef }).(pulumi.StringPtrOutput)
+}
+
+// The literal or reference parameter value
+func (o WorkflowExpressionElseBranchResultOutput) Value() WorkflowExpressionElseBranchResultValuePtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResult) *WorkflowExpressionElseBranchResultValue { return v.Value }).(WorkflowExpressionElseBranchResultValuePtrOutput)
+}
+
+// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+func (o WorkflowExpressionElseBranchResultOutput) ValueLiteral() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResult) *string { return v.ValueLiteral }).(pulumi.StringPtrOutput)
+}
+
+// A reference into the scope, shorthand for `value = { reference = ... }`.
+func (o WorkflowExpressionElseBranchResultOutput) ValueReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResult) *string { return v.ValueReference }).(pulumi.StringPtrOutput)
+}
+
+// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+func (o WorkflowExpressionElseBranchResultOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResult) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowExpressionElseBranchResultPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchResultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionElseBranchResult)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchResultPtrOutput) ToWorkflowExpressionElseBranchResultPtrOutput() WorkflowExpressionElseBranchResultPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultPtrOutput) ToWorkflowExpressionElseBranchResultPtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultPtrOutput) Elem() WorkflowExpressionElseBranchResultOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResult) WorkflowExpressionElseBranchResult {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionElseBranchResult
+		return ret
+	}).(WorkflowExpressionElseBranchResultOutput)
+}
+
+// The array of literal or reference parameter values
+func (o WorkflowExpressionElseBranchResultPtrOutput) ArrayValues() WorkflowExpressionElseBranchResultArrayValueArrayOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResult) []WorkflowExpressionElseBranchResultArrayValue {
+		if v == nil {
+			return nil
+		}
+		return v.ArrayValues
+	}).(WorkflowExpressionElseBranchResultArrayValueArrayOutput)
+}
+
+// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+func (o WorkflowExpressionElseBranchResultPtrOutput) ExpressionRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResult) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpressionRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// The literal or reference parameter value
+func (o WorkflowExpressionElseBranchResultPtrOutput) Value() WorkflowExpressionElseBranchResultValuePtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResult) *WorkflowExpressionElseBranchResultValue {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(WorkflowExpressionElseBranchResultValuePtrOutput)
+}
+
+// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+func (o WorkflowExpressionElseBranchResultPtrOutput) ValueLiteral() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResult) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueLiteral
+	}).(pulumi.StringPtrOutput)
+}
+
+// A reference into the scope, shorthand for `value = { reference = ... }`.
+func (o WorkflowExpressionElseBranchResultPtrOutput) ValueReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResult) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValueReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+func (o WorkflowExpressionElseBranchResultPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResult) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkflowExpressionElseBranchResultArrayValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionElseBranchResultArrayValueInput is an input type that accepts WorkflowExpressionElseBranchResultArrayValueArgs and WorkflowExpressionElseBranchResultArrayValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchResultArrayValueInput` via:
+//
+//	WorkflowExpressionElseBranchResultArrayValueArgs{...}
+type WorkflowExpressionElseBranchResultArrayValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchResultArrayValueOutput() WorkflowExpressionElseBranchResultArrayValueOutput
+	ToWorkflowExpressionElseBranchResultArrayValueOutputWithContext(context.Context) WorkflowExpressionElseBranchResultArrayValueOutput
+}
+
+type WorkflowExpressionElseBranchResultArrayValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionElseBranchResultArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranchResultArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionElseBranchResultArrayValueArgs) ToWorkflowExpressionElseBranchResultArrayValueOutput() WorkflowExpressionElseBranchResultArrayValueOutput {
+	return i.ToWorkflowExpressionElseBranchResultArrayValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchResultArrayValueArgs) ToWorkflowExpressionElseBranchResultArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultArrayValueOutput)
+}
+
+// WorkflowExpressionElseBranchResultArrayValueArrayInput is an input type that accepts WorkflowExpressionElseBranchResultArrayValueArray and WorkflowExpressionElseBranchResultArrayValueArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchResultArrayValueArrayInput` via:
+//
+//	WorkflowExpressionElseBranchResultArrayValueArray{ WorkflowExpressionElseBranchResultArrayValueArgs{...} }
+type WorkflowExpressionElseBranchResultArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchResultArrayValueArrayOutput() WorkflowExpressionElseBranchResultArrayValueArrayOutput
+	ToWorkflowExpressionElseBranchResultArrayValueArrayOutputWithContext(context.Context) WorkflowExpressionElseBranchResultArrayValueArrayOutput
+}
+
+type WorkflowExpressionElseBranchResultArrayValueArray []WorkflowExpressionElseBranchResultArrayValueInput
+
+func (WorkflowExpressionElseBranchResultArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionElseBranchResultArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionElseBranchResultArrayValueArray) ToWorkflowExpressionElseBranchResultArrayValueArrayOutput() WorkflowExpressionElseBranchResultArrayValueArrayOutput {
+	return i.ToWorkflowExpressionElseBranchResultArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchResultArrayValueArray) ToWorkflowExpressionElseBranchResultArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultArrayValueArrayOutput)
+}
+
+type WorkflowExpressionElseBranchResultArrayValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchResultArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranchResultArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchResultArrayValueOutput) ToWorkflowExpressionElseBranchResultArrayValueOutput() WorkflowExpressionElseBranchResultArrayValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultArrayValueOutput) ToWorkflowExpressionElseBranchResultArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultArrayValueOutput {
+	return o
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionElseBranchResultArrayValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResultArrayValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionElseBranchResultArrayValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResultArrayValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionElseBranchResultArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchResultArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionElseBranchResultArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchResultArrayValueArrayOutput) ToWorkflowExpressionElseBranchResultArrayValueArrayOutput() WorkflowExpressionElseBranchResultArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultArrayValueArrayOutput) ToWorkflowExpressionElseBranchResultArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultArrayValueArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionElseBranchResultArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionElseBranchResultArrayValue {
+		return vs[0].([]WorkflowExpressionElseBranchResultArrayValue)[vs[1].(int)]
+	}).(WorkflowExpressionElseBranchResultArrayValueOutput)
+}
+
+type WorkflowExpressionElseBranchResultValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionElseBranchResultValueInput is an input type that accepts WorkflowExpressionElseBranchResultValueArgs and WorkflowExpressionElseBranchResultValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchResultValueInput` via:
+//
+//	WorkflowExpressionElseBranchResultValueArgs{...}
+type WorkflowExpressionElseBranchResultValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchResultValueOutput() WorkflowExpressionElseBranchResultValueOutput
+	ToWorkflowExpressionElseBranchResultValueOutputWithContext(context.Context) WorkflowExpressionElseBranchResultValueOutput
+}
+
+type WorkflowExpressionElseBranchResultValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionElseBranchResultValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranchResultValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionElseBranchResultValueArgs) ToWorkflowExpressionElseBranchResultValueOutput() WorkflowExpressionElseBranchResultValueOutput {
+	return i.ToWorkflowExpressionElseBranchResultValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchResultValueArgs) ToWorkflowExpressionElseBranchResultValueOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultValueOutput)
+}
+
+func (i WorkflowExpressionElseBranchResultValueArgs) ToWorkflowExpressionElseBranchResultValuePtrOutput() WorkflowExpressionElseBranchResultValuePtrOutput {
+	return i.ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionElseBranchResultValueArgs) ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultValueOutput).ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionElseBranchResultValuePtrInput is an input type that accepts WorkflowExpressionElseBranchResultValueArgs, WorkflowExpressionElseBranchResultValuePtr and WorkflowExpressionElseBranchResultValuePtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionElseBranchResultValuePtrInput` via:
+//
+//	        WorkflowExpressionElseBranchResultValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionElseBranchResultValuePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionElseBranchResultValuePtrOutput() WorkflowExpressionElseBranchResultValuePtrOutput
+	ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(context.Context) WorkflowExpressionElseBranchResultValuePtrOutput
+}
+
+type workflowExpressionElseBranchResultValuePtrType WorkflowExpressionElseBranchResultValueArgs
+
+func WorkflowExpressionElseBranchResultValuePtr(v *WorkflowExpressionElseBranchResultValueArgs) WorkflowExpressionElseBranchResultValuePtrInput {
+	return (*workflowExpressionElseBranchResultValuePtrType)(v)
+}
+
+func (*workflowExpressionElseBranchResultValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionElseBranchResultValue)(nil)).Elem()
+}
+
+func (i *workflowExpressionElseBranchResultValuePtrType) ToWorkflowExpressionElseBranchResultValuePtrOutput() WorkflowExpressionElseBranchResultValuePtrOutput {
+	return i.ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionElseBranchResultValuePtrType) ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionElseBranchResultValuePtrOutput)
+}
+
+type WorkflowExpressionElseBranchResultValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchResultValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionElseBranchResultValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchResultValueOutput) ToWorkflowExpressionElseBranchResultValueOutput() WorkflowExpressionElseBranchResultValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultValueOutput) ToWorkflowExpressionElseBranchResultValueOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultValueOutput) ToWorkflowExpressionElseBranchResultValuePtrOutput() WorkflowExpressionElseBranchResultValuePtrOutput {
+	return o.ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionElseBranchResultValueOutput) ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionElseBranchResultValue) *WorkflowExpressionElseBranchResultValue {
+		return &v
+	}).(WorkflowExpressionElseBranchResultValuePtrOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionElseBranchResultValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResultValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionElseBranchResultValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionElseBranchResultValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionElseBranchResultValuePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionElseBranchResultValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionElseBranchResultValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionElseBranchResultValuePtrOutput) ToWorkflowExpressionElseBranchResultValuePtrOutput() WorkflowExpressionElseBranchResultValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultValuePtrOutput) ToWorkflowExpressionElseBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionElseBranchResultValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionElseBranchResultValuePtrOutput) Elem() WorkflowExpressionElseBranchResultValueOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResultValue) WorkflowExpressionElseBranchResultValue {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionElseBranchResultValue
+		return ret
+	}).(WorkflowExpressionElseBranchResultValueOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionElseBranchResultValuePtrOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResultValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionElseBranchResultValuePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionElseBranchResultValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperation struct {
+	// An operation type that allows for a value to be set conditionally by a series of logical branches
+	Branches *WorkflowExpressionOperationBranches `pulumi:"branches"`
+	// An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+	Cast *WorkflowExpressionOperationCast `pulumi:"cast"`
+	// An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+	Concatenate *WorkflowExpressionOperationConcatenate `pulumi:"concatenate"`
+	// An operation type that allows values to be filtered out by conditions
+	Filter *WorkflowExpressionOperationFilter `pulumi:"filter"`
+	// An operation type that allows attributes of a type to be accessed by reference
+	Navigate *WorkflowExpressionOperationNavigate `pulumi:"navigate"`
+	// Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+	OperationType string `pulumi:"operationType"`
+	// An operation type that allows a value to parsed from within a JSON object
+	Parse *WorkflowExpressionOperationParse `pulumi:"parse"`
+}
+
+// WorkflowExpressionOperationInput is an input type that accepts WorkflowExpressionOperationArgs and WorkflowExpressionOperationOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationInput` via:
+//
+//	WorkflowExpressionOperationArgs{...}
+type WorkflowExpressionOperationInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationOutput() WorkflowExpressionOperationOutput
+	ToWorkflowExpressionOperationOutputWithContext(context.Context) WorkflowExpressionOperationOutput
+}
+
+type WorkflowExpressionOperationArgs struct {
+	// An operation type that allows for a value to be set conditionally by a series of logical branches
+	Branches WorkflowExpressionOperationBranchesPtrInput `pulumi:"branches"`
+	// An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+	Cast WorkflowExpressionOperationCastPtrInput `pulumi:"cast"`
+	// An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+	Concatenate WorkflowExpressionOperationConcatenatePtrInput `pulumi:"concatenate"`
+	// An operation type that allows values to be filtered out by conditions
+	Filter WorkflowExpressionOperationFilterPtrInput `pulumi:"filter"`
+	// An operation type that allows attributes of a type to be accessed by reference
+	Navigate WorkflowExpressionOperationNavigatePtrInput `pulumi:"navigate"`
+	// Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+	OperationType pulumi.StringInput `pulumi:"operationType"`
+	// An operation type that allows a value to parsed from within a JSON object
+	Parse WorkflowExpressionOperationParsePtrInput `pulumi:"parse"`
+}
+
+func (WorkflowExpressionOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperation)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationArgs) ToWorkflowExpressionOperationOutput() WorkflowExpressionOperationOutput {
+	return i.ToWorkflowExpressionOperationOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationArgs) ToWorkflowExpressionOperationOutputWithContext(ctx context.Context) WorkflowExpressionOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationOutput)
+}
+
+// WorkflowExpressionOperationArrayInput is an input type that accepts WorkflowExpressionOperationArray and WorkflowExpressionOperationArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationArrayInput` via:
+//
+//	WorkflowExpressionOperationArray{ WorkflowExpressionOperationArgs{...} }
+type WorkflowExpressionOperationArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationArrayOutput() WorkflowExpressionOperationArrayOutput
+	ToWorkflowExpressionOperationArrayOutputWithContext(context.Context) WorkflowExpressionOperationArrayOutput
+}
+
+type WorkflowExpressionOperationArray []WorkflowExpressionOperationInput
+
+func (WorkflowExpressionOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperation)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationArray) ToWorkflowExpressionOperationArrayOutput() WorkflowExpressionOperationArrayOutput {
+	return i.ToWorkflowExpressionOperationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationArray) ToWorkflowExpressionOperationArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationArrayOutput)
+}
+
+type WorkflowExpressionOperationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperation)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationOutput) ToWorkflowExpressionOperationOutput() WorkflowExpressionOperationOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationOutput) ToWorkflowExpressionOperationOutputWithContext(ctx context.Context) WorkflowExpressionOperationOutput {
+	return o
+}
+
+// An operation type that allows for a value to be set conditionally by a series of logical branches
+func (o WorkflowExpressionOperationOutput) Branches() WorkflowExpressionOperationBranchesPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperation) *WorkflowExpressionOperationBranches { return v.Branches }).(WorkflowExpressionOperationBranchesPtrOutput)
+}
+
+// An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+func (o WorkflowExpressionOperationOutput) Cast() WorkflowExpressionOperationCastPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperation) *WorkflowExpressionOperationCast { return v.Cast }).(WorkflowExpressionOperationCastPtrOutput)
+}
+
+// An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+func (o WorkflowExpressionOperationOutput) Concatenate() WorkflowExpressionOperationConcatenatePtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperation) *WorkflowExpressionOperationConcatenate { return v.Concatenate }).(WorkflowExpressionOperationConcatenatePtrOutput)
+}
+
+// An operation type that allows values to be filtered out by conditions
+func (o WorkflowExpressionOperationOutput) Filter() WorkflowExpressionOperationFilterPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperation) *WorkflowExpressionOperationFilter { return v.Filter }).(WorkflowExpressionOperationFilterPtrOutput)
+}
+
+// An operation type that allows attributes of a type to be accessed by reference
+func (o WorkflowExpressionOperationOutput) Navigate() WorkflowExpressionOperationNavigatePtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperation) *WorkflowExpressionOperationNavigate { return v.Navigate }).(WorkflowExpressionOperationNavigatePtrOutput)
+}
+
+// Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+func (o WorkflowExpressionOperationOutput) OperationType() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperation) string { return v.OperationType }).(pulumi.StringOutput)
+}
+
+// An operation type that allows a value to parsed from within a JSON object
+func (o WorkflowExpressionOperationOutput) Parse() WorkflowExpressionOperationParsePtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperation) *WorkflowExpressionOperationParse { return v.Parse }).(WorkflowExpressionOperationParsePtrOutput)
+}
+
+type WorkflowExpressionOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperation)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationArrayOutput) ToWorkflowExpressionOperationArrayOutput() WorkflowExpressionOperationArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationArrayOutput) ToWorkflowExpressionOperationArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperation {
+		return vs[0].([]WorkflowExpressionOperation)[vs[1].(int)]
+	}).(WorkflowExpressionOperationOutput)
+}
+
+type WorkflowExpressionOperationBranches struct {
+	// The branches to apply for this operation
+	Branches []WorkflowExpressionOperationBranchesBranch `pulumi:"branches"`
+	// The return type of an operation
+	Returns WorkflowExpressionOperationBranchesReturns `pulumi:"returns"`
+}
+
+// WorkflowExpressionOperationBranchesInput is an input type that accepts WorkflowExpressionOperationBranchesArgs and WorkflowExpressionOperationBranchesOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesInput` via:
+//
+//	WorkflowExpressionOperationBranchesArgs{...}
+type WorkflowExpressionOperationBranchesInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesOutput() WorkflowExpressionOperationBranchesOutput
+	ToWorkflowExpressionOperationBranchesOutputWithContext(context.Context) WorkflowExpressionOperationBranchesOutput
+}
+
+type WorkflowExpressionOperationBranchesArgs struct {
+	// The branches to apply for this operation
+	Branches WorkflowExpressionOperationBranchesBranchArrayInput `pulumi:"branches"`
+	// The return type of an operation
+	Returns WorkflowExpressionOperationBranchesReturnsInput `pulumi:"returns"`
+}
+
+func (WorkflowExpressionOperationBranchesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranches)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesArgs) ToWorkflowExpressionOperationBranchesOutput() WorkflowExpressionOperationBranchesOutput {
+	return i.ToWorkflowExpressionOperationBranchesOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesArgs) ToWorkflowExpressionOperationBranchesOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesOutput)
+}
+
+func (i WorkflowExpressionOperationBranchesArgs) ToWorkflowExpressionOperationBranchesPtrOutput() WorkflowExpressionOperationBranchesPtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesArgs) ToWorkflowExpressionOperationBranchesPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesOutput).ToWorkflowExpressionOperationBranchesPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationBranchesPtrInput is an input type that accepts WorkflowExpressionOperationBranchesArgs, WorkflowExpressionOperationBranchesPtr and WorkflowExpressionOperationBranchesPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesPtrInput` via:
+//
+//	        WorkflowExpressionOperationBranchesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationBranchesPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesPtrOutput() WorkflowExpressionOperationBranchesPtrOutput
+	ToWorkflowExpressionOperationBranchesPtrOutputWithContext(context.Context) WorkflowExpressionOperationBranchesPtrOutput
+}
+
+type workflowExpressionOperationBranchesPtrType WorkflowExpressionOperationBranchesArgs
+
+func WorkflowExpressionOperationBranchesPtr(v *WorkflowExpressionOperationBranchesArgs) WorkflowExpressionOperationBranchesPtrInput {
+	return (*workflowExpressionOperationBranchesPtrType)(v)
+}
+
+func (*workflowExpressionOperationBranchesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranches)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationBranchesPtrType) ToWorkflowExpressionOperationBranchesPtrOutput() WorkflowExpressionOperationBranchesPtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationBranchesPtrType) ToWorkflowExpressionOperationBranchesPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranches)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesOutput) ToWorkflowExpressionOperationBranchesOutput() WorkflowExpressionOperationBranchesOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesOutput) ToWorkflowExpressionOperationBranchesOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesOutput) ToWorkflowExpressionOperationBranchesPtrOutput() WorkflowExpressionOperationBranchesPtrOutput {
+	return o.ToWorkflowExpressionOperationBranchesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationBranchesOutput) ToWorkflowExpressionOperationBranchesPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationBranches) *WorkflowExpressionOperationBranches {
+		return &v
+	}).(WorkflowExpressionOperationBranchesPtrOutput)
+}
+
+// The branches to apply for this operation
+func (o WorkflowExpressionOperationBranchesOutput) Branches() WorkflowExpressionOperationBranchesBranchArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranches) []WorkflowExpressionOperationBranchesBranch {
+		return v.Branches
+	}).(WorkflowExpressionOperationBranchesBranchArrayOutput)
+}
+
+// The return type of an operation
+func (o WorkflowExpressionOperationBranchesOutput) Returns() WorkflowExpressionOperationBranchesReturnsOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranches) WorkflowExpressionOperationBranchesReturns {
+		return v.Returns
+	}).(WorkflowExpressionOperationBranchesReturnsOutput)
+}
+
+type WorkflowExpressionOperationBranchesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranches)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesPtrOutput) ToWorkflowExpressionOperationBranchesPtrOutput() WorkflowExpressionOperationBranchesPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesPtrOutput) ToWorkflowExpressionOperationBranchesPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesPtrOutput) Elem() WorkflowExpressionOperationBranchesOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranches) WorkflowExpressionOperationBranches {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationBranches
+		return ret
+	}).(WorkflowExpressionOperationBranchesOutput)
+}
+
+// The branches to apply for this operation
+func (o WorkflowExpressionOperationBranchesPtrOutput) Branches() WorkflowExpressionOperationBranchesBranchArrayOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranches) []WorkflowExpressionOperationBranchesBranch {
+		if v == nil {
+			return nil
+		}
+		return v.Branches
+	}).(WorkflowExpressionOperationBranchesBranchArrayOutput)
+}
+
+// The return type of an operation
+func (o WorkflowExpressionOperationBranchesPtrOutput) Returns() WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranches) *WorkflowExpressionOperationBranchesReturns {
+		if v == nil {
+			return nil
+		}
+		return &v.Returns
+	}).(WorkflowExpressionOperationBranchesReturnsPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranch struct {
+	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+	ConditionGroups []WorkflowExpressionOperationBranchesBranchConditionGroup `pulumi:"conditionGroups"`
+	// The result assumed if the condition groups are satisfied
+	Result WorkflowExpressionOperationBranchesBranchResult `pulumi:"result"`
+}
+
+// WorkflowExpressionOperationBranchesBranchInput is an input type that accepts WorkflowExpressionOperationBranchesBranchArgs and WorkflowExpressionOperationBranchesBranchOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchArgs{...}
+type WorkflowExpressionOperationBranchesBranchInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchOutput() WorkflowExpressionOperationBranchesBranchOutput
+	ToWorkflowExpressionOperationBranchesBranchOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchArgs struct {
+	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+	ConditionGroups WorkflowExpressionOperationBranchesBranchConditionGroupArrayInput `pulumi:"conditionGroups"`
+	// The result assumed if the condition groups are satisfied
+	Result WorkflowExpressionOperationBranchesBranchResultInput `pulumi:"result"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranch)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchArgs) ToWorkflowExpressionOperationBranchesBranchOutput() WorkflowExpressionOperationBranchesBranchOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchArgs) ToWorkflowExpressionOperationBranchesBranchOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchOutput)
+}
+
+// WorkflowExpressionOperationBranchesBranchArrayInput is an input type that accepts WorkflowExpressionOperationBranchesBranchArray and WorkflowExpressionOperationBranchesBranchArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchArrayInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchArray{ WorkflowExpressionOperationBranchesBranchArgs{...} }
+type WorkflowExpressionOperationBranchesBranchArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchArrayOutput() WorkflowExpressionOperationBranchesBranchArrayOutput
+	ToWorkflowExpressionOperationBranchesBranchArrayOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchArrayOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchArray []WorkflowExpressionOperationBranchesBranchInput
+
+func (WorkflowExpressionOperationBranchesBranchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranch)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchArray) ToWorkflowExpressionOperationBranchesBranchArrayOutput() WorkflowExpressionOperationBranchesBranchArrayOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchArray) ToWorkflowExpressionOperationBranchesBranchArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranch)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchOutput) ToWorkflowExpressionOperationBranchesBranchOutput() WorkflowExpressionOperationBranchesBranchOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchOutput) ToWorkflowExpressionOperationBranchesBranchOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchOutput {
+	return o
+}
+
+// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+func (o WorkflowExpressionOperationBranchesBranchOutput) ConditionGroups() WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranch) []WorkflowExpressionOperationBranchesBranchConditionGroup {
+		return v.ConditionGroups
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput)
+}
+
+// The result assumed if the condition groups are satisfied
+func (o WorkflowExpressionOperationBranchesBranchOutput) Result() WorkflowExpressionOperationBranchesBranchResultOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranch) WorkflowExpressionOperationBranchesBranchResult {
+		return v.Result
+	}).(WorkflowExpressionOperationBranchesBranchResultOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranch)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchArrayOutput) ToWorkflowExpressionOperationBranchesBranchArrayOutput() WorkflowExpressionOperationBranchesBranchArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchArrayOutput) ToWorkflowExpressionOperationBranchesBranchArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationBranchesBranchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationBranchesBranch {
+		return vs[0].([]WorkflowExpressionOperationBranchesBranch)[vs[1].(int)]
+	}).(WorkflowExpressionOperationBranchesBranchOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroup struct {
+	// The prerequisite conditions that must all be satisfied
+	Conditions []WorkflowExpressionOperationBranchesBranchConditionGroupCondition `pulumi:"conditions"`
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupArgs and WorkflowExpressionOperationBranchesBranchConditionGroupOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupArgs{...}
+type WorkflowExpressionOperationBranchesBranchConditionGroupInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupOutput() WorkflowExpressionOperationBranchesBranchConditionGroupOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupArgs struct {
+	// The prerequisite conditions that must all be satisfied
+	Conditions WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayInput `pulumi:"conditions"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupOutput() WorkflowExpressionOperationBranchesBranchConditionGroupOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupOutput)
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupArrayInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupArray and WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupArrayInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupArray{ WorkflowExpressionOperationBranchesBranchConditionGroupArgs{...} }
+type WorkflowExpressionOperationBranchesBranchConditionGroupArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupArray []WorkflowExpressionOperationBranchesBranchConditionGroupInput
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupOutput() WorkflowExpressionOperationBranchesBranchConditionGroupOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupOutput {
+	return o
+}
+
+// The prerequisite conditions that must all be satisfied
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupOutput) Conditions() WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroup) []WorkflowExpressionOperationBranchesBranchConditionGroupCondition {
+		return v.Conditions
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationBranchesBranchConditionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationBranchesBranchConditionGroup {
+		return vs[0].([]WorkflowExpressionOperationBranchesBranchConditionGroup)[vs[1].(int)]
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupCondition struct {
+	// The logical operation to be applied
+	Operation string `pulumi:"operation"`
+	// Bindings for the operation parameters
+	ParamBindings []WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding `pulumi:"paramBindings"`
+	// The subject of the condition, on which the operation is applied
+	Subject string `pulumi:"subject"`
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs and WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs{...}
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs struct {
+	// The logical operation to be applied
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// Bindings for the operation parameters
+	ParamBindings WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput `pulumi:"paramBindings"`
+	// The subject of the condition, on which the operation is applied
+	Subject pulumi.StringInput `pulumi:"subject"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput)
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionArray and WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupConditionArray{ WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs{...} }
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionArray []WorkflowExpressionOperationBranchesBranchConditionGroupConditionInput
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput {
+	return o
+}
+
+// The logical operation to be applied
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupCondition) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// Bindings for the operation parameters
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput) ParamBindings() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupCondition) []WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+		return v.ParamBindings
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput)
+}
+
+// The subject of the condition, on which the operation is applied
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupCondition) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationBranchesBranchConditionGroupCondition {
+		return vs[0].([]WorkflowExpressionOperationBranchesBranchConditionGroupCondition)[vs[1].(int)]
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding struct {
+	// The array of literal or reference parameter values
+	ArrayValues []WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef *string `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value *WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral *string `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference *string `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values []string `pulumi:"values"`
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs and WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs{...}
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs struct {
+	// The array of literal or reference parameter values
+	ArrayValues WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef pulumi.StringPtrInput `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrInput `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral pulumi.StringPtrInput `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference pulumi.StringPtrInput `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput)
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray and WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray{ WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs{...} }
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray []WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
+	return o
+}
+
+// The array of literal or reference parameter values
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ArrayValues() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding) []WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+		return v.ArrayValues
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput)
+}
+
+// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ExpressionRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding) *string {
+		return v.ExpressionRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// The literal or reference parameter value
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) Value() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding) *WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+		return v.Value
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ValueLiteral() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding) *string {
+		return v.ValueLiteral
+	}).(pulumi.StringPtrOutput)
+}
+
+// A reference into the scope, shorthand for `value = { reference = ... }`.
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ValueReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding) *string {
+		return v.ValueReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+		return vs[0].([]WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBinding)[vs[1].(int)]
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs and WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs{...}
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput)
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray and WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray{ WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs{...} }
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray []WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
+	return o
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue) *string {
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue) *string {
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+		return vs[0].([]WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)[vs[1].(int)]
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs and WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs{...}
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput)
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput).ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrInput is an input type that accepts WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs, WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtr and WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrInput` via:
+//
+//	        WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput
+	ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput
+}
+
+type workflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrType WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs
+
+func WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtr(v *WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrInput {
+	return (*workflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrType)(v)
+}
+
+func (*workflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrType) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrType) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) *WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+		return &v
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) *string {
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) *string {
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput) Elem() WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue
+		return ret
+	}).(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResult struct {
+	// The array of literal or reference parameter values
+	ArrayValues []WorkflowExpressionOperationBranchesBranchResultArrayValue `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef *string `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value *WorkflowExpressionOperationBranchesBranchResultValue `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral *string `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference *string `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values []string `pulumi:"values"`
+}
+
+// WorkflowExpressionOperationBranchesBranchResultInput is an input type that accepts WorkflowExpressionOperationBranchesBranchResultArgs and WorkflowExpressionOperationBranchesBranchResultOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchResultInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchResultArgs{...}
+type WorkflowExpressionOperationBranchesBranchResultInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchResultOutput() WorkflowExpressionOperationBranchesBranchResultOutput
+	ToWorkflowExpressionOperationBranchesBranchResultOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchResultOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchResultArgs struct {
+	// The array of literal or reference parameter values
+	ArrayValues WorkflowExpressionOperationBranchesBranchResultArrayValueArrayInput `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef pulumi.StringPtrInput `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value WorkflowExpressionOperationBranchesBranchResultValuePtrInput `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral pulumi.StringPtrInput `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference pulumi.StringPtrInput `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchResultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResult)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultArgs) ToWorkflowExpressionOperationBranchesBranchResultOutput() WorkflowExpressionOperationBranchesBranchResultOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchResultOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultArgs) ToWorkflowExpressionOperationBranchesBranchResultOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchResultOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResultOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResult)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) ToWorkflowExpressionOperationBranchesBranchResultOutput() WorkflowExpressionOperationBranchesBranchResultOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) ToWorkflowExpressionOperationBranchesBranchResultOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultOutput {
+	return o
+}
+
+// The array of literal or reference parameter values
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) ArrayValues() WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResult) []WorkflowExpressionOperationBranchesBranchResultArrayValue {
+		return v.ArrayValues
+	}).(WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput)
+}
+
+// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) ExpressionRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResult) *string { return v.ExpressionRef }).(pulumi.StringPtrOutput)
+}
+
+// The literal or reference parameter value
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) Value() WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResult) *WorkflowExpressionOperationBranchesBranchResultValue {
+		return v.Value
+	}).(WorkflowExpressionOperationBranchesBranchResultValuePtrOutput)
+}
+
+// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) ValueLiteral() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResult) *string { return v.ValueLiteral }).(pulumi.StringPtrOutput)
+}
+
+// A reference into the scope, shorthand for `value = { reference = ... }`.
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) ValueReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResult) *string { return v.ValueReference }).(pulumi.StringPtrOutput)
+}
+
+// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+func (o WorkflowExpressionOperationBranchesBranchResultOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResult) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResultArrayValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationBranchesBranchResultArrayValueInput is an input type that accepts WorkflowExpressionOperationBranchesBranchResultArrayValueArgs and WorkflowExpressionOperationBranchesBranchResultArrayValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchResultArrayValueInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchResultArrayValueArgs{...}
+type WorkflowExpressionOperationBranchesBranchResultArrayValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchResultArrayValueOutput() WorkflowExpressionOperationBranchesBranchResultArrayValueOutput
+	ToWorkflowExpressionOperationBranchesBranchResultArrayValueOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchResultArrayValueOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchResultArrayValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchResultArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultArrayValueArgs) ToWorkflowExpressionOperationBranchesBranchResultArrayValueOutput() WorkflowExpressionOperationBranchesBranchResultArrayValueOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchResultArrayValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultArrayValueArgs) ToWorkflowExpressionOperationBranchesBranchResultArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchResultArrayValueOutput)
+}
+
+// WorkflowExpressionOperationBranchesBranchResultArrayValueArrayInput is an input type that accepts WorkflowExpressionOperationBranchesBranchResultArrayValueArray and WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchResultArrayValueArrayInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchResultArrayValueArray{ WorkflowExpressionOperationBranchesBranchResultArrayValueArgs{...} }
+type WorkflowExpressionOperationBranchesBranchResultArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput() WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput
+	ToWorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchResultArrayValueArray []WorkflowExpressionOperationBranchesBranchResultArrayValueInput
+
+func (WorkflowExpressionOperationBranchesBranchResultArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultArrayValueArray) ToWorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput() WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultArrayValueArray) ToWorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResultArrayValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchResultArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultArrayValueOutput) ToWorkflowExpressionOperationBranchesBranchResultArrayValueOutput() WorkflowExpressionOperationBranchesBranchResultArrayValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultArrayValueOutput) ToWorkflowExpressionOperationBranchesBranchResultArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultArrayValueOutput {
+	return o
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationBranchesBranchResultArrayValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResultArrayValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationBranchesBranchResultArrayValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResultArrayValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput) ToWorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput() WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput) ToWorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationBranchesBranchResultArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationBranchesBranchResultArrayValue {
+		return vs[0].([]WorkflowExpressionOperationBranchesBranchResultArrayValue)[vs[1].(int)]
+	}).(WorkflowExpressionOperationBranchesBranchResultArrayValueOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResultValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationBranchesBranchResultValueInput is an input type that accepts WorkflowExpressionOperationBranchesBranchResultValueArgs and WorkflowExpressionOperationBranchesBranchResultValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchResultValueInput` via:
+//
+//	WorkflowExpressionOperationBranchesBranchResultValueArgs{...}
+type WorkflowExpressionOperationBranchesBranchResultValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchResultValueOutput() WorkflowExpressionOperationBranchesBranchResultValueOutput
+	ToWorkflowExpressionOperationBranchesBranchResultValueOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchResultValueOutput
+}
+
+type WorkflowExpressionOperationBranchesBranchResultValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationBranchesBranchResultValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultValueArgs) ToWorkflowExpressionOperationBranchesBranchResultValueOutput() WorkflowExpressionOperationBranchesBranchResultValueOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchResultValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultValueArgs) ToWorkflowExpressionOperationBranchesBranchResultValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchResultValueOutput)
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultValueArgs) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutput() WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesBranchResultValueArgs) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchResultValueOutput).ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationBranchesBranchResultValuePtrInput is an input type that accepts WorkflowExpressionOperationBranchesBranchResultValueArgs, WorkflowExpressionOperationBranchesBranchResultValuePtr and WorkflowExpressionOperationBranchesBranchResultValuePtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesBranchResultValuePtrInput` via:
+//
+//	        WorkflowExpressionOperationBranchesBranchResultValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationBranchesBranchResultValuePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutput() WorkflowExpressionOperationBranchesBranchResultValuePtrOutput
+	ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(context.Context) WorkflowExpressionOperationBranchesBranchResultValuePtrOutput
+}
+
+type workflowExpressionOperationBranchesBranchResultValuePtrType WorkflowExpressionOperationBranchesBranchResultValueArgs
+
+func WorkflowExpressionOperationBranchesBranchResultValuePtr(v *WorkflowExpressionOperationBranchesBranchResultValueArgs) WorkflowExpressionOperationBranchesBranchResultValuePtrInput {
+	return (*workflowExpressionOperationBranchesBranchResultValuePtrType)(v)
+}
+
+func (*workflowExpressionOperationBranchesBranchResultValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranchesBranchResultValue)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationBranchesBranchResultValuePtrType) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutput() WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationBranchesBranchResultValuePtrType) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesBranchResultValuePtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResultValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchResultValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultValueOutput) ToWorkflowExpressionOperationBranchesBranchResultValueOutput() WorkflowExpressionOperationBranchesBranchResultValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultValueOutput) ToWorkflowExpressionOperationBranchesBranchResultValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultValueOutput) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutput() WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return o.ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultValueOutput) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationBranchesBranchResultValue) *WorkflowExpressionOperationBranchesBranchResultValue {
+		return &v
+	}).(WorkflowExpressionOperationBranchesBranchResultValuePtrOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationBranchesBranchResultValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResultValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationBranchesBranchResultValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesBranchResultValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesBranchResultValuePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesBranchResultValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranchesBranchResultValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultValuePtrOutput) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutput() WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultValuePtrOutput) ToWorkflowExpressionOperationBranchesBranchResultValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesBranchResultValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesBranchResultValuePtrOutput) Elem() WorkflowExpressionOperationBranchesBranchResultValueOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesBranchResultValue) WorkflowExpressionOperationBranchesBranchResultValue {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationBranchesBranchResultValue
+		return ret
+	}).(WorkflowExpressionOperationBranchesBranchResultValueOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationBranchesBranchResultValuePtrOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesBranchResultValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationBranchesBranchResultValuePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesBranchResultValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesReturns struct {
+	// Whether the return value should be single or multi-value
+	Array bool `pulumi:"array"`
+	// Expected return type of this expression (what to try casting the result to)
+	Type string `pulumi:"type"`
+}
+
+// WorkflowExpressionOperationBranchesReturnsInput is an input type that accepts WorkflowExpressionOperationBranchesReturnsArgs and WorkflowExpressionOperationBranchesReturnsOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesReturnsInput` via:
+//
+//	WorkflowExpressionOperationBranchesReturnsArgs{...}
+type WorkflowExpressionOperationBranchesReturnsInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesReturnsOutput() WorkflowExpressionOperationBranchesReturnsOutput
+	ToWorkflowExpressionOperationBranchesReturnsOutputWithContext(context.Context) WorkflowExpressionOperationBranchesReturnsOutput
+}
+
+type WorkflowExpressionOperationBranchesReturnsArgs struct {
+	// Whether the return value should be single or multi-value
+	Array pulumi.BoolInput `pulumi:"array"`
+	// Expected return type of this expression (what to try casting the result to)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowExpressionOperationBranchesReturnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesReturns)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationBranchesReturnsArgs) ToWorkflowExpressionOperationBranchesReturnsOutput() WorkflowExpressionOperationBranchesReturnsOutput {
+	return i.ToWorkflowExpressionOperationBranchesReturnsOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesReturnsArgs) ToWorkflowExpressionOperationBranchesReturnsOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesReturnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesReturnsOutput)
+}
+
+func (i WorkflowExpressionOperationBranchesReturnsArgs) ToWorkflowExpressionOperationBranchesReturnsPtrOutput() WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationBranchesReturnsArgs) ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesReturnsOutput).ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationBranchesReturnsPtrInput is an input type that accepts WorkflowExpressionOperationBranchesReturnsArgs, WorkflowExpressionOperationBranchesReturnsPtr and WorkflowExpressionOperationBranchesReturnsPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationBranchesReturnsPtrInput` via:
+//
+//	        WorkflowExpressionOperationBranchesReturnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationBranchesReturnsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationBranchesReturnsPtrOutput() WorkflowExpressionOperationBranchesReturnsPtrOutput
+	ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(context.Context) WorkflowExpressionOperationBranchesReturnsPtrOutput
+}
+
+type workflowExpressionOperationBranchesReturnsPtrType WorkflowExpressionOperationBranchesReturnsArgs
+
+func WorkflowExpressionOperationBranchesReturnsPtr(v *WorkflowExpressionOperationBranchesReturnsArgs) WorkflowExpressionOperationBranchesReturnsPtrInput {
+	return (*workflowExpressionOperationBranchesReturnsPtrType)(v)
+}
+
+func (*workflowExpressionOperationBranchesReturnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranchesReturns)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationBranchesReturnsPtrType) ToWorkflowExpressionOperationBranchesReturnsPtrOutput() WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return i.ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationBranchesReturnsPtrType) ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationBranchesReturnsPtrOutput)
+}
+
+type WorkflowExpressionOperationBranchesReturnsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesReturnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationBranchesReturns)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesReturnsOutput) ToWorkflowExpressionOperationBranchesReturnsOutput() WorkflowExpressionOperationBranchesReturnsOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesReturnsOutput) ToWorkflowExpressionOperationBranchesReturnsOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesReturnsOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesReturnsOutput) ToWorkflowExpressionOperationBranchesReturnsPtrOutput() WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return o.ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationBranchesReturnsOutput) ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationBranchesReturns) *WorkflowExpressionOperationBranchesReturns {
+		return &v
+	}).(WorkflowExpressionOperationBranchesReturnsPtrOutput)
+}
+
+// Whether the return value should be single or multi-value
+func (o WorkflowExpressionOperationBranchesReturnsOutput) Array() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesReturns) bool { return v.Array }).(pulumi.BoolOutput)
+}
+
+// Expected return type of this expression (what to try casting the result to)
+func (o WorkflowExpressionOperationBranchesReturnsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationBranchesReturns) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationBranchesReturnsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationBranchesReturnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationBranchesReturns)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationBranchesReturnsPtrOutput) ToWorkflowExpressionOperationBranchesReturnsPtrOutput() WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesReturnsPtrOutput) ToWorkflowExpressionOperationBranchesReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationBranchesReturnsPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationBranchesReturnsPtrOutput) Elem() WorkflowExpressionOperationBranchesReturnsOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesReturns) WorkflowExpressionOperationBranchesReturns {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationBranchesReturns
+		return ret
+	}).(WorkflowExpressionOperationBranchesReturnsOutput)
+}
+
+// Whether the return value should be single or multi-value
+func (o WorkflowExpressionOperationBranchesReturnsPtrOutput) Array() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesReturns) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Array
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Expected return type of this expression (what to try casting the result to)
+func (o WorkflowExpressionOperationBranchesReturnsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationBranchesReturns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationCast struct {
+	// The return type of an operation
+	Returns WorkflowExpressionOperationCastReturns `pulumi:"returns"`
+}
+
+// WorkflowExpressionOperationCastInput is an input type that accepts WorkflowExpressionOperationCastArgs and WorkflowExpressionOperationCastOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationCastInput` via:
+//
+//	WorkflowExpressionOperationCastArgs{...}
+type WorkflowExpressionOperationCastInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationCastOutput() WorkflowExpressionOperationCastOutput
+	ToWorkflowExpressionOperationCastOutputWithContext(context.Context) WorkflowExpressionOperationCastOutput
+}
+
+type WorkflowExpressionOperationCastArgs struct {
+	// The return type of an operation
+	Returns WorkflowExpressionOperationCastReturnsInput `pulumi:"returns"`
+}
+
+func (WorkflowExpressionOperationCastArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationCast)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationCastArgs) ToWorkflowExpressionOperationCastOutput() WorkflowExpressionOperationCastOutput {
+	return i.ToWorkflowExpressionOperationCastOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationCastArgs) ToWorkflowExpressionOperationCastOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationCastOutput)
+}
+
+func (i WorkflowExpressionOperationCastArgs) ToWorkflowExpressionOperationCastPtrOutput() WorkflowExpressionOperationCastPtrOutput {
+	return i.ToWorkflowExpressionOperationCastPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationCastArgs) ToWorkflowExpressionOperationCastPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationCastOutput).ToWorkflowExpressionOperationCastPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationCastPtrInput is an input type that accepts WorkflowExpressionOperationCastArgs, WorkflowExpressionOperationCastPtr and WorkflowExpressionOperationCastPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationCastPtrInput` via:
+//
+//	        WorkflowExpressionOperationCastArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationCastPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationCastPtrOutput() WorkflowExpressionOperationCastPtrOutput
+	ToWorkflowExpressionOperationCastPtrOutputWithContext(context.Context) WorkflowExpressionOperationCastPtrOutput
+}
+
+type workflowExpressionOperationCastPtrType WorkflowExpressionOperationCastArgs
+
+func WorkflowExpressionOperationCastPtr(v *WorkflowExpressionOperationCastArgs) WorkflowExpressionOperationCastPtrInput {
+	return (*workflowExpressionOperationCastPtrType)(v)
+}
+
+func (*workflowExpressionOperationCastPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationCast)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationCastPtrType) ToWorkflowExpressionOperationCastPtrOutput() WorkflowExpressionOperationCastPtrOutput {
+	return i.ToWorkflowExpressionOperationCastPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationCastPtrType) ToWorkflowExpressionOperationCastPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationCastPtrOutput)
+}
+
+type WorkflowExpressionOperationCastOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationCastOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationCast)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationCastOutput) ToWorkflowExpressionOperationCastOutput() WorkflowExpressionOperationCastOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastOutput) ToWorkflowExpressionOperationCastOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastOutput) ToWorkflowExpressionOperationCastPtrOutput() WorkflowExpressionOperationCastPtrOutput {
+	return o.ToWorkflowExpressionOperationCastPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationCastOutput) ToWorkflowExpressionOperationCastPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationCast) *WorkflowExpressionOperationCast {
+		return &v
+	}).(WorkflowExpressionOperationCastPtrOutput)
+}
+
+// The return type of an operation
+func (o WorkflowExpressionOperationCastOutput) Returns() WorkflowExpressionOperationCastReturnsOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationCast) WorkflowExpressionOperationCastReturns { return v.Returns }).(WorkflowExpressionOperationCastReturnsOutput)
+}
+
+type WorkflowExpressionOperationCastPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationCastPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationCast)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationCastPtrOutput) ToWorkflowExpressionOperationCastPtrOutput() WorkflowExpressionOperationCastPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastPtrOutput) ToWorkflowExpressionOperationCastPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastPtrOutput) Elem() WorkflowExpressionOperationCastOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationCast) WorkflowExpressionOperationCast {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationCast
+		return ret
+	}).(WorkflowExpressionOperationCastOutput)
+}
+
+// The return type of an operation
+func (o WorkflowExpressionOperationCastPtrOutput) Returns() WorkflowExpressionOperationCastReturnsPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationCast) *WorkflowExpressionOperationCastReturns {
+		if v == nil {
+			return nil
+		}
+		return &v.Returns
+	}).(WorkflowExpressionOperationCastReturnsPtrOutput)
+}
+
+type WorkflowExpressionOperationCastReturns struct {
+	// Whether the return value should be single or multi-value
+	Array bool `pulumi:"array"`
+	// Expected return type of this expression (what to try casting the result to)
+	Type string `pulumi:"type"`
+}
+
+// WorkflowExpressionOperationCastReturnsInput is an input type that accepts WorkflowExpressionOperationCastReturnsArgs and WorkflowExpressionOperationCastReturnsOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationCastReturnsInput` via:
+//
+//	WorkflowExpressionOperationCastReturnsArgs{...}
+type WorkflowExpressionOperationCastReturnsInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationCastReturnsOutput() WorkflowExpressionOperationCastReturnsOutput
+	ToWorkflowExpressionOperationCastReturnsOutputWithContext(context.Context) WorkflowExpressionOperationCastReturnsOutput
+}
+
+type WorkflowExpressionOperationCastReturnsArgs struct {
+	// Whether the return value should be single or multi-value
+	Array pulumi.BoolInput `pulumi:"array"`
+	// Expected return type of this expression (what to try casting the result to)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowExpressionOperationCastReturnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationCastReturns)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationCastReturnsArgs) ToWorkflowExpressionOperationCastReturnsOutput() WorkflowExpressionOperationCastReturnsOutput {
+	return i.ToWorkflowExpressionOperationCastReturnsOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationCastReturnsArgs) ToWorkflowExpressionOperationCastReturnsOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastReturnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationCastReturnsOutput)
+}
+
+func (i WorkflowExpressionOperationCastReturnsArgs) ToWorkflowExpressionOperationCastReturnsPtrOutput() WorkflowExpressionOperationCastReturnsPtrOutput {
+	return i.ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationCastReturnsArgs) ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastReturnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationCastReturnsOutput).ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationCastReturnsPtrInput is an input type that accepts WorkflowExpressionOperationCastReturnsArgs, WorkflowExpressionOperationCastReturnsPtr and WorkflowExpressionOperationCastReturnsPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationCastReturnsPtrInput` via:
+//
+//	        WorkflowExpressionOperationCastReturnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationCastReturnsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationCastReturnsPtrOutput() WorkflowExpressionOperationCastReturnsPtrOutput
+	ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(context.Context) WorkflowExpressionOperationCastReturnsPtrOutput
+}
+
+type workflowExpressionOperationCastReturnsPtrType WorkflowExpressionOperationCastReturnsArgs
+
+func WorkflowExpressionOperationCastReturnsPtr(v *WorkflowExpressionOperationCastReturnsArgs) WorkflowExpressionOperationCastReturnsPtrInput {
+	return (*workflowExpressionOperationCastReturnsPtrType)(v)
+}
+
+func (*workflowExpressionOperationCastReturnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationCastReturns)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationCastReturnsPtrType) ToWorkflowExpressionOperationCastReturnsPtrOutput() WorkflowExpressionOperationCastReturnsPtrOutput {
+	return i.ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationCastReturnsPtrType) ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastReturnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationCastReturnsPtrOutput)
+}
+
+type WorkflowExpressionOperationCastReturnsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationCastReturnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationCastReturns)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationCastReturnsOutput) ToWorkflowExpressionOperationCastReturnsOutput() WorkflowExpressionOperationCastReturnsOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastReturnsOutput) ToWorkflowExpressionOperationCastReturnsOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastReturnsOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastReturnsOutput) ToWorkflowExpressionOperationCastReturnsPtrOutput() WorkflowExpressionOperationCastReturnsPtrOutput {
+	return o.ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationCastReturnsOutput) ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastReturnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationCastReturns) *WorkflowExpressionOperationCastReturns {
+		return &v
+	}).(WorkflowExpressionOperationCastReturnsPtrOutput)
+}
+
+// Whether the return value should be single or multi-value
+func (o WorkflowExpressionOperationCastReturnsOutput) Array() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationCastReturns) bool { return v.Array }).(pulumi.BoolOutput)
+}
+
+// Expected return type of this expression (what to try casting the result to)
+func (o WorkflowExpressionOperationCastReturnsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationCastReturns) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationCastReturnsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationCastReturnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationCastReturns)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationCastReturnsPtrOutput) ToWorkflowExpressionOperationCastReturnsPtrOutput() WorkflowExpressionOperationCastReturnsPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastReturnsPtrOutput) ToWorkflowExpressionOperationCastReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationCastReturnsPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationCastReturnsPtrOutput) Elem() WorkflowExpressionOperationCastReturnsOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationCastReturns) WorkflowExpressionOperationCastReturns {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationCastReturns
+		return ret
+	}).(WorkflowExpressionOperationCastReturnsOutput)
+}
+
+// Whether the return value should be single or multi-value
+func (o WorkflowExpressionOperationCastReturnsPtrOutput) Array() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationCastReturns) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Array
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Expected return type of this expression (what to try casting the result to)
+func (o WorkflowExpressionOperationCastReturnsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationCastReturns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationConcatenate struct {
+	// The reference within the scope to concatenate with
+	Reference string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationConcatenateInput is an input type that accepts WorkflowExpressionOperationConcatenateArgs and WorkflowExpressionOperationConcatenateOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationConcatenateInput` via:
+//
+//	WorkflowExpressionOperationConcatenateArgs{...}
+type WorkflowExpressionOperationConcatenateInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationConcatenateOutput() WorkflowExpressionOperationConcatenateOutput
+	ToWorkflowExpressionOperationConcatenateOutputWithContext(context.Context) WorkflowExpressionOperationConcatenateOutput
+}
+
+type WorkflowExpressionOperationConcatenateArgs struct {
+	// The reference within the scope to concatenate with
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationConcatenateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationConcatenate)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationConcatenateArgs) ToWorkflowExpressionOperationConcatenateOutput() WorkflowExpressionOperationConcatenateOutput {
+	return i.ToWorkflowExpressionOperationConcatenateOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationConcatenateArgs) ToWorkflowExpressionOperationConcatenateOutputWithContext(ctx context.Context) WorkflowExpressionOperationConcatenateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationConcatenateOutput)
+}
+
+func (i WorkflowExpressionOperationConcatenateArgs) ToWorkflowExpressionOperationConcatenatePtrOutput() WorkflowExpressionOperationConcatenatePtrOutput {
+	return i.ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationConcatenateArgs) ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationConcatenatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationConcatenateOutput).ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationConcatenatePtrInput is an input type that accepts WorkflowExpressionOperationConcatenateArgs, WorkflowExpressionOperationConcatenatePtr and WorkflowExpressionOperationConcatenatePtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationConcatenatePtrInput` via:
+//
+//	        WorkflowExpressionOperationConcatenateArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationConcatenatePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationConcatenatePtrOutput() WorkflowExpressionOperationConcatenatePtrOutput
+	ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(context.Context) WorkflowExpressionOperationConcatenatePtrOutput
+}
+
+type workflowExpressionOperationConcatenatePtrType WorkflowExpressionOperationConcatenateArgs
+
+func WorkflowExpressionOperationConcatenatePtr(v *WorkflowExpressionOperationConcatenateArgs) WorkflowExpressionOperationConcatenatePtrInput {
+	return (*workflowExpressionOperationConcatenatePtrType)(v)
+}
+
+func (*workflowExpressionOperationConcatenatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationConcatenate)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationConcatenatePtrType) ToWorkflowExpressionOperationConcatenatePtrOutput() WorkflowExpressionOperationConcatenatePtrOutput {
+	return i.ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationConcatenatePtrType) ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationConcatenatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationConcatenatePtrOutput)
+}
+
+type WorkflowExpressionOperationConcatenateOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationConcatenateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationConcatenate)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationConcatenateOutput) ToWorkflowExpressionOperationConcatenateOutput() WorkflowExpressionOperationConcatenateOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationConcatenateOutput) ToWorkflowExpressionOperationConcatenateOutputWithContext(ctx context.Context) WorkflowExpressionOperationConcatenateOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationConcatenateOutput) ToWorkflowExpressionOperationConcatenatePtrOutput() WorkflowExpressionOperationConcatenatePtrOutput {
+	return o.ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationConcatenateOutput) ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationConcatenatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationConcatenate) *WorkflowExpressionOperationConcatenate {
+		return &v
+	}).(WorkflowExpressionOperationConcatenatePtrOutput)
+}
+
+// The reference within the scope to concatenate with
+func (o WorkflowExpressionOperationConcatenateOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationConcatenate) string { return v.Reference }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationConcatenatePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationConcatenatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationConcatenate)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationConcatenatePtrOutput) ToWorkflowExpressionOperationConcatenatePtrOutput() WorkflowExpressionOperationConcatenatePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationConcatenatePtrOutput) ToWorkflowExpressionOperationConcatenatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationConcatenatePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationConcatenatePtrOutput) Elem() WorkflowExpressionOperationConcatenateOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationConcatenate) WorkflowExpressionOperationConcatenate {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationConcatenate
+		return ret
+	}).(WorkflowExpressionOperationConcatenateOutput)
+}
+
+// The reference within the scope to concatenate with
+func (o WorkflowExpressionOperationConcatenatePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationConcatenate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationFilter struct {
+	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+	ConditionGroups []WorkflowExpressionOperationFilterConditionGroup `pulumi:"conditionGroups"`
+}
+
+// WorkflowExpressionOperationFilterInput is an input type that accepts WorkflowExpressionOperationFilterArgs and WorkflowExpressionOperationFilterOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterInput` via:
+//
+//	WorkflowExpressionOperationFilterArgs{...}
+type WorkflowExpressionOperationFilterInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterOutput() WorkflowExpressionOperationFilterOutput
+	ToWorkflowExpressionOperationFilterOutputWithContext(context.Context) WorkflowExpressionOperationFilterOutput
+}
+
+type WorkflowExpressionOperationFilterArgs struct {
+	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+	ConditionGroups WorkflowExpressionOperationFilterConditionGroupArrayInput `pulumi:"conditionGroups"`
+}
+
+func (WorkflowExpressionOperationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilter)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterArgs) ToWorkflowExpressionOperationFilterOutput() WorkflowExpressionOperationFilterOutput {
+	return i.ToWorkflowExpressionOperationFilterOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterArgs) ToWorkflowExpressionOperationFilterOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterOutput)
+}
+
+func (i WorkflowExpressionOperationFilterArgs) ToWorkflowExpressionOperationFilterPtrOutput() WorkflowExpressionOperationFilterPtrOutput {
+	return i.ToWorkflowExpressionOperationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterArgs) ToWorkflowExpressionOperationFilterPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterOutput).ToWorkflowExpressionOperationFilterPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationFilterPtrInput is an input type that accepts WorkflowExpressionOperationFilterArgs, WorkflowExpressionOperationFilterPtr and WorkflowExpressionOperationFilterPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterPtrInput` via:
+//
+//	        WorkflowExpressionOperationFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationFilterPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterPtrOutput() WorkflowExpressionOperationFilterPtrOutput
+	ToWorkflowExpressionOperationFilterPtrOutputWithContext(context.Context) WorkflowExpressionOperationFilterPtrOutput
+}
+
+type workflowExpressionOperationFilterPtrType WorkflowExpressionOperationFilterArgs
+
+func WorkflowExpressionOperationFilterPtr(v *WorkflowExpressionOperationFilterArgs) WorkflowExpressionOperationFilterPtrInput {
+	return (*workflowExpressionOperationFilterPtrType)(v)
+}
+
+func (*workflowExpressionOperationFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationFilter)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationFilterPtrType) ToWorkflowExpressionOperationFilterPtrOutput() WorkflowExpressionOperationFilterPtrOutput {
+	return i.ToWorkflowExpressionOperationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationFilterPtrType) ToWorkflowExpressionOperationFilterPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterPtrOutput)
+}
+
+type WorkflowExpressionOperationFilterOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilter)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterOutput) ToWorkflowExpressionOperationFilterOutput() WorkflowExpressionOperationFilterOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterOutput) ToWorkflowExpressionOperationFilterOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterOutput) ToWorkflowExpressionOperationFilterPtrOutput() WorkflowExpressionOperationFilterPtrOutput {
+	return o.ToWorkflowExpressionOperationFilterPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationFilterOutput) ToWorkflowExpressionOperationFilterPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationFilter) *WorkflowExpressionOperationFilter {
+		return &v
+	}).(WorkflowExpressionOperationFilterPtrOutput)
+}
+
+// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+func (o WorkflowExpressionOperationFilterOutput) ConditionGroups() WorkflowExpressionOperationFilterConditionGroupArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilter) []WorkflowExpressionOperationFilterConditionGroup {
+		return v.ConditionGroups
+	}).(WorkflowExpressionOperationFilterConditionGroupArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationFilter)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterPtrOutput) ToWorkflowExpressionOperationFilterPtrOutput() WorkflowExpressionOperationFilterPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterPtrOutput) ToWorkflowExpressionOperationFilterPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterPtrOutput) Elem() WorkflowExpressionOperationFilterOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationFilter) WorkflowExpressionOperationFilter {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationFilter
+		return ret
+	}).(WorkflowExpressionOperationFilterOutput)
+}
+
+// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+func (o WorkflowExpressionOperationFilterPtrOutput) ConditionGroups() WorkflowExpressionOperationFilterConditionGroupArrayOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationFilter) []WorkflowExpressionOperationFilterConditionGroup {
+		if v == nil {
+			return nil
+		}
+		return v.ConditionGroups
+	}).(WorkflowExpressionOperationFilterConditionGroupArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroup struct {
+	// The prerequisite conditions that must all be satisfied
+	Conditions []WorkflowExpressionOperationFilterConditionGroupCondition `pulumi:"conditions"`
+}
+
+// WorkflowExpressionOperationFilterConditionGroupInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupArgs and WorkflowExpressionOperationFilterConditionGroupOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupArgs{...}
+type WorkflowExpressionOperationFilterConditionGroupInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupOutput() WorkflowExpressionOperationFilterConditionGroupOutput
+	ToWorkflowExpressionOperationFilterConditionGroupOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupArgs struct {
+	// The prerequisite conditions that must all be satisfied
+	Conditions WorkflowExpressionOperationFilterConditionGroupConditionArrayInput `pulumi:"conditions"`
+}
+
+func (WorkflowExpressionOperationFilterConditionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroup)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupArgs) ToWorkflowExpressionOperationFilterConditionGroupOutput() WorkflowExpressionOperationFilterConditionGroupOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupArgs) ToWorkflowExpressionOperationFilterConditionGroupOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupOutput)
+}
+
+// WorkflowExpressionOperationFilterConditionGroupArrayInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupArray and WorkflowExpressionOperationFilterConditionGroupArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupArrayInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupArray{ WorkflowExpressionOperationFilterConditionGroupArgs{...} }
+type WorkflowExpressionOperationFilterConditionGroupArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupArrayOutput() WorkflowExpressionOperationFilterConditionGroupArrayOutput
+	ToWorkflowExpressionOperationFilterConditionGroupArrayOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupArrayOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupArray []WorkflowExpressionOperationFilterConditionGroupInput
+
+func (WorkflowExpressionOperationFilterConditionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroup)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupArray) ToWorkflowExpressionOperationFilterConditionGroupArrayOutput() WorkflowExpressionOperationFilterConditionGroupArrayOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupArray) ToWorkflowExpressionOperationFilterConditionGroupArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroup)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupOutput) ToWorkflowExpressionOperationFilterConditionGroupOutput() WorkflowExpressionOperationFilterConditionGroupOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupOutput) ToWorkflowExpressionOperationFilterConditionGroupOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupOutput {
+	return o
+}
+
+// The prerequisite conditions that must all be satisfied
+func (o WorkflowExpressionOperationFilterConditionGroupOutput) Conditions() WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroup) []WorkflowExpressionOperationFilterConditionGroupCondition {
+		return v.Conditions
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroup)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupArrayOutput() WorkflowExpressionOperationFilterConditionGroupArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationFilterConditionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationFilterConditionGroup {
+		return vs[0].([]WorkflowExpressionOperationFilterConditionGroup)[vs[1].(int)]
+	}).(WorkflowExpressionOperationFilterConditionGroupOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupCondition struct {
+	// The logical operation to be applied
+	Operation string `pulumi:"operation"`
+	// Bindings for the operation parameters
+	ParamBindings []WorkflowExpressionOperationFilterConditionGroupConditionParamBinding `pulumi:"paramBindings"`
+	// The subject of the condition, on which the operation is applied
+	Subject string `pulumi:"subject"`
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionArgs and WorkflowExpressionOperationFilterConditionGroupConditionOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupConditionArgs{...}
+type WorkflowExpressionOperationFilterConditionGroupConditionInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionOutput() WorkflowExpressionOperationFilterConditionGroupConditionOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionArgs struct {
+	// The logical operation to be applied
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// Bindings for the operation parameters
+	ParamBindings WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayInput `pulumi:"paramBindings"`
+	// The subject of the condition, on which the operation is applied
+	Subject pulumi.StringInput `pulumi:"subject"`
+}
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionOutput() WorkflowExpressionOperationFilterConditionGroupConditionOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionOutput)
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionArrayInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionArray and WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionArrayInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupConditionArray{ WorkflowExpressionOperationFilterConditionGroupConditionArgs{...} }
+type WorkflowExpressionOperationFilterConditionGroupConditionArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionArray []WorkflowExpressionOperationFilterConditionGroupConditionInput
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionArray) ToWorkflowExpressionOperationFilterConditionGroupConditionArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionArray) ToWorkflowExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionOutput() WorkflowExpressionOperationFilterConditionGroupConditionOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionOutput {
+	return o
+}
+
+// The logical operation to be applied
+func (o WorkflowExpressionOperationFilterConditionGroupConditionOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupCondition) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// Bindings for the operation parameters
+func (o WorkflowExpressionOperationFilterConditionGroupConditionOutput) ParamBindings() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupCondition) []WorkflowExpressionOperationFilterConditionGroupConditionParamBinding {
+		return v.ParamBindings
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput)
+}
+
+// The subject of the condition, on which the operation is applied
+func (o WorkflowExpressionOperationFilterConditionGroupConditionOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupCondition) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationFilterConditionGroupConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationFilterConditionGroupCondition {
+		return vs[0].([]WorkflowExpressionOperationFilterConditionGroupCondition)[vs[1].(int)]
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBinding struct {
+	// The array of literal or reference parameter values
+	ArrayValues []WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef *string `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value *WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral *string `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference *string `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values []string `pulumi:"values"`
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionParamBindingInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs and WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionParamBindingInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs{...}
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs struct {
+	// The array of literal or reference parameter values
+	ArrayValues WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef pulumi.StringPtrInput `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrInput `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral pulumi.StringPtrInput `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference pulumi.StringPtrInput `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput)
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArray and WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArray{ WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs{...} }
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArray []WorkflowExpressionOperationFilterConditionGroupConditionParamBindingInput
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArray) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArray) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput {
+	return o
+}
+
+// The array of literal or reference parameter values
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) ArrayValues() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBinding) []WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+		return v.ArrayValues
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput)
+}
+
+// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) ExpressionRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBinding) *string {
+		return v.ExpressionRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// The literal or reference parameter value
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) Value() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBinding) *WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue {
+		return v.Value
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) ValueLiteral() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBinding) *string {
+		return v.ValueLiteral
+	}).(pulumi.StringPtrOutput)
+}
+
+// A reference into the scope, shorthand for `value = { reference = ... }`.
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) ValueReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBinding) *string {
+		return v.ValueReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBinding) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationFilterConditionGroupConditionParamBinding {
+		return vs[0].([]WorkflowExpressionOperationFilterConditionGroupConditionParamBinding)[vs[1].(int)]
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs and WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs{...}
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput)
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray and WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray{ WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs{...} }
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray []WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
+	return o
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue) *string {
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue) *string {
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) Index(i pulumi.IntInput) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+		return vs[0].([]WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)[vs[1].(int)]
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs and WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueInput` via:
+//
+//	WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs{...}
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput)
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput).ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrInput is an input type that accepts WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs, WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtr and WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrInput` via:
+//
+//	        WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput
+	ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput
+}
+
+type workflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrType WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs
+
+func WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtr(v *WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrInput {
+	return (*workflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrType)(v)
+}
+
+func (*workflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrType) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return i.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrType) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue) *WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue {
+		return &v
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue) *string {
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue) *string {
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput) Elem() WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue) WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue
+		return ret
+	}).(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationNavigate struct {
+	Reference string `pulumi:"reference"`
+}
+
+// WorkflowExpressionOperationNavigateInput is an input type that accepts WorkflowExpressionOperationNavigateArgs and WorkflowExpressionOperationNavigateOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationNavigateInput` via:
+//
+//	WorkflowExpressionOperationNavigateArgs{...}
+type WorkflowExpressionOperationNavigateInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationNavigateOutput() WorkflowExpressionOperationNavigateOutput
+	ToWorkflowExpressionOperationNavigateOutputWithContext(context.Context) WorkflowExpressionOperationNavigateOutput
+}
+
+type WorkflowExpressionOperationNavigateArgs struct {
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (WorkflowExpressionOperationNavigateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationNavigate)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationNavigateArgs) ToWorkflowExpressionOperationNavigateOutput() WorkflowExpressionOperationNavigateOutput {
+	return i.ToWorkflowExpressionOperationNavigateOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationNavigateArgs) ToWorkflowExpressionOperationNavigateOutputWithContext(ctx context.Context) WorkflowExpressionOperationNavigateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationNavigateOutput)
+}
+
+func (i WorkflowExpressionOperationNavigateArgs) ToWorkflowExpressionOperationNavigatePtrOutput() WorkflowExpressionOperationNavigatePtrOutput {
+	return i.ToWorkflowExpressionOperationNavigatePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationNavigateArgs) ToWorkflowExpressionOperationNavigatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationNavigatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationNavigateOutput).ToWorkflowExpressionOperationNavigatePtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationNavigatePtrInput is an input type that accepts WorkflowExpressionOperationNavigateArgs, WorkflowExpressionOperationNavigatePtr and WorkflowExpressionOperationNavigatePtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationNavigatePtrInput` via:
+//
+//	        WorkflowExpressionOperationNavigateArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationNavigatePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationNavigatePtrOutput() WorkflowExpressionOperationNavigatePtrOutput
+	ToWorkflowExpressionOperationNavigatePtrOutputWithContext(context.Context) WorkflowExpressionOperationNavigatePtrOutput
+}
+
+type workflowExpressionOperationNavigatePtrType WorkflowExpressionOperationNavigateArgs
+
+func WorkflowExpressionOperationNavigatePtr(v *WorkflowExpressionOperationNavigateArgs) WorkflowExpressionOperationNavigatePtrInput {
+	return (*workflowExpressionOperationNavigatePtrType)(v)
+}
+
+func (*workflowExpressionOperationNavigatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationNavigate)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationNavigatePtrType) ToWorkflowExpressionOperationNavigatePtrOutput() WorkflowExpressionOperationNavigatePtrOutput {
+	return i.ToWorkflowExpressionOperationNavigatePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationNavigatePtrType) ToWorkflowExpressionOperationNavigatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationNavigatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationNavigatePtrOutput)
+}
+
+type WorkflowExpressionOperationNavigateOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationNavigateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationNavigate)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationNavigateOutput) ToWorkflowExpressionOperationNavigateOutput() WorkflowExpressionOperationNavigateOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationNavigateOutput) ToWorkflowExpressionOperationNavigateOutputWithContext(ctx context.Context) WorkflowExpressionOperationNavigateOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationNavigateOutput) ToWorkflowExpressionOperationNavigatePtrOutput() WorkflowExpressionOperationNavigatePtrOutput {
+	return o.ToWorkflowExpressionOperationNavigatePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationNavigateOutput) ToWorkflowExpressionOperationNavigatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationNavigatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationNavigate) *WorkflowExpressionOperationNavigate {
+		return &v
+	}).(WorkflowExpressionOperationNavigatePtrOutput)
+}
+
+func (o WorkflowExpressionOperationNavigateOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationNavigate) string { return v.Reference }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationNavigatePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationNavigatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationNavigate)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationNavigatePtrOutput) ToWorkflowExpressionOperationNavigatePtrOutput() WorkflowExpressionOperationNavigatePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationNavigatePtrOutput) ToWorkflowExpressionOperationNavigatePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationNavigatePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationNavigatePtrOutput) Elem() WorkflowExpressionOperationNavigateOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationNavigate) WorkflowExpressionOperationNavigate {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationNavigate
+		return ret
+	}).(WorkflowExpressionOperationNavigateOutput)
+}
+
+func (o WorkflowExpressionOperationNavigatePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationNavigate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationParse struct {
+	// The return type of an operation
+	Returns WorkflowExpressionOperationParseReturns `pulumi:"returns"`
+	// The ES5 Javascript expression to execute
+	Source string `pulumi:"source"`
+}
+
+// WorkflowExpressionOperationParseInput is an input type that accepts WorkflowExpressionOperationParseArgs and WorkflowExpressionOperationParseOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationParseInput` via:
+//
+//	WorkflowExpressionOperationParseArgs{...}
+type WorkflowExpressionOperationParseInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationParseOutput() WorkflowExpressionOperationParseOutput
+	ToWorkflowExpressionOperationParseOutputWithContext(context.Context) WorkflowExpressionOperationParseOutput
+}
+
+type WorkflowExpressionOperationParseArgs struct {
+	// The return type of an operation
+	Returns WorkflowExpressionOperationParseReturnsInput `pulumi:"returns"`
+	// The ES5 Javascript expression to execute
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (WorkflowExpressionOperationParseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationParse)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationParseArgs) ToWorkflowExpressionOperationParseOutput() WorkflowExpressionOperationParseOutput {
+	return i.ToWorkflowExpressionOperationParseOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationParseArgs) ToWorkflowExpressionOperationParseOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationParseOutput)
+}
+
+func (i WorkflowExpressionOperationParseArgs) ToWorkflowExpressionOperationParsePtrOutput() WorkflowExpressionOperationParsePtrOutput {
+	return i.ToWorkflowExpressionOperationParsePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationParseArgs) ToWorkflowExpressionOperationParsePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationParseOutput).ToWorkflowExpressionOperationParsePtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationParsePtrInput is an input type that accepts WorkflowExpressionOperationParseArgs, WorkflowExpressionOperationParsePtr and WorkflowExpressionOperationParsePtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationParsePtrInput` via:
+//
+//	        WorkflowExpressionOperationParseArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationParsePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationParsePtrOutput() WorkflowExpressionOperationParsePtrOutput
+	ToWorkflowExpressionOperationParsePtrOutputWithContext(context.Context) WorkflowExpressionOperationParsePtrOutput
+}
+
+type workflowExpressionOperationParsePtrType WorkflowExpressionOperationParseArgs
+
+func WorkflowExpressionOperationParsePtr(v *WorkflowExpressionOperationParseArgs) WorkflowExpressionOperationParsePtrInput {
+	return (*workflowExpressionOperationParsePtrType)(v)
+}
+
+func (*workflowExpressionOperationParsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationParse)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationParsePtrType) ToWorkflowExpressionOperationParsePtrOutput() WorkflowExpressionOperationParsePtrOutput {
+	return i.ToWorkflowExpressionOperationParsePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationParsePtrType) ToWorkflowExpressionOperationParsePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationParsePtrOutput)
+}
+
+type WorkflowExpressionOperationParseOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationParseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationParse)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationParseOutput) ToWorkflowExpressionOperationParseOutput() WorkflowExpressionOperationParseOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParseOutput) ToWorkflowExpressionOperationParseOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParseOutput) ToWorkflowExpressionOperationParsePtrOutput() WorkflowExpressionOperationParsePtrOutput {
+	return o.ToWorkflowExpressionOperationParsePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationParseOutput) ToWorkflowExpressionOperationParsePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationParse) *WorkflowExpressionOperationParse {
+		return &v
+	}).(WorkflowExpressionOperationParsePtrOutput)
+}
+
+// The return type of an operation
+func (o WorkflowExpressionOperationParseOutput) Returns() WorkflowExpressionOperationParseReturnsOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationParse) WorkflowExpressionOperationParseReturns { return v.Returns }).(WorkflowExpressionOperationParseReturnsOutput)
+}
+
+// The ES5 Javascript expression to execute
+func (o WorkflowExpressionOperationParseOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationParse) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationParsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationParsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationParse)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationParsePtrOutput) ToWorkflowExpressionOperationParsePtrOutput() WorkflowExpressionOperationParsePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParsePtrOutput) ToWorkflowExpressionOperationParsePtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParsePtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParsePtrOutput) Elem() WorkflowExpressionOperationParseOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationParse) WorkflowExpressionOperationParse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationParse
+		return ret
+	}).(WorkflowExpressionOperationParseOutput)
+}
+
+// The return type of an operation
+func (o WorkflowExpressionOperationParsePtrOutput) Returns() WorkflowExpressionOperationParseReturnsPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationParse) *WorkflowExpressionOperationParseReturns {
+		if v == nil {
+			return nil
+		}
+		return &v.Returns
+	}).(WorkflowExpressionOperationParseReturnsPtrOutput)
+}
+
+// The ES5 Javascript expression to execute
+func (o WorkflowExpressionOperationParsePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationParse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowExpressionOperationParseReturns struct {
+	// Whether the return value should be single or multi-value
+	Array bool `pulumi:"array"`
+	// Expected return type of this expression (what to try casting the result to)
+	Type string `pulumi:"type"`
+}
+
+// WorkflowExpressionOperationParseReturnsInput is an input type that accepts WorkflowExpressionOperationParseReturnsArgs and WorkflowExpressionOperationParseReturnsOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationParseReturnsInput` via:
+//
+//	WorkflowExpressionOperationParseReturnsArgs{...}
+type WorkflowExpressionOperationParseReturnsInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationParseReturnsOutput() WorkflowExpressionOperationParseReturnsOutput
+	ToWorkflowExpressionOperationParseReturnsOutputWithContext(context.Context) WorkflowExpressionOperationParseReturnsOutput
+}
+
+type WorkflowExpressionOperationParseReturnsArgs struct {
+	// Whether the return value should be single or multi-value
+	Array pulumi.BoolInput `pulumi:"array"`
+	// Expected return type of this expression (what to try casting the result to)
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowExpressionOperationParseReturnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationParseReturns)(nil)).Elem()
+}
+
+func (i WorkflowExpressionOperationParseReturnsArgs) ToWorkflowExpressionOperationParseReturnsOutput() WorkflowExpressionOperationParseReturnsOutput {
+	return i.ToWorkflowExpressionOperationParseReturnsOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationParseReturnsArgs) ToWorkflowExpressionOperationParseReturnsOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseReturnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationParseReturnsOutput)
+}
+
+func (i WorkflowExpressionOperationParseReturnsArgs) ToWorkflowExpressionOperationParseReturnsPtrOutput() WorkflowExpressionOperationParseReturnsPtrOutput {
+	return i.ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowExpressionOperationParseReturnsArgs) ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseReturnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationParseReturnsOutput).ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(ctx)
+}
+
+// WorkflowExpressionOperationParseReturnsPtrInput is an input type that accepts WorkflowExpressionOperationParseReturnsArgs, WorkflowExpressionOperationParseReturnsPtr and WorkflowExpressionOperationParseReturnsPtrOutput values.
+// You can construct a concrete instance of `WorkflowExpressionOperationParseReturnsPtrInput` via:
+//
+//	        WorkflowExpressionOperationParseReturnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowExpressionOperationParseReturnsPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowExpressionOperationParseReturnsPtrOutput() WorkflowExpressionOperationParseReturnsPtrOutput
+	ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(context.Context) WorkflowExpressionOperationParseReturnsPtrOutput
+}
+
+type workflowExpressionOperationParseReturnsPtrType WorkflowExpressionOperationParseReturnsArgs
+
+func WorkflowExpressionOperationParseReturnsPtr(v *WorkflowExpressionOperationParseReturnsArgs) WorkflowExpressionOperationParseReturnsPtrInput {
+	return (*workflowExpressionOperationParseReturnsPtrType)(v)
+}
+
+func (*workflowExpressionOperationParseReturnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationParseReturns)(nil)).Elem()
+}
+
+func (i *workflowExpressionOperationParseReturnsPtrType) ToWorkflowExpressionOperationParseReturnsPtrOutput() WorkflowExpressionOperationParseReturnsPtrOutput {
+	return i.ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowExpressionOperationParseReturnsPtrType) ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseReturnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowExpressionOperationParseReturnsPtrOutput)
+}
+
+type WorkflowExpressionOperationParseReturnsOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationParseReturnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowExpressionOperationParseReturns)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationParseReturnsOutput) ToWorkflowExpressionOperationParseReturnsOutput() WorkflowExpressionOperationParseReturnsOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParseReturnsOutput) ToWorkflowExpressionOperationParseReturnsOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseReturnsOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParseReturnsOutput) ToWorkflowExpressionOperationParseReturnsPtrOutput() WorkflowExpressionOperationParseReturnsPtrOutput {
+	return o.ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowExpressionOperationParseReturnsOutput) ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseReturnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowExpressionOperationParseReturns) *WorkflowExpressionOperationParseReturns {
+		return &v
+	}).(WorkflowExpressionOperationParseReturnsPtrOutput)
+}
+
+// Whether the return value should be single or multi-value
+func (o WorkflowExpressionOperationParseReturnsOutput) Array() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationParseReturns) bool { return v.Array }).(pulumi.BoolOutput)
+}
+
+// Expected return type of this expression (what to try casting the result to)
+func (o WorkflowExpressionOperationParseReturnsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowExpressionOperationParseReturns) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowExpressionOperationParseReturnsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowExpressionOperationParseReturnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowExpressionOperationParseReturns)(nil)).Elem()
+}
+
+func (o WorkflowExpressionOperationParseReturnsPtrOutput) ToWorkflowExpressionOperationParseReturnsPtrOutput() WorkflowExpressionOperationParseReturnsPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParseReturnsPtrOutput) ToWorkflowExpressionOperationParseReturnsPtrOutputWithContext(ctx context.Context) WorkflowExpressionOperationParseReturnsPtrOutput {
+	return o
+}
+
+func (o WorkflowExpressionOperationParseReturnsPtrOutput) Elem() WorkflowExpressionOperationParseReturnsOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationParseReturns) WorkflowExpressionOperationParseReturns {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowExpressionOperationParseReturns
+		return ret
+	}).(WorkflowExpressionOperationParseReturnsOutput)
+}
+
+// Whether the return value should be single or multi-value
+func (o WorkflowExpressionOperationParseReturnsPtrOutput) Array() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationParseReturns) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Array
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Expected return type of this expression (what to try casting the result to)
+func (o WorkflowExpressionOperationParseReturnsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowExpressionOperationParseReturns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowFormField struct {
+	// Whether this field holds a list of values rather than a single value
+	Array bool `pulumi:"array"`
+	// Optional help text shown beneath the field
+	Description *string `pulumi:"description"`
+	// Stable identifier for this form field, preserved across versions
+	Id *string `pulumi:"id"`
+	// The key used to reference this field in the workflow scope
+	Key string `pulumi:"key"`
+	// Whether this field must be filled in when running the workflow
+	Required bool `pulumi:"required"`
+	// Human readable title shown in the form
+	Title string `pulumi:"title"`
+	// The engine resource type of this field
+	Type string `pulumi:"type"`
+}
+
+// WorkflowFormFieldInput is an input type that accepts WorkflowFormFieldArgs and WorkflowFormFieldOutput values.
+// You can construct a concrete instance of `WorkflowFormFieldInput` via:
+//
+//	WorkflowFormFieldArgs{...}
+type WorkflowFormFieldInput interface {
+	pulumi.Input
+
+	ToWorkflowFormFieldOutput() WorkflowFormFieldOutput
+	ToWorkflowFormFieldOutputWithContext(context.Context) WorkflowFormFieldOutput
+}
+
+type WorkflowFormFieldArgs struct {
+	// Whether this field holds a list of values rather than a single value
+	Array pulumi.BoolInput `pulumi:"array"`
+	// Optional help text shown beneath the field
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Stable identifier for this form field, preserved across versions
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The key used to reference this field in the workflow scope
+	Key pulumi.StringInput `pulumi:"key"`
+	// Whether this field must be filled in when running the workflow
+	Required pulumi.BoolInput `pulumi:"required"`
+	// Human readable title shown in the form
+	Title pulumi.StringInput `pulumi:"title"`
+	// The engine resource type of this field
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkflowFormFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowFormField)(nil)).Elem()
+}
+
+func (i WorkflowFormFieldArgs) ToWorkflowFormFieldOutput() WorkflowFormFieldOutput {
+	return i.ToWorkflowFormFieldOutputWithContext(context.Background())
+}
+
+func (i WorkflowFormFieldArgs) ToWorkflowFormFieldOutputWithContext(ctx context.Context) WorkflowFormFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowFormFieldOutput)
+}
+
+// WorkflowFormFieldArrayInput is an input type that accepts WorkflowFormFieldArray and WorkflowFormFieldArrayOutput values.
+// You can construct a concrete instance of `WorkflowFormFieldArrayInput` via:
+//
+//	WorkflowFormFieldArray{ WorkflowFormFieldArgs{...} }
+type WorkflowFormFieldArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowFormFieldArrayOutput() WorkflowFormFieldArrayOutput
+	ToWorkflowFormFieldArrayOutputWithContext(context.Context) WorkflowFormFieldArrayOutput
+}
+
+type WorkflowFormFieldArray []WorkflowFormFieldInput
+
+func (WorkflowFormFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowFormField)(nil)).Elem()
+}
+
+func (i WorkflowFormFieldArray) ToWorkflowFormFieldArrayOutput() WorkflowFormFieldArrayOutput {
+	return i.ToWorkflowFormFieldArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowFormFieldArray) ToWorkflowFormFieldArrayOutputWithContext(ctx context.Context) WorkflowFormFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowFormFieldArrayOutput)
+}
+
+type WorkflowFormFieldOutput struct{ *pulumi.OutputState }
+
+func (WorkflowFormFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowFormField)(nil)).Elem()
+}
+
+func (o WorkflowFormFieldOutput) ToWorkflowFormFieldOutput() WorkflowFormFieldOutput {
+	return o
+}
+
+func (o WorkflowFormFieldOutput) ToWorkflowFormFieldOutputWithContext(ctx context.Context) WorkflowFormFieldOutput {
+	return o
+}
+
+// Whether this field holds a list of values rather than a single value
+func (o WorkflowFormFieldOutput) Array() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkflowFormField) bool { return v.Array }).(pulumi.BoolOutput)
+}
+
+// Optional help text shown beneath the field
+func (o WorkflowFormFieldOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowFormField) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Stable identifier for this form field, preserved across versions
+func (o WorkflowFormFieldOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowFormField) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The key used to reference this field in the workflow scope
+func (o WorkflowFormFieldOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowFormField) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Whether this field must be filled in when running the workflow
+func (o WorkflowFormFieldOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v WorkflowFormField) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+// Human readable title shown in the form
+func (o WorkflowFormFieldOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowFormField) string { return v.Title }).(pulumi.StringOutput)
+}
+
+// The engine resource type of this field
+func (o WorkflowFormFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowFormField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkflowFormFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowFormFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowFormField)(nil)).Elem()
+}
+
+func (o WorkflowFormFieldArrayOutput) ToWorkflowFormFieldArrayOutput() WorkflowFormFieldArrayOutput {
+	return o
+}
+
+func (o WorkflowFormFieldArrayOutput) ToWorkflowFormFieldArrayOutputWithContext(ctx context.Context) WorkflowFormFieldArrayOutput {
+	return o
+}
+
+func (o WorkflowFormFieldArrayOutput) Index(i pulumi.IntInput) WorkflowFormFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowFormField {
+		return vs[0].([]WorkflowFormField)[vs[1].(int)]
+	}).(WorkflowFormFieldOutput)
+}
+
+type WorkflowStep struct {
+	ForEach *string `pulumi:"forEach"`
+	Id      string  `pulumi:"id"`
+	Name    string  `pulumi:"name"`
+	// Bindings for the operation parameters
+	ParamBindings []WorkflowStepParamBinding `pulumi:"paramBindings"`
+}
+
+// WorkflowStepInput is an input type that accepts WorkflowStepArgs and WorkflowStepOutput values.
+// You can construct a concrete instance of `WorkflowStepInput` via:
+//
+//	WorkflowStepArgs{...}
+type WorkflowStepInput interface {
+	pulumi.Input
+
+	ToWorkflowStepOutput() WorkflowStepOutput
+	ToWorkflowStepOutputWithContext(context.Context) WorkflowStepOutput
+}
+
+type WorkflowStepArgs struct {
+	ForEach pulumi.StringPtrInput `pulumi:"forEach"`
+	Id      pulumi.StringInput    `pulumi:"id"`
+	Name    pulumi.StringInput    `pulumi:"name"`
+	// Bindings for the operation parameters
+	ParamBindings WorkflowStepParamBindingArrayInput `pulumi:"paramBindings"`
+}
+
+func (WorkflowStepArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStep)(nil)).Elem()
+}
+
+func (i WorkflowStepArgs) ToWorkflowStepOutput() WorkflowStepOutput {
+	return i.ToWorkflowStepOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepArgs) ToWorkflowStepOutputWithContext(ctx context.Context) WorkflowStepOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepOutput)
+}
+
+// WorkflowStepArrayInput is an input type that accepts WorkflowStepArray and WorkflowStepArrayOutput values.
+// You can construct a concrete instance of `WorkflowStepArrayInput` via:
+//
+//	WorkflowStepArray{ WorkflowStepArgs{...} }
+type WorkflowStepArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowStepArrayOutput() WorkflowStepArrayOutput
+	ToWorkflowStepArrayOutputWithContext(context.Context) WorkflowStepArrayOutput
+}
+
+type WorkflowStepArray []WorkflowStepInput
+
+func (WorkflowStepArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStep)(nil)).Elem()
+}
+
+func (i WorkflowStepArray) ToWorkflowStepArrayOutput() WorkflowStepArrayOutput {
+	return i.ToWorkflowStepArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepArray) ToWorkflowStepArrayOutputWithContext(ctx context.Context) WorkflowStepArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepArrayOutput)
+}
+
+type WorkflowStepOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStep)(nil)).Elem()
+}
+
+func (o WorkflowStepOutput) ToWorkflowStepOutput() WorkflowStepOutput {
+	return o
+}
+
+func (o WorkflowStepOutput) ToWorkflowStepOutputWithContext(ctx context.Context) WorkflowStepOutput {
+	return o
+}
+
+func (o WorkflowStepOutput) ForEach() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStep) *string { return v.ForEach }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowStepOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowStep) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o WorkflowStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bindings for the operation parameters
+func (o WorkflowStepOutput) ParamBindings() WorkflowStepParamBindingArrayOutput {
+	return o.ApplyT(func(v WorkflowStep) []WorkflowStepParamBinding { return v.ParamBindings }).(WorkflowStepParamBindingArrayOutput)
+}
+
+type WorkflowStepArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStep)(nil)).Elem()
+}
+
+func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutput() WorkflowStepArrayOutput {
+	return o
+}
+
+func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutputWithContext(ctx context.Context) WorkflowStepArrayOutput {
+	return o
+}
+
+func (o WorkflowStepArrayOutput) Index(i pulumi.IntInput) WorkflowStepOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowStep {
+		return vs[0].([]WorkflowStep)[vs[1].(int)]
+	}).(WorkflowStepOutput)
+}
+
+type WorkflowStepParamBinding struct {
+	// The array of literal or reference parameter values
+	ArrayValues []WorkflowStepParamBindingArrayValue `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef *string `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value *WorkflowStepParamBindingValue `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral *string `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference *string `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values []string `pulumi:"values"`
+}
+
+// WorkflowStepParamBindingInput is an input type that accepts WorkflowStepParamBindingArgs and WorkflowStepParamBindingOutput values.
+// You can construct a concrete instance of `WorkflowStepParamBindingInput` via:
+//
+//	WorkflowStepParamBindingArgs{...}
+type WorkflowStepParamBindingInput interface {
+	pulumi.Input
+
+	ToWorkflowStepParamBindingOutput() WorkflowStepParamBindingOutput
+	ToWorkflowStepParamBindingOutputWithContext(context.Context) WorkflowStepParamBindingOutput
+}
+
+type WorkflowStepParamBindingArgs struct {
+	// The array of literal or reference parameter values
+	ArrayValues WorkflowStepParamBindingArrayValueArrayInput `pulumi:"arrayValues"`
+	// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+	ExpressionRef pulumi.StringPtrInput `pulumi:"expressionRef"`
+	// The literal or reference parameter value
+	Value WorkflowStepParamBindingValuePtrInput `pulumi:"value"`
+	// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+	ValueLiteral pulumi.StringPtrInput `pulumi:"valueLiteral"`
+	// A reference into the scope, shorthand for `value = { reference = ... }`.
+	ValueReference pulumi.StringPtrInput `pulumi:"valueReference"`
+	// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (WorkflowStepParamBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepParamBinding)(nil)).Elem()
+}
+
+func (i WorkflowStepParamBindingArgs) ToWorkflowStepParamBindingOutput() WorkflowStepParamBindingOutput {
+	return i.ToWorkflowStepParamBindingOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepParamBindingArgs) ToWorkflowStepParamBindingOutputWithContext(ctx context.Context) WorkflowStepParamBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepParamBindingOutput)
+}
+
+// WorkflowStepParamBindingArrayInput is an input type that accepts WorkflowStepParamBindingArray and WorkflowStepParamBindingArrayOutput values.
+// You can construct a concrete instance of `WorkflowStepParamBindingArrayInput` via:
+//
+//	WorkflowStepParamBindingArray{ WorkflowStepParamBindingArgs{...} }
+type WorkflowStepParamBindingArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowStepParamBindingArrayOutput() WorkflowStepParamBindingArrayOutput
+	ToWorkflowStepParamBindingArrayOutputWithContext(context.Context) WorkflowStepParamBindingArrayOutput
+}
+
+type WorkflowStepParamBindingArray []WorkflowStepParamBindingInput
+
+func (WorkflowStepParamBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStepParamBinding)(nil)).Elem()
+}
+
+func (i WorkflowStepParamBindingArray) ToWorkflowStepParamBindingArrayOutput() WorkflowStepParamBindingArrayOutput {
+	return i.ToWorkflowStepParamBindingArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepParamBindingArray) ToWorkflowStepParamBindingArrayOutputWithContext(ctx context.Context) WorkflowStepParamBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepParamBindingArrayOutput)
+}
+
+type WorkflowStepParamBindingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepParamBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepParamBinding)(nil)).Elem()
+}
+
+func (o WorkflowStepParamBindingOutput) ToWorkflowStepParamBindingOutput() WorkflowStepParamBindingOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingOutput) ToWorkflowStepParamBindingOutputWithContext(ctx context.Context) WorkflowStepParamBindingOutput {
+	return o
+}
+
+// The array of literal or reference parameter values
+func (o WorkflowStepParamBindingOutput) ArrayValues() WorkflowStepParamBindingArrayValueArrayOutput {
+	return o.ApplyT(func(v WorkflowStepParamBinding) []WorkflowStepParamBindingArrayValue { return v.ArrayValues }).(WorkflowStepParamBindingArrayValueArrayOutput)
+}
+
+// The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+func (o WorkflowStepParamBindingOutput) ExpressionRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBinding) *string { return v.ExpressionRef }).(pulumi.StringPtrOutput)
+}
+
+// The literal or reference parameter value
+func (o WorkflowStepParamBindingOutput) Value() WorkflowStepParamBindingValuePtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBinding) *WorkflowStepParamBindingValue { return v.Value }).(WorkflowStepParamBindingValuePtrOutput)
+}
+
+// A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+func (o WorkflowStepParamBindingOutput) ValueLiteral() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBinding) *string { return v.ValueLiteral }).(pulumi.StringPtrOutput)
+}
+
+// A reference into the scope, shorthand for `value = { reference = ... }`.
+func (o WorkflowStepParamBindingOutput) ValueReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBinding) *string { return v.ValueReference }).(pulumi.StringPtrOutput)
+}
+
+// Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+func (o WorkflowStepParamBindingOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkflowStepParamBinding) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type WorkflowStepParamBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepParamBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStepParamBinding)(nil)).Elem()
+}
+
+func (o WorkflowStepParamBindingArrayOutput) ToWorkflowStepParamBindingArrayOutput() WorkflowStepParamBindingArrayOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingArrayOutput) ToWorkflowStepParamBindingArrayOutputWithContext(ctx context.Context) WorkflowStepParamBindingArrayOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingArrayOutput) Index(i pulumi.IntInput) WorkflowStepParamBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowStepParamBinding {
+		return vs[0].([]WorkflowStepParamBinding)[vs[1].(int)]
+	}).(WorkflowStepParamBindingOutput)
+}
+
+type WorkflowStepParamBindingArrayValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowStepParamBindingArrayValueInput is an input type that accepts WorkflowStepParamBindingArrayValueArgs and WorkflowStepParamBindingArrayValueOutput values.
+// You can construct a concrete instance of `WorkflowStepParamBindingArrayValueInput` via:
+//
+//	WorkflowStepParamBindingArrayValueArgs{...}
+type WorkflowStepParamBindingArrayValueInput interface {
+	pulumi.Input
+
+	ToWorkflowStepParamBindingArrayValueOutput() WorkflowStepParamBindingArrayValueOutput
+	ToWorkflowStepParamBindingArrayValueOutputWithContext(context.Context) WorkflowStepParamBindingArrayValueOutput
+}
+
+type WorkflowStepParamBindingArrayValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowStepParamBindingArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowStepParamBindingArrayValueArgs) ToWorkflowStepParamBindingArrayValueOutput() WorkflowStepParamBindingArrayValueOutput {
+	return i.ToWorkflowStepParamBindingArrayValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepParamBindingArrayValueArgs) ToWorkflowStepParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowStepParamBindingArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepParamBindingArrayValueOutput)
+}
+
+// WorkflowStepParamBindingArrayValueArrayInput is an input type that accepts WorkflowStepParamBindingArrayValueArray and WorkflowStepParamBindingArrayValueArrayOutput values.
+// You can construct a concrete instance of `WorkflowStepParamBindingArrayValueArrayInput` via:
+//
+//	WorkflowStepParamBindingArrayValueArray{ WorkflowStepParamBindingArrayValueArgs{...} }
+type WorkflowStepParamBindingArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowStepParamBindingArrayValueArrayOutput() WorkflowStepParamBindingArrayValueArrayOutput
+	ToWorkflowStepParamBindingArrayValueArrayOutputWithContext(context.Context) WorkflowStepParamBindingArrayValueArrayOutput
+}
+
+type WorkflowStepParamBindingArrayValueArray []WorkflowStepParamBindingArrayValueInput
+
+func (WorkflowStepParamBindingArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStepParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowStepParamBindingArrayValueArray) ToWorkflowStepParamBindingArrayValueArrayOutput() WorkflowStepParamBindingArrayValueArrayOutput {
+	return i.ToWorkflowStepParamBindingArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepParamBindingArrayValueArray) ToWorkflowStepParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowStepParamBindingArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepParamBindingArrayValueArrayOutput)
+}
+
+type WorkflowStepParamBindingArrayValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepParamBindingArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowStepParamBindingArrayValueOutput) ToWorkflowStepParamBindingArrayValueOutput() WorkflowStepParamBindingArrayValueOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingArrayValueOutput) ToWorkflowStepParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowStepParamBindingArrayValueOutput {
+	return o
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowStepParamBindingArrayValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBindingArrayValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowStepParamBindingArrayValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBindingArrayValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepParamBindingArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepParamBindingArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowStepParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowStepParamBindingArrayValueArrayOutput) ToWorkflowStepParamBindingArrayValueArrayOutput() WorkflowStepParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingArrayValueArrayOutput) ToWorkflowStepParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowStepParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingArrayValueArrayOutput) Index(i pulumi.IntInput) WorkflowStepParamBindingArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowStepParamBindingArrayValue {
+		return vs[0].([]WorkflowStepParamBindingArrayValue)[vs[1].(int)]
+	}).(WorkflowStepParamBindingArrayValueOutput)
+}
+
+type WorkflowStepParamBindingValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowStepParamBindingValueInput is an input type that accepts WorkflowStepParamBindingValueArgs and WorkflowStepParamBindingValueOutput values.
+// You can construct a concrete instance of `WorkflowStepParamBindingValueInput` via:
+//
+//	WorkflowStepParamBindingValueArgs{...}
+type WorkflowStepParamBindingValueInput interface {
+	pulumi.Input
+
+	ToWorkflowStepParamBindingValueOutput() WorkflowStepParamBindingValueOutput
+	ToWorkflowStepParamBindingValueOutputWithContext(context.Context) WorkflowStepParamBindingValueOutput
+}
+
+type WorkflowStepParamBindingValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowStepParamBindingValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepParamBindingValue)(nil)).Elem()
+}
+
+func (i WorkflowStepParamBindingValueArgs) ToWorkflowStepParamBindingValueOutput() WorkflowStepParamBindingValueOutput {
+	return i.ToWorkflowStepParamBindingValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepParamBindingValueArgs) ToWorkflowStepParamBindingValueOutputWithContext(ctx context.Context) WorkflowStepParamBindingValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepParamBindingValueOutput)
+}
+
+func (i WorkflowStepParamBindingValueArgs) ToWorkflowStepParamBindingValuePtrOutput() WorkflowStepParamBindingValuePtrOutput {
+	return i.ToWorkflowStepParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowStepParamBindingValueArgs) ToWorkflowStepParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowStepParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepParamBindingValueOutput).ToWorkflowStepParamBindingValuePtrOutputWithContext(ctx)
+}
+
+// WorkflowStepParamBindingValuePtrInput is an input type that accepts WorkflowStepParamBindingValueArgs, WorkflowStepParamBindingValuePtr and WorkflowStepParamBindingValuePtrOutput values.
+// You can construct a concrete instance of `WorkflowStepParamBindingValuePtrInput` via:
+//
+//	        WorkflowStepParamBindingValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowStepParamBindingValuePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepParamBindingValuePtrOutput() WorkflowStepParamBindingValuePtrOutput
+	ToWorkflowStepParamBindingValuePtrOutputWithContext(context.Context) WorkflowStepParamBindingValuePtrOutput
+}
+
+type workflowStepParamBindingValuePtrType WorkflowStepParamBindingValueArgs
+
+func WorkflowStepParamBindingValuePtr(v *WorkflowStepParamBindingValueArgs) WorkflowStepParamBindingValuePtrInput {
+	return (*workflowStepParamBindingValuePtrType)(v)
+}
+
+func (*workflowStepParamBindingValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepParamBindingValue)(nil)).Elem()
+}
+
+func (i *workflowStepParamBindingValuePtrType) ToWorkflowStepParamBindingValuePtrOutput() WorkflowStepParamBindingValuePtrOutput {
+	return i.ToWorkflowStepParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowStepParamBindingValuePtrType) ToWorkflowStepParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowStepParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepParamBindingValuePtrOutput)
+}
+
+type WorkflowStepParamBindingValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepParamBindingValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowStepParamBindingValueOutput) ToWorkflowStepParamBindingValueOutput() WorkflowStepParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingValueOutput) ToWorkflowStepParamBindingValueOutputWithContext(ctx context.Context) WorkflowStepParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingValueOutput) ToWorkflowStepParamBindingValuePtrOutput() WorkflowStepParamBindingValuePtrOutput {
+	return o.ToWorkflowStepParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepParamBindingValueOutput) ToWorkflowStepParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowStepParamBindingValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepParamBindingValue) *WorkflowStepParamBindingValue {
+		return &v
+	}).(WorkflowStepParamBindingValuePtrOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowStepParamBindingValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBindingValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowStepParamBindingValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowStepParamBindingValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepParamBindingValuePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepParamBindingValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowStepParamBindingValuePtrOutput) ToWorkflowStepParamBindingValuePtrOutput() WorkflowStepParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingValuePtrOutput) ToWorkflowStepParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowStepParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowStepParamBindingValuePtrOutput) Elem() WorkflowStepParamBindingValueOutput {
+	return o.ApplyT(func(v *WorkflowStepParamBindingValue) WorkflowStepParamBindingValue {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepParamBindingValue
+		return ret
+	}).(WorkflowStepParamBindingValueOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowStepParamBindingValuePtrOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowStepParamBindingValuePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowStepParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetAlertSourceAttributeArrayValue struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal string `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference string `pulumi:"reference"`
+}
+
+// GetAlertSourceAttributeArrayValueInput is an input type that accepts GetAlertSourceAttributeArrayValueArgs and GetAlertSourceAttributeArrayValueOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeArrayValueInput` via:
+//
+//	GetAlertSourceAttributeArrayValueArgs{...}
+type GetAlertSourceAttributeArrayValueInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeArrayValueOutput() GetAlertSourceAttributeArrayValueOutput
+	ToGetAlertSourceAttributeArrayValueOutputWithContext(context.Context) GetAlertSourceAttributeArrayValueOutput
+}
+
+type GetAlertSourceAttributeArrayValueArgs struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal pulumi.StringInput `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (GetAlertSourceAttributeArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeArrayValueArgs) ToGetAlertSourceAttributeArrayValueOutput() GetAlertSourceAttributeArrayValueOutput {
+	return i.ToGetAlertSourceAttributeArrayValueOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeArrayValueArgs) ToGetAlertSourceAttributeArrayValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeArrayValueOutput)
+}
+
+// GetAlertSourceAttributeArrayValueArrayInput is an input type that accepts GetAlertSourceAttributeArrayValueArray and GetAlertSourceAttributeArrayValueArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeArrayValueArrayInput` via:
+//
+//	GetAlertSourceAttributeArrayValueArray{ GetAlertSourceAttributeArrayValueArgs{...} }
+type GetAlertSourceAttributeArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeArrayValueArrayOutput() GetAlertSourceAttributeArrayValueArrayOutput
+	ToGetAlertSourceAttributeArrayValueArrayOutputWithContext(context.Context) GetAlertSourceAttributeArrayValueArrayOutput
+}
+
+type GetAlertSourceAttributeArrayValueArray []GetAlertSourceAttributeArrayValueInput
+
+func (GetAlertSourceAttributeArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeArrayValueArray) ToGetAlertSourceAttributeArrayValueArrayOutput() GetAlertSourceAttributeArrayValueArrayOutput {
+	return i.ToGetAlertSourceAttributeArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeArrayValueArray) ToGetAlertSourceAttributeArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeArrayValueArrayOutput)
+}
+
+type GetAlertSourceAttributeArrayValueOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeArrayValueOutput) ToGetAlertSourceAttributeArrayValueOutput() GetAlertSourceAttributeArrayValueOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeArrayValueOutput) ToGetAlertSourceAttributeArrayValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeArrayValueOutput {
+	return o
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceAttributeArrayValueOutput) Literal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeArrayValue) string { return v.Literal }).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceAttributeArrayValueOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeArrayValue) string { return v.Reference }).(pulumi.StringOutput)
+}
+
+type GetAlertSourceAttributeArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeArrayValueArrayOutput) ToGetAlertSourceAttributeArrayValueArrayOutput() GetAlertSourceAttributeArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeArrayValueArrayOutput) ToGetAlertSourceAttributeArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeArrayValueArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeArrayValue {
+		return vs[0].([]GetAlertSourceAttributeArrayValue)[vs[1].(int)]
+	}).(GetAlertSourceAttributeArrayValueOutput)
+}
+
+type GetAlertSourceAttributeBetaArrayValue struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal string `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference string `pulumi:"reference"`
+}
+
+// GetAlertSourceAttributeBetaArrayValueInput is an input type that accepts GetAlertSourceAttributeBetaArrayValueArgs and GetAlertSourceAttributeBetaArrayValueOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaArrayValueInput` via:
+//
+//	GetAlertSourceAttributeBetaArrayValueArgs{...}
+type GetAlertSourceAttributeBetaArrayValueInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaArrayValueOutput() GetAlertSourceAttributeBetaArrayValueOutput
+	ToGetAlertSourceAttributeBetaArrayValueOutputWithContext(context.Context) GetAlertSourceAttributeBetaArrayValueOutput
+}
+
+type GetAlertSourceAttributeBetaArrayValueArgs struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal pulumi.StringInput `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (GetAlertSourceAttributeBetaArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaArrayValueArgs) ToGetAlertSourceAttributeBetaArrayValueOutput() GetAlertSourceAttributeBetaArrayValueOutput {
+	return i.ToGetAlertSourceAttributeBetaArrayValueOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaArrayValueArgs) ToGetAlertSourceAttributeBetaArrayValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaArrayValueOutput)
+}
+
+// GetAlertSourceAttributeBetaArrayValueArrayInput is an input type that accepts GetAlertSourceAttributeBetaArrayValueArray and GetAlertSourceAttributeBetaArrayValueArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaArrayValueArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaArrayValueArray{ GetAlertSourceAttributeBetaArrayValueArgs{...} }
+type GetAlertSourceAttributeBetaArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaArrayValueArrayOutput() GetAlertSourceAttributeBetaArrayValueArrayOutput
+	ToGetAlertSourceAttributeBetaArrayValueArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaArrayValueArrayOutput
+}
+
+type GetAlertSourceAttributeBetaArrayValueArray []GetAlertSourceAttributeBetaArrayValueInput
+
+func (GetAlertSourceAttributeBetaArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaArrayValueArray) ToGetAlertSourceAttributeBetaArrayValueArrayOutput() GetAlertSourceAttributeBetaArrayValueArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaArrayValueArray) ToGetAlertSourceAttributeBetaArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaArrayValueArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaArrayValueOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaArrayValueOutput) ToGetAlertSourceAttributeBetaArrayValueOutput() GetAlertSourceAttributeBetaArrayValueOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaArrayValueOutput) ToGetAlertSourceAttributeBetaArrayValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaArrayValueOutput {
+	return o
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceAttributeBetaArrayValueOutput) Literal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaArrayValue) string { return v.Literal }).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceAttributeBetaArrayValueOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaArrayValue) string { return v.Reference }).(pulumi.StringOutput)
+}
+
+type GetAlertSourceAttributeBetaArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaArrayValueArrayOutput) ToGetAlertSourceAttributeBetaArrayValueArrayOutput() GetAlertSourceAttributeBetaArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaArrayValueArrayOutput) ToGetAlertSourceAttributeBetaArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaArrayValueArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaArrayValue {
+		return vs[0].([]GetAlertSourceAttributeBetaArrayValue)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaArrayValueOutput)
+}
+
+type GetAlertSourceAttributeBetaExpression struct {
+	// What this expression produces when nothing else matched.
+	Fallback *GetAlertSourceAttributeBetaExpressionFallback `pulumi:"fallback"`
+	// An ordered pipeline. Each operation feeds the next.
+	Operations []GetAlertSourceAttributeBetaExpressionOperation `pulumi:"operations"`
+	// Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path.
+	StartFrom string `pulumi:"startFrom"`
+}
+
+// GetAlertSourceAttributeBetaExpressionInput is an input type that accepts GetAlertSourceAttributeBetaExpressionArgs and GetAlertSourceAttributeBetaExpressionOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionArgs{...}
+type GetAlertSourceAttributeBetaExpressionInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionOutput() GetAlertSourceAttributeBetaExpressionOutput
+	ToGetAlertSourceAttributeBetaExpressionOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionArgs struct {
+	// What this expression produces when nothing else matched.
+	Fallback GetAlertSourceAttributeBetaExpressionFallbackPtrInput `pulumi:"fallback"`
+	// An ordered pipeline. Each operation feeds the next.
+	Operations GetAlertSourceAttributeBetaExpressionOperationArrayInput `pulumi:"operations"`
+	// Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path.
+	StartFrom pulumi.StringInput `pulumi:"startFrom"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpression)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionArgs) ToGetAlertSourceAttributeBetaExpressionOutput() GetAlertSourceAttributeBetaExpressionOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionArgs) ToGetAlertSourceAttributeBetaExpressionOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionOutput)
+}
+
+func (i GetAlertSourceAttributeBetaExpressionArgs) ToGetAlertSourceAttributeBetaExpressionPtrOutput() GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionArgs) ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionOutput).ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(ctx)
+}
+
+// GetAlertSourceAttributeBetaExpressionPtrInput is an input type that accepts GetAlertSourceAttributeBetaExpressionArgs, GetAlertSourceAttributeBetaExpressionPtr and GetAlertSourceAttributeBetaExpressionPtrOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionPtrInput` via:
+//
+//	        GetAlertSourceAttributeBetaExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAlertSourceAttributeBetaExpressionPtrInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionPtrOutput() GetAlertSourceAttributeBetaExpressionPtrOutput
+	ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionPtrOutput
+}
+
+type getAlertSourceAttributeBetaExpressionPtrType GetAlertSourceAttributeBetaExpressionArgs
+
+func GetAlertSourceAttributeBetaExpressionPtr(v *GetAlertSourceAttributeBetaExpressionArgs) GetAlertSourceAttributeBetaExpressionPtrInput {
+	return (*getAlertSourceAttributeBetaExpressionPtrType)(v)
+}
+
+func (*getAlertSourceAttributeBetaExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertSourceAttributeBetaExpression)(nil)).Elem()
+}
+
+func (i *getAlertSourceAttributeBetaExpressionPtrType) ToGetAlertSourceAttributeBetaExpressionPtrOutput() GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *getAlertSourceAttributeBetaExpressionPtrType) ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionPtrOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpression)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionOutput) ToGetAlertSourceAttributeBetaExpressionOutput() GetAlertSourceAttributeBetaExpressionOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionOutput) ToGetAlertSourceAttributeBetaExpressionOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionOutput) ToGetAlertSourceAttributeBetaExpressionPtrOutput() GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return o.ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o GetAlertSourceAttributeBetaExpressionOutput) ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAlertSourceAttributeBetaExpression) *GetAlertSourceAttributeBetaExpression {
+		return &v
+	}).(GetAlertSourceAttributeBetaExpressionPtrOutput)
+}
+
+// What this expression produces when nothing else matched.
+func (o GetAlertSourceAttributeBetaExpressionOutput) Fallback() GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpression) *GetAlertSourceAttributeBetaExpressionFallback {
+		return v.Fallback
+	}).(GetAlertSourceAttributeBetaExpressionFallbackPtrOutput)
+}
+
+// An ordered pipeline. Each operation feeds the next.
+func (o GetAlertSourceAttributeBetaExpressionOutput) Operations() GetAlertSourceAttributeBetaExpressionOperationArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpression) []GetAlertSourceAttributeBetaExpressionOperation {
+		return v.Operations
+	}).(GetAlertSourceAttributeBetaExpressionOperationArrayOutput)
+}
+
+// Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path.
+func (o GetAlertSourceAttributeBetaExpressionOutput) StartFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpression) string { return v.StartFrom }).(pulumi.StringOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertSourceAttributeBetaExpression)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionPtrOutput) ToGetAlertSourceAttributeBetaExpressionPtrOutput() GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionPtrOutput) ToGetAlertSourceAttributeBetaExpressionPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionPtrOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionPtrOutput) Elem() GetAlertSourceAttributeBetaExpressionOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpression) GetAlertSourceAttributeBetaExpression {
+		if v != nil {
+			return *v
+		}
+		var ret GetAlertSourceAttributeBetaExpression
+		return ret
+	}).(GetAlertSourceAttributeBetaExpressionOutput)
+}
+
+// What this expression produces when nothing else matched.
+func (o GetAlertSourceAttributeBetaExpressionPtrOutput) Fallback() GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpression) *GetAlertSourceAttributeBetaExpressionFallback {
+		if v == nil {
+			return nil
+		}
+		return v.Fallback
+	}).(GetAlertSourceAttributeBetaExpressionFallbackPtrOutput)
+}
+
+// An ordered pipeline. Each operation feeds the next.
+func (o GetAlertSourceAttributeBetaExpressionPtrOutput) Operations() GetAlertSourceAttributeBetaExpressionOperationArrayOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpression) []GetAlertSourceAttributeBetaExpressionOperation {
+		if v == nil {
+			return nil
+		}
+		return v.Operations
+	}).(GetAlertSourceAttributeBetaExpressionOperationArrayOutput)
+}
+
+// Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path.
+func (o GetAlertSourceAttributeBetaExpressionPtrOutput) StartFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallback struct {
+	// The unconditional default for the shorthand above.
+	Else *GetAlertSourceAttributeBetaExpressionFallbackElse `pulumi:"else"`
+	// Tried in order, after if.
+	ElseIfs []GetAlertSourceAttributeBetaExpressionFallbackElseIf `pulumi:"elseIfs"`
+	// The name of a namedExpression in this resource.
+	ExpressionRef string `pulumi:"expressionRef"`
+	// Shorthand for a branching fallback.
+	If *GetAlertSourceAttributeBetaExpressionFallbackIf `pulumi:"if"`
+	// A flat, unconditional value.
+	Result GetAlertSourceAttributeBetaExpressionFallbackResult `pulumi:"result"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackArgs and GetAlertSourceAttributeBetaExpressionFallbackOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackOutput() GetAlertSourceAttributeBetaExpressionFallbackOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackArgs struct {
+	// The unconditional default for the shorthand above.
+	Else GetAlertSourceAttributeBetaExpressionFallbackElsePtrInput `pulumi:"else"`
+	// Tried in order, after if.
+	ElseIfs GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayInput `pulumi:"elseIfs"`
+	// The name of a namedExpression in this resource.
+	ExpressionRef pulumi.StringInput `pulumi:"expressionRef"`
+	// Shorthand for a branching fallback.
+	If GetAlertSourceAttributeBetaExpressionFallbackIfPtrInput `pulumi:"if"`
+	// A flat, unconditional value.
+	Result GetAlertSourceAttributeBetaExpressionFallbackResultInput `pulumi:"result"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallback)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackArgs) ToGetAlertSourceAttributeBetaExpressionFallbackOutput() GetAlertSourceAttributeBetaExpressionFallbackOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackArgs) ToGetAlertSourceAttributeBetaExpressionFallbackOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackOutput)
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackArgs) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutput() GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackArgs) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackOutput).ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(ctx)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackPtrInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackArgs, GetAlertSourceAttributeBetaExpressionFallbackPtr and GetAlertSourceAttributeBetaExpressionFallbackPtrOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackPtrInput` via:
+//
+//	        GetAlertSourceAttributeBetaExpressionFallbackArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAlertSourceAttributeBetaExpressionFallbackPtrInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutput() GetAlertSourceAttributeBetaExpressionFallbackPtrOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackPtrOutput
+}
+
+type getAlertSourceAttributeBetaExpressionFallbackPtrType GetAlertSourceAttributeBetaExpressionFallbackArgs
+
+func GetAlertSourceAttributeBetaExpressionFallbackPtr(v *GetAlertSourceAttributeBetaExpressionFallbackArgs) GetAlertSourceAttributeBetaExpressionFallbackPtrInput {
+	return (*getAlertSourceAttributeBetaExpressionFallbackPtrType)(v)
+}
+
+func (*getAlertSourceAttributeBetaExpressionFallbackPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertSourceAttributeBetaExpressionFallback)(nil)).Elem()
+}
+
+func (i *getAlertSourceAttributeBetaExpressionFallbackPtrType) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutput() GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(context.Background())
+}
+
+func (i *getAlertSourceAttributeBetaExpressionFallbackPtrType) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackPtrOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallback)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) ToGetAlertSourceAttributeBetaExpressionFallbackOutput() GetAlertSourceAttributeBetaExpressionFallbackOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) ToGetAlertSourceAttributeBetaExpressionFallbackOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutput() GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return o.ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(context.Background())
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAlertSourceAttributeBetaExpressionFallback) *GetAlertSourceAttributeBetaExpressionFallback {
+		return &v
+	}).(GetAlertSourceAttributeBetaExpressionFallbackPtrOutput)
+}
+
+// The unconditional default for the shorthand above.
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) Else() GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallback) *GetAlertSourceAttributeBetaExpressionFallbackElse {
+		return v.Else
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput)
+}
+
+// Tried in order, after if.
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) ElseIfs() GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallback) []GetAlertSourceAttributeBetaExpressionFallbackElseIf {
+		return v.ElseIfs
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput)
+}
+
+// The name of a namedExpression in this resource.
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) ExpressionRef() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallback) string { return v.ExpressionRef }).(pulumi.StringOutput)
+}
+
+// Shorthand for a branching fallback.
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) If() GetAlertSourceAttributeBetaExpressionFallbackIfPtrOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallback) *GetAlertSourceAttributeBetaExpressionFallbackIf {
+		return v.If
+	}).(GetAlertSourceAttributeBetaExpressionFallbackIfPtrOutput)
+}
+
+// A flat, unconditional value.
+func (o GetAlertSourceAttributeBetaExpressionFallbackOutput) Result() GetAlertSourceAttributeBetaExpressionFallbackResultOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallback) GetAlertSourceAttributeBetaExpressionFallbackResult {
+		return v.Result
+	}).(GetAlertSourceAttributeBetaExpressionFallbackResultOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackPtrOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertSourceAttributeBetaExpressionFallback)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutput() GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) ToGetAlertSourceAttributeBetaExpressionFallbackPtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackPtrOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) Elem() GetAlertSourceAttributeBetaExpressionFallbackOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallback) GetAlertSourceAttributeBetaExpressionFallback {
+		if v != nil {
+			return *v
+		}
+		var ret GetAlertSourceAttributeBetaExpressionFallback
+		return ret
+	}).(GetAlertSourceAttributeBetaExpressionFallbackOutput)
+}
+
+// The unconditional default for the shorthand above.
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) Else() GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallback) *GetAlertSourceAttributeBetaExpressionFallbackElse {
+		if v == nil {
+			return nil
+		}
+		return v.Else
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput)
+}
+
+// Tried in order, after if.
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) ElseIfs() GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallback) []GetAlertSourceAttributeBetaExpressionFallbackElseIf {
+		if v == nil {
+			return nil
+		}
+		return v.ElseIfs
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput)
+}
+
+// The name of a namedExpression in this resource.
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) ExpressionRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallback) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpressionRef
+	}).(pulumi.StringPtrOutput)
+}
+
+// Shorthand for a branching fallback.
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) If() GetAlertSourceAttributeBetaExpressionFallbackIfPtrOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallback) *GetAlertSourceAttributeBetaExpressionFallbackIf {
+		if v == nil {
+			return nil
+		}
+		return v.If
+	}).(GetAlertSourceAttributeBetaExpressionFallbackIfPtrOutput)
+}
+
+// A flat, unconditional value.
+func (o GetAlertSourceAttributeBetaExpressionFallbackPtrOutput) Result() GetAlertSourceAttributeBetaExpressionFallbackResultPtrOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallback) *GetAlertSourceAttributeBetaExpressionFallbackResult {
+		if v == nil {
+			return nil
+		}
+		return &v.Result
+	}).(GetAlertSourceAttributeBetaExpressionFallbackResultPtrOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElse struct {
+	// The value to fall back to.
+	Result GetAlertSourceAttributeBetaExpressionFallbackElseResult `pulumi:"result"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseArgs and GetAlertSourceAttributeBetaExpressionFallbackElseOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseOutput() GetAlertSourceAttributeBetaExpressionFallbackElseOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseArgs struct {
+	// The value to fall back to.
+	Result GetAlertSourceAttributeBetaExpressionFallbackElseResultInput `pulumi:"result"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElse)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseOutput() GetAlertSourceAttributeBetaExpressionFallbackElseOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseOutput)
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput() GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseOutput).ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(ctx)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElsePtrInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseArgs, GetAlertSourceAttributeBetaExpressionFallbackElsePtr and GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElsePtrInput` via:
+//
+//	        GetAlertSourceAttributeBetaExpressionFallbackElseArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetAlertSourceAttributeBetaExpressionFallbackElsePtrInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput() GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput
+}
+
+type getAlertSourceAttributeBetaExpressionFallbackElsePtrType GetAlertSourceAttributeBetaExpressionFallbackElseArgs
+
+func GetAlertSourceAttributeBetaExpressionFallbackElsePtr(v *GetAlertSourceAttributeBetaExpressionFallbackElseArgs) GetAlertSourceAttributeBetaExpressionFallbackElsePtrInput {
+	return (*getAlertSourceAttributeBetaExpressionFallbackElsePtrType)(v)
+}
+
+func (*getAlertSourceAttributeBetaExpressionFallbackElsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertSourceAttributeBetaExpressionFallbackElse)(nil)).Elem()
+}
+
+func (i *getAlertSourceAttributeBetaExpressionFallbackElsePtrType) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput() GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(context.Background())
+}
+
+func (i *getAlertSourceAttributeBetaExpressionFallbackElsePtrType) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElse)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseOutput() GetAlertSourceAttributeBetaExpressionFallbackElseOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput() GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return o.ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(context.Background())
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAlertSourceAttributeBetaExpressionFallbackElse) *GetAlertSourceAttributeBetaExpressionFallbackElse {
+		return &v
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput)
+}
+
+// The value to fall back to.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseOutput) Result() GetAlertSourceAttributeBetaExpressionFallbackElseResultOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElse) GetAlertSourceAttributeBetaExpressionFallbackElseResult {
+		return v.Result
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseResultOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetAlertSourceAttributeBetaExpressionFallbackElse)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput() GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElsePtrOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput) Elem() GetAlertSourceAttributeBetaExpressionFallbackElseOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallbackElse) GetAlertSourceAttributeBetaExpressionFallbackElse {
+		if v != nil {
+			return *v
+		}
+		var ret GetAlertSourceAttributeBetaExpressionFallbackElse
+		return ret
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseOutput)
+}
+
+// The value to fall back to.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput) Result() GetAlertSourceAttributeBetaExpressionFallbackElseResultPtrOutput {
+	return o.ApplyT(func(v *GetAlertSourceAttributeBetaExpressionFallbackElse) *GetAlertSourceAttributeBetaExpressionFallbackElseResult {
+		if v == nil {
+			return nil
+		}
+		return &v.Result
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseResultPtrOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIf struct {
+	// Groups are OR'd; conditions within a group are AND'd.
+	ConditionGroups []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup `pulumi:"conditionGroups"`
+	// All of these must hold. Sugar for a single condition group.
+	Conditions []GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition `pulumi:"conditions"`
+	// The value this branch produces.
+	Result GetAlertSourceAttributeBetaExpressionFallbackElseIfResult `pulumi:"result"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs struct {
+	// Groups are OR'd; conditions within a group are AND'd.
+	ConditionGroups GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayInput `pulumi:"conditionGroups"`
+	// All of these must hold. Sugar for a single condition group.
+	Conditions GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayInput `pulumi:"conditions"`
+	// The value this branch produces.
+	Result GetAlertSourceAttributeBetaExpressionFallbackElseIfResultInput `pulumi:"result"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIf)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfArray and GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfArray{ GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs{...} }
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfArray []GetAlertSourceAttributeBetaExpressionFallbackElseIfInput
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIf)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIf)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput {
+	return o
+}
+
+// Groups are OR'd; conditions within a group are AND'd.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput) ConditionGroups() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIf) []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup {
+		return v.ConditionGroups
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput)
+}
+
+// All of these must hold. Sugar for a single condition group.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput) Conditions() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIf) []GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition {
+		return v.Conditions
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput)
+}
+
+// The value this branch produces.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput) Result() GetAlertSourceAttributeBetaExpressionFallbackElseIfResultOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIf) GetAlertSourceAttributeBetaExpressionFallbackElseIfResult {
+		return v.Result
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfResultOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIf)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaExpressionFallbackElseIf {
+		return vs[0].([]GetAlertSourceAttributeBetaExpressionFallbackElseIf)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition struct {
+	// How the subject is tested.
+	Operation string `pulumi:"operation"`
+	// Positional parameters for the operation.
+	Params []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam `pulumi:"params"`
+	// The reference this condition tests.
+	Subject string `pulumi:"subject"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs struct {
+	// How the subject is tested.
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// Positional parameters for the operation.
+	Params GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayInput `pulumi:"params"`
+	// The reference this condition tests.
+	Subject pulumi.StringInput `pulumi:"subject"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArray and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArray{ GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs{...} }
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArray []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionInput
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput {
+	return o
+}
+
+// How the subject is tested.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition) string { return v.Operation }).(pulumi.StringOutput)
+}
+
+// Positional parameters for the operation.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput) Params() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition) []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam {
+		return v.Params
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput)
+}
+
+// The reference this condition tests.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition {
+		return vs[0].([]GetAlertSourceAttributeBetaExpressionFallbackElseIfCondition)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup struct {
+	// All of these must hold for the group to hold.
+	Conditions []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition `pulumi:"conditions"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs struct {
+	// All of these must hold for the group to hold.
+	Conditions GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayInput `pulumi:"conditions"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArray and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArray{ GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs{...} }
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArray []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupInput
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput {
+	return o
+}
+
+// All of these must hold for the group to hold.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput) Conditions() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup) []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition {
+		return v.Conditions
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup {
+		return vs[0].([]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroup)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition struct {
+	// How the subject is tested.
+	Operation string `pulumi:"operation"`
+	// Positional parameters for the operation.
+	Params []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam `pulumi:"params"`
+	// The reference this condition tests.
+	Subject string `pulumi:"subject"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs struct {
+	// How the subject is tested.
+	Operation pulumi.StringInput `pulumi:"operation"`
+	// Positional parameters for the operation.
+	Params GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayInput `pulumi:"params"`
+	// The reference this condition tests.
+	Subject pulumi.StringInput `pulumi:"subject"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArray and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArray{ GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs{...} }
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArray []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionInput
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput {
+	return o
+}
+
+// How the subject is tested.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput) Operation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition) string {
+		return v.Operation
+	}).(pulumi.StringOutput)
+}
+
+// Positional parameters for the operation.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput) Params() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition) []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam {
+		return v.Params
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput)
+}
+
+// The reference this condition tests.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition) string {
+		return v.Subject
+	}).(pulumi.StringOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition {
+		return vs[0].([]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupCondition)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam struct {
+	// Several values, spelled out. Needed when they mix fixed values and references.
+	ArrayValues []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue `pulumi:"arrayValues"`
+	// The name of a namedExpression in this resource, whose result becomes the value.
+	ExpressionRef string `pulumi:"expressionRef"`
+	// One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+	Value GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValue `pulumi:"value"`
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	ValueLiteral string `pulumi:"valueLiteral"`
+	// A reference into the scope, such as `payload.team`.
+	ValueReference string `pulumi:"valueReference"`
+	// Several fixed values. For a mix of fixed values and references, use array_value.
+	Values []string `pulumi:"values"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs struct {
+	// Several values, spelled out. Needed when they mix fixed values and references.
+	ArrayValues GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayInput `pulumi:"arrayValues"`
+	// The name of a namedExpression in this resource, whose result becomes the value.
+	ExpressionRef pulumi.StringInput `pulumi:"expressionRef"`
+	// One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+	Value GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueInput `pulumi:"value"`
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	ValueLiteral pulumi.StringInput `pulumi:"valueLiteral"`
+	// A reference into the scope, such as `payload.team`.
+	ValueReference pulumi.StringInput `pulumi:"valueReference"`
+	// Several fixed values. For a mix of fixed values and references, use array_value.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArray and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArray{ GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs{...} }
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArray []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamInput
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput {
+	return o
+}
+
+// Several values, spelled out. Needed when they mix fixed values and references.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) ArrayValues() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam) []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue {
+		return v.ArrayValues
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput)
+}
+
+// The name of a namedExpression in this resource, whose result becomes the value.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) ExpressionRef() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam) string {
+		return v.ExpressionRef
+	}).(pulumi.StringOutput)
+}
+
+// One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) Value() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValue {
+		return v.Value
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput)
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) ValueLiteral() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam) string {
+		return v.ValueLiteral
+	}).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) ValueReference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam) string {
+		return v.ValueReference
+	}).(pulumi.StringOutput)
+}
+
+// Several fixed values. For a mix of fixed values and references, use array_value.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam {
+		return vs[0].([]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParam)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal string `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference string `pulumi:"reference"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal pulumi.StringInput `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArray and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArray{ GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs{...} }
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArray []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueInput
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput {
+	return o
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput) Literal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue) string {
+		return v.Literal
+	}).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue) string {
+		return v.Reference
+	}).(pulumi.StringOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue {
+		return vs[0].([]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValue)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValue struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal string `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference string `pulumi:"reference"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueArgs struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal pulumi.StringInput `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput {
+	return o
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput) Literal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValue) string {
+		return v.Literal
+	}).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValue) string {
+		return v.Reference
+	}).(pulumi.StringOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam struct {
+	// Several values, spelled out. Needed when they mix fixed values and references.
+	ArrayValues []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValue `pulumi:"arrayValues"`
+	// The name of a namedExpression in this resource, whose result becomes the value.
+	ExpressionRef string `pulumi:"expressionRef"`
+	// One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+	Value GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValue `pulumi:"value"`
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	ValueLiteral string `pulumi:"valueLiteral"`
+	// A reference into the scope, such as `payload.team`.
+	ValueReference string `pulumi:"valueReference"`
+	// Several fixed values. For a mix of fixed values and references, use array_value.
+	Values []string `pulumi:"values"`
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs{...}
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs struct {
+	// Several values, spelled out. Needed when they mix fixed values and references.
+	ArrayValues GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueArrayInput `pulumi:"arrayValues"`
+	// The name of a namedExpression in this resource, whose result becomes the value.
+	ExpressionRef pulumi.StringInput `pulumi:"expressionRef"`
+	// One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+	Value GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValueInput `pulumi:"value"`
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	ValueLiteral pulumi.StringInput `pulumi:"valueLiteral"`
+	// A reference into the scope, such as `payload.team`.
+	ValueReference pulumi.StringInput `pulumi:"valueReference"`
+	// Several fixed values. For a mix of fixed values and references, use array_value.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput)
+}
+
+// GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayInput is an input type that accepts GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArray and GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayInput` via:
+//
+//	GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArray{ GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs{...} }
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput
+	ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutputWithContext(context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArray []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamInput
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam)(nil)).Elem()
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput {
+	return i.ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArray) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput {
+	return o
+}
+
+// Several values, spelled out. Needed when they mix fixed values and references.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) ArrayValues() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam) []GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValue {
+		return v.ArrayValues
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueArrayOutput)
+}
+
+// The name of a namedExpression in this resource, whose result becomes the value.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) ExpressionRef() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam) string {
+		return v.ExpressionRef
+	}).(pulumi.StringOutput)
+}
+
+// One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) Value() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValueOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValue {
+		return v.Value
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValueOutput)
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) ValueLiteral() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam) string {
+		return v.ValueLiteral
+	}).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) ValueReference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam) string {
+		return v.ValueReference
+	}).(pulumi.StringOutput)
+}
+
+// Several fixed values. For a mix of fixed values and references, use array_value.
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam)(nil)).Elem()
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput() GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput) ToGetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutputWithContext(ctx context.Context) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput) Index(i pulumi.IntInput) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam {
+		return vs[0].([]GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParam)[vs[1].(int)]
+	}).(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput)
+}
+
 type GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValue struct {
 	// A fixed value. A catalog entry ID is a literal, not a reference.
 	Literal string `pulumi:"literal"`
@@ -50547,4361 +57061,101 @@ func (o GetEscalationPathBetaSequencesNodeNotifyChannelTargetArrayOutput) Index(
 	}).(GetEscalationPathBetaSequencesNodeNotifyChannelTargetOutput)
 }
 
-type GetEscalationPathBetaWorkingHour struct {
-	// The unique identifier for this set of working intervals
-	Id string `pulumi:"id"`
-	// A human readable label for this set of working intervals
-	Name string `pulumi:"name"`
-	// How to interpret all the intervals
-	Timezone         string                                            `pulumi:"timezone"`
-	WeekdayIntervals []GetEscalationPathBetaWorkingHourWeekdayInterval `pulumi:"weekdayIntervals"`
-}
-
-// GetEscalationPathBetaWorkingHourInput is an input type that accepts GetEscalationPathBetaWorkingHourArgs and GetEscalationPathBetaWorkingHourOutput values.
-// You can construct a concrete instance of `GetEscalationPathBetaWorkingHourInput` via:
-//
-//	GetEscalationPathBetaWorkingHourArgs{...}
-type GetEscalationPathBetaWorkingHourInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathBetaWorkingHourOutput() GetEscalationPathBetaWorkingHourOutput
-	ToGetEscalationPathBetaWorkingHourOutputWithContext(context.Context) GetEscalationPathBetaWorkingHourOutput
-}
-
-type GetEscalationPathBetaWorkingHourArgs struct {
-	// The unique identifier for this set of working intervals
-	Id pulumi.StringInput `pulumi:"id"`
-	// A human readable label for this set of working intervals
-	Name pulumi.StringInput `pulumi:"name"`
-	// How to interpret all the intervals
-	Timezone         pulumi.StringInput                                        `pulumi:"timezone"`
-	WeekdayIntervals GetEscalationPathBetaWorkingHourWeekdayIntervalArrayInput `pulumi:"weekdayIntervals"`
-}
-
-func (GetEscalationPathBetaWorkingHourArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathBetaWorkingHour)(nil)).Elem()
-}
-
-func (i GetEscalationPathBetaWorkingHourArgs) ToGetEscalationPathBetaWorkingHourOutput() GetEscalationPathBetaWorkingHourOutput {
-	return i.ToGetEscalationPathBetaWorkingHourOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathBetaWorkingHourArgs) ToGetEscalationPathBetaWorkingHourOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathBetaWorkingHourOutput)
-}
-
-// GetEscalationPathBetaWorkingHourArrayInput is an input type that accepts GetEscalationPathBetaWorkingHourArray and GetEscalationPathBetaWorkingHourArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathBetaWorkingHourArrayInput` via:
-//
-//	GetEscalationPathBetaWorkingHourArray{ GetEscalationPathBetaWorkingHourArgs{...} }
-type GetEscalationPathBetaWorkingHourArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathBetaWorkingHourArrayOutput() GetEscalationPathBetaWorkingHourArrayOutput
-	ToGetEscalationPathBetaWorkingHourArrayOutputWithContext(context.Context) GetEscalationPathBetaWorkingHourArrayOutput
-}
-
-type GetEscalationPathBetaWorkingHourArray []GetEscalationPathBetaWorkingHourInput
-
-func (GetEscalationPathBetaWorkingHourArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathBetaWorkingHour)(nil)).Elem()
-}
-
-func (i GetEscalationPathBetaWorkingHourArray) ToGetEscalationPathBetaWorkingHourArrayOutput() GetEscalationPathBetaWorkingHourArrayOutput {
-	return i.ToGetEscalationPathBetaWorkingHourArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathBetaWorkingHourArray) ToGetEscalationPathBetaWorkingHourArrayOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathBetaWorkingHourArrayOutput)
-}
-
-type GetEscalationPathBetaWorkingHourOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathBetaWorkingHourOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathBetaWorkingHour)(nil)).Elem()
-}
-
-func (o GetEscalationPathBetaWorkingHourOutput) ToGetEscalationPathBetaWorkingHourOutput() GetEscalationPathBetaWorkingHourOutput {
-	return o
-}
-
-func (o GetEscalationPathBetaWorkingHourOutput) ToGetEscalationPathBetaWorkingHourOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourOutput {
-	return o
-}
-
-// The unique identifier for this set of working intervals
-func (o GetEscalationPathBetaWorkingHourOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathBetaWorkingHour) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// A human readable label for this set of working intervals
-func (o GetEscalationPathBetaWorkingHourOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathBetaWorkingHour) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// How to interpret all the intervals
-func (o GetEscalationPathBetaWorkingHourOutput) Timezone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathBetaWorkingHour) string { return v.Timezone }).(pulumi.StringOutput)
-}
-
-func (o GetEscalationPathBetaWorkingHourOutput) WeekdayIntervals() GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathBetaWorkingHour) []GetEscalationPathBetaWorkingHourWeekdayInterval {
-		return v.WeekdayIntervals
-	}).(GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput)
-}
-
-type GetEscalationPathBetaWorkingHourArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathBetaWorkingHourArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathBetaWorkingHour)(nil)).Elem()
-}
-
-func (o GetEscalationPathBetaWorkingHourArrayOutput) ToGetEscalationPathBetaWorkingHourArrayOutput() GetEscalationPathBetaWorkingHourArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathBetaWorkingHourArrayOutput) ToGetEscalationPathBetaWorkingHourArrayOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathBetaWorkingHourArrayOutput) Index(i pulumi.IntInput) GetEscalationPathBetaWorkingHourOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathBetaWorkingHour {
-		return vs[0].([]GetEscalationPathBetaWorkingHour)[vs[1].(int)]
-	}).(GetEscalationPathBetaWorkingHourOutput)
-}
-
-type GetEscalationPathBetaWorkingHourWeekdayInterval struct {
-	// End time of the interval, in 24hr format
-	EndTime string `pulumi:"endTime"`
-	// Start time of the interval, in 24hr format
-	StartTime string `pulumi:"startTime"`
-	// Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	Weekday string `pulumi:"weekday"`
-}
-
-// GetEscalationPathBetaWorkingHourWeekdayIntervalInput is an input type that accepts GetEscalationPathBetaWorkingHourWeekdayIntervalArgs and GetEscalationPathBetaWorkingHourWeekdayIntervalOutput values.
-// You can construct a concrete instance of `GetEscalationPathBetaWorkingHourWeekdayIntervalInput` via:
-//
-//	GetEscalationPathBetaWorkingHourWeekdayIntervalArgs{...}
-type GetEscalationPathBetaWorkingHourWeekdayIntervalInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathBetaWorkingHourWeekdayIntervalOutput() GetEscalationPathBetaWorkingHourWeekdayIntervalOutput
-	ToGetEscalationPathBetaWorkingHourWeekdayIntervalOutputWithContext(context.Context) GetEscalationPathBetaWorkingHourWeekdayIntervalOutput
-}
-
-type GetEscalationPathBetaWorkingHourWeekdayIntervalArgs struct {
-	// End time of the interval, in 24hr format
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// Start time of the interval, in 24hr format
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	Weekday pulumi.StringInput `pulumi:"weekday"`
-}
-
-func (GetEscalationPathBetaWorkingHourWeekdayIntervalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathBetaWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (i GetEscalationPathBetaWorkingHourWeekdayIntervalArgs) ToGetEscalationPathBetaWorkingHourWeekdayIntervalOutput() GetEscalationPathBetaWorkingHourWeekdayIntervalOutput {
-	return i.ToGetEscalationPathBetaWorkingHourWeekdayIntervalOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathBetaWorkingHourWeekdayIntervalArgs) ToGetEscalationPathBetaWorkingHourWeekdayIntervalOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourWeekdayIntervalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathBetaWorkingHourWeekdayIntervalOutput)
-}
-
-// GetEscalationPathBetaWorkingHourWeekdayIntervalArrayInput is an input type that accepts GetEscalationPathBetaWorkingHourWeekdayIntervalArray and GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathBetaWorkingHourWeekdayIntervalArrayInput` via:
-//
-//	GetEscalationPathBetaWorkingHourWeekdayIntervalArray{ GetEscalationPathBetaWorkingHourWeekdayIntervalArgs{...} }
-type GetEscalationPathBetaWorkingHourWeekdayIntervalArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput() GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput
-	ToGetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutputWithContext(context.Context) GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput
-}
-
-type GetEscalationPathBetaWorkingHourWeekdayIntervalArray []GetEscalationPathBetaWorkingHourWeekdayIntervalInput
-
-func (GetEscalationPathBetaWorkingHourWeekdayIntervalArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathBetaWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (i GetEscalationPathBetaWorkingHourWeekdayIntervalArray) ToGetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput() GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput {
-	return i.ToGetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathBetaWorkingHourWeekdayIntervalArray) ToGetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput)
-}
-
-type GetEscalationPathBetaWorkingHourWeekdayIntervalOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathBetaWorkingHourWeekdayIntervalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathBetaWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalOutput) ToGetEscalationPathBetaWorkingHourWeekdayIntervalOutput() GetEscalationPathBetaWorkingHourWeekdayIntervalOutput {
-	return o
-}
-
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalOutput) ToGetEscalationPathBetaWorkingHourWeekdayIntervalOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourWeekdayIntervalOutput {
-	return o
-}
-
-// End time of the interval, in 24hr format
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalOutput) EndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathBetaWorkingHourWeekdayInterval) string { return v.EndTime }).(pulumi.StringOutput)
-}
-
-// Start time of the interval, in 24hr format
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathBetaWorkingHourWeekdayInterval) string { return v.StartTime }).(pulumi.StringOutput)
-}
-
-// Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalOutput) Weekday() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathBetaWorkingHourWeekdayInterval) string { return v.Weekday }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathBetaWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput) ToGetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput() GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput) ToGetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutputWithContext(ctx context.Context) GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput) Index(i pulumi.IntInput) GetEscalationPathBetaWorkingHourWeekdayIntervalOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathBetaWorkingHourWeekdayInterval {
-		return vs[0].([]GetEscalationPathBetaWorkingHourWeekdayInterval)[vs[1].(int)]
-	}).(GetEscalationPathBetaWorkingHourWeekdayIntervalOutput)
-}
-
-type GetEscalationPathParamBindings struct {
-	// The array of literal or reference parameter values
-	ArrayValues   []GetEscalationPathParamBindingsArrayValue `pulumi:"arrayValues"`
-	ExpressionRef string                                     `pulumi:"expressionRef"`
-	// The literal or reference parameter value
-	Value          GetEscalationPathParamBindingsValue `pulumi:"value"`
-	ValueLiteral   string                              `pulumi:"valueLiteral"`
-	ValueReference string                              `pulumi:"valueReference"`
-	Values         []string                            `pulumi:"values"`
-}
-
-// GetEscalationPathParamBindingsInput is an input type that accepts GetEscalationPathParamBindingsArgs and GetEscalationPathParamBindingsOutput values.
-// You can construct a concrete instance of `GetEscalationPathParamBindingsInput` via:
-//
-//	GetEscalationPathParamBindingsArgs{...}
-type GetEscalationPathParamBindingsInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathParamBindingsOutput() GetEscalationPathParamBindingsOutput
-	ToGetEscalationPathParamBindingsOutputWithContext(context.Context) GetEscalationPathParamBindingsOutput
-}
-
-type GetEscalationPathParamBindingsArgs struct {
-	// The array of literal or reference parameter values
-	ArrayValues   GetEscalationPathParamBindingsArrayValueArrayInput `pulumi:"arrayValues"`
-	ExpressionRef pulumi.StringInput                                 `pulumi:"expressionRef"`
-	// The literal or reference parameter value
-	Value          GetEscalationPathParamBindingsValueInput `pulumi:"value"`
-	ValueLiteral   pulumi.StringInput                       `pulumi:"valueLiteral"`
-	ValueReference pulumi.StringInput                       `pulumi:"valueReference"`
-	Values         pulumi.StringArrayInput                  `pulumi:"values"`
-}
-
-func (GetEscalationPathParamBindingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathParamBindings)(nil)).Elem()
-}
-
-func (i GetEscalationPathParamBindingsArgs) ToGetEscalationPathParamBindingsOutput() GetEscalationPathParamBindingsOutput {
-	return i.ToGetEscalationPathParamBindingsOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathParamBindingsArgs) ToGetEscalationPathParamBindingsOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathParamBindingsOutput)
-}
-
-// GetEscalationPathParamBindingsMapInput is an input type that accepts GetEscalationPathParamBindingsMap and GetEscalationPathParamBindingsMapOutput values.
-// You can construct a concrete instance of `GetEscalationPathParamBindingsMapInput` via:
-//
-//	GetEscalationPathParamBindingsMap{ "key": GetEscalationPathParamBindingsArgs{...} }
-type GetEscalationPathParamBindingsMapInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathParamBindingsMapOutput() GetEscalationPathParamBindingsMapOutput
-	ToGetEscalationPathParamBindingsMapOutputWithContext(context.Context) GetEscalationPathParamBindingsMapOutput
-}
-
-type GetEscalationPathParamBindingsMap map[string]GetEscalationPathParamBindingsInput
-
-func (GetEscalationPathParamBindingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GetEscalationPathParamBindings)(nil)).Elem()
-}
-
-func (i GetEscalationPathParamBindingsMap) ToGetEscalationPathParamBindingsMapOutput() GetEscalationPathParamBindingsMapOutput {
-	return i.ToGetEscalationPathParamBindingsMapOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathParamBindingsMap) ToGetEscalationPathParamBindingsMapOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathParamBindingsMapOutput)
-}
-
-type GetEscalationPathParamBindingsOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathParamBindingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathParamBindings)(nil)).Elem()
-}
-
-func (o GetEscalationPathParamBindingsOutput) ToGetEscalationPathParamBindingsOutput() GetEscalationPathParamBindingsOutput {
-	return o
-}
-
-func (o GetEscalationPathParamBindingsOutput) ToGetEscalationPathParamBindingsOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsOutput {
-	return o
-}
-
-// The array of literal or reference parameter values
-func (o GetEscalationPathParamBindingsOutput) ArrayValues() GetEscalationPathParamBindingsArrayValueArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindings) []GetEscalationPathParamBindingsArrayValue {
-		return v.ArrayValues
-	}).(GetEscalationPathParamBindingsArrayValueArrayOutput)
-}
-
-func (o GetEscalationPathParamBindingsOutput) ExpressionRef() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindings) string { return v.ExpressionRef }).(pulumi.StringOutput)
-}
-
-// The literal or reference parameter value
-func (o GetEscalationPathParamBindingsOutput) Value() GetEscalationPathParamBindingsValueOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindings) GetEscalationPathParamBindingsValue { return v.Value }).(GetEscalationPathParamBindingsValueOutput)
-}
-
-func (o GetEscalationPathParamBindingsOutput) ValueLiteral() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindings) string { return v.ValueLiteral }).(pulumi.StringOutput)
-}
-
-func (o GetEscalationPathParamBindingsOutput) ValueReference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindings) string { return v.ValueReference }).(pulumi.StringOutput)
-}
-
-func (o GetEscalationPathParamBindingsOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindings) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetEscalationPathParamBindingsMapOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathParamBindingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GetEscalationPathParamBindings)(nil)).Elem()
-}
-
-func (o GetEscalationPathParamBindingsMapOutput) ToGetEscalationPathParamBindingsMapOutput() GetEscalationPathParamBindingsMapOutput {
-	return o
-}
-
-func (o GetEscalationPathParamBindingsMapOutput) ToGetEscalationPathParamBindingsMapOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsMapOutput {
-	return o
-}
-
-func (o GetEscalationPathParamBindingsMapOutput) MapIndex(k pulumi.StringInput) GetEscalationPathParamBindingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GetEscalationPathParamBindings {
-		return vs[0].(map[string]GetEscalationPathParamBindings)[vs[1].(string)]
-	}).(GetEscalationPathParamBindingsOutput)
-}
-
-type GetEscalationPathParamBindingsArrayValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetEscalationPathParamBindingsArrayValueInput is an input type that accepts GetEscalationPathParamBindingsArrayValueArgs and GetEscalationPathParamBindingsArrayValueOutput values.
-// You can construct a concrete instance of `GetEscalationPathParamBindingsArrayValueInput` via:
-//
-//	GetEscalationPathParamBindingsArrayValueArgs{...}
-type GetEscalationPathParamBindingsArrayValueInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathParamBindingsArrayValueOutput() GetEscalationPathParamBindingsArrayValueOutput
-	ToGetEscalationPathParamBindingsArrayValueOutputWithContext(context.Context) GetEscalationPathParamBindingsArrayValueOutput
-}
-
-type GetEscalationPathParamBindingsArrayValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetEscalationPathParamBindingsArrayValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathParamBindingsArrayValue)(nil)).Elem()
-}
-
-func (i GetEscalationPathParamBindingsArrayValueArgs) ToGetEscalationPathParamBindingsArrayValueOutput() GetEscalationPathParamBindingsArrayValueOutput {
-	return i.ToGetEscalationPathParamBindingsArrayValueOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathParamBindingsArrayValueArgs) ToGetEscalationPathParamBindingsArrayValueOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsArrayValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathParamBindingsArrayValueOutput)
-}
-
-// GetEscalationPathParamBindingsArrayValueArrayInput is an input type that accepts GetEscalationPathParamBindingsArrayValueArray and GetEscalationPathParamBindingsArrayValueArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathParamBindingsArrayValueArrayInput` via:
-//
-//	GetEscalationPathParamBindingsArrayValueArray{ GetEscalationPathParamBindingsArrayValueArgs{...} }
-type GetEscalationPathParamBindingsArrayValueArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathParamBindingsArrayValueArrayOutput() GetEscalationPathParamBindingsArrayValueArrayOutput
-	ToGetEscalationPathParamBindingsArrayValueArrayOutputWithContext(context.Context) GetEscalationPathParamBindingsArrayValueArrayOutput
-}
-
-type GetEscalationPathParamBindingsArrayValueArray []GetEscalationPathParamBindingsArrayValueInput
-
-func (GetEscalationPathParamBindingsArrayValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathParamBindingsArrayValue)(nil)).Elem()
-}
-
-func (i GetEscalationPathParamBindingsArrayValueArray) ToGetEscalationPathParamBindingsArrayValueArrayOutput() GetEscalationPathParamBindingsArrayValueArrayOutput {
-	return i.ToGetEscalationPathParamBindingsArrayValueArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathParamBindingsArrayValueArray) ToGetEscalationPathParamBindingsArrayValueArrayOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsArrayValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathParamBindingsArrayValueArrayOutput)
-}
-
-type GetEscalationPathParamBindingsArrayValueOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathParamBindingsArrayValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathParamBindingsArrayValue)(nil)).Elem()
-}
-
-func (o GetEscalationPathParamBindingsArrayValueOutput) ToGetEscalationPathParamBindingsArrayValueOutput() GetEscalationPathParamBindingsArrayValueOutput {
-	return o
-}
-
-func (o GetEscalationPathParamBindingsArrayValueOutput) ToGetEscalationPathParamBindingsArrayValueOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsArrayValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetEscalationPathParamBindingsArrayValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindingsArrayValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetEscalationPathParamBindingsArrayValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindingsArrayValue) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathParamBindingsArrayValueArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathParamBindingsArrayValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathParamBindingsArrayValue)(nil)).Elem()
-}
-
-func (o GetEscalationPathParamBindingsArrayValueArrayOutput) ToGetEscalationPathParamBindingsArrayValueArrayOutput() GetEscalationPathParamBindingsArrayValueArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathParamBindingsArrayValueArrayOutput) ToGetEscalationPathParamBindingsArrayValueArrayOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsArrayValueArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathParamBindingsArrayValueArrayOutput) Index(i pulumi.IntInput) GetEscalationPathParamBindingsArrayValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathParamBindingsArrayValue {
-		return vs[0].([]GetEscalationPathParamBindingsArrayValue)[vs[1].(int)]
-	}).(GetEscalationPathParamBindingsArrayValueOutput)
-}
-
-type GetEscalationPathParamBindingsValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetEscalationPathParamBindingsValueInput is an input type that accepts GetEscalationPathParamBindingsValueArgs and GetEscalationPathParamBindingsValueOutput values.
-// You can construct a concrete instance of `GetEscalationPathParamBindingsValueInput` via:
-//
-//	GetEscalationPathParamBindingsValueArgs{...}
-type GetEscalationPathParamBindingsValueInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathParamBindingsValueOutput() GetEscalationPathParamBindingsValueOutput
-	ToGetEscalationPathParamBindingsValueOutputWithContext(context.Context) GetEscalationPathParamBindingsValueOutput
-}
-
-type GetEscalationPathParamBindingsValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetEscalationPathParamBindingsValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathParamBindingsValue)(nil)).Elem()
-}
-
-func (i GetEscalationPathParamBindingsValueArgs) ToGetEscalationPathParamBindingsValueOutput() GetEscalationPathParamBindingsValueOutput {
-	return i.ToGetEscalationPathParamBindingsValueOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathParamBindingsValueArgs) ToGetEscalationPathParamBindingsValueOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathParamBindingsValueOutput)
-}
-
-type GetEscalationPathParamBindingsValueOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathParamBindingsValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathParamBindingsValue)(nil)).Elem()
-}
-
-func (o GetEscalationPathParamBindingsValueOutput) ToGetEscalationPathParamBindingsValueOutput() GetEscalationPathParamBindingsValueOutput {
-	return o
-}
-
-func (o GetEscalationPathParamBindingsValueOutput) ToGetEscalationPathParamBindingsValueOutputWithContext(ctx context.Context) GetEscalationPathParamBindingsValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetEscalationPathParamBindingsValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindingsValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetEscalationPathParamBindingsValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathParamBindingsValue) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathRepeatConfig struct {
-	// When true, incident activity resets the repeat timer.
-	DelayRepeatOnActivity bool `pulumi:"delayRepeatOnActivity"`
-	// Number of seconds we'll wait before repeating an escalation.
-	RepeatAfterSeconds int `pulumi:"repeatAfterSeconds"`
-}
-
-// GetEscalationPathRepeatConfigInput is an input type that accepts GetEscalationPathRepeatConfigArgs and GetEscalationPathRepeatConfigOutput values.
-// You can construct a concrete instance of `GetEscalationPathRepeatConfigInput` via:
-//
-//	GetEscalationPathRepeatConfigArgs{...}
-type GetEscalationPathRepeatConfigInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathRepeatConfigOutput() GetEscalationPathRepeatConfigOutput
-	ToGetEscalationPathRepeatConfigOutputWithContext(context.Context) GetEscalationPathRepeatConfigOutput
-}
-
-type GetEscalationPathRepeatConfigArgs struct {
-	// When true, incident activity resets the repeat timer.
-	DelayRepeatOnActivity pulumi.BoolInput `pulumi:"delayRepeatOnActivity"`
-	// Number of seconds we'll wait before repeating an escalation.
-	RepeatAfterSeconds pulumi.IntInput `pulumi:"repeatAfterSeconds"`
-}
-
-func (GetEscalationPathRepeatConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathRepeatConfig)(nil)).Elem()
-}
-
-func (i GetEscalationPathRepeatConfigArgs) ToGetEscalationPathRepeatConfigOutput() GetEscalationPathRepeatConfigOutput {
-	return i.ToGetEscalationPathRepeatConfigOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathRepeatConfigArgs) ToGetEscalationPathRepeatConfigOutputWithContext(ctx context.Context) GetEscalationPathRepeatConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathRepeatConfigOutput)
-}
-
-type GetEscalationPathRepeatConfigOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathRepeatConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathRepeatConfig)(nil)).Elem()
-}
-
-func (o GetEscalationPathRepeatConfigOutput) ToGetEscalationPathRepeatConfigOutput() GetEscalationPathRepeatConfigOutput {
-	return o
-}
-
-func (o GetEscalationPathRepeatConfigOutput) ToGetEscalationPathRepeatConfigOutputWithContext(ctx context.Context) GetEscalationPathRepeatConfigOutput {
-	return o
-}
-
-// When true, incident activity resets the repeat timer.
-func (o GetEscalationPathRepeatConfigOutput) DelayRepeatOnActivity() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEscalationPathRepeatConfig) bool { return v.DelayRepeatOnActivity }).(pulumi.BoolOutput)
-}
-
-// Number of seconds we'll wait before repeating an escalation.
-func (o GetEscalationPathRepeatConfigOutput) RepeatAfterSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathRepeatConfig) int { return v.RepeatAfterSeconds }).(pulumi.IntOutput)
-}
-
-type GetEscalationPathSequences struct {
-	// The nodes in this sequence, in the order they run.
-	Nodes []GetEscalationPathSequencesNode `pulumi:"nodes"`
-}
-
-// GetEscalationPathSequencesInput is an input type that accepts GetEscalationPathSequencesArgs and GetEscalationPathSequencesOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesInput` via:
-//
-//	GetEscalationPathSequencesArgs{...}
-type GetEscalationPathSequencesInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesOutput() GetEscalationPathSequencesOutput
-	ToGetEscalationPathSequencesOutputWithContext(context.Context) GetEscalationPathSequencesOutput
-}
-
-type GetEscalationPathSequencesArgs struct {
-	// The nodes in this sequence, in the order they run.
-	Nodes GetEscalationPathSequencesNodeArrayInput `pulumi:"nodes"`
-}
-
-func (GetEscalationPathSequencesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequences)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesArgs) ToGetEscalationPathSequencesOutput() GetEscalationPathSequencesOutput {
-	return i.ToGetEscalationPathSequencesOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesArgs) ToGetEscalationPathSequencesOutputWithContext(ctx context.Context) GetEscalationPathSequencesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesOutput)
-}
-
-// GetEscalationPathSequencesMapInput is an input type that accepts GetEscalationPathSequencesMap and GetEscalationPathSequencesMapOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesMapInput` via:
-//
-//	GetEscalationPathSequencesMap{ "key": GetEscalationPathSequencesArgs{...} }
-type GetEscalationPathSequencesMapInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesMapOutput() GetEscalationPathSequencesMapOutput
-	ToGetEscalationPathSequencesMapOutputWithContext(context.Context) GetEscalationPathSequencesMapOutput
-}
-
-type GetEscalationPathSequencesMap map[string]GetEscalationPathSequencesInput
-
-func (GetEscalationPathSequencesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GetEscalationPathSequences)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesMap) ToGetEscalationPathSequencesMapOutput() GetEscalationPathSequencesMapOutput {
-	return i.ToGetEscalationPathSequencesMapOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesMap) ToGetEscalationPathSequencesMapOutputWithContext(ctx context.Context) GetEscalationPathSequencesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesMapOutput)
-}
-
-type GetEscalationPathSequencesOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequences)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesOutput) ToGetEscalationPathSequencesOutput() GetEscalationPathSequencesOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesOutput) ToGetEscalationPathSequencesOutputWithContext(ctx context.Context) GetEscalationPathSequencesOutput {
-	return o
-}
-
-// The nodes in this sequence, in the order they run.
-func (o GetEscalationPathSequencesOutput) Nodes() GetEscalationPathSequencesNodeArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathSequences) []GetEscalationPathSequencesNode { return v.Nodes }).(GetEscalationPathSequencesNodeArrayOutput)
-}
-
-type GetEscalationPathSequencesMapOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GetEscalationPathSequences)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesMapOutput) ToGetEscalationPathSequencesMapOutput() GetEscalationPathSequencesMapOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesMapOutput) ToGetEscalationPathSequencesMapOutputWithContext(ctx context.Context) GetEscalationPathSequencesMapOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesMapOutput) MapIndex(k pulumi.StringInput) GetEscalationPathSequencesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GetEscalationPathSequences {
-		return vs[0].(map[string]GetEscalationPathSequences)[vs[1].(string)]
-	}).(GetEscalationPathSequencesOutput)
-}
-
-type GetEscalationPathSequencesNode struct {
-	// Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
-	Branch GetEscalationPathSequencesNodeBranch `pulumi:"branch"`
-	Delay  GetEscalationPathSequencesNodeDelay  `pulumi:"delay"`
-	// Reassign the escalation to another escalation path, continuing from that path's first node.
-	EscalationPath GetEscalationPathSequencesNodeEscalationPath `pulumi:"escalationPath"`
-	// An id for this node, unique within the escalation path, so a `loop` can name it.
-	Id    string                              `pulumi:"id"`
-	Level GetEscalationPathSequencesNodeLevel `pulumi:"level"`
-	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
-	Loop          GetEscalationPathSequencesNodeLoop          `pulumi:"loop"`
-	NotifyChannel GetEscalationPathSequencesNodeNotifyChannel `pulumi:"notifyChannel"`
-}
-
-// GetEscalationPathSequencesNodeInput is an input type that accepts GetEscalationPathSequencesNodeArgs and GetEscalationPathSequencesNodeOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeInput` via:
-//
-//	GetEscalationPathSequencesNodeArgs{...}
-type GetEscalationPathSequencesNodeInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeOutput() GetEscalationPathSequencesNodeOutput
-	ToGetEscalationPathSequencesNodeOutputWithContext(context.Context) GetEscalationPathSequencesNodeOutput
-}
-
-type GetEscalationPathSequencesNodeArgs struct {
-	// Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
-	Branch GetEscalationPathSequencesNodeBranchInput `pulumi:"branch"`
-	Delay  GetEscalationPathSequencesNodeDelayInput  `pulumi:"delay"`
-	// Reassign the escalation to another escalation path, continuing from that path's first node.
-	EscalationPath GetEscalationPathSequencesNodeEscalationPathInput `pulumi:"escalationPath"`
-	// An id for this node, unique within the escalation path, so a `loop` can name it.
-	Id    pulumi.StringInput                       `pulumi:"id"`
-	Level GetEscalationPathSequencesNodeLevelInput `pulumi:"level"`
-	// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
-	Loop          GetEscalationPathSequencesNodeLoopInput          `pulumi:"loop"`
-	NotifyChannel GetEscalationPathSequencesNodeNotifyChannelInput `pulumi:"notifyChannel"`
-}
-
-func (GetEscalationPathSequencesNodeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNode)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeArgs) ToGetEscalationPathSequencesNodeOutput() GetEscalationPathSequencesNodeOutput {
-	return i.ToGetEscalationPathSequencesNodeOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeArgs) ToGetEscalationPathSequencesNodeOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeOutput)
-}
-
-// GetEscalationPathSequencesNodeArrayInput is an input type that accepts GetEscalationPathSequencesNodeArray and GetEscalationPathSequencesNodeArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeArrayInput` via:
-//
-//	GetEscalationPathSequencesNodeArray{ GetEscalationPathSequencesNodeArgs{...} }
-type GetEscalationPathSequencesNodeArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeArrayOutput() GetEscalationPathSequencesNodeArrayOutput
-	ToGetEscalationPathSequencesNodeArrayOutputWithContext(context.Context) GetEscalationPathSequencesNodeArrayOutput
-}
-
-type GetEscalationPathSequencesNodeArray []GetEscalationPathSequencesNodeInput
-
-func (GetEscalationPathSequencesNodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathSequencesNode)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeArray) ToGetEscalationPathSequencesNodeArrayOutput() GetEscalationPathSequencesNodeArrayOutput {
-	return i.ToGetEscalationPathSequencesNodeArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeArray) ToGetEscalationPathSequencesNodeArrayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeArrayOutput)
-}
-
-type GetEscalationPathSequencesNodeOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNode)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeOutput) ToGetEscalationPathSequencesNodeOutput() GetEscalationPathSequencesNodeOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeOutput) ToGetEscalationPathSequencesNodeOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeOutput {
-	return o
-}
-
-// Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
-func (o GetEscalationPathSequencesNodeOutput) Branch() GetEscalationPathSequencesNodeBranchOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeBranch { return v.Branch }).(GetEscalationPathSequencesNodeBranchOutput)
-}
-
-func (o GetEscalationPathSequencesNodeOutput) Delay() GetEscalationPathSequencesNodeDelayOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeDelay { return v.Delay }).(GetEscalationPathSequencesNodeDelayOutput)
-}
-
-// Reassign the escalation to another escalation path, continuing from that path's first node.
-func (o GetEscalationPathSequencesNodeOutput) EscalationPath() GetEscalationPathSequencesNodeEscalationPathOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeEscalationPath {
-		return v.EscalationPath
-	}).(GetEscalationPathSequencesNodeEscalationPathOutput)
-}
-
-// An id for this node, unique within the escalation path, so a `loop` can name it.
-func (o GetEscalationPathSequencesNodeOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNode) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o GetEscalationPathSequencesNodeOutput) Level() GetEscalationPathSequencesNodeLevelOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeLevel { return v.Level }).(GetEscalationPathSequencesNodeLevelOutput)
-}
-
-// Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
-func (o GetEscalationPathSequencesNodeOutput) Loop() GetEscalationPathSequencesNodeLoopOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeLoop { return v.Loop }).(GetEscalationPathSequencesNodeLoopOutput)
-}
-
-func (o GetEscalationPathSequencesNodeOutput) NotifyChannel() GetEscalationPathSequencesNodeNotifyChannelOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNode) GetEscalationPathSequencesNodeNotifyChannel {
-		return v.NotifyChannel
-	}).(GetEscalationPathSequencesNodeNotifyChannelOutput)
-}
-
-type GetEscalationPathSequencesNodeArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathSequencesNode)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeArrayOutput) ToGetEscalationPathSequencesNodeArrayOutput() GetEscalationPathSequencesNodeArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeArrayOutput) ToGetEscalationPathSequencesNodeArrayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeArrayOutput) Index(i pulumi.IntInput) GetEscalationPathSequencesNodeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathSequencesNode {
-		return vs[0].([]GetEscalationPathSequencesNode)[vs[1].(int)]
-	}).(GetEscalationPathSequencesNodeOutput)
-}
-
-type GetEscalationPathSequencesNodeBranch struct {
-	// The key of the sequence to continue down when the condition is not met.
-	Else string `pulumi:"else"`
-	// What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
-	If GetEscalationPathSequencesNodeBranchIf `pulumi:"if"`
-	// The key of the sequence to continue down when the condition is met.
-	Then string `pulumi:"then"`
-}
-
-// GetEscalationPathSequencesNodeBranchInput is an input type that accepts GetEscalationPathSequencesNodeBranchArgs and GetEscalationPathSequencesNodeBranchOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeBranchInput` via:
-//
-//	GetEscalationPathSequencesNodeBranchArgs{...}
-type GetEscalationPathSequencesNodeBranchInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeBranchOutput() GetEscalationPathSequencesNodeBranchOutput
-	ToGetEscalationPathSequencesNodeBranchOutputWithContext(context.Context) GetEscalationPathSequencesNodeBranchOutput
-}
-
-type GetEscalationPathSequencesNodeBranchArgs struct {
-	// The key of the sequence to continue down when the condition is not met.
-	Else pulumi.StringInput `pulumi:"else"`
-	// What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
-	If GetEscalationPathSequencesNodeBranchIfInput `pulumi:"if"`
-	// The key of the sequence to continue down when the condition is met.
-	Then pulumi.StringInput `pulumi:"then"`
-}
-
-func (GetEscalationPathSequencesNodeBranchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeBranch)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeBranchArgs) ToGetEscalationPathSequencesNodeBranchOutput() GetEscalationPathSequencesNodeBranchOutput {
-	return i.ToGetEscalationPathSequencesNodeBranchOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeBranchArgs) ToGetEscalationPathSequencesNodeBranchOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeBranchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeBranchOutput)
-}
-
-type GetEscalationPathSequencesNodeBranchOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeBranchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeBranch)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeBranchOutput) ToGetEscalationPathSequencesNodeBranchOutput() GetEscalationPathSequencesNodeBranchOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeBranchOutput) ToGetEscalationPathSequencesNodeBranchOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeBranchOutput {
-	return o
-}
-
-// The key of the sequence to continue down when the condition is not met.
-func (o GetEscalationPathSequencesNodeBranchOutput) Else() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeBranch) string { return v.Else }).(pulumi.StringOutput)
-}
-
-// What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
-func (o GetEscalationPathSequencesNodeBranchOutput) If() GetEscalationPathSequencesNodeBranchIfOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeBranch) GetEscalationPathSequencesNodeBranchIf { return v.If }).(GetEscalationPathSequencesNodeBranchIfOutput)
-}
-
-// The key of the sequence to continue down when the condition is met.
-func (o GetEscalationPathSequencesNodeBranchOutput) Then() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeBranch) string { return v.Then }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeBranchIf struct {
-	// Alert priority ids, met when the escalation came in at one of them.
-	PriorityOneOfs []string `pulumi:"priorityOneOfs"`
-	// The `id` of one of this escalation path's `workingHours`, met while those hours are active.
-	WorkingHoursActive string `pulumi:"workingHoursActive"`
-}
-
-// GetEscalationPathSequencesNodeBranchIfInput is an input type that accepts GetEscalationPathSequencesNodeBranchIfArgs and GetEscalationPathSequencesNodeBranchIfOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeBranchIfInput` via:
-//
-//	GetEscalationPathSequencesNodeBranchIfArgs{...}
-type GetEscalationPathSequencesNodeBranchIfInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeBranchIfOutput() GetEscalationPathSequencesNodeBranchIfOutput
-	ToGetEscalationPathSequencesNodeBranchIfOutputWithContext(context.Context) GetEscalationPathSequencesNodeBranchIfOutput
-}
-
-type GetEscalationPathSequencesNodeBranchIfArgs struct {
-	// Alert priority ids, met when the escalation came in at one of them.
-	PriorityOneOfs pulumi.StringArrayInput `pulumi:"priorityOneOfs"`
-	// The `id` of one of this escalation path's `workingHours`, met while those hours are active.
-	WorkingHoursActive pulumi.StringInput `pulumi:"workingHoursActive"`
-}
-
-func (GetEscalationPathSequencesNodeBranchIfArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeBranchIf)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeBranchIfArgs) ToGetEscalationPathSequencesNodeBranchIfOutput() GetEscalationPathSequencesNodeBranchIfOutput {
-	return i.ToGetEscalationPathSequencesNodeBranchIfOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeBranchIfArgs) ToGetEscalationPathSequencesNodeBranchIfOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeBranchIfOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeBranchIfOutput)
-}
-
-type GetEscalationPathSequencesNodeBranchIfOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeBranchIfOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeBranchIf)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeBranchIfOutput) ToGetEscalationPathSequencesNodeBranchIfOutput() GetEscalationPathSequencesNodeBranchIfOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeBranchIfOutput) ToGetEscalationPathSequencesNodeBranchIfOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeBranchIfOutput {
-	return o
-}
-
-// Alert priority ids, met when the escalation came in at one of them.
-func (o GetEscalationPathSequencesNodeBranchIfOutput) PriorityOneOfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeBranchIf) []string { return v.PriorityOneOfs }).(pulumi.StringArrayOutput)
-}
-
-// The `id` of one of this escalation path's `workingHours`, met while those hours are active.
-func (o GetEscalationPathSequencesNodeBranchIfOutput) WorkingHoursActive() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeBranchIf) string { return v.WorkingHoursActive }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeDelay struct {
-	// If the delay is relative to a time window, this defines whether we advance when the window is active or inactive. Possible values are: `active`, `inactive`.
-	DelayIntervalCondition string `pulumi:"delayIntervalCondition"`
-	// How long to delay before advancing to the next node in the path, in seconds
-	DelaySeconds int `pulumi:"delaySeconds"`
-	// If the delay is relative to a time window, this identifies which window it is relative to
-	DelayWeekdayIntervalConfigId string `pulumi:"delayWeekdayIntervalConfigId"`
-}
-
-// GetEscalationPathSequencesNodeDelayInput is an input type that accepts GetEscalationPathSequencesNodeDelayArgs and GetEscalationPathSequencesNodeDelayOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeDelayInput` via:
-//
-//	GetEscalationPathSequencesNodeDelayArgs{...}
-type GetEscalationPathSequencesNodeDelayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeDelayOutput() GetEscalationPathSequencesNodeDelayOutput
-	ToGetEscalationPathSequencesNodeDelayOutputWithContext(context.Context) GetEscalationPathSequencesNodeDelayOutput
-}
-
-type GetEscalationPathSequencesNodeDelayArgs struct {
-	// If the delay is relative to a time window, this defines whether we advance when the window is active or inactive. Possible values are: `active`, `inactive`.
-	DelayIntervalCondition pulumi.StringInput `pulumi:"delayIntervalCondition"`
-	// How long to delay before advancing to the next node in the path, in seconds
-	DelaySeconds pulumi.IntInput `pulumi:"delaySeconds"`
-	// If the delay is relative to a time window, this identifies which window it is relative to
-	DelayWeekdayIntervalConfigId pulumi.StringInput `pulumi:"delayWeekdayIntervalConfigId"`
-}
-
-func (GetEscalationPathSequencesNodeDelayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeDelay)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeDelayArgs) ToGetEscalationPathSequencesNodeDelayOutput() GetEscalationPathSequencesNodeDelayOutput {
-	return i.ToGetEscalationPathSequencesNodeDelayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeDelayArgs) ToGetEscalationPathSequencesNodeDelayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeDelayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeDelayOutput)
-}
-
-type GetEscalationPathSequencesNodeDelayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeDelayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeDelay)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeDelayOutput) ToGetEscalationPathSequencesNodeDelayOutput() GetEscalationPathSequencesNodeDelayOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeDelayOutput) ToGetEscalationPathSequencesNodeDelayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeDelayOutput {
-	return o
-}
-
-// If the delay is relative to a time window, this defines whether we advance when the window is active or inactive. Possible values are: `active`, `inactive`.
-func (o GetEscalationPathSequencesNodeDelayOutput) DelayIntervalCondition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeDelay) string { return v.DelayIntervalCondition }).(pulumi.StringOutput)
-}
-
-// How long to delay before advancing to the next node in the path, in seconds
-func (o GetEscalationPathSequencesNodeDelayOutput) DelaySeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeDelay) int { return v.DelaySeconds }).(pulumi.IntOutput)
-}
-
-// If the delay is relative to a time window, this identifies which window it is relative to
-func (o GetEscalationPathSequencesNodeDelayOutput) DelayWeekdayIntervalConfigId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeDelay) string { return v.DelayWeekdayIntervalConfigId }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeEscalationPath struct {
-	// The ID of the escalation path to reassign to
-	EscalationPathId string `pulumi:"escalationPathId"`
-}
-
-// GetEscalationPathSequencesNodeEscalationPathInput is an input type that accepts GetEscalationPathSequencesNodeEscalationPathArgs and GetEscalationPathSequencesNodeEscalationPathOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeEscalationPathInput` via:
-//
-//	GetEscalationPathSequencesNodeEscalationPathArgs{...}
-type GetEscalationPathSequencesNodeEscalationPathInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeEscalationPathOutput() GetEscalationPathSequencesNodeEscalationPathOutput
-	ToGetEscalationPathSequencesNodeEscalationPathOutputWithContext(context.Context) GetEscalationPathSequencesNodeEscalationPathOutput
-}
-
-type GetEscalationPathSequencesNodeEscalationPathArgs struct {
-	// The ID of the escalation path to reassign to
-	EscalationPathId pulumi.StringInput `pulumi:"escalationPathId"`
-}
-
-func (GetEscalationPathSequencesNodeEscalationPathArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeEscalationPath)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeEscalationPathArgs) ToGetEscalationPathSequencesNodeEscalationPathOutput() GetEscalationPathSequencesNodeEscalationPathOutput {
-	return i.ToGetEscalationPathSequencesNodeEscalationPathOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeEscalationPathArgs) ToGetEscalationPathSequencesNodeEscalationPathOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeEscalationPathOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeEscalationPathOutput)
-}
-
-type GetEscalationPathSequencesNodeEscalationPathOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeEscalationPathOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeEscalationPath)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeEscalationPathOutput) ToGetEscalationPathSequencesNodeEscalationPathOutput() GetEscalationPathSequencesNodeEscalationPathOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeEscalationPathOutput) ToGetEscalationPathSequencesNodeEscalationPathOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeEscalationPathOutput {
-	return o
-}
-
-// The ID of the escalation path to reassign to
-func (o GetEscalationPathSequencesNodeEscalationPathOutput) EscalationPathId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeEscalationPath) string { return v.EscalationPathId }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeLevel struct {
-	// Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks. Possible values are: `all`, `first`.
-	AckMode          string                                              `pulumi:"ackMode"`
-	RetryConfig      GetEscalationPathSequencesNodeLevelRetryConfig      `pulumi:"retryConfig"`
-	RoundRobinConfig GetEscalationPathSequencesNodeLevelRoundRobinConfig `pulumi:"roundRobinConfig"`
-	// The targets (users or schedules) for this level
-	Targets []GetEscalationPathSequencesNodeLevelTarget `pulumi:"targets"`
-	// If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
-	TimeToAckIntervalCondition string `pulumi:"timeToAckIntervalCondition"`
-	// How long should we wait for this level to acknowledge before proceeding to the next node in the path?
-	TimeToAckSeconds int `pulumi:"timeToAckSeconds"`
-	// If the time to ack is relative to a time window, this identifies which window it is relative to
-	TimeToAckWeekdayIntervalConfigId string `pulumi:"timeToAckWeekdayIntervalConfigId"`
-}
-
-// GetEscalationPathSequencesNodeLevelInput is an input type that accepts GetEscalationPathSequencesNodeLevelArgs and GetEscalationPathSequencesNodeLevelOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeLevelInput` via:
-//
-//	GetEscalationPathSequencesNodeLevelArgs{...}
-type GetEscalationPathSequencesNodeLevelInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeLevelOutput() GetEscalationPathSequencesNodeLevelOutput
-	ToGetEscalationPathSequencesNodeLevelOutputWithContext(context.Context) GetEscalationPathSequencesNodeLevelOutput
-}
-
-type GetEscalationPathSequencesNodeLevelArgs struct {
-	// Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks. Possible values are: `all`, `first`.
-	AckMode          pulumi.StringInput                                       `pulumi:"ackMode"`
-	RetryConfig      GetEscalationPathSequencesNodeLevelRetryConfigInput      `pulumi:"retryConfig"`
-	RoundRobinConfig GetEscalationPathSequencesNodeLevelRoundRobinConfigInput `pulumi:"roundRobinConfig"`
-	// The targets (users or schedules) for this level
-	Targets GetEscalationPathSequencesNodeLevelTargetArrayInput `pulumi:"targets"`
-	// If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
-	TimeToAckIntervalCondition pulumi.StringInput `pulumi:"timeToAckIntervalCondition"`
-	// How long should we wait for this level to acknowledge before proceeding to the next node in the path?
-	TimeToAckSeconds pulumi.IntInput `pulumi:"timeToAckSeconds"`
-	// If the time to ack is relative to a time window, this identifies which window it is relative to
-	TimeToAckWeekdayIntervalConfigId pulumi.StringInput `pulumi:"timeToAckWeekdayIntervalConfigId"`
-}
-
-func (GetEscalationPathSequencesNodeLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevel)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeLevelArgs) ToGetEscalationPathSequencesNodeLevelOutput() GetEscalationPathSequencesNodeLevelOutput {
-	return i.ToGetEscalationPathSequencesNodeLevelOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeLevelArgs) ToGetEscalationPathSequencesNodeLevelOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeLevelOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevel)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeLevelOutput) ToGetEscalationPathSequencesNodeLevelOutput() GetEscalationPathSequencesNodeLevelOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeLevelOutput) ToGetEscalationPathSequencesNodeLevelOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelOutput {
-	return o
-}
-
-// Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks. Possible values are: `all`, `first`.
-func (o GetEscalationPathSequencesNodeLevelOutput) AckMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevel) string { return v.AckMode }).(pulumi.StringOutput)
-}
-
-func (o GetEscalationPathSequencesNodeLevelOutput) RetryConfig() GetEscalationPathSequencesNodeLevelRetryConfigOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevel) GetEscalationPathSequencesNodeLevelRetryConfig {
-		return v.RetryConfig
-	}).(GetEscalationPathSequencesNodeLevelRetryConfigOutput)
-}
-
-func (o GetEscalationPathSequencesNodeLevelOutput) RoundRobinConfig() GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevel) GetEscalationPathSequencesNodeLevelRoundRobinConfig {
-		return v.RoundRobinConfig
-	}).(GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput)
-}
-
-// The targets (users or schedules) for this level
-func (o GetEscalationPathSequencesNodeLevelOutput) Targets() GetEscalationPathSequencesNodeLevelTargetArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevel) []GetEscalationPathSequencesNodeLevelTarget {
-		return v.Targets
-	}).(GetEscalationPathSequencesNodeLevelTargetArrayOutput)
-}
-
-// If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
-func (o GetEscalationPathSequencesNodeLevelOutput) TimeToAckIntervalCondition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevel) string { return v.TimeToAckIntervalCondition }).(pulumi.StringOutput)
-}
-
-// How long should we wait for this level to acknowledge before proceeding to the next node in the path?
-func (o GetEscalationPathSequencesNodeLevelOutput) TimeToAckSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevel) int { return v.TimeToAckSeconds }).(pulumi.IntOutput)
-}
-
-// If the time to ack is relative to a time window, this identifies which window it is relative to
-func (o GetEscalationPathSequencesNodeLevelOutput) TimeToAckWeekdayIntervalConfigId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevel) string { return v.TimeToAckWeekdayIntervalConfigId }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelRetryConfig struct {
-	// The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
-	Attempts int `pulumi:"attempts"`
-	// How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
-	IntervalSeconds int `pulumi:"intervalSeconds"`
-}
-
-// GetEscalationPathSequencesNodeLevelRetryConfigInput is an input type that accepts GetEscalationPathSequencesNodeLevelRetryConfigArgs and GetEscalationPathSequencesNodeLevelRetryConfigOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeLevelRetryConfigInput` via:
-//
-//	GetEscalationPathSequencesNodeLevelRetryConfigArgs{...}
-type GetEscalationPathSequencesNodeLevelRetryConfigInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeLevelRetryConfigOutput() GetEscalationPathSequencesNodeLevelRetryConfigOutput
-	ToGetEscalationPathSequencesNodeLevelRetryConfigOutputWithContext(context.Context) GetEscalationPathSequencesNodeLevelRetryConfigOutput
-}
-
-type GetEscalationPathSequencesNodeLevelRetryConfigArgs struct {
-	// The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
-	Attempts pulumi.IntInput `pulumi:"attempts"`
-	// How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
-	IntervalSeconds pulumi.IntInput `pulumi:"intervalSeconds"`
-}
-
-func (GetEscalationPathSequencesNodeLevelRetryConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevelRetryConfig)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeLevelRetryConfigArgs) ToGetEscalationPathSequencesNodeLevelRetryConfigOutput() GetEscalationPathSequencesNodeLevelRetryConfigOutput {
-	return i.ToGetEscalationPathSequencesNodeLevelRetryConfigOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeLevelRetryConfigArgs) ToGetEscalationPathSequencesNodeLevelRetryConfigOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelRetryConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeLevelRetryConfigOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelRetryConfigOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeLevelRetryConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevelRetryConfig)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeLevelRetryConfigOutput) ToGetEscalationPathSequencesNodeLevelRetryConfigOutput() GetEscalationPathSequencesNodeLevelRetryConfigOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeLevelRetryConfigOutput) ToGetEscalationPathSequencesNodeLevelRetryConfigOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelRetryConfigOutput {
-	return o
-}
-
-// The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
-func (o GetEscalationPathSequencesNodeLevelRetryConfigOutput) Attempts() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelRetryConfig) int { return v.Attempts }).(pulumi.IntOutput)
-}
-
-// How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
-func (o GetEscalationPathSequencesNodeLevelRetryConfigOutput) IntervalSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelRetryConfig) int { return v.IntervalSeconds }).(pulumi.IntOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelRoundRobinConfig struct {
-	// Whether round robin is enabled for this level
-	Enabled bool `pulumi:"enabled"`
-	// How long should we wait before rotating to the next target in a round robin, if not set will stick with a single target per level.
-	RotateAfterSeconds int `pulumi:"rotateAfterSeconds"`
-}
-
-// GetEscalationPathSequencesNodeLevelRoundRobinConfigInput is an input type that accepts GetEscalationPathSequencesNodeLevelRoundRobinConfigArgs and GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeLevelRoundRobinConfigInput` via:
-//
-//	GetEscalationPathSequencesNodeLevelRoundRobinConfigArgs{...}
-type GetEscalationPathSequencesNodeLevelRoundRobinConfigInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeLevelRoundRobinConfigOutput() GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput
-	ToGetEscalationPathSequencesNodeLevelRoundRobinConfigOutputWithContext(context.Context) GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput
-}
-
-type GetEscalationPathSequencesNodeLevelRoundRobinConfigArgs struct {
-	// Whether round robin is enabled for this level
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// How long should we wait before rotating to the next target in a round robin, if not set will stick with a single target per level.
-	RotateAfterSeconds pulumi.IntInput `pulumi:"rotateAfterSeconds"`
-}
-
-func (GetEscalationPathSequencesNodeLevelRoundRobinConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevelRoundRobinConfig)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeLevelRoundRobinConfigArgs) ToGetEscalationPathSequencesNodeLevelRoundRobinConfigOutput() GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput {
-	return i.ToGetEscalationPathSequencesNodeLevelRoundRobinConfigOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeLevelRoundRobinConfigArgs) ToGetEscalationPathSequencesNodeLevelRoundRobinConfigOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevelRoundRobinConfig)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput) ToGetEscalationPathSequencesNodeLevelRoundRobinConfigOutput() GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput) ToGetEscalationPathSequencesNodeLevelRoundRobinConfigOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput {
-	return o
-}
-
-// Whether round robin is enabled for this level
-func (o GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelRoundRobinConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// How long should we wait before rotating to the next target in a round robin, if not set will stick with a single target per level.
-func (o GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput) RotateAfterSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelRoundRobinConfig) int { return v.RotateAfterSeconds }).(pulumi.IntOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelTarget struct {
-	// Uniquely identifies an entity of this type
-	Id string `pulumi:"id"`
-	// Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
-	ScheduleMode string `pulumi:"scheduleMode"`
-	// For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
-	SelectedRotaId string `pulumi:"selectedRotaId"`
-	// Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
-	Type string `pulumi:"type"`
-	// The urgency of this escalation path target. Possible values are: `high`, `low`.
-	Urgency string `pulumi:"urgency"`
-}
-
-// GetEscalationPathSequencesNodeLevelTargetInput is an input type that accepts GetEscalationPathSequencesNodeLevelTargetArgs and GetEscalationPathSequencesNodeLevelTargetOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeLevelTargetInput` via:
-//
-//	GetEscalationPathSequencesNodeLevelTargetArgs{...}
-type GetEscalationPathSequencesNodeLevelTargetInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeLevelTargetOutput() GetEscalationPathSequencesNodeLevelTargetOutput
-	ToGetEscalationPathSequencesNodeLevelTargetOutputWithContext(context.Context) GetEscalationPathSequencesNodeLevelTargetOutput
-}
-
-type GetEscalationPathSequencesNodeLevelTargetArgs struct {
-	// Uniquely identifies an entity of this type
-	Id pulumi.StringInput `pulumi:"id"`
-	// Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
-	ScheduleMode pulumi.StringInput `pulumi:"scheduleMode"`
-	// For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
-	SelectedRotaId pulumi.StringInput `pulumi:"selectedRotaId"`
-	// Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The urgency of this escalation path target. Possible values are: `high`, `low`.
-	Urgency pulumi.StringInput `pulumi:"urgency"`
-}
-
-func (GetEscalationPathSequencesNodeLevelTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevelTarget)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeLevelTargetArgs) ToGetEscalationPathSequencesNodeLevelTargetOutput() GetEscalationPathSequencesNodeLevelTargetOutput {
-	return i.ToGetEscalationPathSequencesNodeLevelTargetOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeLevelTargetArgs) ToGetEscalationPathSequencesNodeLevelTargetOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeLevelTargetOutput)
-}
-
-// GetEscalationPathSequencesNodeLevelTargetArrayInput is an input type that accepts GetEscalationPathSequencesNodeLevelTargetArray and GetEscalationPathSequencesNodeLevelTargetArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeLevelTargetArrayInput` via:
-//
-//	GetEscalationPathSequencesNodeLevelTargetArray{ GetEscalationPathSequencesNodeLevelTargetArgs{...} }
-type GetEscalationPathSequencesNodeLevelTargetArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeLevelTargetArrayOutput() GetEscalationPathSequencesNodeLevelTargetArrayOutput
-	ToGetEscalationPathSequencesNodeLevelTargetArrayOutputWithContext(context.Context) GetEscalationPathSequencesNodeLevelTargetArrayOutput
-}
-
-type GetEscalationPathSequencesNodeLevelTargetArray []GetEscalationPathSequencesNodeLevelTargetInput
-
-func (GetEscalationPathSequencesNodeLevelTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathSequencesNodeLevelTarget)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeLevelTargetArray) ToGetEscalationPathSequencesNodeLevelTargetArrayOutput() GetEscalationPathSequencesNodeLevelTargetArrayOutput {
-	return i.ToGetEscalationPathSequencesNodeLevelTargetArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeLevelTargetArray) ToGetEscalationPathSequencesNodeLevelTargetArrayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelTargetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeLevelTargetArrayOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelTargetOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeLevelTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLevelTarget)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeLevelTargetOutput) ToGetEscalationPathSequencesNodeLevelTargetOutput() GetEscalationPathSequencesNodeLevelTargetOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeLevelTargetOutput) ToGetEscalationPathSequencesNodeLevelTargetOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelTargetOutput {
-	return o
-}
-
-// Uniquely identifies an entity of this type
-func (o GetEscalationPathSequencesNodeLevelTargetOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelTarget) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
-func (o GetEscalationPathSequencesNodeLevelTargetOutput) ScheduleMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelTarget) string { return v.ScheduleMode }).(pulumi.StringOutput)
-}
-
-// For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
-func (o GetEscalationPathSequencesNodeLevelTargetOutput) SelectedRotaId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelTarget) string { return v.SelectedRotaId }).(pulumi.StringOutput)
-}
-
-// Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
-func (o GetEscalationPathSequencesNodeLevelTargetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelTarget) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The urgency of this escalation path target. Possible values are: `high`, `low`.
-func (o GetEscalationPathSequencesNodeLevelTargetOutput) Urgency() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLevelTarget) string { return v.Urgency }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeLevelTargetArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeLevelTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathSequencesNodeLevelTarget)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeLevelTargetArrayOutput) ToGetEscalationPathSequencesNodeLevelTargetArrayOutput() GetEscalationPathSequencesNodeLevelTargetArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeLevelTargetArrayOutput) ToGetEscalationPathSequencesNodeLevelTargetArrayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLevelTargetArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeLevelTargetArrayOutput) Index(i pulumi.IntInput) GetEscalationPathSequencesNodeLevelTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathSequencesNodeLevelTarget {
-		return vs[0].([]GetEscalationPathSequencesNodeLevelTarget)[vs[1].(int)]
-	}).(GetEscalationPathSequencesNodeLevelTargetOutput)
-}
-
-type GetEscalationPathSequencesNodeLoop struct {
-	// The `id` of the node to repeat from.
-	BackTo string `pulumi:"backTo"`
-	// How many times to repeat these nodes
-	Times int `pulumi:"times"`
-}
-
-// GetEscalationPathSequencesNodeLoopInput is an input type that accepts GetEscalationPathSequencesNodeLoopArgs and GetEscalationPathSequencesNodeLoopOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeLoopInput` via:
-//
-//	GetEscalationPathSequencesNodeLoopArgs{...}
-type GetEscalationPathSequencesNodeLoopInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeLoopOutput() GetEscalationPathSequencesNodeLoopOutput
-	ToGetEscalationPathSequencesNodeLoopOutputWithContext(context.Context) GetEscalationPathSequencesNodeLoopOutput
-}
-
-type GetEscalationPathSequencesNodeLoopArgs struct {
-	// The `id` of the node to repeat from.
-	BackTo pulumi.StringInput `pulumi:"backTo"`
-	// How many times to repeat these nodes
-	Times pulumi.IntInput `pulumi:"times"`
-}
-
-func (GetEscalationPathSequencesNodeLoopArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLoop)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeLoopArgs) ToGetEscalationPathSequencesNodeLoopOutput() GetEscalationPathSequencesNodeLoopOutput {
-	return i.ToGetEscalationPathSequencesNodeLoopOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeLoopArgs) ToGetEscalationPathSequencesNodeLoopOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLoopOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeLoopOutput)
-}
-
-type GetEscalationPathSequencesNodeLoopOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeLoopOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeLoop)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeLoopOutput) ToGetEscalationPathSequencesNodeLoopOutput() GetEscalationPathSequencesNodeLoopOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeLoopOutput) ToGetEscalationPathSequencesNodeLoopOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeLoopOutput {
-	return o
-}
-
-// The `id` of the node to repeat from.
-func (o GetEscalationPathSequencesNodeLoopOutput) BackTo() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLoop) string { return v.BackTo }).(pulumi.StringOutput)
-}
-
-// How many times to repeat these nodes
-func (o GetEscalationPathSequencesNodeLoopOutput) Times() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeLoop) int { return v.Times }).(pulumi.IntOutput)
-}
-
-type GetEscalationPathSequencesNodeNotifyChannel struct {
-	// The targets (Slack channels) for this level
-	Targets []GetEscalationPathSequencesNodeNotifyChannelTarget `pulumi:"targets"`
-	// If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
-	TimeToAckIntervalCondition string `pulumi:"timeToAckIntervalCondition"`
-	// How long should we wait for this level to acknowledge before moving on to the next node in the path?
-	TimeToAckSeconds int `pulumi:"timeToAckSeconds"`
-	// If the time to ack is relative to a time window, this identifies which window it is relative to
-	TimeToAckWeekdayIntervalConfigId string `pulumi:"timeToAckWeekdayIntervalConfigId"`
-}
-
-// GetEscalationPathSequencesNodeNotifyChannelInput is an input type that accepts GetEscalationPathSequencesNodeNotifyChannelArgs and GetEscalationPathSequencesNodeNotifyChannelOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeNotifyChannelInput` via:
-//
-//	GetEscalationPathSequencesNodeNotifyChannelArgs{...}
-type GetEscalationPathSequencesNodeNotifyChannelInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeNotifyChannelOutput() GetEscalationPathSequencesNodeNotifyChannelOutput
-	ToGetEscalationPathSequencesNodeNotifyChannelOutputWithContext(context.Context) GetEscalationPathSequencesNodeNotifyChannelOutput
-}
-
-type GetEscalationPathSequencesNodeNotifyChannelArgs struct {
-	// The targets (Slack channels) for this level
-	Targets GetEscalationPathSequencesNodeNotifyChannelTargetArrayInput `pulumi:"targets"`
-	// If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
-	TimeToAckIntervalCondition pulumi.StringInput `pulumi:"timeToAckIntervalCondition"`
-	// How long should we wait for this level to acknowledge before moving on to the next node in the path?
-	TimeToAckSeconds pulumi.IntInput `pulumi:"timeToAckSeconds"`
-	// If the time to ack is relative to a time window, this identifies which window it is relative to
-	TimeToAckWeekdayIntervalConfigId pulumi.StringInput `pulumi:"timeToAckWeekdayIntervalConfigId"`
-}
-
-func (GetEscalationPathSequencesNodeNotifyChannelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeNotifyChannel)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeNotifyChannelArgs) ToGetEscalationPathSequencesNodeNotifyChannelOutput() GetEscalationPathSequencesNodeNotifyChannelOutput {
-	return i.ToGetEscalationPathSequencesNodeNotifyChannelOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeNotifyChannelArgs) ToGetEscalationPathSequencesNodeNotifyChannelOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeNotifyChannelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeNotifyChannelOutput)
-}
-
-type GetEscalationPathSequencesNodeNotifyChannelOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeNotifyChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeNotifyChannel)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeNotifyChannelOutput) ToGetEscalationPathSequencesNodeNotifyChannelOutput() GetEscalationPathSequencesNodeNotifyChannelOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeNotifyChannelOutput) ToGetEscalationPathSequencesNodeNotifyChannelOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeNotifyChannelOutput {
-	return o
-}
-
-// The targets (Slack channels) for this level
-func (o GetEscalationPathSequencesNodeNotifyChannelOutput) Targets() GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannel) []GetEscalationPathSequencesNodeNotifyChannelTarget {
-		return v.Targets
-	}).(GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput)
-}
-
-// If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
-func (o GetEscalationPathSequencesNodeNotifyChannelOutput) TimeToAckIntervalCondition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannel) string { return v.TimeToAckIntervalCondition }).(pulumi.StringOutput)
-}
-
-// How long should we wait for this level to acknowledge before moving on to the next node in the path?
-func (o GetEscalationPathSequencesNodeNotifyChannelOutput) TimeToAckSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannel) int { return v.TimeToAckSeconds }).(pulumi.IntOutput)
-}
-
-// If the time to ack is relative to a time window, this identifies which window it is relative to
-func (o GetEscalationPathSequencesNodeNotifyChannelOutput) TimeToAckWeekdayIntervalConfigId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannel) string { return v.TimeToAckWeekdayIntervalConfigId }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeNotifyChannelTarget struct {
-	// Uniquely identifies an entity of this type
-	Id string `pulumi:"id"`
-	// Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
-	ScheduleMode string `pulumi:"scheduleMode"`
-	// For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
-	SelectedRotaId string `pulumi:"selectedRotaId"`
-	// Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
-	Type string `pulumi:"type"`
-	// The urgency of this escalation path target. Possible values are: `high`, `low`.
-	Urgency string `pulumi:"urgency"`
-}
-
-// GetEscalationPathSequencesNodeNotifyChannelTargetInput is an input type that accepts GetEscalationPathSequencesNodeNotifyChannelTargetArgs and GetEscalationPathSequencesNodeNotifyChannelTargetOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeNotifyChannelTargetInput` via:
-//
-//	GetEscalationPathSequencesNodeNotifyChannelTargetArgs{...}
-type GetEscalationPathSequencesNodeNotifyChannelTargetInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeNotifyChannelTargetOutput() GetEscalationPathSequencesNodeNotifyChannelTargetOutput
-	ToGetEscalationPathSequencesNodeNotifyChannelTargetOutputWithContext(context.Context) GetEscalationPathSequencesNodeNotifyChannelTargetOutput
-}
-
-type GetEscalationPathSequencesNodeNotifyChannelTargetArgs struct {
-	// Uniquely identifies an entity of this type
-	Id pulumi.StringInput `pulumi:"id"`
-	// Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
-	ScheduleMode pulumi.StringInput `pulumi:"scheduleMode"`
-	// For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
-	SelectedRotaId pulumi.StringInput `pulumi:"selectedRotaId"`
-	// Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The urgency of this escalation path target. Possible values are: `high`, `low`.
-	Urgency pulumi.StringInput `pulumi:"urgency"`
-}
-
-func (GetEscalationPathSequencesNodeNotifyChannelTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeNotifyChannelTarget)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeNotifyChannelTargetArgs) ToGetEscalationPathSequencesNodeNotifyChannelTargetOutput() GetEscalationPathSequencesNodeNotifyChannelTargetOutput {
-	return i.ToGetEscalationPathSequencesNodeNotifyChannelTargetOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeNotifyChannelTargetArgs) ToGetEscalationPathSequencesNodeNotifyChannelTargetOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeNotifyChannelTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeNotifyChannelTargetOutput)
-}
-
-// GetEscalationPathSequencesNodeNotifyChannelTargetArrayInput is an input type that accepts GetEscalationPathSequencesNodeNotifyChannelTargetArray and GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathSequencesNodeNotifyChannelTargetArrayInput` via:
-//
-//	GetEscalationPathSequencesNodeNotifyChannelTargetArray{ GetEscalationPathSequencesNodeNotifyChannelTargetArgs{...} }
-type GetEscalationPathSequencesNodeNotifyChannelTargetArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput() GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput
-	ToGetEscalationPathSequencesNodeNotifyChannelTargetArrayOutputWithContext(context.Context) GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput
-}
-
-type GetEscalationPathSequencesNodeNotifyChannelTargetArray []GetEscalationPathSequencesNodeNotifyChannelTargetInput
-
-func (GetEscalationPathSequencesNodeNotifyChannelTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathSequencesNodeNotifyChannelTarget)(nil)).Elem()
-}
-
-func (i GetEscalationPathSequencesNodeNotifyChannelTargetArray) ToGetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput() GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput {
-	return i.ToGetEscalationPathSequencesNodeNotifyChannelTargetArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathSequencesNodeNotifyChannelTargetArray) ToGetEscalationPathSequencesNodeNotifyChannelTargetArrayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput)
-}
-
-type GetEscalationPathSequencesNodeNotifyChannelTargetOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeNotifyChannelTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathSequencesNodeNotifyChannelTarget)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetOutput) ToGetEscalationPathSequencesNodeNotifyChannelTargetOutput() GetEscalationPathSequencesNodeNotifyChannelTargetOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetOutput) ToGetEscalationPathSequencesNodeNotifyChannelTargetOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeNotifyChannelTargetOutput {
-	return o
-}
-
-// Uniquely identifies an entity of this type
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannelTarget) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetOutput) ScheduleMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannelTarget) string { return v.ScheduleMode }).(pulumi.StringOutput)
-}
-
-// For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetOutput) SelectedRotaId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannelTarget) string { return v.SelectedRotaId }).(pulumi.StringOutput)
-}
-
-// Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannelTarget) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The urgency of this escalation path target. Possible values are: `high`, `low`.
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetOutput) Urgency() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathSequencesNodeNotifyChannelTarget) string { return v.Urgency }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathSequencesNodeNotifyChannelTarget)(nil)).Elem()
-}
-
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput) ToGetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput() GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput) ToGetEscalationPathSequencesNodeNotifyChannelTargetArrayOutputWithContext(ctx context.Context) GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput) Index(i pulumi.IntInput) GetEscalationPathSequencesNodeNotifyChannelTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathSequencesNodeNotifyChannelTarget {
-		return vs[0].([]GetEscalationPathSequencesNodeNotifyChannelTarget)[vs[1].(int)]
-	}).(GetEscalationPathSequencesNodeNotifyChannelTargetOutput)
-}
-
-type GetEscalationPathWorkingHour struct {
-	// The unique identifier for this set of working intervals
-	Id string `pulumi:"id"`
-	// A human readable label for this set of working intervals
-	Name string `pulumi:"name"`
-	// How to interpret all the intervals
-	Timezone         string                                        `pulumi:"timezone"`
-	WeekdayIntervals []GetEscalationPathWorkingHourWeekdayInterval `pulumi:"weekdayIntervals"`
-}
-
-// GetEscalationPathWorkingHourInput is an input type that accepts GetEscalationPathWorkingHourArgs and GetEscalationPathWorkingHourOutput values.
-// You can construct a concrete instance of `GetEscalationPathWorkingHourInput` via:
-//
-//	GetEscalationPathWorkingHourArgs{...}
-type GetEscalationPathWorkingHourInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathWorkingHourOutput() GetEscalationPathWorkingHourOutput
-	ToGetEscalationPathWorkingHourOutputWithContext(context.Context) GetEscalationPathWorkingHourOutput
-}
-
-type GetEscalationPathWorkingHourArgs struct {
-	// The unique identifier for this set of working intervals
-	Id pulumi.StringInput `pulumi:"id"`
-	// A human readable label for this set of working intervals
-	Name pulumi.StringInput `pulumi:"name"`
-	// How to interpret all the intervals
-	Timezone         pulumi.StringInput                                    `pulumi:"timezone"`
-	WeekdayIntervals GetEscalationPathWorkingHourWeekdayIntervalArrayInput `pulumi:"weekdayIntervals"`
-}
-
-func (GetEscalationPathWorkingHourArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathWorkingHour)(nil)).Elem()
-}
-
-func (i GetEscalationPathWorkingHourArgs) ToGetEscalationPathWorkingHourOutput() GetEscalationPathWorkingHourOutput {
-	return i.ToGetEscalationPathWorkingHourOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathWorkingHourArgs) ToGetEscalationPathWorkingHourOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathWorkingHourOutput)
-}
-
-// GetEscalationPathWorkingHourArrayInput is an input type that accepts GetEscalationPathWorkingHourArray and GetEscalationPathWorkingHourArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathWorkingHourArrayInput` via:
-//
-//	GetEscalationPathWorkingHourArray{ GetEscalationPathWorkingHourArgs{...} }
-type GetEscalationPathWorkingHourArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathWorkingHourArrayOutput() GetEscalationPathWorkingHourArrayOutput
-	ToGetEscalationPathWorkingHourArrayOutputWithContext(context.Context) GetEscalationPathWorkingHourArrayOutput
-}
-
-type GetEscalationPathWorkingHourArray []GetEscalationPathWorkingHourInput
-
-func (GetEscalationPathWorkingHourArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathWorkingHour)(nil)).Elem()
-}
-
-func (i GetEscalationPathWorkingHourArray) ToGetEscalationPathWorkingHourArrayOutput() GetEscalationPathWorkingHourArrayOutput {
-	return i.ToGetEscalationPathWorkingHourArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathWorkingHourArray) ToGetEscalationPathWorkingHourArrayOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathWorkingHourArrayOutput)
-}
-
-type GetEscalationPathWorkingHourOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathWorkingHourOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathWorkingHour)(nil)).Elem()
-}
-
-func (o GetEscalationPathWorkingHourOutput) ToGetEscalationPathWorkingHourOutput() GetEscalationPathWorkingHourOutput {
-	return o
-}
-
-func (o GetEscalationPathWorkingHourOutput) ToGetEscalationPathWorkingHourOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourOutput {
-	return o
-}
-
-// The unique identifier for this set of working intervals
-func (o GetEscalationPathWorkingHourOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathWorkingHour) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// A human readable label for this set of working intervals
-func (o GetEscalationPathWorkingHourOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathWorkingHour) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// How to interpret all the intervals
-func (o GetEscalationPathWorkingHourOutput) Timezone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathWorkingHour) string { return v.Timezone }).(pulumi.StringOutput)
-}
-
-func (o GetEscalationPathWorkingHourOutput) WeekdayIntervals() GetEscalationPathWorkingHourWeekdayIntervalArrayOutput {
-	return o.ApplyT(func(v GetEscalationPathWorkingHour) []GetEscalationPathWorkingHourWeekdayInterval {
-		return v.WeekdayIntervals
-	}).(GetEscalationPathWorkingHourWeekdayIntervalArrayOutput)
-}
-
-type GetEscalationPathWorkingHourArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathWorkingHourArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathWorkingHour)(nil)).Elem()
-}
-
-func (o GetEscalationPathWorkingHourArrayOutput) ToGetEscalationPathWorkingHourArrayOutput() GetEscalationPathWorkingHourArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathWorkingHourArrayOutput) ToGetEscalationPathWorkingHourArrayOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathWorkingHourArrayOutput) Index(i pulumi.IntInput) GetEscalationPathWorkingHourOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathWorkingHour {
-		return vs[0].([]GetEscalationPathWorkingHour)[vs[1].(int)]
-	}).(GetEscalationPathWorkingHourOutput)
-}
-
-type GetEscalationPathWorkingHourWeekdayInterval struct {
-	// End time of the interval, in 24hr format
-	EndTime string `pulumi:"endTime"`
-	// Start time of the interval, in 24hr format
-	StartTime string `pulumi:"startTime"`
-	// Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	Weekday string `pulumi:"weekday"`
-}
-
-// GetEscalationPathWorkingHourWeekdayIntervalInput is an input type that accepts GetEscalationPathWorkingHourWeekdayIntervalArgs and GetEscalationPathWorkingHourWeekdayIntervalOutput values.
-// You can construct a concrete instance of `GetEscalationPathWorkingHourWeekdayIntervalInput` via:
-//
-//	GetEscalationPathWorkingHourWeekdayIntervalArgs{...}
-type GetEscalationPathWorkingHourWeekdayIntervalInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathWorkingHourWeekdayIntervalOutput() GetEscalationPathWorkingHourWeekdayIntervalOutput
-	ToGetEscalationPathWorkingHourWeekdayIntervalOutputWithContext(context.Context) GetEscalationPathWorkingHourWeekdayIntervalOutput
-}
-
-type GetEscalationPathWorkingHourWeekdayIntervalArgs struct {
-	// End time of the interval, in 24hr format
-	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// Start time of the interval, in 24hr format
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-	Weekday pulumi.StringInput `pulumi:"weekday"`
-}
-
-func (GetEscalationPathWorkingHourWeekdayIntervalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (i GetEscalationPathWorkingHourWeekdayIntervalArgs) ToGetEscalationPathWorkingHourWeekdayIntervalOutput() GetEscalationPathWorkingHourWeekdayIntervalOutput {
-	return i.ToGetEscalationPathWorkingHourWeekdayIntervalOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathWorkingHourWeekdayIntervalArgs) ToGetEscalationPathWorkingHourWeekdayIntervalOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourWeekdayIntervalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathWorkingHourWeekdayIntervalOutput)
-}
-
-// GetEscalationPathWorkingHourWeekdayIntervalArrayInput is an input type that accepts GetEscalationPathWorkingHourWeekdayIntervalArray and GetEscalationPathWorkingHourWeekdayIntervalArrayOutput values.
-// You can construct a concrete instance of `GetEscalationPathWorkingHourWeekdayIntervalArrayInput` via:
-//
-//	GetEscalationPathWorkingHourWeekdayIntervalArray{ GetEscalationPathWorkingHourWeekdayIntervalArgs{...} }
-type GetEscalationPathWorkingHourWeekdayIntervalArrayInput interface {
-	pulumi.Input
-
-	ToGetEscalationPathWorkingHourWeekdayIntervalArrayOutput() GetEscalationPathWorkingHourWeekdayIntervalArrayOutput
-	ToGetEscalationPathWorkingHourWeekdayIntervalArrayOutputWithContext(context.Context) GetEscalationPathWorkingHourWeekdayIntervalArrayOutput
-}
-
-type GetEscalationPathWorkingHourWeekdayIntervalArray []GetEscalationPathWorkingHourWeekdayIntervalInput
-
-func (GetEscalationPathWorkingHourWeekdayIntervalArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (i GetEscalationPathWorkingHourWeekdayIntervalArray) ToGetEscalationPathWorkingHourWeekdayIntervalArrayOutput() GetEscalationPathWorkingHourWeekdayIntervalArrayOutput {
-	return i.ToGetEscalationPathWorkingHourWeekdayIntervalArrayOutputWithContext(context.Background())
-}
-
-func (i GetEscalationPathWorkingHourWeekdayIntervalArray) ToGetEscalationPathWorkingHourWeekdayIntervalArrayOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourWeekdayIntervalArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetEscalationPathWorkingHourWeekdayIntervalArrayOutput)
-}
-
-type GetEscalationPathWorkingHourWeekdayIntervalOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathWorkingHourWeekdayIntervalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetEscalationPathWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (o GetEscalationPathWorkingHourWeekdayIntervalOutput) ToGetEscalationPathWorkingHourWeekdayIntervalOutput() GetEscalationPathWorkingHourWeekdayIntervalOutput {
-	return o
-}
-
-func (o GetEscalationPathWorkingHourWeekdayIntervalOutput) ToGetEscalationPathWorkingHourWeekdayIntervalOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourWeekdayIntervalOutput {
-	return o
-}
-
-// End time of the interval, in 24hr format
-func (o GetEscalationPathWorkingHourWeekdayIntervalOutput) EndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathWorkingHourWeekdayInterval) string { return v.EndTime }).(pulumi.StringOutput)
-}
-
-// Start time of the interval, in 24hr format
-func (o GetEscalationPathWorkingHourWeekdayIntervalOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathWorkingHourWeekdayInterval) string { return v.StartTime }).(pulumi.StringOutput)
-}
-
-// Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
-func (o GetEscalationPathWorkingHourWeekdayIntervalOutput) Weekday() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEscalationPathWorkingHourWeekdayInterval) string { return v.Weekday }).(pulumi.StringOutput)
-}
-
-type GetEscalationPathWorkingHourWeekdayIntervalArrayOutput struct{ *pulumi.OutputState }
-
-func (GetEscalationPathWorkingHourWeekdayIntervalArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetEscalationPathWorkingHourWeekdayInterval)(nil)).Elem()
-}
-
-func (o GetEscalationPathWorkingHourWeekdayIntervalArrayOutput) ToGetEscalationPathWorkingHourWeekdayIntervalArrayOutput() GetEscalationPathWorkingHourWeekdayIntervalArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathWorkingHourWeekdayIntervalArrayOutput) ToGetEscalationPathWorkingHourWeekdayIntervalArrayOutputWithContext(ctx context.Context) GetEscalationPathWorkingHourWeekdayIntervalArrayOutput {
-	return o
-}
-
-func (o GetEscalationPathWorkingHourWeekdayIntervalArrayOutput) Index(i pulumi.IntInput) GetEscalationPathWorkingHourWeekdayIntervalOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEscalationPathWorkingHourWeekdayInterval {
-		return vs[0].([]GetEscalationPathWorkingHourWeekdayInterval)[vs[1].(int)]
-	}).(GetEscalationPathWorkingHourWeekdayIntervalOutput)
-}
-
-type GetIncidentTemplateExpression struct {
-	ElseBranch GetIncidentTemplateExpressionElseBranch `pulumi:"elseBranch"`
-	// The human readable label of the expression
-	Label      string                                   `pulumi:"label"`
-	Operations []GetIncidentTemplateExpressionOperation `pulumi:"operations"`
-	// A short ID that can be used to reference the expression
-	Reference string `pulumi:"reference"`
-	// The root reference for this expression (i.e. where the expression starts)
-	RootReference string `pulumi:"rootReference"`
-}
-
-// GetIncidentTemplateExpressionInput is an input type that accepts GetIncidentTemplateExpressionArgs and GetIncidentTemplateExpressionOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionInput` via:
-//
-//	GetIncidentTemplateExpressionArgs{...}
-type GetIncidentTemplateExpressionInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOutput() GetIncidentTemplateExpressionOutput
-	ToGetIncidentTemplateExpressionOutputWithContext(context.Context) GetIncidentTemplateExpressionOutput
-}
-
-type GetIncidentTemplateExpressionArgs struct {
-	ElseBranch GetIncidentTemplateExpressionElseBranchInput `pulumi:"elseBranch"`
-	// The human readable label of the expression
-	Label      pulumi.StringInput                               `pulumi:"label"`
-	Operations GetIncidentTemplateExpressionOperationArrayInput `pulumi:"operations"`
-	// A short ID that can be used to reference the expression
-	Reference pulumi.StringInput `pulumi:"reference"`
-	// The root reference for this expression (i.e. where the expression starts)
-	RootReference pulumi.StringInput `pulumi:"rootReference"`
-}
-
-func (GetIncidentTemplateExpressionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpression)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionArgs) ToGetIncidentTemplateExpressionOutput() GetIncidentTemplateExpressionOutput {
-	return i.ToGetIncidentTemplateExpressionOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionArgs) ToGetIncidentTemplateExpressionOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOutput)
-}
-
-// GetIncidentTemplateExpressionArrayInput is an input type that accepts GetIncidentTemplateExpressionArray and GetIncidentTemplateExpressionArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionArrayInput` via:
-//
-//	GetIncidentTemplateExpressionArray{ GetIncidentTemplateExpressionArgs{...} }
-type GetIncidentTemplateExpressionArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionArrayOutput() GetIncidentTemplateExpressionArrayOutput
-	ToGetIncidentTemplateExpressionArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionArrayOutput
-}
-
-type GetIncidentTemplateExpressionArray []GetIncidentTemplateExpressionInput
-
-func (GetIncidentTemplateExpressionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpression)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionArray) ToGetIncidentTemplateExpressionArrayOutput() GetIncidentTemplateExpressionArrayOutput {
-	return i.ToGetIncidentTemplateExpressionArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionArray) ToGetIncidentTemplateExpressionArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpression)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOutput) ToGetIncidentTemplateExpressionOutput() GetIncidentTemplateExpressionOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOutput) ToGetIncidentTemplateExpressionOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOutput) ElseBranch() GetIncidentTemplateExpressionElseBranchOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpression) GetIncidentTemplateExpressionElseBranch { return v.ElseBranch }).(GetIncidentTemplateExpressionElseBranchOutput)
-}
-
-// The human readable label of the expression
-func (o GetIncidentTemplateExpressionOutput) Label() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpression) string { return v.Label }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOutput) Operations() GetIncidentTemplateExpressionOperationArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpression) []GetIncidentTemplateExpressionOperation { return v.Operations }).(GetIncidentTemplateExpressionOperationArrayOutput)
-}
-
-// A short ID that can be used to reference the expression
-func (o GetIncidentTemplateExpressionOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpression) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-// The root reference for this expression (i.e. where the expression starts)
-func (o GetIncidentTemplateExpressionOutput) RootReference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpression) string { return v.RootReference }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpression)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionArrayOutput) ToGetIncidentTemplateExpressionArrayOutput() GetIncidentTemplateExpressionArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionArrayOutput) ToGetIncidentTemplateExpressionArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpression {
-		return vs[0].([]GetIncidentTemplateExpression)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranch struct {
-	Result GetIncidentTemplateExpressionElseBranchResult `pulumi:"result"`
-}
-
-// GetIncidentTemplateExpressionElseBranchInput is an input type that accepts GetIncidentTemplateExpressionElseBranchArgs and GetIncidentTemplateExpressionElseBranchOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionElseBranchInput` via:
-//
-//	GetIncidentTemplateExpressionElseBranchArgs{...}
-type GetIncidentTemplateExpressionElseBranchInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionElseBranchOutput() GetIncidentTemplateExpressionElseBranchOutput
-	ToGetIncidentTemplateExpressionElseBranchOutputWithContext(context.Context) GetIncidentTemplateExpressionElseBranchOutput
-}
-
-type GetIncidentTemplateExpressionElseBranchArgs struct {
-	Result GetIncidentTemplateExpressionElseBranchResultInput `pulumi:"result"`
-}
-
-func (GetIncidentTemplateExpressionElseBranchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranch)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionElseBranchArgs) ToGetIncidentTemplateExpressionElseBranchOutput() GetIncidentTemplateExpressionElseBranchOutput {
-	return i.ToGetIncidentTemplateExpressionElseBranchOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionElseBranchArgs) ToGetIncidentTemplateExpressionElseBranchOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionElseBranchOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionElseBranchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranch)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionElseBranchOutput) ToGetIncidentTemplateExpressionElseBranchOutput() GetIncidentTemplateExpressionElseBranchOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionElseBranchOutput) ToGetIncidentTemplateExpressionElseBranchOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionElseBranchOutput) Result() GetIncidentTemplateExpressionElseBranchResultOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranch) GetIncidentTemplateExpressionElseBranchResult {
-		return v.Result
-	}).(GetIncidentTemplateExpressionElseBranchResultOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchResult struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    []GetIncidentTemplateExpressionElseBranchResultArrayValue `pulumi:"arrayValues"`
-	ExpressionRef  string                                                    `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionElseBranchResultValue        `pulumi:"value"`
-	ValueLiteral   string                                                    `pulumi:"valueLiteral"`
-	ValueReference string                                                    `pulumi:"valueReference"`
-	Values         []string                                                  `pulumi:"values"`
-}
-
-// GetIncidentTemplateExpressionElseBranchResultInput is an input type that accepts GetIncidentTemplateExpressionElseBranchResultArgs and GetIncidentTemplateExpressionElseBranchResultOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionElseBranchResultInput` via:
-//
-//	GetIncidentTemplateExpressionElseBranchResultArgs{...}
-type GetIncidentTemplateExpressionElseBranchResultInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionElseBranchResultOutput() GetIncidentTemplateExpressionElseBranchResultOutput
-	ToGetIncidentTemplateExpressionElseBranchResultOutputWithContext(context.Context) GetIncidentTemplateExpressionElseBranchResultOutput
-}
-
-type GetIncidentTemplateExpressionElseBranchResultArgs struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    GetIncidentTemplateExpressionElseBranchResultArrayValueArrayInput `pulumi:"arrayValues"`
-	ExpressionRef  pulumi.StringInput                                                `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionElseBranchResultValueInput           `pulumi:"value"`
-	ValueLiteral   pulumi.StringInput                                                `pulumi:"valueLiteral"`
-	ValueReference pulumi.StringInput                                                `pulumi:"valueReference"`
-	Values         pulumi.StringArrayInput                                           `pulumi:"values"`
-}
-
-func (GetIncidentTemplateExpressionElseBranchResultArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResult)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultArgs) ToGetIncidentTemplateExpressionElseBranchResultOutput() GetIncidentTemplateExpressionElseBranchResultOutput {
-	return i.ToGetIncidentTemplateExpressionElseBranchResultOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultArgs) ToGetIncidentTemplateExpressionElseBranchResultOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionElseBranchResultOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchResultOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionElseBranchResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResult)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) ToGetIncidentTemplateExpressionElseBranchResultOutput() GetIncidentTemplateExpressionElseBranchResultOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) ToGetIncidentTemplateExpressionElseBranchResultOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultOutput {
-	return o
-}
-
-// If array*value is set, this helps render the values
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) ArrayValues() GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResult) []GetIncidentTemplateExpressionElseBranchResultArrayValue {
-		return v.ArrayValues
-	}).(GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) ExpressionRef() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResult) string { return v.ExpressionRef }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) Value() GetIncidentTemplateExpressionElseBranchResultValueOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResult) GetIncidentTemplateExpressionElseBranchResultValue {
-		return v.Value
-	}).(GetIncidentTemplateExpressionElseBranchResultValueOutput)
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) ValueLiteral() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResult) string { return v.ValueLiteral }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) ValueReference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResult) string { return v.ValueReference }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResult) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchResultArrayValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionElseBranchResultArrayValueInput is an input type that accepts GetIncidentTemplateExpressionElseBranchResultArrayValueArgs and GetIncidentTemplateExpressionElseBranchResultArrayValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionElseBranchResultArrayValueInput` via:
-//
-//	GetIncidentTemplateExpressionElseBranchResultArrayValueArgs{...}
-type GetIncidentTemplateExpressionElseBranchResultArrayValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionElseBranchResultArrayValueOutput() GetIncidentTemplateExpressionElseBranchResultArrayValueOutput
-	ToGetIncidentTemplateExpressionElseBranchResultArrayValueOutputWithContext(context.Context) GetIncidentTemplateExpressionElseBranchResultArrayValueOutput
-}
-
-type GetIncidentTemplateExpressionElseBranchResultArrayValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionElseBranchResultArrayValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultArrayValueArgs) ToGetIncidentTemplateExpressionElseBranchResultArrayValueOutput() GetIncidentTemplateExpressionElseBranchResultArrayValueOutput {
-	return i.ToGetIncidentTemplateExpressionElseBranchResultArrayValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultArrayValueArgs) ToGetIncidentTemplateExpressionElseBranchResultArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultArrayValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionElseBranchResultArrayValueOutput)
-}
-
-// GetIncidentTemplateExpressionElseBranchResultArrayValueArrayInput is an input type that accepts GetIncidentTemplateExpressionElseBranchResultArrayValueArray and GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionElseBranchResultArrayValueArrayInput` via:
-//
-//	GetIncidentTemplateExpressionElseBranchResultArrayValueArray{ GetIncidentTemplateExpressionElseBranchResultArrayValueArgs{...} }
-type GetIncidentTemplateExpressionElseBranchResultArrayValueArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput() GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput
-	ToGetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput
-}
-
-type GetIncidentTemplateExpressionElseBranchResultArrayValueArray []GetIncidentTemplateExpressionElseBranchResultArrayValueInput
-
-func (GetIncidentTemplateExpressionElseBranchResultArrayValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionElseBranchResultArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultArrayValueArray) ToGetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput() GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput {
-	return i.ToGetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultArrayValueArray) ToGetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchResultArrayValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionElseBranchResultArrayValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultArrayValueOutput) ToGetIncidentTemplateExpressionElseBranchResultArrayValueOutput() GetIncidentTemplateExpressionElseBranchResultArrayValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultArrayValueOutput) ToGetIncidentTemplateExpressionElseBranchResultArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultArrayValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionElseBranchResultArrayValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResultArrayValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionElseBranchResultArrayValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResultArrayValue) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionElseBranchResultArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput) ToGetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput() GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput) ToGetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionElseBranchResultArrayValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionElseBranchResultArrayValue {
-		return vs[0].([]GetIncidentTemplateExpressionElseBranchResultArrayValue)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionElseBranchResultArrayValueOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchResultValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionElseBranchResultValueInput is an input type that accepts GetIncidentTemplateExpressionElseBranchResultValueArgs and GetIncidentTemplateExpressionElseBranchResultValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionElseBranchResultValueInput` via:
-//
-//	GetIncidentTemplateExpressionElseBranchResultValueArgs{...}
-type GetIncidentTemplateExpressionElseBranchResultValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionElseBranchResultValueOutput() GetIncidentTemplateExpressionElseBranchResultValueOutput
-	ToGetIncidentTemplateExpressionElseBranchResultValueOutputWithContext(context.Context) GetIncidentTemplateExpressionElseBranchResultValueOutput
-}
-
-type GetIncidentTemplateExpressionElseBranchResultValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionElseBranchResultValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultValueArgs) ToGetIncidentTemplateExpressionElseBranchResultValueOutput() GetIncidentTemplateExpressionElseBranchResultValueOutput {
-	return i.ToGetIncidentTemplateExpressionElseBranchResultValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionElseBranchResultValueArgs) ToGetIncidentTemplateExpressionElseBranchResultValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionElseBranchResultValueOutput)
-}
-
-type GetIncidentTemplateExpressionElseBranchResultValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionElseBranchResultValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultValueOutput) ToGetIncidentTemplateExpressionElseBranchResultValueOutput() GetIncidentTemplateExpressionElseBranchResultValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionElseBranchResultValueOutput) ToGetIncidentTemplateExpressionElseBranchResultValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionElseBranchResultValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionElseBranchResultValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResultValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionElseBranchResultValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionElseBranchResultValue) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperation struct {
-	Branches GetIncidentTemplateExpressionOperationBranches `pulumi:"branches"`
-	// The cast target of this operation, set when the operation type is `cast`
-	Cast        GetIncidentTemplateExpressionOperationCast        `pulumi:"cast"`
-	Concatenate GetIncidentTemplateExpressionOperationConcatenate `pulumi:"concatenate"`
-	Filter      GetIncidentTemplateExpressionOperationFilter      `pulumi:"filter"`
-	Navigate    GetIncidentTemplateExpressionOperationNavigate    `pulumi:"navigate"`
-	// The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
-	OperationType string                                      `pulumi:"operationType"`
-	Parse         GetIncidentTemplateExpressionOperationParse `pulumi:"parse"`
-}
-
-// GetIncidentTemplateExpressionOperationInput is an input type that accepts GetIncidentTemplateExpressionOperationArgs and GetIncidentTemplateExpressionOperationOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationInput` via:
-//
-//	GetIncidentTemplateExpressionOperationArgs{...}
-type GetIncidentTemplateExpressionOperationInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationOutput() GetIncidentTemplateExpressionOperationOutput
-	ToGetIncidentTemplateExpressionOperationOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationOutput
-}
-
-type GetIncidentTemplateExpressionOperationArgs struct {
-	Branches GetIncidentTemplateExpressionOperationBranchesInput `pulumi:"branches"`
-	// The cast target of this operation, set when the operation type is `cast`
-	Cast        GetIncidentTemplateExpressionOperationCastInput        `pulumi:"cast"`
-	Concatenate GetIncidentTemplateExpressionOperationConcatenateInput `pulumi:"concatenate"`
-	Filter      GetIncidentTemplateExpressionOperationFilterInput      `pulumi:"filter"`
-	Navigate    GetIncidentTemplateExpressionOperationNavigateInput    `pulumi:"navigate"`
-	// The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
-	OperationType pulumi.StringInput                               `pulumi:"operationType"`
-	Parse         GetIncidentTemplateExpressionOperationParseInput `pulumi:"parse"`
-}
-
-func (GetIncidentTemplateExpressionOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperation)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationArgs) ToGetIncidentTemplateExpressionOperationOutput() GetIncidentTemplateExpressionOperationOutput {
-	return i.ToGetIncidentTemplateExpressionOperationOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationArgs) ToGetIncidentTemplateExpressionOperationOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationOutput)
-}
-
-// GetIncidentTemplateExpressionOperationArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationArray and GetIncidentTemplateExpressionOperationArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationArray{ GetIncidentTemplateExpressionOperationArgs{...} }
-type GetIncidentTemplateExpressionOperationArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationArrayOutput() GetIncidentTemplateExpressionOperationArrayOutput
-	ToGetIncidentTemplateExpressionOperationArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationArray []GetIncidentTemplateExpressionOperationInput
-
-func (GetIncidentTemplateExpressionOperationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperation)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationArray) ToGetIncidentTemplateExpressionOperationArrayOutput() GetIncidentTemplateExpressionOperationArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationArray) ToGetIncidentTemplateExpressionOperationArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperation)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationOutput) ToGetIncidentTemplateExpressionOperationOutput() GetIncidentTemplateExpressionOperationOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationOutput) ToGetIncidentTemplateExpressionOperationOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationOutput) Branches() GetIncidentTemplateExpressionOperationBranchesOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperation) GetIncidentTemplateExpressionOperationBranches {
-		return v.Branches
-	}).(GetIncidentTemplateExpressionOperationBranchesOutput)
-}
-
-// The cast target of this operation, set when the operation type is `cast`
-func (o GetIncidentTemplateExpressionOperationOutput) Cast() GetIncidentTemplateExpressionOperationCastOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperation) GetIncidentTemplateExpressionOperationCast {
-		return v.Cast
-	}).(GetIncidentTemplateExpressionOperationCastOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationOutput) Concatenate() GetIncidentTemplateExpressionOperationConcatenateOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperation) GetIncidentTemplateExpressionOperationConcatenate {
-		return v.Concatenate
-	}).(GetIncidentTemplateExpressionOperationConcatenateOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationOutput) Filter() GetIncidentTemplateExpressionOperationFilterOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperation) GetIncidentTemplateExpressionOperationFilter {
-		return v.Filter
-	}).(GetIncidentTemplateExpressionOperationFilterOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationOutput) Navigate() GetIncidentTemplateExpressionOperationNavigateOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperation) GetIncidentTemplateExpressionOperationNavigate {
-		return v.Navigate
-	}).(GetIncidentTemplateExpressionOperationNavigateOutput)
-}
-
-// The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
-func (o GetIncidentTemplateExpressionOperationOutput) OperationType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperation) string { return v.OperationType }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationOutput) Parse() GetIncidentTemplateExpressionOperationParseOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperation) GetIncidentTemplateExpressionOperationParse {
-		return v.Parse
-	}).(GetIncidentTemplateExpressionOperationParseOutput)
-}
-
-type GetIncidentTemplateExpressionOperationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperation)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationArrayOutput) ToGetIncidentTemplateExpressionOperationArrayOutput() GetIncidentTemplateExpressionOperationArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationArrayOutput) ToGetIncidentTemplateExpressionOperationArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperation {
-		return vs[0].([]GetIncidentTemplateExpressionOperation)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranches struct {
-	// The branches to apply for this operation
-	Branches []GetIncidentTemplateExpressionOperationBranchesBranch `pulumi:"branches"`
-	Returns  GetIncidentTemplateExpressionOperationBranchesReturns  `pulumi:"returns"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesArgs and GetIncidentTemplateExpressionOperationBranchesOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesOutput() GetIncidentTemplateExpressionOperationBranchesOutput
-	ToGetIncidentTemplateExpressionOperationBranchesOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesArgs struct {
-	// The branches to apply for this operation
-	Branches GetIncidentTemplateExpressionOperationBranchesBranchArrayInput `pulumi:"branches"`
-	Returns  GetIncidentTemplateExpressionOperationBranchesReturnsInput     `pulumi:"returns"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranches)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesArgs) ToGetIncidentTemplateExpressionOperationBranchesOutput() GetIncidentTemplateExpressionOperationBranchesOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesArgs) ToGetIncidentTemplateExpressionOperationBranchesOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranches)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesOutput) ToGetIncidentTemplateExpressionOperationBranchesOutput() GetIncidentTemplateExpressionOperationBranchesOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesOutput) ToGetIncidentTemplateExpressionOperationBranchesOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesOutput {
-	return o
-}
-
-// The branches to apply for this operation
-func (o GetIncidentTemplateExpressionOperationBranchesOutput) Branches() GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranches) []GetIncidentTemplateExpressionOperationBranchesBranch {
-		return v.Branches
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesOutput) Returns() GetIncidentTemplateExpressionOperationBranchesReturnsOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranches) GetIncidentTemplateExpressionOperationBranchesReturns {
-		return v.Returns
-	}).(GetIncidentTemplateExpressionOperationBranchesReturnsOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranch struct {
-	// The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
-	ConditionGroups []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup `pulumi:"conditionGroups"`
-	Result          GetIncidentTemplateExpressionOperationBranchesBranchResult           `pulumi:"result"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchArgs and GetIncidentTemplateExpressionOperationBranchesBranchOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchOutput() GetIncidentTemplateExpressionOperationBranchesBranchOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchArgs struct {
-	// The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
-	ConditionGroups GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayInput `pulumi:"conditionGroups"`
-	Result          GetIncidentTemplateExpressionOperationBranchesBranchResultInput              `pulumi:"result"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranch)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchOutput() GetIncidentTemplateExpressionOperationBranchesBranchOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchOutput)
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchArray and GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchArray{ GetIncidentTemplateExpressionOperationBranchesBranchArgs{...} }
-type GetIncidentTemplateExpressionOperationBranchesBranchArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchArray []GetIncidentTemplateExpressionOperationBranchesBranchInput
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranch)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchArray) ToGetIncidentTemplateExpressionOperationBranchesBranchArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchArray) ToGetIncidentTemplateExpressionOperationBranchesBranchArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranch)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchOutput() GetIncidentTemplateExpressionOperationBranchesBranchOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchOutput {
-	return o
-}
-
-// The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
-func (o GetIncidentTemplateExpressionOperationBranchesBranchOutput) ConditionGroups() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranch) []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup {
-		return v.ConditionGroups
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchOutput) Result() GetIncidentTemplateExpressionOperationBranchesBranchResultOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranch) GetIncidentTemplateExpressionOperationBranchesBranchResult {
-		return v.Result
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchResultOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranch)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationBranchesBranchOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationBranchesBranch {
-		return vs[0].([]GetIncidentTemplateExpressionOperationBranchesBranch)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup struct {
-	// All conditions in this list must be satisfied for the group to be satisfied
-	Conditions []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition `pulumi:"conditions"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs struct {
-	// All conditions in this list must be satisfied for the group to be satisfied
-	Conditions GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayInput `pulumi:"conditions"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput)
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArray and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArray{ GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs{...} }
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArray []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupInput
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput {
-	return o
-}
-
-// All conditions in this list must be satisfied for the group to be satisfied
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput) Conditions() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup) []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition {
-		return v.Conditions
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup {
-		return vs[0].([]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroup)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition struct {
-	Operation string `pulumi:"operation"`
-	// Bindings for the operation parameters
-	ParamBindings []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding `pulumi:"paramBindings"`
-	Subject       string                                                                                    `pulumi:"subject"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs struct {
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// Bindings for the operation parameters
-	ParamBindings GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput `pulumi:"paramBindings"`
-	Subject       pulumi.StringInput                                                                                `pulumi:"subject"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput)
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArray and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArray{ GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs{...} }
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArray []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionInput
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput) Operation() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition) string {
-		return v.Operation
-	}).(pulumi.StringOutput)
-}
-
-// Bindings for the operation parameters
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput) ParamBindings() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition) []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
-		return v.ParamBindings
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput) Subject() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition) string {
-		return v.Subject
-	}).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition {
-		return vs[0].([]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupCondition)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue `pulumi:"arrayValues"`
-	ExpressionRef  string                                                                                              `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue        `pulumi:"value"`
-	ValueLiteral   string                                                                                              `pulumi:"valueLiteral"`
-	ValueReference string                                                                                              `pulumi:"valueReference"`
-	Values         []string                                                                                            `pulumi:"values"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput `pulumi:"arrayValues"`
-	ExpressionRef  pulumi.StringInput                                                                                          `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput           `pulumi:"value"`
-	ValueLiteral   pulumi.StringInput                                                                                          `pulumi:"valueLiteral"`
-	ValueReference pulumi.StringInput                                                                                          `pulumi:"valueReference"`
-	Values         pulumi.StringArrayInput                                                                                     `pulumi:"values"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput)
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray{ GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs{...} }
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
-	return o
-}
-
-// If array*value is set, this helps render the values
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ArrayValues() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding) []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
-		return v.ArrayValues
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ExpressionRef() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding) string {
-		return v.ExpressionRef
-	}).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) Value() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
-		return v.Value
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ValueLiteral() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding) string {
-		return v.ValueLiteral
-	}).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) ValueReference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding) string {
-		return v.ValueReference
-	}).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding) []string {
-		return v.Values
-	}).(pulumi.StringArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
-		return vs[0].([]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput)
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray{ GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs{...} }
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray []GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue) string {
-		return v.Literal
-	}).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue) string {
-		return v.Reference
-	}).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
-		return vs[0].([]GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs and GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) string {
-		return v.Literal
-	}).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue) string {
-		return v.Reference
-	}).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResult struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    []GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue `pulumi:"arrayValues"`
-	ExpressionRef  string                                                                 `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionOperationBranchesBranchResultValue        `pulumi:"value"`
-	ValueLiteral   string                                                                 `pulumi:"valueLiteral"`
-	ValueReference string                                                                 `pulumi:"valueReference"`
-	Values         []string                                                               `pulumi:"values"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchResultInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchResultArgs and GetIncidentTemplateExpressionOperationBranchesBranchResultOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchResultInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchResultArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchResultInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArgs struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayInput `pulumi:"arrayValues"`
-	ExpressionRef  pulumi.StringInput                                                             `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionOperationBranchesBranchResultValueInput           `pulumi:"value"`
-	ValueLiteral   pulumi.StringInput                                                             `pulumi:"valueLiteral"`
-	ValueReference pulumi.StringInput                                                             `pulumi:"valueReference"`
-	Values         pulumi.StringArrayInput                                                        `pulumi:"values"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResult)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchResultOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchResultOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchResultOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchResultOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResult)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultOutput {
-	return o
-}
-
-// If array*value is set, this helps render the values
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) ArrayValues() GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResult) []GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue {
-		return v.ArrayValues
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) ExpressionRef() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResult) string { return v.ExpressionRef }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) Value() GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResult) GetIncidentTemplateExpressionOperationBranchesBranchResultValue {
-		return v.Value
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) ValueLiteral() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResult) string { return v.ValueLiteral }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) ValueReference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResult) string { return v.ValueReference }).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResult) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs and GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput)
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArray and GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArray{ GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs{...} }
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArray []GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueInput
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArray) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArray) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue) string {
-		return v.Reference
-	}).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue {
-		return vs[0].([]GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValue)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesBranchResultValueInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesBranchResultValueArgs and GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesBranchResultValueInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesBranchResultValueArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesBranchResultValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput
-	ToGetIncidentTemplateExpressionOperationBranchesBranchResultValueOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesBranchResultValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesBranchResultValueArgs) ToGetIncidentTemplateExpressionOperationBranchesBranchResultValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput() GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput) ToGetIncidentTemplateExpressionOperationBranchesBranchResultValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResultValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesBranchResultValue) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesReturns struct {
-	// Whether the return value should be single or multi-value
-	Array bool `pulumi:"array"`
-	// Expected return type of this expression (what to try casting the result to)
-	Type string `pulumi:"type"`
-}
-
-// GetIncidentTemplateExpressionOperationBranchesReturnsInput is an input type that accepts GetIncidentTemplateExpressionOperationBranchesReturnsArgs and GetIncidentTemplateExpressionOperationBranchesReturnsOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationBranchesReturnsInput` via:
-//
-//	GetIncidentTemplateExpressionOperationBranchesReturnsArgs{...}
-type GetIncidentTemplateExpressionOperationBranchesReturnsInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationBranchesReturnsOutput() GetIncidentTemplateExpressionOperationBranchesReturnsOutput
-	ToGetIncidentTemplateExpressionOperationBranchesReturnsOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationBranchesReturnsOutput
-}
-
-type GetIncidentTemplateExpressionOperationBranchesReturnsArgs struct {
-	// Whether the return value should be single or multi-value
-	Array pulumi.BoolInput `pulumi:"array"`
-	// Expected return type of this expression (what to try casting the result to)
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetIncidentTemplateExpressionOperationBranchesReturnsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesReturns)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesReturnsArgs) ToGetIncidentTemplateExpressionOperationBranchesReturnsOutput() GetIncidentTemplateExpressionOperationBranchesReturnsOutput {
-	return i.ToGetIncidentTemplateExpressionOperationBranchesReturnsOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationBranchesReturnsArgs) ToGetIncidentTemplateExpressionOperationBranchesReturnsOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesReturnsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationBranchesReturnsOutput)
-}
-
-type GetIncidentTemplateExpressionOperationBranchesReturnsOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationBranchesReturnsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesReturns)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesReturnsOutput) ToGetIncidentTemplateExpressionOperationBranchesReturnsOutput() GetIncidentTemplateExpressionOperationBranchesReturnsOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationBranchesReturnsOutput) ToGetIncidentTemplateExpressionOperationBranchesReturnsOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationBranchesReturnsOutput {
-	return o
-}
-
-// Whether the return value should be single or multi-value
-func (o GetIncidentTemplateExpressionOperationBranchesReturnsOutput) Array() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesReturns) bool { return v.Array }).(pulumi.BoolOutput)
-}
-
-// Expected return type of this expression (what to try casting the result to)
-func (o GetIncidentTemplateExpressionOperationBranchesReturnsOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationBranchesReturns) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationCast struct {
-	Returns GetIncidentTemplateExpressionOperationCastReturns `pulumi:"returns"`
-}
-
-// GetIncidentTemplateExpressionOperationCastInput is an input type that accepts GetIncidentTemplateExpressionOperationCastArgs and GetIncidentTemplateExpressionOperationCastOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationCastInput` via:
-//
-//	GetIncidentTemplateExpressionOperationCastArgs{...}
-type GetIncidentTemplateExpressionOperationCastInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationCastOutput() GetIncidentTemplateExpressionOperationCastOutput
-	ToGetIncidentTemplateExpressionOperationCastOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationCastOutput
-}
-
-type GetIncidentTemplateExpressionOperationCastArgs struct {
-	Returns GetIncidentTemplateExpressionOperationCastReturnsInput `pulumi:"returns"`
-}
-
-func (GetIncidentTemplateExpressionOperationCastArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationCast)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationCastArgs) ToGetIncidentTemplateExpressionOperationCastOutput() GetIncidentTemplateExpressionOperationCastOutput {
-	return i.ToGetIncidentTemplateExpressionOperationCastOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationCastArgs) ToGetIncidentTemplateExpressionOperationCastOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationCastOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationCastOutput)
-}
-
-type GetIncidentTemplateExpressionOperationCastOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationCastOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationCast)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationCastOutput) ToGetIncidentTemplateExpressionOperationCastOutput() GetIncidentTemplateExpressionOperationCastOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationCastOutput) ToGetIncidentTemplateExpressionOperationCastOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationCastOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationCastOutput) Returns() GetIncidentTemplateExpressionOperationCastReturnsOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationCast) GetIncidentTemplateExpressionOperationCastReturns {
-		return v.Returns
-	}).(GetIncidentTemplateExpressionOperationCastReturnsOutput)
-}
-
-type GetIncidentTemplateExpressionOperationCastReturns struct {
-	// Whether the return value should be single or multi-value
-	Array bool `pulumi:"array"`
-	// Expected return type of this expression (what to try casting the result to)
-	Type string `pulumi:"type"`
-}
-
-// GetIncidentTemplateExpressionOperationCastReturnsInput is an input type that accepts GetIncidentTemplateExpressionOperationCastReturnsArgs and GetIncidentTemplateExpressionOperationCastReturnsOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationCastReturnsInput` via:
-//
-//	GetIncidentTemplateExpressionOperationCastReturnsArgs{...}
-type GetIncidentTemplateExpressionOperationCastReturnsInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationCastReturnsOutput() GetIncidentTemplateExpressionOperationCastReturnsOutput
-	ToGetIncidentTemplateExpressionOperationCastReturnsOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationCastReturnsOutput
-}
-
-type GetIncidentTemplateExpressionOperationCastReturnsArgs struct {
-	// Whether the return value should be single or multi-value
-	Array pulumi.BoolInput `pulumi:"array"`
-	// Expected return type of this expression (what to try casting the result to)
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetIncidentTemplateExpressionOperationCastReturnsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationCastReturns)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationCastReturnsArgs) ToGetIncidentTemplateExpressionOperationCastReturnsOutput() GetIncidentTemplateExpressionOperationCastReturnsOutput {
-	return i.ToGetIncidentTemplateExpressionOperationCastReturnsOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationCastReturnsArgs) ToGetIncidentTemplateExpressionOperationCastReturnsOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationCastReturnsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationCastReturnsOutput)
-}
-
-type GetIncidentTemplateExpressionOperationCastReturnsOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationCastReturnsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationCastReturns)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationCastReturnsOutput) ToGetIncidentTemplateExpressionOperationCastReturnsOutput() GetIncidentTemplateExpressionOperationCastReturnsOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationCastReturnsOutput) ToGetIncidentTemplateExpressionOperationCastReturnsOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationCastReturnsOutput {
-	return o
-}
-
-// Whether the return value should be single or multi-value
-func (o GetIncidentTemplateExpressionOperationCastReturnsOutput) Array() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationCastReturns) bool { return v.Array }).(pulumi.BoolOutput)
-}
-
-// Expected return type of this expression (what to try casting the result to)
-func (o GetIncidentTemplateExpressionOperationCastReturnsOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationCastReturns) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationConcatenate struct {
-	// The reference within the scope to concatenate with
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationConcatenateInput is an input type that accepts GetIncidentTemplateExpressionOperationConcatenateArgs and GetIncidentTemplateExpressionOperationConcatenateOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationConcatenateInput` via:
-//
-//	GetIncidentTemplateExpressionOperationConcatenateArgs{...}
-type GetIncidentTemplateExpressionOperationConcatenateInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationConcatenateOutput() GetIncidentTemplateExpressionOperationConcatenateOutput
-	ToGetIncidentTemplateExpressionOperationConcatenateOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationConcatenateOutput
-}
-
-type GetIncidentTemplateExpressionOperationConcatenateArgs struct {
-	// The reference within the scope to concatenate with
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationConcatenateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationConcatenate)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationConcatenateArgs) ToGetIncidentTemplateExpressionOperationConcatenateOutput() GetIncidentTemplateExpressionOperationConcatenateOutput {
-	return i.ToGetIncidentTemplateExpressionOperationConcatenateOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationConcatenateArgs) ToGetIncidentTemplateExpressionOperationConcatenateOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationConcatenateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationConcatenateOutput)
-}
-
-type GetIncidentTemplateExpressionOperationConcatenateOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationConcatenateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationConcatenate)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationConcatenateOutput) ToGetIncidentTemplateExpressionOperationConcatenateOutput() GetIncidentTemplateExpressionOperationConcatenateOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationConcatenateOutput) ToGetIncidentTemplateExpressionOperationConcatenateOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationConcatenateOutput {
-	return o
-}
-
-// The reference within the scope to concatenate with
-func (o GetIncidentTemplateExpressionOperationConcatenateOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationConcatenate) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilter struct {
-	// The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
-	ConditionGroups []GetIncidentTemplateExpressionOperationFilterConditionGroup `pulumi:"conditionGroups"`
-}
-
-// GetIncidentTemplateExpressionOperationFilterInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterArgs and GetIncidentTemplateExpressionOperationFilterOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterArgs{...}
-type GetIncidentTemplateExpressionOperationFilterInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterOutput() GetIncidentTemplateExpressionOperationFilterOutput
-	ToGetIncidentTemplateExpressionOperationFilterOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterArgs struct {
-	// The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
-	ConditionGroups GetIncidentTemplateExpressionOperationFilterConditionGroupArrayInput `pulumi:"conditionGroups"`
-}
-
-func (GetIncidentTemplateExpressionOperationFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilter)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterArgs) ToGetIncidentTemplateExpressionOperationFilterOutput() GetIncidentTemplateExpressionOperationFilterOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterArgs) ToGetIncidentTemplateExpressionOperationFilterOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilter)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterOutput) ToGetIncidentTemplateExpressionOperationFilterOutput() GetIncidentTemplateExpressionOperationFilterOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterOutput) ToGetIncidentTemplateExpressionOperationFilterOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterOutput {
-	return o
-}
-
-// The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
-func (o GetIncidentTemplateExpressionOperationFilterOutput) ConditionGroups() GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilter) []GetIncidentTemplateExpressionOperationFilterConditionGroup {
-		return v.ConditionGroups
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroup struct {
-	// All conditions in this list must be satisfied for the group to be satisfied
-	Conditions []GetIncidentTemplateExpressionOperationFilterConditionGroupCondition `pulumi:"conditions"`
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupArgs and GetIncidentTemplateExpressionOperationFilterConditionGroupOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupArgs{...}
-type GetIncidentTemplateExpressionOperationFilterConditionGroupInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupArgs struct {
-	// All conditions in this list must be satisfied for the group to be satisfied
-	Conditions GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayInput `pulumi:"conditions"`
-}
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroup)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupOutput)
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupArray and GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupArray{ GetIncidentTemplateExpressionOperationFilterConditionGroupArgs{...} }
-type GetIncidentTemplateExpressionOperationFilterConditionGroupArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupArray []GetIncidentTemplateExpressionOperationFilterConditionGroupInput
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroup)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroup)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupOutput {
-	return o
-}
-
-// All conditions in this list must be satisfied for the group to be satisfied
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupOutput) Conditions() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroup) []GetIncidentTemplateExpressionOperationFilterConditionGroupCondition {
-		return v.Conditions
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroup)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationFilterConditionGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationFilterConditionGroup {
-		return vs[0].([]GetIncidentTemplateExpressionOperationFilterConditionGroup)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupCondition struct {
-	Operation string `pulumi:"operation"`
-	// Bindings for the operation parameters
-	ParamBindings []GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding `pulumi:"paramBindings"`
-	Subject       string                                                                            `pulumi:"subject"`
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupConditionInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs and GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupConditionInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs{...}
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs struct {
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// Bindings for the operation parameters
-	ParamBindings GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayInput `pulumi:"paramBindings"`
-	Subject       pulumi.StringInput                                                                        `pulumi:"subject"`
-}
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput)
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArray and GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArray{ GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs{...} }
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArray []GetIncidentTemplateExpressionOperationFilterConditionGroupConditionInput
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput) Operation() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupCondition) string { return v.Operation }).(pulumi.StringOutput)
-}
-
-// Bindings for the operation parameters
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput) ParamBindings() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupCondition) []GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding {
-		return v.ParamBindings
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput) Subject() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupCondition) string { return v.Subject }).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroupCondition)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationFilterConditionGroupCondition {
-		return vs[0].([]GetIncidentTemplateExpressionOperationFilterConditionGroupCondition)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    []GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue `pulumi:"arrayValues"`
-	ExpressionRef  string                                                                                      `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue        `pulumi:"value"`
-	ValueLiteral   string                                                                                      `pulumi:"valueLiteral"`
-	ValueReference string                                                                                      `pulumi:"valueReference"`
-	Values         []string                                                                                    `pulumi:"values"`
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs and GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs{...}
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs struct {
-	// If array*value is set, this helps render the values
-	ArrayValues    GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput `pulumi:"arrayValues"`
-	ExpressionRef  pulumi.StringInput                                                                                  `pulumi:"expressionRef"`
-	Value          GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueInput           `pulumi:"value"`
-	ValueLiteral   pulumi.StringInput                                                                                  `pulumi:"valueLiteral"`
-	ValueReference pulumi.StringInput                                                                                  `pulumi:"valueReference"`
-	Values         pulumi.StringArrayInput                                                                             `pulumi:"values"`
-}
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput)
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArray and GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArray{ GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs{...} }
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArray []GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingInput
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput {
-	return o
-}
-
-// If array*value is set, this helps render the values
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) ArrayValues() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding) []GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
-		return v.ArrayValues
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) ExpressionRef() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding) string {
-		return v.ExpressionRef
-	}).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) Value() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue {
-		return v.Value
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) ValueLiteral() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding) string {
-		return v.ValueLiteral
-	}).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) ValueReference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding) string {
-		return v.ValueReference
-	}).(pulumi.StringOutput)
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding) []string {
-		return v.Values
-	}).(pulumi.StringArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding {
-		return vs[0].([]GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBinding)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs and GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs{...}
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput)
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray and GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray{ GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs{...} }
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray []GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue) string {
-		return v.Literal
-	}).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue) string {
-		return v.Reference
-	}).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput) Index(i pulumi.IntInput) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
-		return vs[0].([]GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue)[vs[1].(int)]
-	}).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueInput is an input type that accepts GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueArgs and GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueInput` via:
-//
-//	GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueArgs{...}
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput
-	ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
-	return i.ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueArgs) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput)
-}
-
-type GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput() GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) ToGetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue) string {
-		return v.Literal
-	}).(pulumi.StringOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue) string {
-		return v.Reference
-	}).(pulumi.StringOutput)
-}
-
-type GetIncidentTemplateExpressionOperationNavigate struct {
-	// The reference within the scope to navigate to
-	Reference string `pulumi:"reference"`
-}
-
-// GetIncidentTemplateExpressionOperationNavigateInput is an input type that accepts GetIncidentTemplateExpressionOperationNavigateArgs and GetIncidentTemplateExpressionOperationNavigateOutput values.
-// You can construct a concrete instance of `GetIncidentTemplateExpressionOperationNavigateInput` via:
-//
-//	GetIncidentTemplateExpressionOperationNavigateArgs{...}
-type GetIncidentTemplateExpressionOperationNavigateInput interface {
-	pulumi.Input
-
-	ToGetIncidentTemplateExpressionOperationNavigateOutput() GetIncidentTemplateExpressionOperationNavigateOutput
-	ToGetIncidentTemplateExpressionOperationNavigateOutputWithContext(context.Context) GetIncidentTemplateExpressionOperationNavigateOutput
-}
-
-type GetIncidentTemplateExpressionOperationNavigateArgs struct {
-	// The reference within the scope to navigate to
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetIncidentTemplateExpressionOperationNavigateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationNavigate)(nil)).Elem()
-}
-
-func (i GetIncidentTemplateExpressionOperationNavigateArgs) ToGetIncidentTemplateExpressionOperationNavigateOutput() GetIncidentTemplateExpressionOperationNavigateOutput {
-	return i.ToGetIncidentTemplateExpressionOperationNavigateOutputWithContext(context.Background())
-}
-
-func (i GetIncidentTemplateExpressionOperationNavigateArgs) ToGetIncidentTemplateExpressionOperationNavigateOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationNavigateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetIncidentTemplateExpressionOperationNavigateOutput)
-}
-
-type GetIncidentTemplateExpressionOperationNavigateOutput struct{ *pulumi.OutputState }
-
-func (GetIncidentTemplateExpressionOperationNavigateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetIncidentTemplateExpressionOperationNavigate)(nil)).Elem()
-}
-
-func (o GetIncidentTemplateExpressionOperationNavigateOutput) ToGetIncidentTemplateExpressionOperationNavigateOutput() GetIncidentTemplateExpressionOperationNavigateOutput {
-	return o
-}
-
-func (o GetIncidentTemplateExpressionOperationNavigateOutput) ToGetIncidentTemplateExpressionOperationNavigateOutputWithContext(ctx context.Context) GetIncidentTemplateExpressionOperationNavigateOutput {
-	return o
-}
-
-// The reference within the scope to navigate to
-func (o GetIncidentTemplateExpressionOperationNavigateOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIncidentTemplateExpressionOperationNavigate) string { return v.Reference }).(pulumi.StringOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDelayInput)(nil)).Elem(), WorkflowDelayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDelayPtrInput)(nil)).Elem(), WorkflowDelayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionInput)(nil)).Elem(), WorkflowExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionArrayInput)(nil)).Elem(), WorkflowExpressionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchInput)(nil)).Elem(), WorkflowExpressionElseBranchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchPtrInput)(nil)).Elem(), WorkflowExpressionElseBranchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchResultInput)(nil)).Elem(), WorkflowExpressionElseBranchResultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchResultPtrInput)(nil)).Elem(), WorkflowExpressionElseBranchResultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchResultArrayValueInput)(nil)).Elem(), WorkflowExpressionElseBranchResultArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchResultArrayValueArrayInput)(nil)).Elem(), WorkflowExpressionElseBranchResultArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchResultValueInput)(nil)).Elem(), WorkflowExpressionElseBranchResultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionElseBranchResultValuePtrInput)(nil)).Elem(), WorkflowExpressionElseBranchResultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationInput)(nil)).Elem(), WorkflowExpressionOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationArrayInput)(nil)).Elem(), WorkflowExpressionOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesInput)(nil)).Elem(), WorkflowExpressionOperationBranchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesPtrInput)(nil)).Elem(), WorkflowExpressionOperationBranchesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchArrayInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupArrayInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchResultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultArrayValueInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchResultArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultArrayValueArrayInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchResultArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultValueInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchResultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesBranchResultValuePtrInput)(nil)).Elem(), WorkflowExpressionOperationBranchesBranchResultValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesReturnsInput)(nil)).Elem(), WorkflowExpressionOperationBranchesReturnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationBranchesReturnsPtrInput)(nil)).Elem(), WorkflowExpressionOperationBranchesReturnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationCastInput)(nil)).Elem(), WorkflowExpressionOperationCastArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationCastPtrInput)(nil)).Elem(), WorkflowExpressionOperationCastArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationCastReturnsInput)(nil)).Elem(), WorkflowExpressionOperationCastReturnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationCastReturnsPtrInput)(nil)).Elem(), WorkflowExpressionOperationCastReturnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationConcatenateInput)(nil)).Elem(), WorkflowExpressionOperationConcatenateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationConcatenatePtrInput)(nil)).Elem(), WorkflowExpressionOperationConcatenateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterInput)(nil)).Elem(), WorkflowExpressionOperationFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterPtrInput)(nil)).Elem(), WorkflowExpressionOperationFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupArrayInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionArrayInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrInput)(nil)).Elem(), WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationNavigateInput)(nil)).Elem(), WorkflowExpressionOperationNavigateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationNavigatePtrInput)(nil)).Elem(), WorkflowExpressionOperationNavigateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationParseInput)(nil)).Elem(), WorkflowExpressionOperationParseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationParsePtrInput)(nil)).Elem(), WorkflowExpressionOperationParseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationParseReturnsInput)(nil)).Elem(), WorkflowExpressionOperationParseReturnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionOperationParseReturnsPtrInput)(nil)).Elem(), WorkflowExpressionOperationParseReturnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowFormFieldInput)(nil)).Elem(), WorkflowFormFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowFormFieldArrayInput)(nil)).Elem(), WorkflowFormFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepInput)(nil)).Elem(), WorkflowStepArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepArrayInput)(nil)).Elem(), WorkflowStepArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepParamBindingInput)(nil)).Elem(), WorkflowStepParamBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepParamBindingArrayInput)(nil)).Elem(), WorkflowStepParamBindingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepParamBindingArrayValueInput)(nil)).Elem(), WorkflowStepParamBindingArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepParamBindingArrayValueArrayInput)(nil)).Elem(), WorkflowStepParamBindingArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepParamBindingValueInput)(nil)).Elem(), WorkflowStepParamBindingValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepParamBindingValuePtrInput)(nil)).Elem(), WorkflowStepParamBindingValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeArrayValueInput)(nil)).Elem(), GetAlertSourceAttributeArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeArrayValueArrayInput)(nil)).Elem(), GetAlertSourceAttributeArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaArrayValueInput)(nil)).Elem(), GetAlertSourceAttributeBetaArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaArrayValueArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionPtrInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackPtrInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElsePtrInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueArrayInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValueInput)(nil)).Elem(), GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValueArgs{})
@@ -55653,77 +57907,100 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaSequencesNodeNotifyChannelInput)(nil)).Elem(), GetEscalationPathBetaSequencesNodeNotifyChannelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaSequencesNodeNotifyChannelTargetInput)(nil)).Elem(), GetEscalationPathBetaSequencesNodeNotifyChannelTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaSequencesNodeNotifyChannelTargetArrayInput)(nil)).Elem(), GetEscalationPathBetaSequencesNodeNotifyChannelTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaWorkingHourInput)(nil)).Elem(), GetEscalationPathBetaWorkingHourArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaWorkingHourArrayInput)(nil)).Elem(), GetEscalationPathBetaWorkingHourArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaWorkingHourWeekdayIntervalInput)(nil)).Elem(), GetEscalationPathBetaWorkingHourWeekdayIntervalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaWorkingHourWeekdayIntervalArrayInput)(nil)).Elem(), GetEscalationPathBetaWorkingHourWeekdayIntervalArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathParamBindingsInput)(nil)).Elem(), GetEscalationPathParamBindingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathParamBindingsMapInput)(nil)).Elem(), GetEscalationPathParamBindingsMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathParamBindingsArrayValueInput)(nil)).Elem(), GetEscalationPathParamBindingsArrayValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathParamBindingsArrayValueArrayInput)(nil)).Elem(), GetEscalationPathParamBindingsArrayValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathParamBindingsValueInput)(nil)).Elem(), GetEscalationPathParamBindingsValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathRepeatConfigInput)(nil)).Elem(), GetEscalationPathRepeatConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesInput)(nil)).Elem(), GetEscalationPathSequencesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesMapInput)(nil)).Elem(), GetEscalationPathSequencesMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeInput)(nil)).Elem(), GetEscalationPathSequencesNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeArrayInput)(nil)).Elem(), GetEscalationPathSequencesNodeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeBranchInput)(nil)).Elem(), GetEscalationPathSequencesNodeBranchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeBranchIfInput)(nil)).Elem(), GetEscalationPathSequencesNodeBranchIfArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeDelayInput)(nil)).Elem(), GetEscalationPathSequencesNodeDelayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeEscalationPathInput)(nil)).Elem(), GetEscalationPathSequencesNodeEscalationPathArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeLevelInput)(nil)).Elem(), GetEscalationPathSequencesNodeLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeLevelRetryConfigInput)(nil)).Elem(), GetEscalationPathSequencesNodeLevelRetryConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeLevelRoundRobinConfigInput)(nil)).Elem(), GetEscalationPathSequencesNodeLevelRoundRobinConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeLevelTargetInput)(nil)).Elem(), GetEscalationPathSequencesNodeLevelTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeLevelTargetArrayInput)(nil)).Elem(), GetEscalationPathSequencesNodeLevelTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeLoopInput)(nil)).Elem(), GetEscalationPathSequencesNodeLoopArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeNotifyChannelInput)(nil)).Elem(), GetEscalationPathSequencesNodeNotifyChannelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeNotifyChannelTargetInput)(nil)).Elem(), GetEscalationPathSequencesNodeNotifyChannelTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathSequencesNodeNotifyChannelTargetArrayInput)(nil)).Elem(), GetEscalationPathSequencesNodeNotifyChannelTargetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathWorkingHourInput)(nil)).Elem(), GetEscalationPathWorkingHourArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathWorkingHourArrayInput)(nil)).Elem(), GetEscalationPathWorkingHourArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathWorkingHourWeekdayIntervalInput)(nil)).Elem(), GetEscalationPathWorkingHourWeekdayIntervalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathWorkingHourWeekdayIntervalArrayInput)(nil)).Elem(), GetEscalationPathWorkingHourWeekdayIntervalArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionInput)(nil)).Elem(), GetIncidentTemplateExpressionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchInput)(nil)).Elem(), GetIncidentTemplateExpressionElseBranchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultInput)(nil)).Elem(), GetIncidentTemplateExpressionElseBranchResultArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultArrayValueInput)(nil)).Elem(), GetIncidentTemplateExpressionElseBranchResultArrayValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultArrayValueArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionElseBranchResultArrayValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionElseBranchResultValueInput)(nil)).Elem(), GetIncidentTemplateExpressionElseBranchResultValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchResultArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesBranchResultValueInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesBranchResultValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationBranchesReturnsInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationBranchesReturnsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationCastInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationCastArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationCastReturnsInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationCastReturnsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationConcatenateInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationConcatenateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetIncidentTemplateExpressionOperationNavigateInput)(nil)).Elem(), GetIncidentTemplateExpressionOperationNavigateArgs{})
+	pulumi.RegisterOutputType(WorkflowDelayOutput{})
+	pulumi.RegisterOutputType(WorkflowDelayPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchResultOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchResultPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchResultArrayValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchResultArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchResultValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionElseBranchResultValuePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchConditionGroupConditionParamBindingValuePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchResultOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchResultArrayValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchResultArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchResultValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesBranchResultValuePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesReturnsOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationBranchesReturnsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationCastOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationCastPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationCastReturnsOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationCastReturnsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationConcatenateOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationConcatenatePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValueOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationFilterConditionGroupConditionParamBindingValuePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationNavigateOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationNavigatePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationParseOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationParsePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationParseReturnsOutput{})
+	pulumi.RegisterOutputType(WorkflowExpressionOperationParseReturnsPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowFormFieldOutput{})
+	pulumi.RegisterOutputType(WorkflowFormFieldArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowStepOutput{})
+	pulumi.RegisterOutputType(WorkflowStepArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowStepParamBindingOutput{})
+	pulumi.RegisterOutputType(WorkflowStepParamBindingArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowStepParamBindingArrayValueOutput{})
+	pulumi.RegisterOutputType(WorkflowStepParamBindingArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowStepParamBindingValueOutput{})
+	pulumi.RegisterOutputType(WorkflowStepParamBindingValuePtrOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeArrayValueOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaArrayValueOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionPtrOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackPtrOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElsePtrOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionGroupConditionParamValueOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamArrayValueArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceAttributeBetaExpressionFallbackElseIfConditionParamValueOutput{})
@@ -56475,75 +58752,4 @@ func init() {
 	pulumi.RegisterOutputType(GetEscalationPathBetaSequencesNodeNotifyChannelOutput{})
 	pulumi.RegisterOutputType(GetEscalationPathBetaSequencesNodeNotifyChannelTargetOutput{})
 	pulumi.RegisterOutputType(GetEscalationPathBetaSequencesNodeNotifyChannelTargetArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathBetaWorkingHourOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathBetaWorkingHourArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathBetaWorkingHourWeekdayIntervalOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathBetaWorkingHourWeekdayIntervalArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathParamBindingsOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathParamBindingsMapOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathParamBindingsArrayValueOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathParamBindingsArrayValueArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathParamBindingsValueOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathRepeatConfigOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesMapOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeBranchOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeBranchIfOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeDelayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeEscalationPathOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeLevelOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeLevelRetryConfigOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeLevelRoundRobinConfigOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeLevelTargetOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeLevelTargetArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeLoopOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeNotifyChannelOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeNotifyChannelTargetOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathSequencesNodeNotifyChannelTargetArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathWorkingHourOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathWorkingHourArrayOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathWorkingHourWeekdayIntervalOutput{})
-	pulumi.RegisterOutputType(GetEscalationPathWorkingHourWeekdayIntervalArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionElseBranchOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionElseBranchResultOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionElseBranchResultArrayValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionElseBranchResultArrayValueArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionElseBranchResultValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchResultOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchResultArrayValueArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesBranchResultValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationBranchesReturnsOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationCastOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationCastReturnsOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationConcatenateOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArrayOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueOutput{})
-	pulumi.RegisterOutputType(GetIncidentTemplateExpressionOperationNavigateOutput{})
 }

@@ -879,6 +879,10 @@ export interface AlertRouteGroupingConfig {
 
 export interface AlertRouteGroupingConfigDefault {
     /**
+     * **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled: boolean;
+    /**
      * Whether grouping is enabled
      */
     enabled: boolean;
@@ -18538,6 +18542,483 @@ export interface GetEscalationPathWorkingHourWeekdayInterval {
     weekday: string;
 }
 
+export interface GetIncidentFormExpression {
+    elseBranch: outputs.GetIncidentFormExpressionElseBranch;
+    /**
+     * The human readable label of the expression
+     */
+    label: string;
+    operations: outputs.GetIncidentFormExpressionOperation[];
+    /**
+     * A short ID that can be used to reference the expression
+     */
+    reference: string;
+    /**
+     * The root reference for this expression (i.e. where the expression starts)
+     */
+    rootReference: string;
+}
+
+export interface GetIncidentFormExpressionElseBranch {
+    result: outputs.GetIncidentFormExpressionElseBranchResult;
+}
+
+export interface GetIncidentFormExpressionElseBranchResult {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetIncidentFormExpressionElseBranchResultArrayValue[];
+    expressionRef: string;
+    value: outputs.GetIncidentFormExpressionElseBranchResultValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetIncidentFormExpressionElseBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionElseBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperation {
+    branches: outputs.GetIncidentFormExpressionOperationBranches;
+    /**
+     * The cast target of this operation, set when the operation type is `cast`
+     */
+    cast: outputs.GetIncidentFormExpressionOperationCast;
+    concatenate: outputs.GetIncidentFormExpressionOperationConcatenate;
+    filter: outputs.GetIncidentFormExpressionOperationFilter;
+    navigate: outputs.GetIncidentFormExpressionOperationNavigate;
+    /**
+     * The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+     */
+    operationType: string;
+    parse: outputs.GetIncidentFormExpressionOperationParse;
+}
+
+export interface GetIncidentFormExpressionOperationBranches {
+    /**
+     * The branches to apply for this operation
+     */
+    branches: outputs.GetIncidentFormExpressionOperationBranchesBranch[];
+    returns: outputs.GetIncidentFormExpressionOperationBranchesReturns;
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranch {
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroup[];
+    result: outputs.GetIncidentFormExpressionOperationBranchesBranchResult;
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupCondition[];
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchResult {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetIncidentFormExpressionOperationBranchesBranchResultArrayValue[];
+    expressionRef: string;
+    value: outputs.GetIncidentFormExpressionOperationBranchesBranchResultValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationBranchesBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationBranchesReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetIncidentFormExpressionOperationCast {
+    returns: outputs.GetIncidentFormExpressionOperationCastReturns;
+}
+
+export interface GetIncidentFormExpressionOperationCastReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetIncidentFormExpressionOperationConcatenate {
+    /**
+     * The reference within the scope to concatenate with
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationFilter {
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetIncidentFormExpressionOperationFilterConditionGroup[];
+}
+
+export interface GetIncidentFormExpressionOperationFilterConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetIncidentFormExpressionOperationFilterConditionGroupCondition[];
+}
+
+export interface GetIncidentFormExpressionOperationFilterConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationNavigate {
+    /**
+     * The reference within the scope to navigate to
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormExpressionOperationParse {
+    returns: outputs.GetIncidentFormExpressionOperationParseReturns;
+    /**
+     * Source expression that is evaluated to a result
+     */
+    source: string;
+}
+
+export interface GetIncidentFormExpressionOperationParseReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetIncidentFormLifecycleElement {
+    /**
+     * Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+     */
+    canSelectNoValue: boolean;
+    config: outputs.GetIncidentFormLifecycleElementConfig;
+    /**
+     * The custom field this element edits. Set only when element*type is custom*field.
+     */
+    customFieldId: string;
+    defaultValue: outputs.GetIncidentFormLifecycleElementDefaultValue;
+    /**
+     * Description shown beside this element, as markdown
+     */
+    description: string;
+    /**
+     * What this element captures. Possible values are: `name`, `status`, `severity`, `incidentRole`, `incidentType`, `summary`, `customField`, `timestamp`, `updateMessage`, `nextUpdateIn`, `triage`, `visibility`, `divider`, `text`, `incidentAttachments`, `slackChannel`, `announceRetroIncident`, `enterPostIncidentFlow`, `investigationFeedback`.
+     */
+    elementType: string;
+    /**
+     * Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+     */
+    id: string;
+    /**
+     * The incident role this element assigns. Set only when element*type is incident*role.
+     */
+    incidentRoleId: string;
+    /**
+     * The incident timestamp this element sets. Set only when elementType is timestamp.
+     */
+    incidentTimestampId: string;
+    /**
+     * Placeholder text shown in the empty field
+     */
+    placeholder: string;
+    /**
+     * When this element must be filled in. Possible values are: `checkEngineConfig`, `alwaysRequire`, `neverRequire`.
+     */
+    requiredIf: string;
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    requiredIfConditionGroups: outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroup[];
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    showIfConditionGroups: outputs.GetIncidentFormLifecycleElementShowIfConditionGroup[];
+}
+
+export interface GetIncidentFormLifecycleElementConfig {
+    /**
+     * Whether the free-text comment must be filled in, for anyone giving investigation feedback
+     */
+    requireComment: boolean;
+}
+
+export interface GetIncidentFormLifecycleElementDefaultValue {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetIncidentFormLifecycleElementDefaultValueArrayValue[];
+    expressionRef: string;
+    value: outputs.GetIncidentFormLifecycleElementDefaultValueValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetIncidentFormLifecycleElementDefaultValueArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormLifecycleElementDefaultValueValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormLifecycleElementRequiredIfConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupCondition[];
+}
+
+export interface GetIncidentFormLifecycleElementRequiredIfConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormLifecycleElementShowIfConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetIncidentFormLifecycleElementShowIfConditionGroupCondition[];
+}
+
+export interface GetIncidentFormLifecycleElementShowIfConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetIncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
 export interface GetIncidentTemplateExpression {
     elseBranch: outputs.GetIncidentTemplateExpressionElseBranch;
     /**
@@ -19704,6 +20185,645 @@ export interface GetWorkflowStepParamBindingValue {
      * If set, this is the reference into the trigger scope that is the value of this parameter
      */
     reference: string;
+}
+
+export interface IncidentFormExpression {
+    /**
+     * The else branch to resort to if all operations fail
+     */
+    elseBranch?: outputs.IncidentFormExpressionElseBranch;
+    /**
+     * The human readable label of the expression
+     */
+    label: string;
+    /**
+     * The operations to execute in sequence for this expression
+     */
+    operations: outputs.IncidentFormExpressionOperation[];
+    /**
+     * A short ID that can be used to reference the expression
+     */
+    reference: string;
+    /**
+     * The root reference for this expression (i.e. where the expression starts)
+     */
+    rootReference: string;
+}
+
+export interface IncidentFormExpressionElseBranch {
+    /**
+     * The result assumed if the else branch is reached
+     */
+    result: outputs.IncidentFormExpressionElseBranchResult;
+}
+
+export interface IncidentFormExpressionElseBranchResult {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.IncidentFormExpressionElseBranchResultArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.IncidentFormExpressionElseBranchResultValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface IncidentFormExpressionElseBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionElseBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionOperation {
+    /**
+     * An operation type that allows for a value to be set conditionally by a series of logical branches
+     */
+    branches?: outputs.IncidentFormExpressionOperationBranches;
+    /**
+     * An operation type that converts a value into another type. Only valid on values that can be represented as text. The returned `array` follows the value being cast, so it must match the cardinality of the previous operation
+     */
+    cast?: outputs.IncidentFormExpressionOperationCast;
+    /**
+     * An operation type that adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name
+     */
+    concatenate?: outputs.IncidentFormExpressionOperationConcatenate;
+    /**
+     * An operation type that allows values to be filtered out by conditions
+     */
+    filter?: outputs.IncidentFormExpressionOperationFilter;
+    /**
+     * An operation type that allows attributes of a type to be accessed by reference
+     */
+    navigate?: outputs.IncidentFormExpressionOperationNavigate;
+    /**
+     * Indicates which operation type to execute. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+     */
+    operationType: string;
+    /**
+     * An operation type that allows a value to parsed from within a JSON object
+     */
+    parse?: outputs.IncidentFormExpressionOperationParse;
+}
+
+export interface IncidentFormExpressionOperationBranches {
+    /**
+     * The branches to apply for this operation
+     */
+    branches: outputs.IncidentFormExpressionOperationBranchesBranch[];
+    /**
+     * The return type of an operation
+     */
+    returns: outputs.IncidentFormExpressionOperationBranchesReturns;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranch {
+    /**
+     * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+     */
+    conditionGroups: outputs.IncidentFormExpressionOperationBranchesBranchConditionGroup[];
+    /**
+     * The result assumed if the condition groups are satisfied
+     */
+    result: outputs.IncidentFormExpressionOperationBranchesBranchResult;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupCondition[];
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchResult {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.IncidentFormExpressionOperationBranchesBranchResultArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.IncidentFormExpressionOperationBranchesBranchResultValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionOperationBranchesBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionOperationBranchesReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface IncidentFormExpressionOperationCast {
+    /**
+     * The return type of an operation
+     */
+    returns: outputs.IncidentFormExpressionOperationCastReturns;
+}
+
+export interface IncidentFormExpressionOperationCastReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface IncidentFormExpressionOperationConcatenate {
+    /**
+     * The reference within the scope to concatenate with
+     */
+    reference: string;
+}
+
+export interface IncidentFormExpressionOperationFilter {
+    /**
+     * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
+     */
+    conditionGroups: outputs.IncidentFormExpressionOperationFilterConditionGroup[];
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.IncidentFormExpressionOperationFilterConditionGroupCondition[];
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionOperationFilterConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormExpressionOperationNavigate {
+    reference: string;
+}
+
+export interface IncidentFormExpressionOperationParse {
+    /**
+     * The return type of an operation
+     */
+    returns: outputs.IncidentFormExpressionOperationParseReturns;
+    /**
+     * The ES5 Javascript expression to execute
+     */
+    source: string;
+}
+
+export interface IncidentFormExpressionOperationParseReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface IncidentFormLifecycleElement {
+    /**
+     * Whether the user can explicitly choose no value. Only meaningful for custom field elements.
+     */
+    canSelectNoValue: boolean;
+    config?: outputs.IncidentFormLifecycleElementConfig;
+    /**
+     * The custom field this element edits. Set only when element*type is custom*field.
+     */
+    customFieldId?: string;
+    defaultValue?: outputs.IncidentFormLifecycleElementDefaultValue;
+    /**
+     * Description shown beside this element, as markdown
+     */
+    description?: string;
+    /**
+     * What this element captures. Possible values are: `name`, `status`, `severity`, `incidentRole`, `incidentType`, `summary`, `customField`, `timestamp`, `updateMessage`, `nextUpdateIn`, `triage`, `visibility`, `divider`, `text`, `incidentAttachments`, `slackChannel`, `announceRetroIncident`, `enterPostIncidentFlow`, `investigationFeedback`.
+     */
+    elementType: string;
+    /**
+     * Unique identifier for this element. divider and text elements are matched on this, because they have no natural key.
+     */
+    id: string;
+    /**
+     * The incident role this element assigns. Set only when element*type is incident*role.
+     */
+    incidentRoleId?: string;
+    /**
+     * The incident timestamp this element sets. Set only when elementType is timestamp.
+     */
+    incidentTimestampId?: string;
+    /**
+     * Placeholder text shown in the empty field
+     */
+    placeholder?: string;
+    /**
+     * When this element must be filled in. Possible values are: `checkEngineConfig`, `alwaysRequire`, `neverRequire`.
+     */
+    requiredIf: string;
+    /**
+     * Condition groups that make this element required. Used when required*if is check*engine*config.
+     */
+    requiredIfConditionGroups?: outputs.IncidentFormLifecycleElementRequiredIfConditionGroup[];
+    /**
+     * The element is shown when any of these condition groups match. Unset means it is always shown.
+     */
+    showIfConditionGroups?: outputs.IncidentFormLifecycleElementShowIfConditionGroup[];
+}
+
+export interface IncidentFormLifecycleElementConfig {
+    /**
+     * Whether the free-text comment must be filled in, for anyone giving investigation feedback
+     */
+    requireComment: boolean;
+}
+
+export interface IncidentFormLifecycleElementDefaultValue {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.IncidentFormLifecycleElementDefaultValueArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.IncidentFormLifecycleElementDefaultValueValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface IncidentFormLifecycleElementDefaultValueArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormLifecycleElementDefaultValueValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.IncidentFormLifecycleElementRequiredIfConditionGroupCondition[];
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormLifecycleElementRequiredIfConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.IncidentFormLifecycleElementShowIfConditionGroupCondition[];
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface IncidentFormLifecycleElementShowIfConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
 }
 
 export interface IncidentTemplateExpression {
@@ -21794,6 +22914,9 @@ export interface PolicySchedule {
     requirementType: string;
 }
 
+export interface PolicyShiftConflict {
+}
+
 export interface PolicyVacationConflict {
 }
 
@@ -21904,6 +23027,67 @@ export interface ScheduleSyncTargetNewSlackUserGroup {
     slackTeamId?: string;
 }
 
+export interface StatusPageStructureItem {
+    /**
+     * ID of the component to place, shown on its own.
+     */
+    componentId?: string;
+    /**
+     * Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+     */
+    displayUptime: boolean;
+    /**
+     * A named group of components.
+     */
+    group?: outputs.StatusPageStructureItemGroup;
+    /**
+     * Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+     */
+    hidden: boolean;
+}
+
+export interface StatusPageStructureItemGroup {
+    /**
+     * The components in this group, in display order.
+     */
+    components: outputs.StatusPageStructureItemGroupComponent[];
+    /**
+     * A description shown under the group's name. Left out, the group has none, so a description set in the dashboard has to be written here to survive an apply.
+     */
+    description?: string;
+    /**
+     * Whether the page shows uptime aggregated across the group's components. Left out, a group already on the page keeps its setting and a new one shows it when a component allows. It needs a visible component that shows uptime.
+     */
+    displayAggregatedUptime: boolean;
+    /**
+     * Whether the group is hidden from the page. Left out, a group already on the page keeps its setting and a new one is hidden only when every component in it is. A visible group needs a visible component.
+     */
+    hidden: boolean;
+    /**
+     * Unique ID of this component group. Assigned by incident.io, and kept while the group keeps its name.
+     */
+    id: string;
+    /**
+     * The name of this component group
+     */
+    name: string;
+}
+
+export interface StatusPageStructureItemGroupComponent {
+    /**
+     * ID of the component to place
+     */
+    componentId: string;
+    /**
+     * Whether the page shows the component's uptime. Left out, a component already on the page keeps its setting and a new one shows it.
+     */
+    displayUptime: boolean;
+    /**
+     * Whether the component is hidden from the page. Left out, a component already on the page keeps its setting and a new one is shown.
+     */
+    hidden: boolean;
+}
+
 export interface TeamGroupingPreferenceDefault {
     /**
      * How a team's alerts are grouped together, on every alert route
@@ -21912,6 +23096,10 @@ export interface TeamGroupingPreferenceDefault {
 }
 
 export interface TeamGroupingPreferenceDefaultSettings {
+    /**
+     * Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled: boolean;
     /**
      * Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
      */

@@ -14,8 +14,8 @@ import * as utilities from "./utilities";
  *
  * `policyType` selects exactly one matching config block: a `followUp` policy
  * carries `followUp` config, a `schedule` policy carries `schedule`
- * config, and so on. A `vacationConflict` policy has no configuration of its own and
- * so carries no block.
+ * config, and so on. `vacationConflict` and `shiftConflict` policies have no
+ * configuration of their own, so their blocks are empty objects.
  *
  * ## Example - Require a post-mortem within five working days
  *
@@ -282,6 +282,32 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ## Example - Flag anyone on call in two places at once
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as incident from "@incident-io/pulumi";
+ *
+ * // A shift conflict policy, which flags users who are on call in two or more
+ * // places at once: two rotations of one schedule, or two different schedules.
+ * // The type has nothing to configure, so its block is empty: it is only there to
+ * // say which type this is.
+ * //
+ * // The API assigns the user the finding is about, so assignment_rules takes
+ * // reminders but no bindings. A finding is due when the conflict starts, so this
+ * // reminds them when it's found and again the day before it starts.
+ * const shiftConflicts = new incident.Policy("shift_conflicts", {
+ *     name: "Nobody on call twice",
+ *     description: "Flag anyone scheduled on call in two places at once.",
+ *     conditionGroups: [],
+ *     assignmentRules: {
+ *         reminderDueDateOffsetHours: [-24],
+ *         reminderDetectedDateOffsetHours: [0],
+ *     },
+ *     shiftConflict: {},
+ * });
+ * ```
+ *
  * ## Import
  *
  * Import is supported using an `import` block or the `pulumi import` command:
@@ -370,6 +396,10 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public readonly schedule: pulumi.Output<outputs.PolicySchedule | undefined>;
     /**
+     * Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+     */
+    declare public readonly shiftConflict: pulumi.Output<outputs.PolicyShiftConflict | undefined>;
+    /**
      * Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
      */
     declare public readonly status: pulumi.Output<string>;
@@ -406,6 +436,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["policyType"] = state?.policyType;
             resourceInputs["postMortem"] = state?.postMortem;
             resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["shiftConflict"] = state?.shiftConflict;
             resourceInputs["status"] = state?.status;
             resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
             resourceInputs["vacationConflict"] = state?.vacationConflict;
@@ -427,6 +458,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["onCallReadiness"] = args?.onCallReadiness;
             resourceInputs["postMortem"] = args?.postMortem;
             resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["shiftConflict"] = args?.shiftConflict;
             resourceInputs["status"] = args?.status;
             resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
             resourceInputs["vacationConflict"] = args?.vacationConflict;
@@ -486,6 +518,10 @@ export interface PolicyState {
      */
     schedule?: pulumi.Input<inputs.PolicySchedule | undefined>;
     /**
+     * Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+     */
+    shiftConflict?: pulumi.Input<inputs.PolicyShiftConflict | undefined>;
+    /**
      * Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
      */
     status?: pulumi.Input<string | undefined>;
@@ -543,6 +579,10 @@ export interface PolicyArgs {
      * Makes this a schedule policy, which detects gaps in on-call coverage.
      */
     schedule?: pulumi.Input<inputs.PolicySchedule | undefined>;
+    /**
+     * Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignmentRules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+     */
+    shiftConflict?: pulumi.Input<inputs.PolicyShiftConflict | undefined>;
     /**
      * Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
      */

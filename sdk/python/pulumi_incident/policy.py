@@ -31,6 +31,7 @@ class PolicyArgs:
                  on_call_readiness: pulumi.Input[Optional['PolicyOnCallReadinessArgs']] = None,
                  post_mortem: pulumi.Input[Optional['PolicyPostMortemArgs']] = None,
                  schedule: pulumi.Input[Optional['PolicyScheduleArgs']] = None,
+                 shift_conflict: pulumi.Input[Optional['PolicyShiftConflictArgs']] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional['PolicyVacationConflictArgs']] = None):
@@ -47,6 +48,7 @@ class PolicyArgs:
         :param pulumi.Input['PolicyOnCallReadinessArgs'] on_call_readiness: Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminder_due_date_offset_hours` and `reminder_cadence_after` apply.
         :param pulumi.Input['PolicyPostMortemArgs'] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input['PolicyScheduleArgs'] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
+        :param pulumi.Input['PolicyShiftConflictArgs'] shift_conflict: Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
         :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input['PolicyVacationConflictArgs'] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`.
@@ -69,6 +71,8 @@ class PolicyArgs:
             pulumi.set(__self__, "post_mortem", post_mortem)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
+        if shift_conflict is not None:
+            pulumi.set(__self__, "shift_conflict", shift_conflict)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if unlock_in_dashboard is not None:
@@ -197,6 +201,18 @@ class PolicyArgs:
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
+    @pulumi.getter(name="shiftConflict")
+    def shift_conflict(self) -> pulumi.Input[Optional['PolicyShiftConflictArgs']]:
+        """
+        Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+        """
+        return pulumi.get(self, "shift_conflict")
+
+    @shift_conflict.setter
+    def shift_conflict(self, value: pulumi.Input[Optional['PolicyShiftConflictArgs']]):
+        pulumi.set(self, "shift_conflict", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -247,6 +263,7 @@ class _PolicyState:
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  post_mortem: pulumi.Input[Optional['PolicyPostMortemArgs']] = None,
                  schedule: pulumi.Input[Optional['PolicyScheduleArgs']] = None,
+                 shift_conflict: pulumi.Input[Optional['PolicyShiftConflictArgs']] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional['PolicyVacationConflictArgs']] = None):
@@ -264,6 +281,7 @@ class _PolicyState:
         :param pulumi.Input[_builtins.str] policy_type: Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `shift_conflict`, `vacation_conflict`. Determined by which config block is set.
         :param pulumi.Input['PolicyPostMortemArgs'] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input['PolicyScheduleArgs'] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
+        :param pulumi.Input['PolicyShiftConflictArgs'] shift_conflict: Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
         :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input['PolicyVacationConflictArgs'] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`.
@@ -290,6 +308,8 @@ class _PolicyState:
             pulumi.set(__self__, "post_mortem", post_mortem)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
+        if shift_conflict is not None:
+            pulumi.set(__self__, "shift_conflict", shift_conflict)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if unlock_in_dashboard is not None:
@@ -430,6 +450,18 @@ class _PolicyState:
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
+    @pulumi.getter(name="shiftConflict")
+    def shift_conflict(self) -> pulumi.Input[Optional['PolicyShiftConflictArgs']]:
+        """
+        Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+        """
+        return pulumi.get(self, "shift_conflict")
+
+    @shift_conflict.setter
+    def shift_conflict(self, value: pulumi.Input[Optional['PolicyShiftConflictArgs']]):
+        pulumi.set(self, "shift_conflict", value)
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -482,6 +514,7 @@ class Policy(pulumi.CustomResource):
                  on_call_readiness: pulumi.Input[Optional[Union['PolicyOnCallReadinessArgs', 'PolicyOnCallReadinessArgsDict']]] = None,
                  post_mortem: pulumi.Input[Optional[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']]] = None,
                  schedule: pulumi.Input[Optional[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']]] = None,
+                 shift_conflict: pulumi.Input[Optional[Union['PolicyShiftConflictArgs', 'PolicyShiftConflictArgsDict']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']]] = None,
@@ -494,8 +527,8 @@ class Policy(pulumi.CustomResource):
 
         `policy_type` selects exactly one matching config block: a `follow_up` policy
         carries `follow_up` config, a `schedule` policy carries `schedule`
-        config, and so on. A `vacation_conflict` policy has no configuration of its own and
-        so carries no block.
+        config, and so on. `vacation_conflict` and `shift_conflict` policies have no
+        configuration of their own, so their blocks are empty objects.
 
         ## Example - Require a post-mortem within five working days
 
@@ -740,6 +773,31 @@ class Policy(pulumi.CustomResource):
             description="Flag anyone scheduled on call while they are on leave.",
             condition_groups=[],
             vacation_conflict={})
+        ```
+
+        ## Example - Flag anyone on call in two places at once
+
+        ```python
+        import pulumi
+        import pulumi_incident as incident
+
+        # A shift conflict policy, which flags users who are on call in two or more
+        # places at once: two rotations of one schedule, or two different schedules.
+        # The type has nothing to configure, so its block is empty: it is only there to
+        # say which type this is.
+        #
+        # The API assigns the user the finding is about, so assignment_rules takes
+        # reminders but no bindings. A finding is due when the conflict starts, so this
+        # reminds them when it's found and again the day before it starts.
+        shift_conflicts = incident.Policy("shift_conflicts",
+            name="Nobody on call twice",
+            description="Flag anyone scheduled on call in two places at once.",
+            condition_groups=[],
+            assignment_rules={
+                "reminder_due_date_offset_hours": [-24],
+                "reminder_detected_date_offset_hours": [0],
+            },
+            shift_conflict={})
         ```
 
         ## Import
@@ -770,6 +828,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Union['PolicyOnCallReadinessArgs', 'PolicyOnCallReadinessArgsDict']] on_call_readiness: Makes this an on-call readiness policy, which checks that users have suitable notification methods. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due as soon as it is found, so only non-negative `reminder_due_date_offset_hours` and `reminder_cadence_after` apply.
         :param pulumi.Input[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
+        :param pulumi.Input[Union['PolicyShiftConflictArgs', 'PolicyShiftConflictArgsDict']] shift_conflict: Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
         :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`.
@@ -788,8 +847,8 @@ class Policy(pulumi.CustomResource):
 
         `policy_type` selects exactly one matching config block: a `follow_up` policy
         carries `follow_up` config, a `schedule` policy carries `schedule`
-        config, and so on. A `vacation_conflict` policy has no configuration of its own and
-        so carries no block.
+        config, and so on. `vacation_conflict` and `shift_conflict` policies have no
+        configuration of their own, so their blocks are empty objects.
 
         ## Example - Require a post-mortem within five working days
 
@@ -1034,6 +1093,31 @@ class Policy(pulumi.CustomResource):
             description="Flag anyone scheduled on call while they are on leave.",
             condition_groups=[],
             vacation_conflict={})
+        ```
+
+        ## Example - Flag anyone on call in two places at once
+
+        ```python
+        import pulumi
+        import pulumi_incident as incident
+
+        # A shift conflict policy, which flags users who are on call in two or more
+        # places at once: two rotations of one schedule, or two different schedules.
+        # The type has nothing to configure, so its block is empty: it is only there to
+        # say which type this is.
+        #
+        # The API assigns the user the finding is about, so assignment_rules takes
+        # reminders but no bindings. A finding is due when the conflict starts, so this
+        # reminds them when it's found and again the day before it starts.
+        shift_conflicts = incident.Policy("shift_conflicts",
+            name="Nobody on call twice",
+            description="Flag anyone scheduled on call in two places at once.",
+            condition_groups=[],
+            assignment_rules={
+                "reminder_due_date_offset_hours": [-24],
+                "reminder_detected_date_offset_hours": [0],
+            },
+            shift_conflict={})
         ```
 
         ## Import
@@ -1077,6 +1161,7 @@ class Policy(pulumi.CustomResource):
                  on_call_readiness: pulumi.Input[Optional[Union['PolicyOnCallReadinessArgs', 'PolicyOnCallReadinessArgsDict']]] = None,
                  post_mortem: pulumi.Input[Optional[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']]] = None,
                  schedule: pulumi.Input[Optional[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']]] = None,
+                 shift_conflict: pulumi.Input[Optional[Union['PolicyShiftConflictArgs', 'PolicyShiftConflictArgsDict']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  vacation_conflict: pulumi.Input[Optional[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']]] = None,
@@ -1103,6 +1188,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["on_call_readiness"] = on_call_readiness
             __props__.__dict__["post_mortem"] = post_mortem
             __props__.__dict__["schedule"] = schedule
+            __props__.__dict__["shift_conflict"] = shift_conflict
             __props__.__dict__["status"] = status
             __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
             __props__.__dict__["vacation_conflict"] = vacation_conflict
@@ -1128,6 +1214,7 @@ class Policy(pulumi.CustomResource):
             policy_type: pulumi.Input[Optional[_builtins.str]] = None,
             post_mortem: pulumi.Input[Optional[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']]] = None,
             schedule: pulumi.Input[Optional[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']]] = None,
+            shift_conflict: pulumi.Input[Optional[Union['PolicyShiftConflictArgs', 'PolicyShiftConflictArgsDict']]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
             vacation_conflict: pulumi.Input[Optional[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']]] = None) -> 'Policy':
@@ -1149,6 +1236,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy_type: Type of the policy, specifying what this applies to. Possible values are: `debrief`, `follow_up`, `on_call_readiness`, `post_mortem`, `schedule`, `shift_conflict`, `vacation_conflict`. Determined by which config block is set.
         :param pulumi.Input[Union['PolicyPostMortemArgs', 'PolicyPostMortemArgsDict']] post_mortem: Makes this a post*mortem policy, stating what a post*mortem must satisfy and when it falls due.
         :param pulumi.Input[Union['PolicyScheduleArgs', 'PolicyScheduleArgsDict']] schedule: Makes this a schedule policy, which detects gaps in on-call coverage.
+        :param pulumi.Input[Union['PolicyShiftConflictArgs', 'PolicyShiftConflictArgsDict']] shift_conflict: Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
         :param pulumi.Input[_builtins.str] status: Disabled policies stop evaluating but keep their config. Possible values are: `enabled`, `disabled`.
         :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[Union['PolicyVacationConflictArgs', 'PolicyVacationConflictArgsDict']] vacation_conflict: Makes this a vacation-conflict policy, which flags responders rota'd on while they are away. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`.
@@ -1168,6 +1256,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["policy_type"] = policy_type
         __props__.__dict__["post_mortem"] = post_mortem
         __props__.__dict__["schedule"] = schedule
+        __props__.__dict__["shift_conflict"] = shift_conflict
         __props__.__dict__["status"] = status
         __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         __props__.__dict__["vacation_conflict"] = vacation_conflict
@@ -1260,6 +1349,14 @@ class Policy(pulumi.CustomResource):
         Makes this a schedule policy, which detects gaps in on-call coverage.
         """
         return pulumi.get(self, "schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="shiftConflict")
+    def shift_conflict(self) -> pulumi.Output[Optional['outputs.PolicyShiftConflict']]:
+        """
+        Makes this a shift-conflict policy, which flags users who are on call in two or more places at once. It takes no configuration, so set it to an empty object. The assignee is always the user the finding is about, so `assignment_rules` takes reminders but no `bindings`. A finding is due when the conflict starts, so reminders can come before it.
+        """
+        return pulumi.get(self, "shift_conflict")
 
     @_builtins.property
     @pulumi.getter

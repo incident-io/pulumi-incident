@@ -165,6 +165,11 @@ export const getEscalationPathBeta: typeof import("./getEscalationPathBeta").get
 export const getEscalationPathBetaOutput: typeof import("./getEscalationPathBeta").getEscalationPathBetaOutput = null as any;
 utilities.lazyLoad(exports, ["getEscalationPathBeta","getEscalationPathBetaOutput"], () => require("./getEscalationPathBeta"));
 
+export { GetIncidentFormArgs, GetIncidentFormResult, GetIncidentFormOutputArgs } from "./getIncidentForm";
+export const getIncidentForm: typeof import("./getIncidentForm").getIncidentForm = null as any;
+export const getIncidentFormOutput: typeof import("./getIncidentForm").getIncidentFormOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentForm","getIncidentFormOutput"], () => require("./getIncidentForm"));
+
 export { GetIncidentRoleArgs, GetIncidentRoleResult, GetIncidentRoleOutputArgs } from "./getIncidentRole";
 export const getIncidentRole: typeof import("./getIncidentRole").getIncidentRole = null as any;
 export const getIncidentRoleOutput: typeof import("./getIncidentRole").getIncidentRoleOutput = null as any;
@@ -260,6 +265,11 @@ export const getStatusPage: typeof import("./getStatusPage").getStatusPage = nul
 export const getStatusPageOutput: typeof import("./getStatusPage").getStatusPageOutput = null as any;
 utilities.lazyLoad(exports, ["getStatusPage","getStatusPageOutput"], () => require("./getStatusPage"));
 
+export { GetStatusPageComponentArgs, GetStatusPageComponentResult, GetStatusPageComponentOutputArgs } from "./getStatusPageComponent";
+export const getStatusPageComponent: typeof import("./getStatusPageComponent").getStatusPageComponent = null as any;
+export const getStatusPageComponentOutput: typeof import("./getStatusPageComponent").getStatusPageComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getStatusPageComponent","getStatusPageComponentOutput"], () => require("./getStatusPageComponent"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -269,6 +279,11 @@ export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./get
 export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+
+export { IncidentFormArgs, IncidentFormState } from "./incidentForm";
+export type IncidentForm = import("./incidentForm").IncidentForm;
+export const IncidentForm: typeof import("./incidentForm").IncidentForm = null as any;
+utilities.lazyLoad(exports, ["IncidentForm"], () => require("./incidentForm"));
 
 export { IncidentRoleArgs, IncidentRoleState } from "./incidentRole";
 export type IncidentRole = import("./incidentRole").IncidentRole;
@@ -348,6 +363,16 @@ export type Status = import("./status").Status;
 export const Status: typeof import("./status").Status = null as any;
 utilities.lazyLoad(exports, ["Status"], () => require("./status"));
 
+export { StatusPageComponentArgs, StatusPageComponentState } from "./statusPageComponent";
+export type StatusPageComponent = import("./statusPageComponent").StatusPageComponent;
+export const StatusPageComponent: typeof import("./statusPageComponent").StatusPageComponent = null as any;
+utilities.lazyLoad(exports, ["StatusPageComponent"], () => require("./statusPageComponent"));
+
+export { StatusPageStructureArgs, StatusPageStructureState } from "./statusPageStructure";
+export type StatusPageStructure = import("./statusPageStructure").StatusPageStructure;
+export const StatusPageStructure: typeof import("./statusPageStructure").StatusPageStructure = null as any;
+utilities.lazyLoad(exports, ["StatusPageStructure"], () => require("./statusPageStructure"));
+
 export { TeamGroupingPreferenceArgs, TeamGroupingPreferenceState } from "./teamGroupingPreference";
 export type TeamGroupingPreference = import("./teamGroupingPreference").TeamGroupingPreference;
 export const TeamGroupingPreference: typeof import("./teamGroupingPreference").TeamGroupingPreference = null as any;
@@ -408,6 +433,8 @@ const _module = {
                 return new EscalationPathBeta(name, <any>undefined, { urn })
             case "incident:index/escalationPathTemplate:EscalationPathTemplate":
                 return new EscalationPathTemplate(name, <any>undefined, { urn })
+            case "incident:index/incidentForm:IncidentForm":
+                return new IncidentForm(name, <any>undefined, { urn })
             case "incident:index/incidentRole:IncidentRole":
                 return new IncidentRole(name, <any>undefined, { urn })
             case "incident:index/incidentTemplate:IncidentTemplate":
@@ -438,6 +465,10 @@ const _module = {
                 return new Severity(name, <any>undefined, { urn })
             case "incident:index/status:Status":
                 return new Status(name, <any>undefined, { urn })
+            case "incident:index/statusPageComponent:StatusPageComponent":
+                return new StatusPageComponent(name, <any>undefined, { urn })
+            case "incident:index/statusPageStructure:StatusPageStructure":
+                return new StatusPageStructure(name, <any>undefined, { urn })
             case "incident:index/teamGroupingPreference:TeamGroupingPreference":
                 return new TeamGroupingPreference(name, <any>undefined, { urn })
             case "incident:index/workflow:Workflow":
@@ -465,6 +496,7 @@ pulumi.runtime.registerResourceModule("incident", "index/customFieldOption", _mo
 pulumi.runtime.registerResourceModule("incident", "index/escalationPath", _module)
 pulumi.runtime.registerResourceModule("incident", "index/escalationPathBeta", _module)
 pulumi.runtime.registerResourceModule("incident", "index/escalationPathTemplate", _module)
+pulumi.runtime.registerResourceModule("incident", "index/incidentForm", _module)
 pulumi.runtime.registerResourceModule("incident", "index/incidentRole", _module)
 pulumi.runtime.registerResourceModule("incident", "index/incidentTemplate", _module)
 pulumi.runtime.registerResourceModule("incident", "index/maintenanceWindow", _module)
@@ -480,6 +512,8 @@ pulumi.runtime.registerResourceModule("incident", "index/scheduleSyncTarget", _m
 pulumi.runtime.registerResourceModule("incident", "index/secret", _module)
 pulumi.runtime.registerResourceModule("incident", "index/severity", _module)
 pulumi.runtime.registerResourceModule("incident", "index/status", _module)
+pulumi.runtime.registerResourceModule("incident", "index/statusPageComponent", _module)
+pulumi.runtime.registerResourceModule("incident", "index/statusPageStructure", _module)
 pulumi.runtime.registerResourceModule("incident", "index/teamGroupingPreference", _module)
 pulumi.runtime.registerResourceModule("incident", "index/workflow", _module)
 pulumi.runtime.registerResourcePackage("incident", {

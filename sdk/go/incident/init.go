@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EscalationPathBeta{}
 	case "incident:index/escalationPathTemplate:EscalationPathTemplate":
 		r = &EscalationPathTemplate{}
+	case "incident:index/incidentForm:IncidentForm":
+		r = &IncidentForm{}
 	case "incident:index/incidentRole:IncidentRole":
 		r = &IncidentRole{}
 	case "incident:index/incidentTemplate:IncidentTemplate":
@@ -87,6 +89,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Severity{}
 	case "incident:index/status:Status":
 		r = &Status{}
+	case "incident:index/statusPageComponent:StatusPageComponent":
+		r = &StatusPageComponent{}
+	case "incident:index/statusPageStructure:StatusPageStructure":
+		r = &StatusPageStructure{}
 	case "incident:index/teamGroupingPreference:TeamGroupingPreference":
 		r = &TeamGroupingPreference{}
 	case "incident:index/workflow:Workflow":
@@ -214,6 +220,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"incident",
+		"index/incidentForm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
 		"index/incidentRole",
 		&module{version},
 	)
@@ -285,6 +296,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"incident",
 		"index/status",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/statusPageComponent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/statusPageStructure",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
