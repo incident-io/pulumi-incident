@@ -27,7 +27,10 @@ class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
-    def __init__(__self__, condition_groups=None, continue_on_step_error=None, delay=None, expressions=None, folder=None, form_fields=None, id=None, include_private_escalations=None, include_private_incidents=None, name=None, once_fors=None, owning_team_ids=None, private_incident_scope=None, runs_on_incident_modes=None, runs_on_incidents=None, shortform=None, state=None, steps=None, trigger=None, unlock_in_dashboard=None):
+    def __init__(__self__, auto_run_mode=None, condition_groups=None, continue_on_step_error=None, delay=None, expressions=None, folder=None, form_fields=None, id=None, include_private_escalations=None, include_private_incidents=None, name=None, once_fors=None, owning_team_ids=None, private_incident_scope=None, runs_on_incident_modes=None, runs_on_incidents=None, shortform=None, state=None, steps=None, trigger=None, unlock_in_dashboard=None):
+        if auto_run_mode and not isinstance(auto_run_mode, str):
+            raise TypeError("Expected argument 'auto_run_mode' to be a str")
+        pulumi.set(__self__, "auto_run_mode", auto_run_mode)
         if condition_groups and not isinstance(condition_groups, list):
             raise TypeError("Expected argument 'condition_groups' to be a list")
         pulumi.set(__self__, "condition_groups", condition_groups)
@@ -90,6 +93,14 @@ class GetWorkflowResult:
         pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
 
     @_builtins.property
+    @pulumi.getter(name="autoRunMode")
+    def auto_run_mode(self) -> _builtins.str:
+        """
+        Whether the workflow is configured to run immediately or ask for confirmation in the incident channel. Possible values are: `run_automatically`, `confirm_before_running`.
+        """
+        return pulumi.get(self, "auto_run_mode")
+
+    @_builtins.property
     @pulumi.getter(name="conditionGroups")
     def condition_groups(self) -> Sequence['outputs.GetWorkflowConditionGroupResult']:
         """
@@ -133,7 +144,7 @@ class GetWorkflowResult:
     @pulumi.getter(name="formFields")
     def form_fields(self) -> Sequence['outputs.GetWorkflowFormFieldResult']:
         """
-        User-configured form fields available in the workflow scope (manual triggers only)
+        User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         """
         return pulumi.get(self, "form_fields")
 
@@ -218,6 +229,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
         if False:
             yield self
         return GetWorkflowResult(
+            auto_run_mode=self.auto_run_mode,
             condition_groups=self.condition_groups,
             continue_on_step_error=self.continue_on_step_error,
             delay=self.delay,
@@ -265,6 +277,7 @@ def get_workflow(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('incident:index/getWorkflow:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
+        auto_run_mode=pulumi.get(__ret__, 'auto_run_mode'),
         condition_groups=pulumi.get(__ret__, 'condition_groups'),
         continue_on_step_error=pulumi.get(__ret__, 'continue_on_step_error'),
         delay=pulumi.get(__ret__, 'delay'),
@@ -309,6 +322,7 @@ def get_workflow_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('incident:index/getWorkflow:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
     return __ret__.apply(lambda __response__: GetWorkflowResult(
+        auto_run_mode=pulumi.get(__response__, 'auto_run_mode'),
         condition_groups=pulumi.get(__response__, 'condition_groups'),
         continue_on_step_error=pulumi.get(__response__, 'continue_on_step_error'),
         delay=pulumi.get(__response__, 'delay'),

@@ -304,6 +304,7 @@ import * as utilities from "./utilities";
  *     }],
  *     onceFors: ["incident"],
  *     privateIncidentScope: "none",
+ *     autoRunMode: "confirm_before_running",
  *     continueOnStepError: false,
  *     runsOnIncidents: "newly_created_and_active",
  *     runsOnIncidentModes: ["standard"],
@@ -510,6 +511,10 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
+     * Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+     */
+    declare public readonly autoRunMode: pulumi.Output<string>;
+    /**
      * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
      */
     declare public readonly conditionGroups: pulumi.Output<outputs.WorkflowConditionGroup[]>;
@@ -530,7 +535,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public readonly folder: pulumi.Output<string | undefined>;
     /**
-     * User-configured form fields available in the workflow scope (manual triggers only)
+     * User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
      */
     declare public readonly formFields: pulumi.Output<outputs.WorkflowFormField[] | undefined>;
     /**
@@ -601,6 +606,7 @@ export class Workflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
+            resourceInputs["autoRunMode"] = state?.autoRunMode;
             resourceInputs["conditionGroups"] = state?.conditionGroups;
             resourceInputs["continueOnStepError"] = state?.continueOnStepError;
             resourceInputs["delay"] = state?.delay;
@@ -649,6 +655,7 @@ export class Workflow extends pulumi.CustomResource {
             if (args?.trigger === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trigger'");
             }
+            resourceInputs["autoRunMode"] = args?.autoRunMode;
             resourceInputs["conditionGroups"] = args?.conditionGroups;
             resourceInputs["continueOnStepError"] = args?.continueOnStepError;
             resourceInputs["delay"] = args?.delay;
@@ -679,6 +686,10 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
+     * Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+     */
+    autoRunMode?: pulumi.Input<string | undefined>;
+    /**
      * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
      */
     conditionGroups?: pulumi.Input<pulumi.Input<inputs.WorkflowConditionGroup>[] | undefined>;
@@ -699,7 +710,7 @@ export interface WorkflowState {
      */
     folder?: pulumi.Input<string | undefined>;
     /**
-     * User-configured form fields available in the workflow scope (manual triggers only)
+     * User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
      */
     formFields?: pulumi.Input<pulumi.Input<inputs.WorkflowFormField>[] | undefined>;
     /**
@@ -763,6 +774,10 @@ export interface WorkflowState {
  */
 export interface WorkflowArgs {
     /**
+     * Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+     */
+    autoRunMode?: pulumi.Input<string | undefined>;
+    /**
      * Groups of prerequisite conditions. All conditions in at least one group must be satisfied
      */
     conditionGroups: pulumi.Input<pulumi.Input<inputs.WorkflowConditionGroup>[]>;
@@ -783,7 +798,7 @@ export interface WorkflowArgs {
      */
     folder?: pulumi.Input<string | undefined>;
     /**
-     * User-configured form fields available in the workflow scope (manual triggers only)
+     * User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
      */
     formFields?: pulumi.Input<pulumi.Input<inputs.WorkflowFormField>[] | undefined>;
     /**

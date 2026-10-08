@@ -58,6 +58,8 @@ type LookupWorkflowArgs struct {
 
 // A collection of values returned by getWorkflow.
 type LookupWorkflowResult struct {
+	// Whether the workflow is configured to run immediately or ask for confirmation in the incident channel. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+	AutoRunMode string `pulumi:"autoRunMode"`
 	// The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
 	ConditionGroups []GetWorkflowConditionGroup `pulumi:"conditionGroups"`
 	// Whether to continue executing the workflow if a step fails
@@ -68,7 +70,7 @@ type LookupWorkflowResult struct {
 	Expressions []GetWorkflowExpression `pulumi:"expressions"`
 	// Folder to display the workflow in
 	Folder string `pulumi:"folder"`
-	// User-configured form fields available in the workflow scope (manual triggers only)
+	// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 	FormFields []GetWorkflowFormField `pulumi:"formFields"`
 	// Unique identifier for the workflow
 	Id                        string `pulumi:"id"`
@@ -118,6 +120,11 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx 
 	return o
 }
 
+// Whether the workflow is configured to run immediately or ask for confirmation in the incident channel. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+func (o LookupWorkflowResultOutput) AutoRunMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) string { return v.AutoRunMode }).(pulumi.StringOutput)
+}
+
 // The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
 func (o LookupWorkflowResultOutput) ConditionGroups() GetWorkflowConditionGroupArrayOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) []GetWorkflowConditionGroup { return v.ConditionGroups }).(GetWorkflowConditionGroupArrayOutput)
@@ -143,7 +150,7 @@ func (o LookupWorkflowResultOutput) Folder() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) string { return v.Folder }).(pulumi.StringOutput)
 }
 
-// User-configured form fields available in the workflow scope (manual triggers only)
+// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 func (o LookupWorkflowResultOutput) FormFields() GetWorkflowFormFieldArrayOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) []GetWorkflowFormField { return v.FormFields }).(GetWorkflowFormFieldArrayOutput)
 }

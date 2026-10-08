@@ -434,6 +434,7 @@ import (
 //					pulumi.String("incident"),
 //				},
 //				PrivateIncidentScope: pulumi.String("none"),
+//				AutoRunMode:          pulumi.String("confirm_before_running"),
 //				ContinueOnStepError:  pulumi.Bool(false),
 //				RunsOnIncidents:      pulumi.String("newly_created_and_active"),
 //				RunsOnIncidentModes: pulumi.StringArray{
@@ -692,6 +693,8 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
+	// Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+	AutoRunMode pulumi.StringOutput `pulumi:"autoRunMode"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups WorkflowConditionGroupArrayOutput `pulumi:"conditionGroups"`
 	// Whether to continue executing the workflow if a step fails
@@ -702,7 +705,7 @@ type Workflow struct {
 	Expressions WorkflowExpressionArrayOutput `pulumi:"expressions"`
 	// Folder to display the workflow in
 	Folder pulumi.StringPtrOutput `pulumi:"folder"`
-	// User-configured form fields available in the workflow scope (manual triggers only)
+	// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 	FormFields WorkflowFormFieldArrayOutput `pulumi:"formFields"`
 	// Whether to include private escalations
 	IncludePrivateEscalations pulumi.BoolOutput `pulumi:"includePrivateEscalations"`
@@ -791,6 +794,8 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
+	// Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+	AutoRunMode *string `pulumi:"autoRunMode"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups []WorkflowConditionGroup `pulumi:"conditionGroups"`
 	// Whether to continue executing the workflow if a step fails
@@ -801,7 +806,7 @@ type workflowState struct {
 	Expressions []WorkflowExpression `pulumi:"expressions"`
 	// Folder to display the workflow in
 	Folder *string `pulumi:"folder"`
-	// User-configured form fields available in the workflow scope (manual triggers only)
+	// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 	FormFields []WorkflowFormField `pulumi:"formFields"`
 	// Whether to include private escalations
 	IncludePrivateEscalations *bool `pulumi:"includePrivateEscalations"`
@@ -834,6 +839,8 @@ type workflowState struct {
 }
 
 type WorkflowState struct {
+	// Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+	AutoRunMode pulumi.StringPtrInput
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups WorkflowConditionGroupArrayInput
 	// Whether to continue executing the workflow if a step fails
@@ -844,7 +851,7 @@ type WorkflowState struct {
 	Expressions WorkflowExpressionArrayInput
 	// Folder to display the workflow in
 	Folder pulumi.StringPtrInput
-	// User-configured form fields available in the workflow scope (manual triggers only)
+	// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 	FormFields WorkflowFormFieldArrayInput
 	// Whether to include private escalations
 	IncludePrivateEscalations pulumi.BoolPtrInput
@@ -881,6 +888,8 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
+	// Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+	AutoRunMode *string `pulumi:"autoRunMode"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups []WorkflowConditionGroup `pulumi:"conditionGroups"`
 	// Whether to continue executing the workflow if a step fails
@@ -891,7 +900,7 @@ type workflowArgs struct {
 	Expressions []WorkflowExpression `pulumi:"expressions"`
 	// Folder to display the workflow in
 	Folder *string `pulumi:"folder"`
-	// User-configured form fields available in the workflow scope (manual triggers only)
+	// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 	FormFields []WorkflowFormField `pulumi:"formFields"`
 	// Whether to include private escalations
 	IncludePrivateEscalations *bool `pulumi:"includePrivateEscalations"`
@@ -925,6 +934,8 @@ type workflowArgs struct {
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
+	// Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+	AutoRunMode pulumi.StringPtrInput
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	ConditionGroups WorkflowConditionGroupArrayInput
 	// Whether to continue executing the workflow if a step fails
@@ -935,7 +946,7 @@ type WorkflowArgs struct {
 	Expressions WorkflowExpressionArrayInput
 	// Folder to display the workflow in
 	Folder pulumi.StringPtrInput
-	// User-configured form fields available in the workflow scope (manual triggers only)
+	// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 	FormFields WorkflowFormFieldArrayInput
 	// Whether to include private escalations
 	IncludePrivateEscalations pulumi.BoolPtrInput
@@ -1054,6 +1065,11 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+// Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `runAutomatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+func (o WorkflowOutput) AutoRunMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AutoRunMode }).(pulumi.StringOutput)
+}
+
 // Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 func (o WorkflowOutput) ConditionGroups() WorkflowConditionGroupArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowConditionGroupArrayOutput { return v.ConditionGroups }).(WorkflowConditionGroupArrayOutput)
@@ -1079,7 +1095,7 @@ func (o WorkflowOutput) Folder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Folder }).(pulumi.StringPtrOutput)
 }
 
-// User-configured form fields available in the workflow scope (manual triggers only)
+// User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
 func (o WorkflowOutput) FormFields() WorkflowFormFieldArrayOutput {
 	return o.ApplyT(func(v *Workflow) WorkflowFormFieldArrayOutput { return v.FormFields }).(WorkflowFormFieldArrayOutput)
 }

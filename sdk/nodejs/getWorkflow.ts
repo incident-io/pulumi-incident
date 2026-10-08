@@ -44,6 +44,10 @@ export interface GetWorkflowArgs {
  */
 export interface GetWorkflowResult {
     /**
+     * Whether the workflow is configured to run immediately or ask for confirmation in the incident channel. Possible values are: `runAutomatically`, `confirmBeforeRunning`.
+     */
+    readonly autoRunMode: string;
+    /**
      * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
      */
     readonly conditionGroups: outputs.GetWorkflowConditionGroup[];
@@ -64,7 +68,7 @@ export interface GetWorkflowResult {
      */
     readonly folder: string;
     /**
-     * User-configured form fields available in the workflow scope (manual triggers only)
+     * User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `autoRunMode` of `confirmBeforeRunning`.
      */
     readonly formFields: outputs.GetWorkflowFormField[];
     /**

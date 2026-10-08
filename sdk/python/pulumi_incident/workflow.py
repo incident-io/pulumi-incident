@@ -30,6 +30,7 @@ class WorkflowArgs:
                  state: pulumi.Input[_builtins.str],
                  steps: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]],
                  trigger: pulumi.Input[_builtins.str],
+                 auto_run_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  delay: pulumi.Input[Optional['WorkflowDelayArgs']] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
                  form_fields: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowFormFieldArgs']]]] = None,
@@ -52,9 +53,10 @@ class WorkflowArgs:
         :param pulumi.Input[_builtins.str] state: What state this workflow is in. Possible values are: `active`, `disabled`, `draft`, `error`.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Steps that are executed as part of the workflow
         :param pulumi.Input[_builtins.str] trigger: Unique name of the trigger
+        :param pulumi.Input[_builtins.str] auto_run_mode: Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `run_automatically`, `confirm_before_running`.
         :param pulumi.Input['WorkflowDelayArgs'] delay: Configuration controlling workflow delay behaviour
         :param pulumi.Input[_builtins.str] folder: Folder to display the workflow in
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowFormFieldArgs']]] form_fields: User-configured form fields available in the workflow scope (manual triggers only)
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowFormFieldArgs']]] form_fields: User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         :param pulumi.Input[_builtins.bool] include_private_escalations: Whether to include private escalations
         :param pulumi.Input[_builtins.bool] include_private_incidents: DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.
         :param pulumi.Input[_builtins.str] name: Name provided by the user when creating the workflow
@@ -72,6 +74,8 @@ class WorkflowArgs:
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "steps", steps)
         pulumi.set(__self__, "trigger", trigger)
+        if auto_run_mode is not None:
+            pulumi.set(__self__, "auto_run_mode", auto_run_mode)
         if delay is not None:
             pulumi.set(__self__, "delay", delay)
         if folder is not None:
@@ -205,6 +209,18 @@ class WorkflowArgs:
         pulumi.set(self, "trigger", value)
 
     @_builtins.property
+    @pulumi.getter(name="autoRunMode")
+    def auto_run_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `run_automatically`, `confirm_before_running`.
+        """
+        return pulumi.get(self, "auto_run_mode")
+
+    @auto_run_mode.setter
+    def auto_run_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auto_run_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def delay(self) -> pulumi.Input[Optional['WorkflowDelayArgs']]:
         """
@@ -232,7 +248,7 @@ class WorkflowArgs:
     @pulumi.getter(name="formFields")
     def form_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowFormFieldArgs']]]]:
         """
-        User-configured form fields available in the workflow scope (manual triggers only)
+        User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         """
         return pulumi.get(self, "form_fields")
 
@@ -329,6 +345,7 @@ class WorkflowArgs:
 @pulumi.input_type
 class _WorkflowState:
     def __init__(__self__, *,
+                 auto_run_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowConditionGroupArgs']]]] = None,
                  continue_on_step_error: pulumi.Input[Optional[_builtins.bool]] = None,
                  delay: pulumi.Input[Optional['WorkflowDelayArgs']] = None,
@@ -351,12 +368,13 @@ class _WorkflowState:
         """
         Input properties used for looking up and filtering Workflow resources.
 
+        :param pulumi.Input[_builtins.str] auto_run_mode: Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `run_automatically`, `confirm_before_running`.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowConditionGroupArgs']]] condition_groups: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
         :param pulumi.Input[_builtins.bool] continue_on_step_error: Whether to continue executing the workflow if a step fails
         :param pulumi.Input['WorkflowDelayArgs'] delay: Configuration controlling workflow delay behaviour
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowExpressionArgs']]] expressions: The expressions to be prepared for use by steps and conditions
         :param pulumi.Input[_builtins.str] folder: Folder to display the workflow in
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowFormFieldArgs']]] form_fields: User-configured form fields available in the workflow scope (manual triggers only)
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowFormFieldArgs']]] form_fields: User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         :param pulumi.Input[_builtins.bool] include_private_escalations: Whether to include private escalations
         :param pulumi.Input[_builtins.bool] include_private_incidents: DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.
         :param pulumi.Input[_builtins.str] name: Name provided by the user when creating the workflow
@@ -371,6 +389,8 @@ class _WorkflowState:
         :param pulumi.Input[_builtins.str] trigger: Unique name of the trigger
         :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
+        if auto_run_mode is not None:
+            pulumi.set(__self__, "auto_run_mode", auto_run_mode)
         if condition_groups is not None:
             pulumi.set(__self__, "condition_groups", condition_groups)
         if continue_on_step_error is not None:
@@ -412,6 +432,18 @@ class _WorkflowState:
             pulumi.set(__self__, "trigger", trigger)
         if unlock_in_dashboard is not None:
             pulumi.set(__self__, "unlock_in_dashboard", unlock_in_dashboard)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRunMode")
+    def auto_run_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `run_automatically`, `confirm_before_running`.
+        """
+        return pulumi.get(self, "auto_run_mode")
+
+    @auto_run_mode.setter
+    def auto_run_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auto_run_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionGroups")
@@ -477,7 +509,7 @@ class _WorkflowState:
     @pulumi.getter(name="formFields")
     def form_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowFormFieldArgs']]]]:
         """
-        User-configured form fields available in the workflow scope (manual triggers only)
+        User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         """
         return pulumi.get(self, "form_fields")
 
@@ -649,6 +681,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_run_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowConditionGroupArgs', 'WorkflowConditionGroupArgsDict']]]]] = None,
                  continue_on_step_error: pulumi.Input[Optional[_builtins.bool]] = None,
                  delay: pulumi.Input[Optional[Union['WorkflowDelayArgs', 'WorkflowDelayArgsDict']]] = None,
@@ -948,6 +981,7 @@ class Workflow(pulumi.CustomResource):
             }],
             once_fors=["incident"],
             private_incident_scope="none",
+            auto_run_mode="confirm_before_running",
             continue_on_step_error=False,
             runs_on_incidents="newly_created_and_active",
             runs_on_incident_modes=["standard"],
@@ -1115,12 +1149,13 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] auto_run_mode: Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `run_automatically`, `confirm_before_running`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowConditionGroupArgs', 'WorkflowConditionGroupArgsDict']]]] condition_groups: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
         :param pulumi.Input[_builtins.bool] continue_on_step_error: Whether to continue executing the workflow if a step fails
         :param pulumi.Input[Union['WorkflowDelayArgs', 'WorkflowDelayArgsDict']] delay: Configuration controlling workflow delay behaviour
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowExpressionArgs', 'WorkflowExpressionArgsDict']]]] expressions: The expressions to be prepared for use by steps and conditions
         :param pulumi.Input[_builtins.str] folder: Folder to display the workflow in
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowFormFieldArgs', 'WorkflowFormFieldArgsDict']]]] form_fields: User-configured form fields available in the workflow scope (manual triggers only)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowFormFieldArgs', 'WorkflowFormFieldArgsDict']]]] form_fields: User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         :param pulumi.Input[_builtins.bool] include_private_escalations: Whether to include private escalations
         :param pulumi.Input[_builtins.bool] include_private_incidents: DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.
         :param pulumi.Input[_builtins.str] name: Name provided by the user when creating the workflow
@@ -1420,6 +1455,7 @@ class Workflow(pulumi.CustomResource):
             }],
             once_fors=["incident"],
             private_incident_scope="none",
+            auto_run_mode="confirm_before_running",
             continue_on_step_error=False,
             runs_on_incidents="newly_created_and_active",
             runs_on_incident_modes=["standard"],
@@ -1600,6 +1636,7 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_run_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowConditionGroupArgs', 'WorkflowConditionGroupArgsDict']]]]] = None,
                  continue_on_step_error: pulumi.Input[Optional[_builtins.bool]] = None,
                  delay: pulumi.Input[Optional[Union['WorkflowDelayArgs', 'WorkflowDelayArgsDict']]] = None,
@@ -1628,6 +1665,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+            __props__.__dict__["auto_run_mode"] = auto_run_mode
             if condition_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'condition_groups'")
             __props__.__dict__["condition_groups"] = condition_groups
@@ -1675,6 +1713,7 @@ class Workflow(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_run_mode: pulumi.Input[Optional[_builtins.str]] = None,
             condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkflowConditionGroupArgs', 'WorkflowConditionGroupArgsDict']]]]] = None,
             continue_on_step_error: pulumi.Input[Optional[_builtins.bool]] = None,
             delay: pulumi.Input[Optional[Union['WorkflowDelayArgs', 'WorkflowDelayArgsDict']]] = None,
@@ -1701,12 +1740,13 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] auto_run_mode: Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `run_automatically`, `confirm_before_running`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowConditionGroupArgs', 'WorkflowConditionGroupArgsDict']]]] condition_groups: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
         :param pulumi.Input[_builtins.bool] continue_on_step_error: Whether to continue executing the workflow if a step fails
         :param pulumi.Input[Union['WorkflowDelayArgs', 'WorkflowDelayArgsDict']] delay: Configuration controlling workflow delay behaviour
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowExpressionArgs', 'WorkflowExpressionArgsDict']]]] expressions: The expressions to be prepared for use by steps and conditions
         :param pulumi.Input[_builtins.str] folder: Folder to display the workflow in
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowFormFieldArgs', 'WorkflowFormFieldArgsDict']]]] form_fields: User-configured form fields available in the workflow scope (manual triggers only)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkflowFormFieldArgs', 'WorkflowFormFieldArgsDict']]]] form_fields: User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         :param pulumi.Input[_builtins.bool] include_private_escalations: Whether to include private escalations
         :param pulumi.Input[_builtins.bool] include_private_incidents: DEPRECATED: use `private_incident_scope` instead. `true` when the workflow runs on private incidents (a `private_incident_scope` of `all` or `owning_teams`), `false` when the scope is `none`.
         :param pulumi.Input[_builtins.str] name: Name provided by the user when creating the workflow
@@ -1725,6 +1765,7 @@ class Workflow(pulumi.CustomResource):
 
         __props__ = _WorkflowState.__new__(_WorkflowState)
 
+        __props__.__dict__["auto_run_mode"] = auto_run_mode
         __props__.__dict__["condition_groups"] = condition_groups
         __props__.__dict__["continue_on_step_error"] = continue_on_step_error
         __props__.__dict__["delay"] = delay
@@ -1745,6 +1786,14 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["trigger"] = trigger
         __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
         return Workflow(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRunMode")
+    def auto_run_mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        Whether the workflow runs immediately, or asks for confirmation in the incident channel first. Defaults to `run_automatically` on create. If omitted on update, the workflow keeps its current mode. Possible values are: `run_automatically`, `confirm_before_running`.
+        """
+        return pulumi.get(self, "auto_run_mode")
 
     @_builtins.property
     @pulumi.getter(name="conditionGroups")
@@ -1790,7 +1839,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter(name="formFields")
     def form_fields(self) -> pulumi.Output[Optional[Sequence['outputs.WorkflowFormField']]]:
         """
-        User-configured form fields available in the workflow scope (manual triggers only)
+        User-configured form fields available in the workflow scope. Allowed on manually-triggered workflows, and on workflows with an `auto_run_mode` of `confirm_before_running`.
         """
         return pulumi.get(self, "form_fields")
 
