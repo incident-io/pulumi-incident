@@ -1,6 +1,0 @@
-{
-  "resource": true,
-  "name": "incident",
-  "version": "0.3.1",
-  "server": "github://api.github.com/incident-io/pulumi-incident"
-}
