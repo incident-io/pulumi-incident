@@ -1051,6 +1051,109 @@ __all__ = [
     'WorkflowStepParamBinding',
     'WorkflowStepParamBindingArrayValue',
     'WorkflowStepParamBindingValue',
+    'GetAlertRouteAlertSourceResult',
+    'GetAlertRouteAlertSourceConditionGroupResult',
+    'GetAlertRouteAlertSourceConditionGroupConditionResult',
+    'GetAlertRouteAlertSourceConditionGroupConditionParamBindingResult',
+    'GetAlertRouteAlertSourceConditionGroupConditionParamBindingArrayValueResult',
+    'GetAlertRouteAlertSourceConditionGroupConditionParamBindingValueResult',
+    'GetAlertRouteConditionGroupResult',
+    'GetAlertRouteConditionGroupConditionResult',
+    'GetAlertRouteConditionGroupConditionParamBindingResult',
+    'GetAlertRouteConditionGroupConditionParamBindingArrayValueResult',
+    'GetAlertRouteConditionGroupConditionParamBindingValueResult',
+    'GetAlertRouteEscalationConfigResult',
+    'GetAlertRouteEscalationConfigEscalationTargetResult',
+    'GetAlertRouteEscalationConfigEscalationTargetEscalationPathsResult',
+    'GetAlertRouteEscalationConfigEscalationTargetEscalationPathsArrayValueResult',
+    'GetAlertRouteEscalationConfigEscalationTargetEscalationPathsValueResult',
+    'GetAlertRouteEscalationConfigEscalationTargetUsersResult',
+    'GetAlertRouteEscalationConfigEscalationTargetUsersArrayValueResult',
+    'GetAlertRouteEscalationConfigEscalationTargetUsersValueResult',
+    'GetAlertRouteEscalationConfigWhenAlertJoinsGroupResult',
+    'GetAlertRouteExpressionResult',
+    'GetAlertRouteExpressionElseBranchResult',
+    'GetAlertRouteExpressionElseBranchResultResult',
+    'GetAlertRouteExpressionElseBranchResultArrayValueResult',
+    'GetAlertRouteExpressionElseBranchResultValueResult',
+    'GetAlertRouteExpressionOperationResult',
+    'GetAlertRouteExpressionOperationBranchesResult',
+    'GetAlertRouteExpressionOperationBranchesBranchResult',
+    'GetAlertRouteExpressionOperationBranchesBranchConditionGroupResult',
+    'GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionResult',
+    'GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult',
+    'GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult',
+    'GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult',
+    'GetAlertRouteExpressionOperationBranchesBranchResultResult',
+    'GetAlertRouteExpressionOperationBranchesBranchResultArrayValueResult',
+    'GetAlertRouteExpressionOperationBranchesBranchResultValueResult',
+    'GetAlertRouteExpressionOperationBranchesReturnsResult',
+    'GetAlertRouteExpressionOperationCastResult',
+    'GetAlertRouteExpressionOperationCastReturnsResult',
+    'GetAlertRouteExpressionOperationConcatenateResult',
+    'GetAlertRouteExpressionOperationFilterResult',
+    'GetAlertRouteExpressionOperationFilterConditionGroupResult',
+    'GetAlertRouteExpressionOperationFilterConditionGroupConditionResult',
+    'GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingResult',
+    'GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult',
+    'GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingValueResult',
+    'GetAlertRouteExpressionOperationNavigateResult',
+    'GetAlertRouteExpressionOperationParseResult',
+    'GetAlertRouteExpressionOperationParseReturnsResult',
+    'GetAlertRouteGroupingConfigResult',
+    'GetAlertRouteGroupingConfigDefaultResult',
+    'GetAlertRouteGroupingConfigDefaultGroupingKeyResult',
+    'GetAlertRouteIncidentConfigResult',
+    'GetAlertRouteIncidentConfigConditionGroupResult',
+    'GetAlertRouteIncidentConfigConditionGroupConditionResult',
+    'GetAlertRouteIncidentConfigConditionGroupConditionParamBindingResult',
+    'GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArrayValueResult',
+    'GetAlertRouteIncidentConfigConditionGroupConditionParamBindingValueResult',
+    'GetAlertRouteIncidentConfigIncidentTemplateResult',
+    'GetAlertRouteIncidentConfigIncidentTemplateArrayValueResult',
+    'GetAlertRouteIncidentConfigIncidentTemplateValueResult',
+    'GetAlertRouteIncidentConfigTemplateResult',
+    'GetAlertRouteIncidentConfigTemplateCustomFieldResult',
+    'GetAlertRouteIncidentConfigTemplateCustomFieldBindingResult',
+    'GetAlertRouteIncidentConfigTemplateCustomFieldBindingArrayValueResult',
+    'GetAlertRouteIncidentConfigTemplateCustomFieldBindingValueResult',
+    'GetAlertRouteIncidentConfigTemplateIncidentModeResult',
+    'GetAlertRouteIncidentConfigTemplateIncidentModeArrayValueResult',
+    'GetAlertRouteIncidentConfigTemplateIncidentModeValueResult',
+    'GetAlertRouteIncidentConfigTemplateIncidentTypeResult',
+    'GetAlertRouteIncidentConfigTemplateIncidentTypeArrayValueResult',
+    'GetAlertRouteIncidentConfigTemplateIncidentTypeValueResult',
+    'GetAlertRouteIncidentConfigTemplateNameResult',
+    'GetAlertRouteIncidentConfigTemplateNameArrayValueResult',
+    'GetAlertRouteIncidentConfigTemplateNameValueResult',
+    'GetAlertRouteIncidentConfigTemplateSeverityResult',
+    'GetAlertRouteIncidentConfigTemplateSeverityBindingResult',
+    'GetAlertRouteIncidentConfigTemplateSeverityBindingArrayValueResult',
+    'GetAlertRouteIncidentConfigTemplateSeverityBindingValueResult',
+    'GetAlertRouteIncidentConfigTemplateStartInTriageResult',
+    'GetAlertRouteIncidentConfigTemplateStartInTriageArrayValueResult',
+    'GetAlertRouteIncidentConfigTemplateStartInTriageValueResult',
+    'GetAlertRouteIncidentConfigTemplateSummaryResult',
+    'GetAlertRouteIncidentConfigTemplateSummaryArrayValueResult',
+    'GetAlertRouteIncidentConfigTemplateSummaryValueResult',
+    'GetAlertRouteMessageConfigResult',
+    'GetAlertRouteMessageConfigDestinationResult',
+    'GetAlertRouteMessageConfigDestinationConditionGroupResult',
+    'GetAlertRouteMessageConfigDestinationConditionGroupConditionResult',
+    'GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingResult',
+    'GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArrayValueResult',
+    'GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingValueResult',
+    'GetAlertRouteMessageConfigDestinationMsTeamsTargetsResult',
+    'GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingResult',
+    'GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingArrayValueResult',
+    'GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingValueResult',
+    'GetAlertRouteMessageConfigDestinationSlackTargetsResult',
+    'GetAlertRouteMessageConfigDestinationSlackTargetsBindingResult',
+    'GetAlertRouteMessageConfigDestinationSlackTargetsBindingArrayValueResult',
+    'GetAlertRouteMessageConfigDestinationSlackTargetsBindingValueResult',
+    'GetAlertRouteMessageConfigTemplateResult',
+    'GetAlertRouteMessageConfigTemplateArrayValueResult',
+    'GetAlertRouteMessageConfigTemplateValueResult',
     'GetAlertSourceAttributeArrayValueResult',
     'GetAlertSourceAttributeBetaArrayValueResult',
     'GetAlertSourceAttributeBetaExpressionResult',
@@ -1535,6 +1638,58 @@ __all__ = [
     'GetEscalationPathSequencesNodeLoopResult',
     'GetEscalationPathSequencesNodeNotifyChannelResult',
     'GetEscalationPathSequencesNodeNotifyChannelTargetResult',
+    'GetEscalationPathTemplateExpressionResult',
+    'GetEscalationPathTemplateExpressionElseBranchResult',
+    'GetEscalationPathTemplateExpressionElseBranchResultResult',
+    'GetEscalationPathTemplateExpressionElseBranchResultArrayValueResult',
+    'GetEscalationPathTemplateExpressionElseBranchResultValueResult',
+    'GetEscalationPathTemplateExpressionOperationResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchResultResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchResultArrayValueResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesBranchResultValueResult',
+    'GetEscalationPathTemplateExpressionOperationBranchesReturnsResult',
+    'GetEscalationPathTemplateExpressionOperationCastResult',
+    'GetEscalationPathTemplateExpressionOperationCastReturnsResult',
+    'GetEscalationPathTemplateExpressionOperationConcatenateResult',
+    'GetEscalationPathTemplateExpressionOperationFilterResult',
+    'GetEscalationPathTemplateExpressionOperationFilterConditionGroupResult',
+    'GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionResult',
+    'GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingResult',
+    'GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult',
+    'GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueResult',
+    'GetEscalationPathTemplateExpressionOperationNavigateResult',
+    'GetEscalationPathTemplateExpressionOperationParseResult',
+    'GetEscalationPathTemplateExpressionOperationParseReturnsResult',
+    'GetEscalationPathTemplateParamsResult',
+    'GetEscalationPathTemplateRepeatConfigResult',
+    'GetEscalationPathTemplateSequencesResult',
+    'GetEscalationPathTemplateSequencesNodeResult',
+    'GetEscalationPathTemplateSequencesNodeBranchResult',
+    'GetEscalationPathTemplateSequencesNodeBranchIfResult',
+    'GetEscalationPathTemplateSequencesNodeDelayResult',
+    'GetEscalationPathTemplateSequencesNodeEscalationPathResult',
+    'GetEscalationPathTemplateSequencesNodeLevelResult',
+    'GetEscalationPathTemplateSequencesNodeLevelRetryConfigResult',
+    'GetEscalationPathTemplateSequencesNodeLevelRoundRobinConfigResult',
+    'GetEscalationPathTemplateSequencesNodeLevelTargetResult',
+    'GetEscalationPathTemplateSequencesNodeLevelTargetBindingResult',
+    'GetEscalationPathTemplateSequencesNodeLevelTargetBindingArrayValueResult',
+    'GetEscalationPathTemplateSequencesNodeLevelTargetBindingValueResult',
+    'GetEscalationPathTemplateSequencesNodeLoopResult',
+    'GetEscalationPathTemplateSequencesNodeNotifyChannelResult',
+    'GetEscalationPathTemplateSequencesNodeNotifyChannelTargetResult',
+    'GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingResult',
+    'GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValueResult',
+    'GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValueResult',
+    'GetEscalationPathTemplateWorkingHourResult',
+    'GetEscalationPathTemplateWorkingHourWeekdayIntervalResult',
     'GetEscalationPathWorkingHourResult',
     'GetEscalationPathWorkingHourWeekdayIntervalResult',
     'GetIncidentFormExpressionResult',
@@ -1638,6 +1793,19 @@ __all__ = [
     'GetIncidentTemplateTemplateWorkspaceArrayValueResult',
     'GetIncidentTemplateTemplateWorkspaceValueResult',
     'GetIpAllowlistAllowlistResult',
+    'GetMaintenanceWindowAlertConditionGroupResult',
+    'GetMaintenanceWindowAlertConditionGroupConditionResult',
+    'GetMaintenanceWindowAlertConditionGroupConditionParamBindingResult',
+    'GetMaintenanceWindowAlertConditionGroupConditionParamBindingArrayValueResult',
+    'GetMaintenanceWindowAlertConditionGroupConditionParamBindingValueResult',
+    'GetMaintenanceWindowEscalationTargetResult',
+    'GetMaintenanceWindowEscalationTargetEscalationPathsResult',
+    'GetMaintenanceWindowEscalationTargetEscalationPathsArrayValueResult',
+    'GetMaintenanceWindowEscalationTargetEscalationPathsValueResult',
+    'GetMaintenanceWindowEscalationTargetUsersResult',
+    'GetMaintenanceWindowEscalationTargetUsersArrayValueResult',
+    'GetMaintenanceWindowEscalationTargetUsersValueResult',
+    'GetMaintenanceWindowNotifyChannelResult',
     'GetPayConfigOneOffRuleResult',
     'GetPayConfigWeeklyRuleResult',
     'GetScheduleReplicaSourceResult',
@@ -52787,6 +52955,3490 @@ class WorkflowStepParamBindingValue(dict):
 
 
 @pulumi.output_type
+class GetAlertRouteAlertSourceResult(dict):
+    def __init__(__self__, *,
+                 alert_source_id: _builtins.str,
+                 condition_groups: Sequence['outputs.GetAlertRouteAlertSourceConditionGroupResult']):
+        """
+        :param _builtins.str alert_source_id: The alert source ID that will match for the route
+        :param Sequence['GetAlertRouteAlertSourceConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "alert_source_id", alert_source_id)
+        pulumi.set(__self__, "condition_groups", condition_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="alertSourceId")
+    def alert_source_id(self) -> _builtins.str:
+        """
+        The alert source ID that will match for the route
+        """
+        return pulumi.get(self, "alert_source_id")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetAlertRouteAlertSourceConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+
+@pulumi.output_type
+class GetAlertRouteAlertSourceConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetAlertRouteAlertSourceConditionGroupConditionResult']):
+        """
+        :param Sequence['GetAlertRouteAlertSourceConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetAlertRouteAlertSourceConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetAlertRouteAlertSourceConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetAlertRouteAlertSourceConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetAlertRouteAlertSourceConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteAlertSourceConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteAlertSourceConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteAlertSourceConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetAlertRouteConditionGroupConditionResult']):
+        """
+        :param Sequence['GetAlertRouteConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetAlertRouteConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetAlertRouteConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetAlertRouteConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetAlertRouteConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetAlertRouteConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetAlertRouteConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigResult(dict):
+    def __init__(__self__, *,
+                 auto_cancel_escalations: _builtins.bool,
+                 escalation_targets: Sequence['outputs.GetAlertRouteEscalationConfigEscalationTargetResult'],
+                 when_alert_joins_group: 'outputs.GetAlertRouteEscalationConfigWhenAlertJoinsGroupResult'):
+        """
+        :param _builtins.bool auto_cancel_escalations: Should we auto cancel escalations when all alerts are resolved?
+        :param Sequence['GetAlertRouteEscalationConfigEscalationTargetArgs'] escalation_targets: Targets for escalation
+        :param 'GetAlertRouteEscalationConfigWhenAlertJoinsGroupArgs' when_alert_joins_group: Null for a route that does not group alerts.
+        """
+        pulumi.set(__self__, "auto_cancel_escalations", auto_cancel_escalations)
+        pulumi.set(__self__, "escalation_targets", escalation_targets)
+        pulumi.set(__self__, "when_alert_joins_group", when_alert_joins_group)
+
+    @_builtins.property
+    @pulumi.getter(name="autoCancelEscalations")
+    def auto_cancel_escalations(self) -> _builtins.bool:
+        """
+        Should we auto cancel escalations when all alerts are resolved?
+        """
+        return pulumi.get(self, "auto_cancel_escalations")
+
+    @_builtins.property
+    @pulumi.getter(name="escalationTargets")
+    def escalation_targets(self) -> Sequence['outputs.GetAlertRouteEscalationConfigEscalationTargetResult']:
+        """
+        Targets for escalation
+        """
+        return pulumi.get(self, "escalation_targets")
+
+    @_builtins.property
+    @pulumi.getter(name="whenAlertJoinsGroup")
+    def when_alert_joins_group(self) -> 'outputs.GetAlertRouteEscalationConfigWhenAlertJoinsGroupResult':
+        """
+        Null for a route that does not group alerts.
+        """
+        return pulumi.get(self, "when_alert_joins_group")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigEscalationTargetResult(dict):
+    def __init__(__self__, *,
+                 escalation_paths: 'outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsResult',
+                 users: 'outputs.GetAlertRouteEscalationConfigEscalationTargetUsersResult'):
+        pulumi.set(__self__, "escalation_paths", escalation_paths)
+        pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter(name="escalationPaths")
+    def escalation_paths(self) -> 'outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsResult':
+        return pulumi.get(self, "escalation_paths")
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> 'outputs.GetAlertRouteEscalationConfigEscalationTargetUsersResult':
+        return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigEscalationTargetEscalationPathsResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteEscalationConfigEscalationTargetEscalationPathsArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigEscalationTargetEscalationPathsArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigEscalationTargetEscalationPathsValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigEscalationTargetUsersResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteEscalationConfigEscalationTargetUsersArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteEscalationConfigEscalationTargetUsersValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteEscalationConfigEscalationTargetUsersArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteEscalationConfigEscalationTargetUsersArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteEscalationConfigEscalationTargetUsersValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigEscalationTargetUsersArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigEscalationTargetUsersValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteEscalationConfigWhenAlertJoinsGroupResult(dict):
+    def __init__(__self__, *,
+                 grace_period_seconds: _builtins.int,
+                 mode: _builtins.str):
+        """
+        :param _builtins.int grace_period_seconds: How long to wait before escalating once an alert joins the group, in seconds. Only applies when mode is 'on*each*new_alert'.
+        :param _builtins.str mode: When a subsequent alert joins an existing group, when should we escalate again? Possible values are: `on_priority_increase`, `on_each_new_alert`.
+        """
+        pulumi.set(__self__, "grace_period_seconds", grace_period_seconds)
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="gracePeriodSeconds")
+    def grace_period_seconds(self) -> _builtins.int:
+        """
+        How long to wait before escalating once an alert joins the group, in seconds. Only applies when mode is 'on*each*new_alert'.
+        """
+        return pulumi.get(self, "grace_period_seconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        When a subsequent alert joins an existing group, when should we escalate again? Possible values are: `on_priority_increase`, `on_each_new_alert`.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionResult(dict):
+    def __init__(__self__, *,
+                 else_branch: 'outputs.GetAlertRouteExpressionElseBranchResult',
+                 label: _builtins.str,
+                 operations: Sequence['outputs.GetAlertRouteExpressionOperationResult'],
+                 reference: _builtins.str,
+                 root_reference: _builtins.str):
+        """
+        :param _builtins.str label: The human readable label of the expression
+        :param _builtins.str reference: A short ID that can be used to reference the expression
+        :param _builtins.str root_reference: The root reference for this expression (i.e. where the expression starts)
+        """
+        pulumi.set(__self__, "else_branch", else_branch)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "operations", operations)
+        pulumi.set(__self__, "reference", reference)
+        pulumi.set(__self__, "root_reference", root_reference)
+
+    @_builtins.property
+    @pulumi.getter(name="elseBranch")
+    def else_branch(self) -> 'outputs.GetAlertRouteExpressionElseBranchResult':
+        return pulumi.get(self, "else_branch")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        The human readable label of the expression
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> Sequence['outputs.GetAlertRouteExpressionOperationResult']:
+        return pulumi.get(self, "operations")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        A short ID that can be used to reference the expression
+        """
+        return pulumi.get(self, "reference")
+
+    @_builtins.property
+    @pulumi.getter(name="rootReference")
+    def root_reference(self) -> _builtins.str:
+        """
+        The root reference for this expression (i.e. where the expression starts)
+        """
+        return pulumi.get(self, "root_reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionElseBranchResult(dict):
+    def __init__(__self__, *,
+                 result: 'outputs.GetAlertRouteExpressionElseBranchResultResult'):
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.GetAlertRouteExpressionElseBranchResultResult':
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionElseBranchResultResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteExpressionElseBranchResultArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteExpressionElseBranchResultValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteExpressionElseBranchResultArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteExpressionElseBranchResultArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteExpressionElseBranchResultValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionElseBranchResultArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionElseBranchResultValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationResult(dict):
+    def __init__(__self__, *,
+                 branches: 'outputs.GetAlertRouteExpressionOperationBranchesResult',
+                 cast: 'outputs.GetAlertRouteExpressionOperationCastResult',
+                 concatenate: 'outputs.GetAlertRouteExpressionOperationConcatenateResult',
+                 filter: 'outputs.GetAlertRouteExpressionOperationFilterResult',
+                 navigate: 'outputs.GetAlertRouteExpressionOperationNavigateResult',
+                 operation_type: _builtins.str,
+                 parse: 'outputs.GetAlertRouteExpressionOperationParseResult'):
+        """
+        :param 'GetAlertRouteExpressionOperationCastArgs' cast: The cast target of this operation, set when the operation type is `cast`
+        :param _builtins.str operation_type: The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "cast", cast)
+        pulumi.set(__self__, "concatenate", concatenate)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "navigate", navigate)
+        pulumi.set(__self__, "operation_type", operation_type)
+        pulumi.set(__self__, "parse", parse)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> 'outputs.GetAlertRouteExpressionOperationBranchesResult':
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def cast(self) -> 'outputs.GetAlertRouteExpressionOperationCastResult':
+        """
+        The cast target of this operation, set when the operation type is `cast`
+        """
+        return pulumi.get(self, "cast")
+
+    @_builtins.property
+    @pulumi.getter
+    def concatenate(self) -> 'outputs.GetAlertRouteExpressionOperationConcatenateResult':
+        return pulumi.get(self, "concatenate")
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> 'outputs.GetAlertRouteExpressionOperationFilterResult':
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def navigate(self) -> 'outputs.GetAlertRouteExpressionOperationNavigateResult':
+        return pulumi.get(self, "navigate")
+
+    @_builtins.property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> _builtins.str:
+        """
+        The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def parse(self) -> 'outputs.GetAlertRouteExpressionOperationParseResult':
+        return pulumi.get(self, "parse")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesResult(dict):
+    def __init__(__self__, *,
+                 branches: Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchResult'],
+                 returns: 'outputs.GetAlertRouteExpressionOperationBranchesReturnsResult'):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationBranchesBranchArgs'] branches: The branches to apply for this operation
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchResult']:
+        """
+        The branches to apply for this operation
+        """
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetAlertRouteExpressionOperationBranchesReturnsResult':
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchResult(dict):
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupResult'],
+                 result: 'outputs.GetAlertRouteExpressionOperationBranchesBranchResultResult'):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationBranchesBranchConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.GetAlertRouteExpressionOperationBranchesBranchResultResult':
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionResult']):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchResultResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchResultArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteExpressionOperationBranchesBranchResultValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationBranchesBranchResultArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteExpressionOperationBranchesBranchResultArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteExpressionOperationBranchesBranchResultValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchResultArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesBranchResultValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationBranchesReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationCastResult(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.GetAlertRouteExpressionOperationCastReturnsResult'):
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetAlertRouteExpressionOperationCastReturnsResult':
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationCastReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationConcatenateResult(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: The reference within the scope to concatenate with
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        The reference within the scope to concatenate with
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationFilterResult(dict):
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupResult']):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationFilterConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationFilterConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionResult']):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationFilterConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationFilterConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationNavigateResult(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: The reference within the scope to navigate to
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        The reference within the scope to navigate to
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationParseResult(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.GetAlertRouteExpressionOperationParseReturnsResult',
+                 source: _builtins.str):
+        """
+        :param _builtins.str source: Source expression that is evaluated to a result
+        """
+        pulumi.set(__self__, "returns", returns)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetAlertRouteExpressionOperationParseReturnsResult':
+        return pulumi.get(self, "returns")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Source expression that is evaluated to a result
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class GetAlertRouteExpressionOperationParseReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetAlertRouteGroupingConfigResult(dict):
+    def __init__(__self__, *,
+                 default: 'outputs.GetAlertRouteGroupingConfigDefaultResult'):
+        pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> 'outputs.GetAlertRouteGroupingConfigDefaultResult':
+        return pulumi.get(self, "default")
+
+
+@pulumi.output_type
+class GetAlertRouteGroupingConfigDefaultResult(dict):
+    def __init__(__self__, *,
+                 ai_enabled: _builtins.bool,
+                 enabled: _builtins.bool,
+                 grouping_keys: Sequence['outputs.GetAlertRouteGroupingConfigDefaultGroupingKeyResult'],
+                 window_seconds: _builtins.int,
+                 window_type: _builtins.str):
+        """
+        :param _builtins.bool ai_enabled: Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        :param _builtins.bool enabled: Whether grouping is enabled
+        :param Sequence['GetAlertRouteGroupingConfigDefaultGroupingKeyArgs'] grouping_keys: Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
+        :param _builtins.int window_seconds: How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+        :param _builtins.str window_type: Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        """
+        pulumi.set(__self__, "ai_enabled", ai_enabled)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "grouping_keys", grouping_keys)
+        pulumi.set(__self__, "window_seconds", window_seconds)
+        pulumi.set(__self__, "window_type", window_type)
+
+    @_builtins.property
+    @pulumi.getter(name="aiEnabled")
+    def ai_enabled(self) -> _builtins.bool:
+        """
+        Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        """
+        return pulumi.get(self, "ai_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether grouping is enabled
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="groupingKeys")
+    def grouping_keys(self) -> Sequence['outputs.GetAlertRouteGroupingConfigDefaultGroupingKeyResult']:
+        """
+        Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
+        """
+        return pulumi.get(self, "grouping_keys")
+
+    @_builtins.property
+    @pulumi.getter(name="windowSeconds")
+    def window_seconds(self) -> _builtins.int:
+        """
+        How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+        """
+        return pulumi.get(self, "window_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="windowType")
+    def window_type(self) -> _builtins.str:
+        """
+        Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        """
+        return pulumi.get(self, "window_type")
+
+
+@pulumi.output_type
+class GetAlertRouteGroupingConfigDefaultGroupingKeyResult(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: A reference to a property of the alert to group on
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        A reference to a property of the alert to group on
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigResult(dict):
+    def __init__(__self__, *,
+                 auto_decline_enabled: _builtins.bool,
+                 condition_groups: Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupResult'],
+                 enabled: _builtins.bool,
+                 incident_template: 'outputs.GetAlertRouteIncidentConfigIncidentTemplateResult',
+                 template: 'outputs.GetAlertRouteIncidentConfigTemplateResult'):
+        """
+        :param _builtins.bool auto_decline_enabled: Should triage incidents be declined when alerts are resolved?
+        :param Sequence['GetAlertRouteIncidentConfigConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        :param _builtins.bool enabled: Whether incident creation is enabled for this alert route
+        :param 'GetAlertRouteIncidentConfigTemplateArgs' template: The template an alert route applies to the incidents it creates. Disabling incident creation clears it.
+        """
+        pulumi.set(__self__, "auto_decline_enabled", auto_decline_enabled)
+        pulumi.set(__self__, "condition_groups", condition_groups)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "incident_template", incident_template)
+        pulumi.set(__self__, "template", template)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDeclineEnabled")
+    def auto_decline_enabled(self) -> _builtins.bool:
+        """
+        Should triage incidents be declined when alerts are resolved?
+        """
+        return pulumi.get(self, "auto_decline_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether incident creation is enabled for this alert route
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentTemplate")
+    def incident_template(self) -> 'outputs.GetAlertRouteIncidentConfigIncidentTemplateResult':
+        return pulumi.get(self, "incident_template")
+
+    @_builtins.property
+    @pulumi.getter
+    def template(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateResult':
+        """
+        The template an alert route applies to the incidents it creates. Disabling incident creation clears it.
+        """
+        return pulumi.get(self, "template")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupConditionResult']):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigIncidentTemplateResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigIncidentTemplateArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteIncidentConfigIncidentTemplateValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigIncidentTemplateArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigIncidentTemplateArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigIncidentTemplateValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigIncidentTemplateArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigIncidentTemplateValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateResult(dict):
+    def __init__(__self__, *,
+                 custom_fields: Sequence['outputs.GetAlertRouteIncidentConfigTemplateCustomFieldResult'],
+                 incident_mode: 'outputs.GetAlertRouteIncidentConfigTemplateIncidentModeResult',
+                 incident_type: 'outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeResult',
+                 name: 'outputs.GetAlertRouteIncidentConfigTemplateNameResult',
+                 severity: 'outputs.GetAlertRouteIncidentConfigTemplateSeverityResult',
+                 start_in_triage: 'outputs.GetAlertRouteIncidentConfigTemplateStartInTriageResult',
+                 summary: 'outputs.GetAlertRouteIncidentConfigTemplateSummaryResult'):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateCustomFieldArgs'] custom_fields: Custom fields configuration
+        """
+        pulumi.set(__self__, "custom_fields", custom_fields)
+        pulumi.set(__self__, "incident_mode", incident_mode)
+        pulumi.set(__self__, "incident_type", incident_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "start_in_triage", start_in_triage)
+        pulumi.set(__self__, "summary", summary)
+
+    @_builtins.property
+    @pulumi.getter(name="customFields")
+    def custom_fields(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateCustomFieldResult']:
+        """
+        Custom fields configuration
+        """
+        return pulumi.get(self, "custom_fields")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentMode")
+    def incident_mode(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateIncidentModeResult':
+        return pulumi.get(self, "incident_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="incidentType")
+    def incident_type(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeResult':
+        return pulumi.get(self, "incident_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateNameResult':
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def severity(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateSeverityResult':
+        return pulumi.get(self, "severity")
+
+    @_builtins.property
+    @pulumi.getter(name="startInTriage")
+    def start_in_triage(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateStartInTriageResult':
+        return pulumi.get(self, "start_in_triage")
+
+    @_builtins.property
+    @pulumi.getter
+    def summary(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateSummaryResult':
+        return pulumi.get(self, "summary")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateCustomFieldResult(dict):
+    def __init__(__self__, *,
+                 binding: 'outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingResult',
+                 custom_field_id: _builtins.str,
+                 merge_strategy: _builtins.str):
+        """
+        :param 'GetAlertRouteIncidentConfigTemplateCustomFieldBindingArgs' binding: Binding for the custom field
+        :param _builtins.str custom_field_id: ID of the custom field
+        :param _builtins.str merge_strategy: The strategy to use when multiple alerts match this route. Possible values are: `first-wins`, `last-wins`, `append`.
+        """
+        pulumi.set(__self__, "binding", binding)
+        pulumi.set(__self__, "custom_field_id", custom_field_id)
+        pulumi.set(__self__, "merge_strategy", merge_strategy)
+
+    @_builtins.property
+    @pulumi.getter
+    def binding(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingResult':
+        """
+        Binding for the custom field
+        """
+        return pulumi.get(self, "binding")
+
+    @_builtins.property
+    @pulumi.getter(name="customFieldId")
+    def custom_field_id(self) -> _builtins.str:
+        """
+        ID of the custom field
+        """
+        return pulumi.get(self, "custom_field_id")
+
+    @_builtins.property
+    @pulumi.getter(name="mergeStrategy")
+    def merge_strategy(self) -> _builtins.str:
+        """
+        The strategy to use when multiple alerts match this route. Possible values are: `first-wins`, `last-wins`, `append`.
+        """
+        return pulumi.get(self, "merge_strategy")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateCustomFieldBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateCustomFieldBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateCustomFieldBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateCustomFieldBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateIncidentModeResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigTemplateIncidentModeArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteIncidentConfigTemplateIncidentModeValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateIncidentModeArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateIncidentModeArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateIncidentModeValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateIncidentModeArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateIncidentModeValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateIncidentTypeResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateIncidentTypeArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateIncidentTypeArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateIncidentTypeValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateNameResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigTemplateNameArrayValueResult'],
+                 autogenerated: _builtins.bool,
+                 value: 'outputs.GetAlertRouteIncidentConfigTemplateNameValueResult'):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateNameArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.bool autogenerated: Whether this attribute should be autogenerated using AI
+        :param 'GetAlertRouteIncidentConfigTemplateNameValueArgs' value: The literal or reference parameter value
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "autogenerated", autogenerated)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateNameArrayValueResult']:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def autogenerated(self) -> _builtins.bool:
+        """
+        Whether this attribute should be autogenerated using AI
+        """
+        return pulumi.get(self, "autogenerated")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateNameValueResult':
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateNameArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateNameValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateSeverityResult(dict):
+    def __init__(__self__, *,
+                 binding: 'outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingResult',
+                 merge_strategy: _builtins.str):
+        """
+        :param _builtins.str merge_strategy: Strategy for merging severity when multiple alerts create/update the same incident. Possible values are: `first-wins`, `max`.
+        """
+        pulumi.set(__self__, "binding", binding)
+        pulumi.set(__self__, "merge_strategy", merge_strategy)
+
+    @_builtins.property
+    @pulumi.getter
+    def binding(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingResult':
+        return pulumi.get(self, "binding")
+
+    @_builtins.property
+    @pulumi.getter(name="mergeStrategy")
+    def merge_strategy(self) -> _builtins.str:
+        """
+        Strategy for merging severity when multiple alerts create/update the same incident. Possible values are: `first-wins`, `max`.
+        """
+        return pulumi.get(self, "merge_strategy")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateSeverityBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateSeverityBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateSeverityBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateSeverityBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateStartInTriageResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigTemplateStartInTriageArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteIncidentConfigTemplateStartInTriageValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateStartInTriageArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateStartInTriageArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateStartInTriageValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateStartInTriageArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateStartInTriageValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateSummaryResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteIncidentConfigTemplateSummaryArrayValueResult'],
+                 autogenerated: _builtins.bool,
+                 value: 'outputs.GetAlertRouteIncidentConfigTemplateSummaryValueResult'):
+        """
+        :param Sequence['GetAlertRouteIncidentConfigTemplateSummaryArrayValueArgs'] array_values: The array of literal or reference parameter values
+        :param _builtins.bool autogenerated: Whether this attribute should be autogenerated using AI
+        :param 'GetAlertRouteIncidentConfigTemplateSummaryValueArgs' value: The literal or reference parameter value
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "autogenerated", autogenerated)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteIncidentConfigTemplateSummaryArrayValueResult']:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def autogenerated(self) -> _builtins.bool:
+        """
+        Whether this attribute should be autogenerated using AI
+        """
+        return pulumi.get(self, "autogenerated")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteIncidentConfigTemplateSummaryValueResult':
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateSummaryArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteIncidentConfigTemplateSummaryValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigResult(dict):
+    def __init__(__self__, *,
+                 destinations: Sequence['outputs.GetAlertRouteMessageConfigDestinationResult'],
+                 template: 'outputs.GetAlertRouteMessageConfigTemplateResult'):
+        """
+        :param Sequence['GetAlertRouteMessageConfigDestinationArgs'] destinations: The destinations (Slack/Teams channels) alert messages are sent to
+        """
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "template", template)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.GetAlertRouteMessageConfigDestinationResult']:
+        """
+        The destinations (Slack/Teams channels) alert messages are sent to
+        """
+        return pulumi.get(self, "destinations")
+
+    @_builtins.property
+    @pulumi.getter
+    def template(self) -> 'outputs.GetAlertRouteMessageConfigTemplateResult':
+        return pulumi.get(self, "template")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationResult(dict):
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupResult'],
+                 ms_teams_targets: 'outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsResult',
+                 slack_targets: 'outputs.GetAlertRouteMessageConfigDestinationSlackTargetsResult'):
+        """
+        :param Sequence['GetAlertRouteMessageConfigDestinationConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+        pulumi.set(__self__, "ms_teams_targets", ms_teams_targets)
+        pulumi.set(__self__, "slack_targets", slack_targets)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="msTeamsTargets")
+    def ms_teams_targets(self) -> 'outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsResult':
+        return pulumi.get(self, "ms_teams_targets")
+
+    @_builtins.property
+    @pulumi.getter(name="slackTargets")
+    def slack_targets(self) -> 'outputs.GetAlertRouteMessageConfigDestinationSlackTargetsResult':
+        return pulumi.get(self, "slack_targets")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionResult']):
+        """
+        :param Sequence['GetAlertRouteMessageConfigDestinationConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationMsTeamsTargetsResult(dict):
+    def __init__(__self__, *,
+                 binding: 'outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingResult',
+                 channel_visibility: _builtins.str,
+                 group_alerts_summary: _builtins.bool):
+        """
+        :param _builtins.str channel_visibility: The visibility of the channel
+        :param _builtins.bool group_alerts_summary: Whether grouped alerts should render as a single group-summary message per channel
+        """
+        pulumi.set(__self__, "binding", binding)
+        pulumi.set(__self__, "channel_visibility", channel_visibility)
+        pulumi.set(__self__, "group_alerts_summary", group_alerts_summary)
+
+    @_builtins.property
+    @pulumi.getter
+    def binding(self) -> 'outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingResult':
+        return pulumi.get(self, "binding")
+
+    @_builtins.property
+    @pulumi.getter(name="channelVisibility")
+    def channel_visibility(self) -> _builtins.str:
+        """
+        The visibility of the channel
+        """
+        return pulumi.get(self, "channel_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="groupAlertsSummary")
+    def group_alerts_summary(self) -> _builtins.bool:
+        """
+        Whether grouped alerts should render as a single group-summary message per channel
+        """
+        return pulumi.get(self, "group_alerts_summary")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationSlackTargetsResult(dict):
+    def __init__(__self__, *,
+                 binding: 'outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingResult',
+                 channel_visibility: _builtins.str,
+                 group_alerts_summary: _builtins.bool):
+        """
+        :param _builtins.str channel_visibility: The visibility of the channel
+        :param _builtins.bool group_alerts_summary: Whether grouped alerts should render as a single group-summary message per channel
+        """
+        pulumi.set(__self__, "binding", binding)
+        pulumi.set(__self__, "channel_visibility", channel_visibility)
+        pulumi.set(__self__, "group_alerts_summary", group_alerts_summary)
+
+    @_builtins.property
+    @pulumi.getter
+    def binding(self) -> 'outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingResult':
+        return pulumi.get(self, "binding")
+
+    @_builtins.property
+    @pulumi.getter(name="channelVisibility")
+    def channel_visibility(self) -> _builtins.str:
+        """
+        The visibility of the channel
+        """
+        return pulumi.get(self, "channel_visibility")
+
+    @_builtins.property
+    @pulumi.getter(name="groupAlertsSummary")
+    def group_alerts_summary(self) -> _builtins.bool:
+        """
+        Whether grouped alerts should render as a single group-summary message per channel
+        """
+        return pulumi.get(self, "group_alerts_summary")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationSlackTargetsBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteMessageConfigDestinationSlackTargetsBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationSlackTargetsBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigDestinationSlackTargetsBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigTemplateResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetAlertRouteMessageConfigTemplateArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetAlertRouteMessageConfigTemplateValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetAlertRouteMessageConfigTemplateArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetAlertRouteMessageConfigTemplateArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetAlertRouteMessageConfigTemplateValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigTemplateArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetAlertRouteMessageConfigTemplateValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
 class GetAlertSourceAttributeArrayValueResult(dict):
     def __init__(__self__, *,
                  literal: _builtins.str,
@@ -71585,6 +75237,1885 @@ class GetEscalationPathSequencesNodeNotifyChannelTargetResult(dict):
 
 
 @pulumi.output_type
+class GetEscalationPathTemplateExpressionResult(dict):
+    def __init__(__self__, *,
+                 else_branch: 'outputs.GetEscalationPathTemplateExpressionElseBranchResult',
+                 label: _builtins.str,
+                 operations: Sequence['outputs.GetEscalationPathTemplateExpressionOperationResult'],
+                 reference: _builtins.str,
+                 root_reference: _builtins.str):
+        """
+        :param _builtins.str label: The human readable label of the expression
+        :param _builtins.str reference: A short ID that can be used to reference the expression
+        :param _builtins.str root_reference: The root reference for this expression (i.e. where the expression starts)
+        """
+        pulumi.set(__self__, "else_branch", else_branch)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "operations", operations)
+        pulumi.set(__self__, "reference", reference)
+        pulumi.set(__self__, "root_reference", root_reference)
+
+    @_builtins.property
+    @pulumi.getter(name="elseBranch")
+    def else_branch(self) -> 'outputs.GetEscalationPathTemplateExpressionElseBranchResult':
+        return pulumi.get(self, "else_branch")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        The human readable label of the expression
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationResult']:
+        return pulumi.get(self, "operations")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        A short ID that can be used to reference the expression
+        """
+        return pulumi.get(self, "reference")
+
+    @_builtins.property
+    @pulumi.getter(name="rootReference")
+    def root_reference(self) -> _builtins.str:
+        """
+        The root reference for this expression (i.e. where the expression starts)
+        """
+        return pulumi.get(self, "root_reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionElseBranchResult(dict):
+    def __init__(__self__, *,
+                 result: 'outputs.GetEscalationPathTemplateExpressionElseBranchResultResult'):
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.GetEscalationPathTemplateExpressionElseBranchResultResult':
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionElseBranchResultResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetEscalationPathTemplateExpressionElseBranchResultArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetEscalationPathTemplateExpressionElseBranchResultValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionElseBranchResultArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionElseBranchResultArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetEscalationPathTemplateExpressionElseBranchResultValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionElseBranchResultArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionElseBranchResultValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationResult(dict):
+    def __init__(__self__, *,
+                 branches: 'outputs.GetEscalationPathTemplateExpressionOperationBranchesResult',
+                 cast: 'outputs.GetEscalationPathTemplateExpressionOperationCastResult',
+                 concatenate: 'outputs.GetEscalationPathTemplateExpressionOperationConcatenateResult',
+                 filter: 'outputs.GetEscalationPathTemplateExpressionOperationFilterResult',
+                 navigate: 'outputs.GetEscalationPathTemplateExpressionOperationNavigateResult',
+                 operation_type: _builtins.str,
+                 parse: 'outputs.GetEscalationPathTemplateExpressionOperationParseResult'):
+        """
+        :param 'GetEscalationPathTemplateExpressionOperationCastArgs' cast: The cast target of this operation, set when the operation type is `cast`
+        :param _builtins.str operation_type: The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "cast", cast)
+        pulumi.set(__self__, "concatenate", concatenate)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "navigate", navigate)
+        pulumi.set(__self__, "operation_type", operation_type)
+        pulumi.set(__self__, "parse", parse)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationBranchesResult':
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def cast(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationCastResult':
+        """
+        The cast target of this operation, set when the operation type is `cast`
+        """
+        return pulumi.get(self, "cast")
+
+    @_builtins.property
+    @pulumi.getter
+    def concatenate(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationConcatenateResult':
+        return pulumi.get(self, "concatenate")
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationFilterResult':
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def navigate(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationNavigateResult':
+        return pulumi.get(self, "navigate")
+
+    @_builtins.property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> _builtins.str:
+        """
+        The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+        """
+        return pulumi.get(self, "operation_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def parse(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationParseResult':
+        return pulumi.get(self, "parse")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesResult(dict):
+    def __init__(__self__, *,
+                 branches: Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResult'],
+                 returns: 'outputs.GetEscalationPathTemplateExpressionOperationBranchesReturnsResult'):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationBranchesBranchArgs'] branches: The branches to apply for this operation
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResult']:
+        """
+        The branches to apply for this operation
+        """
+        return pulumi.get(self, "branches")
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationBranchesReturnsResult':
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchResult(dict):
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupResult'],
+                 result: 'outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultResult'):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+        pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultResult':
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionResult']):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchResultResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationBranchesBranchResultArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchResultArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesBranchResultValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationBranchesReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationCastResult(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.GetEscalationPathTemplateExpressionOperationCastReturnsResult'):
+        pulumi.set(__self__, "returns", returns)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationCastReturnsResult':
+        return pulumi.get(self, "returns")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationCastReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationConcatenateResult(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: The reference within the scope to concatenate with
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        The reference within the scope to concatenate with
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationFilterResult(dict):
+    def __init__(__self__, *,
+                 condition_groups: Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupResult']):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationFilterConditionGroupArgs'] condition_groups: The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupResult']:
+        """
+        The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+        """
+        return pulumi.get(self, "condition_groups")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationFilterConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionResult']):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationNavigateResult(dict):
+    def __init__(__self__, *,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str reference: The reference within the scope to navigate to
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        The reference within the scope to navigate to
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationParseResult(dict):
+    def __init__(__self__, *,
+                 returns: 'outputs.GetEscalationPathTemplateExpressionOperationParseReturnsResult',
+                 source: _builtins.str):
+        """
+        :param _builtins.str source: Source expression that is evaluated to a result
+        """
+        pulumi.set(__self__, "returns", returns)
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def returns(self) -> 'outputs.GetEscalationPathTemplateExpressionOperationParseReturnsResult':
+        return pulumi.get(self, "returns")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> _builtins.str:
+        """
+        Source expression that is evaluated to a result
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateExpressionOperationParseReturnsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether the return value should be single or multi-value
+        :param _builtins.str type: Expected return type of this expression (what to try casting the result to)
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether the return value should be single or multi-value
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Expected return type of this expression (what to try casting the result to)
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateParamsResult(dict):
+    def __init__(__self__, *,
+                 array: _builtins.bool,
+                 description: _builtins.str,
+                 label: _builtins.str,
+                 optional: _builtins.bool,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool array: Whether this parameter is an array
+        :param _builtins.str description: A string describing the param
+        :param _builtins.str label: Human readable label for this parameter
+        :param _builtins.bool optional: Whether this parameter is optional
+        :param _builtins.str type: The type of the parameter
+        """
+        pulumi.set(__self__, "array", array)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "optional", optional)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> _builtins.bool:
+        """
+        Whether this parameter is an array
+        """
+        return pulumi.get(self, "array")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        A string describing the param
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> _builtins.str:
+        """
+        Human readable label for this parameter
+        """
+        return pulumi.get(self, "label")
+
+    @_builtins.property
+    @pulumi.getter
+    def optional(self) -> _builtins.bool:
+        """
+        Whether this parameter is optional
+        """
+        return pulumi.get(self, "optional")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the parameter
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateRepeatConfigResult(dict):
+    def __init__(__self__, *,
+                 delay_repeat_on_activity: _builtins.bool,
+                 repeat_after_seconds: _builtins.int):
+        """
+        :param _builtins.bool delay_repeat_on_activity: When true, incident activity resets the repeat timer.
+        :param _builtins.int repeat_after_seconds: Number of seconds we'll wait before repeating an escalation.
+        """
+        pulumi.set(__self__, "delay_repeat_on_activity", delay_repeat_on_activity)
+        pulumi.set(__self__, "repeat_after_seconds", repeat_after_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="delayRepeatOnActivity")
+    def delay_repeat_on_activity(self) -> _builtins.bool:
+        """
+        When true, incident activity resets the repeat timer.
+        """
+        return pulumi.get(self, "delay_repeat_on_activity")
+
+    @_builtins.property
+    @pulumi.getter(name="repeatAfterSeconds")
+    def repeat_after_seconds(self) -> _builtins.int:
+        """
+        Number of seconds we'll wait before repeating an escalation.
+        """
+        return pulumi.get(self, "repeat_after_seconds")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesResult(dict):
+    def __init__(__self__, *,
+                 nodes: Sequence['outputs.GetEscalationPathTemplateSequencesNodeResult']):
+        """
+        :param Sequence['GetEscalationPathTemplateSequencesNodeArgs'] nodes: The nodes in this sequence, in the order they run.
+        """
+        pulumi.set(__self__, "nodes", nodes)
+
+    @_builtins.property
+    @pulumi.getter
+    def nodes(self) -> Sequence['outputs.GetEscalationPathTemplateSequencesNodeResult']:
+        """
+        The nodes in this sequence, in the order they run.
+        """
+        return pulumi.get(self, "nodes")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeResult(dict):
+    def __init__(__self__, *,
+                 branch: 'outputs.GetEscalationPathTemplateSequencesNodeBranchResult',
+                 delay: 'outputs.GetEscalationPathTemplateSequencesNodeDelayResult',
+                 escalation_path: 'outputs.GetEscalationPathTemplateSequencesNodeEscalationPathResult',
+                 id: _builtins.str,
+                 level: 'outputs.GetEscalationPathTemplateSequencesNodeLevelResult',
+                 loop: 'outputs.GetEscalationPathTemplateSequencesNodeLoopResult',
+                 notify_channel: 'outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelResult'):
+        """
+        :param 'GetEscalationPathTemplateSequencesNodeBranchArgs' branch: Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
+        :param 'GetEscalationPathTemplateSequencesNodeEscalationPathArgs' escalation_path: Reassign the escalation to another escalation path, continuing from that path's first node.
+        :param _builtins.str id: An id for this node, unique within the escalation path, so a `loop` can name it.
+        :param 'GetEscalationPathTemplateSequencesNodeLoopArgs' loop: Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
+        """
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "escalation_path", escalation_path)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "loop", loop)
+        pulumi.set(__self__, "notify_channel", notify_channel)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeBranchResult':
+        """
+        Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter
+    def delay(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeDelayResult':
+        return pulumi.get(self, "delay")
+
+    @_builtins.property
+    @pulumi.getter(name="escalationPath")
+    def escalation_path(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeEscalationPathResult':
+        """
+        Reassign the escalation to another escalation path, continuing from that path's first node.
+        """
+        return pulumi.get(self, "escalation_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        An id for this node, unique within the escalation path, so a `loop` can name it.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeLevelResult':
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def loop(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeLoopResult':
+        """
+        Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalation_path` node to reassign to once it has run out of repeats.
+        """
+        return pulumi.get(self, "loop")
+
+    @_builtins.property
+    @pulumi.getter(name="notifyChannel")
+    def notify_channel(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelResult':
+        return pulumi.get(self, "notify_channel")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeBranchResult(dict):
+    def __init__(__self__, *,
+                 else_: _builtins.str,
+                 if_: 'outputs.GetEscalationPathTemplateSequencesNodeBranchIfResult',
+                 then: _builtins.str):
+        """
+        :param _builtins.str else_: The key of the sequence to continue down when the condition is not met.
+        :param 'GetEscalationPathTemplateSequencesNodeBranchIfArgs' if_: What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
+        :param _builtins.str then: The key of the sequence to continue down when the condition is met.
+        """
+        pulumi.set(__self__, "else_", else_)
+        pulumi.set(__self__, "if_", if_)
+        pulumi.set(__self__, "then", then)
+
+    @_builtins.property
+    @pulumi.getter(name="else")
+    def else_(self) -> _builtins.str:
+        """
+        The key of the sequence to continue down when the condition is not met.
+        """
+        return pulumi.get(self, "else_")
+
+    @_builtins.property
+    @pulumi.getter(name="if")
+    def if_(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeBranchIfResult':
+        """
+        What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
+        """
+        return pulumi.get(self, "if_")
+
+    @_builtins.property
+    @pulumi.getter
+    def then(self) -> _builtins.str:
+        """
+        The key of the sequence to continue down when the condition is met.
+        """
+        return pulumi.get(self, "then")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeBranchIfResult(dict):
+    def __init__(__self__, *,
+                 priority_one_ofs: Sequence[_builtins.str],
+                 working_hours_active: _builtins.str):
+        """
+        :param Sequence[_builtins.str] priority_one_ofs: Alert priority ids, met when the escalation came in at one of them.
+        :param _builtins.str working_hours_active: The `id` of one of this escalation path's `working_hours`, met while those hours are active.
+        """
+        pulumi.set(__self__, "priority_one_ofs", priority_one_ofs)
+        pulumi.set(__self__, "working_hours_active", working_hours_active)
+
+    @_builtins.property
+    @pulumi.getter(name="priorityOneOfs")
+    def priority_one_ofs(self) -> Sequence[_builtins.str]:
+        """
+        Alert priority ids, met when the escalation came in at one of them.
+        """
+        return pulumi.get(self, "priority_one_ofs")
+
+    @_builtins.property
+    @pulumi.getter(name="workingHoursActive")
+    def working_hours_active(self) -> _builtins.str:
+        """
+        The `id` of one of this escalation path's `working_hours`, met while those hours are active.
+        """
+        return pulumi.get(self, "working_hours_active")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeDelayResult(dict):
+    def __init__(__self__, *,
+                 delay_interval_condition: _builtins.str,
+                 delay_seconds: _builtins.int,
+                 delay_weekday_interval_config_id: _builtins.str):
+        """
+        :param _builtins.str delay_interval_condition: If the delay is relative to a time window, this defines whether we advance when the window is active or inactive. Possible values are: `active`, `inactive`.
+        :param _builtins.int delay_seconds: How long to delay before advancing to the next node in the path, in seconds
+        :param _builtins.str delay_weekday_interval_config_id: If the delay is relative to a time window, this identifies which window it is relative to
+        """
+        pulumi.set(__self__, "delay_interval_condition", delay_interval_condition)
+        pulumi.set(__self__, "delay_seconds", delay_seconds)
+        pulumi.set(__self__, "delay_weekday_interval_config_id", delay_weekday_interval_config_id)
+
+    @_builtins.property
+    @pulumi.getter(name="delayIntervalCondition")
+    def delay_interval_condition(self) -> _builtins.str:
+        """
+        If the delay is relative to a time window, this defines whether we advance when the window is active or inactive. Possible values are: `active`, `inactive`.
+        """
+        return pulumi.get(self, "delay_interval_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="delaySeconds")
+    def delay_seconds(self) -> _builtins.int:
+        """
+        How long to delay before advancing to the next node in the path, in seconds
+        """
+        return pulumi.get(self, "delay_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="delayWeekdayIntervalConfigId")
+    def delay_weekday_interval_config_id(self) -> _builtins.str:
+        """
+        If the delay is relative to a time window, this identifies which window it is relative to
+        """
+        return pulumi.get(self, "delay_weekday_interval_config_id")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeEscalationPathResult(dict):
+    def __init__(__self__, *,
+                 escalation_path_id: _builtins.str):
+        """
+        :param _builtins.str escalation_path_id: The ID of the escalation path to reassign to
+        """
+        pulumi.set(__self__, "escalation_path_id", escalation_path_id)
+
+    @_builtins.property
+    @pulumi.getter(name="escalationPathId")
+    def escalation_path_id(self) -> _builtins.str:
+        """
+        The ID of the escalation path to reassign to
+        """
+        return pulumi.get(self, "escalation_path_id")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLevelResult(dict):
+    def __init__(__self__, *,
+                 ack_mode: _builtins.str,
+                 retry_config: 'outputs.GetEscalationPathTemplateSequencesNodeLevelRetryConfigResult',
+                 round_robin_config: 'outputs.GetEscalationPathTemplateSequencesNodeLevelRoundRobinConfigResult',
+                 targets: Sequence['outputs.GetEscalationPathTemplateSequencesNodeLevelTargetResult'],
+                 time_to_ack_interval_condition: _builtins.str,
+                 time_to_ack_seconds: _builtins.int,
+                 time_to_ack_weekday_interval_config_id: _builtins.str):
+        """
+        :param _builtins.str ack_mode: Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks. Possible values are: `all`, `first`.
+        :param Sequence['GetEscalationPathTemplateSequencesNodeLevelTargetArgs'] targets: The targets (users or schedules), each concrete or a parameter binding.
+        :param _builtins.str time_to_ack_interval_condition: If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+        :param _builtins.int time_to_ack_seconds: How long should we wait for this level to acknowledge before proceeding to the next node in the path?
+        :param _builtins.str time_to_ack_weekday_interval_config_id: If the time to ack is relative to a time window, this identifies which window it is relative to
+        """
+        pulumi.set(__self__, "ack_mode", ack_mode)
+        pulumi.set(__self__, "retry_config", retry_config)
+        pulumi.set(__self__, "round_robin_config", round_robin_config)
+        pulumi.set(__self__, "targets", targets)
+        pulumi.set(__self__, "time_to_ack_interval_condition", time_to_ack_interval_condition)
+        pulumi.set(__self__, "time_to_ack_seconds", time_to_ack_seconds)
+        pulumi.set(__self__, "time_to_ack_weekday_interval_config_id", time_to_ack_weekday_interval_config_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ackMode")
+    def ack_mode(self) -> _builtins.str:
+        """
+        Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks. Possible values are: `all`, `first`.
+        """
+        return pulumi.get(self, "ack_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="retryConfig")
+    def retry_config(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeLevelRetryConfigResult':
+        return pulumi.get(self, "retry_config")
+
+    @_builtins.property
+    @pulumi.getter(name="roundRobinConfig")
+    def round_robin_config(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeLevelRoundRobinConfigResult':
+        return pulumi.get(self, "round_robin_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> Sequence['outputs.GetEscalationPathTemplateSequencesNodeLevelTargetResult']:
+        """
+        The targets (users or schedules), each concrete or a parameter binding.
+        """
+        return pulumi.get(self, "targets")
+
+    @_builtins.property
+    @pulumi.getter(name="timeToAckIntervalCondition")
+    def time_to_ack_interval_condition(self) -> _builtins.str:
+        """
+        If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+        """
+        return pulumi.get(self, "time_to_ack_interval_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="timeToAckSeconds")
+    def time_to_ack_seconds(self) -> _builtins.int:
+        """
+        How long should we wait for this level to acknowledge before proceeding to the next node in the path?
+        """
+        return pulumi.get(self, "time_to_ack_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="timeToAckWeekdayIntervalConfigId")
+    def time_to_ack_weekday_interval_config_id(self) -> _builtins.str:
+        """
+        If the time to ack is relative to a time window, this identifies which window it is relative to
+        """
+        return pulumi.get(self, "time_to_ack_weekday_interval_config_id")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLevelRetryConfigResult(dict):
+    def __init__(__self__, *,
+                 attempts: _builtins.int,
+                 interval_seconds: _builtins.int):
+        """
+        :param _builtins.int attempts: The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
+        :param _builtins.int interval_seconds: How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
+        """
+        pulumi.set(__self__, "attempts", attempts)
+        pulumi.set(__self__, "interval_seconds", interval_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def attempts(self) -> _builtins.int:
+        """
+        The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
+        """
+        return pulumi.get(self, "attempts")
+
+    @_builtins.property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> _builtins.int:
+        """
+        How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
+        """
+        return pulumi.get(self, "interval_seconds")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLevelRoundRobinConfigResult(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 rotate_after_seconds: _builtins.int):
+        """
+        :param _builtins.bool enabled: Whether round robin is enabled for this level
+        :param _builtins.int rotate_after_seconds: How long should we wait before rotating to the next target in a round robin, if not set will stick with a single target per level.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "rotate_after_seconds", rotate_after_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether round robin is enabled for this level
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="rotateAfterSeconds")
+    def rotate_after_seconds(self) -> _builtins.int:
+        """
+        How long should we wait before rotating to the next target in a round robin, if not set will stick with a single target per level.
+        """
+        return pulumi.get(self, "rotate_after_seconds")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLevelTargetResult(dict):
+    def __init__(__self__, *,
+                 binding: 'outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingResult',
+                 id: _builtins.str,
+                 schedule_mode: _builtins.str,
+                 selected_rota_id: _builtins.str,
+                 type: _builtins.str,
+                 urgency: _builtins.str):
+        """
+        :param 'GetEscalationPathTemplateSequencesNodeLevelTargetBindingArgs' binding: Who this target resolves to, decided per templated path. Its `value.reference` names one of the template's `params`, or one of its `expressions`.
+        :param _builtins.str id: Uniquely identifies a concrete target. Omitted when binding is set.
+        :param _builtins.str schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
+        :param _builtins.str selected_rota_id: For schedule targets, identifies which rota on the schedule the schedule_mode applies to.
+        :param _builtins.str type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
+        :param _builtins.str urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        """
+        pulumi.set(__self__, "binding", binding)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "schedule_mode", schedule_mode)
+        pulumi.set(__self__, "selected_rota_id", selected_rota_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "urgency", urgency)
+
+    @_builtins.property
+    @pulumi.getter
+    def binding(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingResult':
+        """
+        Who this target resolves to, decided per templated path. Its `value.reference` names one of the template's `params`, or one of its `expressions`.
+        """
+        return pulumi.get(self, "binding")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Uniquely identifies a concrete target. Omitted when binding is set.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleMode")
+    def schedule_mode(self) -> _builtins.str:
+        """
+        Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
+        """
+        return pulumi.get(self, "schedule_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="selectedRotaId")
+    def selected_rota_id(self) -> _builtins.str:
+        """
+        For schedule targets, identifies which rota on the schedule the schedule_mode applies to.
+        """
+        return pulumi.get(self, "selected_rota_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def urgency(self) -> _builtins.str:
+        """
+        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        """
+        return pulumi.get(self, "urgency")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLevelTargetBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetEscalationPathTemplateSequencesNodeLevelTargetBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLevelTargetBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLevelTargetBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeLoopResult(dict):
+    def __init__(__self__, *,
+                 back_to: _builtins.str,
+                 times: _builtins.int):
+        """
+        :param _builtins.str back_to: The `id` of the node to repeat from.
+        :param _builtins.int times: How many times to repeat these nodes
+        """
+        pulumi.set(__self__, "back_to", back_to)
+        pulumi.set(__self__, "times", times)
+
+    @_builtins.property
+    @pulumi.getter(name="backTo")
+    def back_to(self) -> _builtins.str:
+        """
+        The `id` of the node to repeat from.
+        """
+        return pulumi.get(self, "back_to")
+
+    @_builtins.property
+    @pulumi.getter
+    def times(self) -> _builtins.int:
+        """
+        How many times to repeat these nodes
+        """
+        return pulumi.get(self, "times")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeNotifyChannelResult(dict):
+    def __init__(__self__, *,
+                 targets: Sequence['outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetResult'],
+                 time_to_ack_interval_condition: _builtins.str,
+                 time_to_ack_seconds: _builtins.int,
+                 time_to_ack_weekday_interval_config_id: _builtins.str):
+        """
+        :param Sequence['GetEscalationPathTemplateSequencesNodeNotifyChannelTargetArgs'] targets: The channels to notify, each concrete or a parameter binding.
+        :param _builtins.str time_to_ack_interval_condition: If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+        :param _builtins.int time_to_ack_seconds: How long should we wait for this level to acknowledge before moving on to the next node in the path?
+        :param _builtins.str time_to_ack_weekday_interval_config_id: If the time to ack is relative to a time window, this identifies which window it is relative to
+        """
+        pulumi.set(__self__, "targets", targets)
+        pulumi.set(__self__, "time_to_ack_interval_condition", time_to_ack_interval_condition)
+        pulumi.set(__self__, "time_to_ack_seconds", time_to_ack_seconds)
+        pulumi.set(__self__, "time_to_ack_weekday_interval_config_id", time_to_ack_weekday_interval_config_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> Sequence['outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetResult']:
+        """
+        The channels to notify, each concrete or a parameter binding.
+        """
+        return pulumi.get(self, "targets")
+
+    @_builtins.property
+    @pulumi.getter(name="timeToAckIntervalCondition")
+    def time_to_ack_interval_condition(self) -> _builtins.str:
+        """
+        If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+        """
+        return pulumi.get(self, "time_to_ack_interval_condition")
+
+    @_builtins.property
+    @pulumi.getter(name="timeToAckSeconds")
+    def time_to_ack_seconds(self) -> _builtins.int:
+        """
+        How long should we wait for this level to acknowledge before moving on to the next node in the path?
+        """
+        return pulumi.get(self, "time_to_ack_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="timeToAckWeekdayIntervalConfigId")
+    def time_to_ack_weekday_interval_config_id(self) -> _builtins.str:
+        """
+        If the time to ack is relative to a time window, this identifies which window it is relative to
+        """
+        return pulumi.get(self, "time_to_ack_weekday_interval_config_id")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeNotifyChannelTargetResult(dict):
+    def __init__(__self__, *,
+                 binding: 'outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingResult',
+                 id: _builtins.str,
+                 schedule_mode: _builtins.str,
+                 selected_rota_id: _builtins.str,
+                 type: _builtins.str,
+                 urgency: _builtins.str):
+        """
+        :param 'GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArgs' binding: Who this target resolves to, decided per templated path. Its `value.reference` names one of the template's `params`, or one of its `expressions`.
+        :param _builtins.str id: Uniquely identifies a concrete target. Omitted when binding is set.
+        :param _builtins.str schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
+        :param _builtins.str selected_rota_id: For schedule targets, identifies which rota on the schedule the schedule_mode applies to.
+        :param _builtins.str type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
+        :param _builtins.str urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        """
+        pulumi.set(__self__, "binding", binding)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "schedule_mode", schedule_mode)
+        pulumi.set(__self__, "selected_rota_id", selected_rota_id)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "urgency", urgency)
+
+    @_builtins.property
+    @pulumi.getter
+    def binding(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingResult':
+        """
+        Who this target resolves to, decided per templated path. Its `value.reference` names one of the template's `params`, or one of its `expressions`.
+        """
+        return pulumi.get(self, "binding")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Uniquely identifies a concrete target. Omitted when binding is set.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleMode")
+    def schedule_mode(self) -> _builtins.str:
+        """
+        Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
+        """
+        return pulumi.get(self, "schedule_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="selectedRotaId")
+    def selected_rota_id(self) -> _builtins.str:
+        """
+        For schedule targets, identifies which rota on the schedule the schedule_mode applies to.
+        """
+        return pulumi.get(self, "selected_rota_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def urgency(self) -> _builtins.str:
+        """
+        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        """
+        return pulumi.get(self, "urgency")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateWorkingHourResult(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: _builtins.str,
+                 timezone: _builtins.str,
+                 weekday_intervals: Sequence['outputs.GetEscalationPathTemplateWorkingHourWeekdayIntervalResult']):
+        """
+        :param _builtins.str id: The unique identifier for this set of working intervals
+        :param _builtins.str name: A human readable label for this set of working intervals
+        :param _builtins.str timezone: How to interpret all the intervals
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "timezone", timezone)
+        pulumi.set(__self__, "weekday_intervals", weekday_intervals)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The unique identifier for this set of working intervals
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        A human readable label for this set of working intervals
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> _builtins.str:
+        """
+        How to interpret all the intervals
+        """
+        return pulumi.get(self, "timezone")
+
+    @_builtins.property
+    @pulumi.getter(name="weekdayIntervals")
+    def weekday_intervals(self) -> Sequence['outputs.GetEscalationPathTemplateWorkingHourWeekdayIntervalResult']:
+        return pulumi.get(self, "weekday_intervals")
+
+
+@pulumi.output_type
+class GetEscalationPathTemplateWorkingHourWeekdayIntervalResult(dict):
+    def __init__(__self__, *,
+                 end_time: _builtins.str,
+                 start_time: _builtins.str,
+                 weekday: _builtins.str):
+        """
+        :param _builtins.str end_time: End time of the interval, in 24hr format
+        :param _builtins.str start_time: Start time of the interval, in 24hr format
+        :param _builtins.str weekday: Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "weekday", weekday)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> _builtins.str:
+        """
+        End time of the interval, in 24hr format
+        """
+        return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> _builtins.str:
+        """
+        Start time of the interval, in 24hr format
+        """
+        return pulumi.get(self, "start_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def weekday(self) -> _builtins.str:
+        """
+        Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+        """
+        return pulumi.get(self, "weekday")
+
+
+@pulumi.output_type
 class GetEscalationPathWorkingHourResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
@@ -75085,6 +80616,458 @@ class GetIpAllowlistAllowlistResult(dict):
         An IP address or a CIDR IP prefix to allow
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowAlertConditionGroupResult(dict):
+    def __init__(__self__, *,
+                 conditions: Sequence['outputs.GetMaintenanceWindowAlertConditionGroupConditionResult']):
+        """
+        :param Sequence['GetMaintenanceWindowAlertConditionGroupConditionArgs'] conditions: All conditions in this list must be satisfied for the group to be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Sequence['outputs.GetMaintenanceWindowAlertConditionGroupConditionResult']:
+        """
+        All conditions in this list must be satisfied for the group to be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowAlertConditionGroupConditionResult(dict):
+    def __init__(__self__, *,
+                 operation: _builtins.str,
+                 param_bindings: Sequence['outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingResult'],
+                 subject: _builtins.str):
+        """
+        :param Sequence['GetMaintenanceWindowAlertConditionGroupConditionParamBindingArgs'] param_bindings: Bindings for the operation parameters
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> _builtins.str:
+        return pulumi.get(self, "operation")
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> Sequence['outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingResult']:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> _builtins.str:
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowAlertConditionGroupConditionParamBindingResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetMaintenanceWindowAlertConditionGroupConditionParamBindingArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowAlertConditionGroupConditionParamBindingArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowAlertConditionGroupConditionParamBindingValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowEscalationTargetResult(dict):
+    def __init__(__self__, *,
+                 escalation_paths: 'outputs.GetMaintenanceWindowEscalationTargetEscalationPathsResult',
+                 users: 'outputs.GetMaintenanceWindowEscalationTargetUsersResult'):
+        """
+        :param 'GetMaintenanceWindowEscalationTargetEscalationPathsArgs' escalation_paths: Escalation paths to route alerts to
+        :param 'GetMaintenanceWindowEscalationTargetUsersArgs' users: Users to notify directly
+        """
+        pulumi.set(__self__, "escalation_paths", escalation_paths)
+        pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter(name="escalationPaths")
+    def escalation_paths(self) -> 'outputs.GetMaintenanceWindowEscalationTargetEscalationPathsResult':
+        """
+        Escalation paths to route alerts to
+        """
+        return pulumi.get(self, "escalation_paths")
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> 'outputs.GetMaintenanceWindowEscalationTargetUsersResult':
+        """
+        Users to notify directly
+        """
+        return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowEscalationTargetEscalationPathsResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetMaintenanceWindowEscalationTargetEscalationPathsArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetMaintenanceWindowEscalationTargetEscalationPathsValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetMaintenanceWindowEscalationTargetEscalationPathsArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetMaintenanceWindowEscalationTargetEscalationPathsArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetMaintenanceWindowEscalationTargetEscalationPathsValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowEscalationTargetEscalationPathsArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowEscalationTargetEscalationPathsValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowEscalationTargetUsersResult(dict):
+    def __init__(__self__, *,
+                 array_values: Sequence['outputs.GetMaintenanceWindowEscalationTargetUsersArrayValueResult'],
+                 expression_ref: _builtins.str,
+                 value: 'outputs.GetMaintenanceWindowEscalationTargetUsersValueResult',
+                 value_literal: _builtins.str,
+                 value_reference: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetMaintenanceWindowEscalationTargetUsersArrayValueArgs'] array_values: If array*value is set, this helps render the values
+        """
+        pulumi.set(__self__, "array_values", array_values)
+        pulumi.set(__self__, "expression_ref", expression_ref)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "value_literal", value_literal)
+        pulumi.set(__self__, "value_reference", value_reference)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> Sequence['outputs.GetMaintenanceWindowEscalationTargetUsersArrayValueResult']:
+        """
+        If array*value is set, this helps render the values
+        """
+        return pulumi.get(self, "array_values")
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> _builtins.str:
+        return pulumi.get(self, "expression_ref")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.GetMaintenanceWindowEscalationTargetUsersValueResult':
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> _builtins.str:
+        return pulumi.get(self, "value_literal")
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> _builtins.str:
+        return pulumi.get(self, "value_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowEscalationTargetUsersArrayValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowEscalationTargetUsersValueResult(dict):
+    def __init__(__self__, *,
+                 literal: _builtins.str,
+                 reference: _builtins.str):
+        """
+        :param _builtins.str literal: If set, this is the literal value of the step parameter
+        :param _builtins.str reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        pulumi.set(__self__, "literal", literal)
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> _builtins.str:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> _builtins.str:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+
+@pulumi.output_type
+class GetMaintenanceWindowNotifyChannelResult(dict):
+    def __init__(__self__, *,
+                 channel_id: _builtins.str,
+                 channel_name: _builtins.str,
+                 channel_type: _builtins.str):
+        """
+        :param _builtins.str channel_id: The external provider channel ID (e.g. Slack channel ID)
+        :param _builtins.str channel_name: Human readable name of the channel
+        :param _builtins.str channel_type: The type of channel (e.g. public, private)
+        """
+        pulumi.set(__self__, "channel_id", channel_id)
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "channel_type", channel_type)
+
+    @_builtins.property
+    @pulumi.getter(name="channelId")
+    def channel_id(self) -> _builtins.str:
+        """
+        The external provider channel ID (e.g. Slack channel ID)
+        """
+        return pulumi.get(self, "channel_id")
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> _builtins.str:
+        """
+        Human readable name of the channel
+        """
+        return pulumi.get(self, "channel_name")
+
+    @_builtins.property
+    @pulumi.getter(name="channelType")
+    def channel_type(self) -> _builtins.str:
+        """
+        The type of channel (e.g. public, private)
+        """
+        return pulumi.get(self, "channel_type")
 
 
 @pulumi.output_type

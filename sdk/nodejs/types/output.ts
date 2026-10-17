@@ -11510,6 +11510,1114 @@ export interface EscalationPathWorkingHourWeekdayInterval {
     weekday: string;
 }
 
+export interface GetAlertRouteAlertSource {
+    /**
+     * The alert source ID that will match for the route
+     */
+    alertSourceId: string;
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetAlertRouteAlertSourceConditionGroup[];
+}
+
+export interface GetAlertRouteAlertSourceConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetAlertRouteAlertSourceConditionGroupCondition[];
+}
+
+export interface GetAlertRouteAlertSourceConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetAlertRouteAlertSourceConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteAlertSourceConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteAlertSourceConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteAlertSourceConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetAlertRouteConditionGroupCondition[];
+}
+
+export interface GetAlertRouteConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetAlertRouteConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetAlertRouteConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteEscalationConfig {
+    /**
+     * Should we auto cancel escalations when all alerts are resolved?
+     */
+    autoCancelEscalations: boolean;
+    /**
+     * Targets for escalation
+     */
+    escalationTargets: outputs.GetAlertRouteEscalationConfigEscalationTarget[];
+    /**
+     * Null for a route that does not group alerts.
+     */
+    whenAlertJoinsGroup: outputs.GetAlertRouteEscalationConfigWhenAlertJoinsGroup;
+}
+
+export interface GetAlertRouteEscalationConfigEscalationTarget {
+    escalationPaths: outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPaths;
+    users: outputs.GetAlertRouteEscalationConfigEscalationTargetUsers;
+}
+
+export interface GetAlertRouteEscalationConfigEscalationTargetEscalationPaths {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteEscalationConfigEscalationTargetEscalationPathsValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteEscalationConfigEscalationTargetEscalationPathsArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteEscalationConfigEscalationTargetEscalationPathsValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteEscalationConfigEscalationTargetUsers {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteEscalationConfigEscalationTargetUsersArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteEscalationConfigEscalationTargetUsersValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteEscalationConfigEscalationTargetUsersArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteEscalationConfigEscalationTargetUsersValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteEscalationConfigWhenAlertJoinsGroup {
+    /**
+     * How long to wait before escalating once an alert joins the group, in seconds. Only applies when mode is 'on*each*new_alert'.
+     */
+    gracePeriodSeconds: number;
+    /**
+     * When a subsequent alert joins an existing group, when should we escalate again? Possible values are: `onPriorityIncrease`, `onEachNewAlert`.
+     */
+    mode: string;
+}
+
+export interface GetAlertRouteExpression {
+    elseBranch: outputs.GetAlertRouteExpressionElseBranch;
+    /**
+     * The human readable label of the expression
+     */
+    label: string;
+    operations: outputs.GetAlertRouteExpressionOperation[];
+    /**
+     * A short ID that can be used to reference the expression
+     */
+    reference: string;
+    /**
+     * The root reference for this expression (i.e. where the expression starts)
+     */
+    rootReference: string;
+}
+
+export interface GetAlertRouteExpressionElseBranch {
+    result: outputs.GetAlertRouteExpressionElseBranchResult;
+}
+
+export interface GetAlertRouteExpressionElseBranchResult {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteExpressionElseBranchResultArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteExpressionElseBranchResultValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteExpressionElseBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionElseBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperation {
+    branches: outputs.GetAlertRouteExpressionOperationBranches;
+    /**
+     * The cast target of this operation, set when the operation type is `cast`
+     */
+    cast: outputs.GetAlertRouteExpressionOperationCast;
+    concatenate: outputs.GetAlertRouteExpressionOperationConcatenate;
+    filter: outputs.GetAlertRouteExpressionOperationFilter;
+    navigate: outputs.GetAlertRouteExpressionOperationNavigate;
+    /**
+     * The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+     */
+    operationType: string;
+    parse: outputs.GetAlertRouteExpressionOperationParse;
+}
+
+export interface GetAlertRouteExpressionOperationBranches {
+    /**
+     * The branches to apply for this operation
+     */
+    branches: outputs.GetAlertRouteExpressionOperationBranchesBranch[];
+    returns: outputs.GetAlertRouteExpressionOperationBranchesReturns;
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranch {
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroup[];
+    result: outputs.GetAlertRouteExpressionOperationBranchesBranchResult;
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupCondition[];
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchResult {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteExpressionOperationBranchesBranchResultArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteExpressionOperationBranchesBranchResultValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationBranchesBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationBranchesReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetAlertRouteExpressionOperationCast {
+    returns: outputs.GetAlertRouteExpressionOperationCastReturns;
+}
+
+export interface GetAlertRouteExpressionOperationCastReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetAlertRouteExpressionOperationConcatenate {
+    /**
+     * The reference within the scope to concatenate with
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationFilter {
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetAlertRouteExpressionOperationFilterConditionGroup[];
+}
+
+export interface GetAlertRouteExpressionOperationFilterConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetAlertRouteExpressionOperationFilterConditionGroupCondition[];
+}
+
+export interface GetAlertRouteExpressionOperationFilterConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationFilterConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationNavigate {
+    /**
+     * The reference within the scope to navigate to
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteExpressionOperationParse {
+    returns: outputs.GetAlertRouteExpressionOperationParseReturns;
+    /**
+     * Source expression that is evaluated to a result
+     */
+    source: string;
+}
+
+export interface GetAlertRouteExpressionOperationParseReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetAlertRouteGroupingConfig {
+    default: outputs.GetAlertRouteGroupingConfigDefault;
+}
+
+export interface GetAlertRouteGroupingConfigDefault {
+    /**
+     * Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled: boolean;
+    /**
+     * Whether grouping is enabled
+     */
+    enabled: boolean;
+    /**
+     * Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
+     */
+    groupingKeys: outputs.GetAlertRouteGroupingConfigDefaultGroupingKey[];
+    /**
+     * How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+     */
+    windowSeconds: number;
+    /**
+     * Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     */
+    windowType: string;
+}
+
+export interface GetAlertRouteGroupingConfigDefaultGroupingKey {
+    /**
+     * A reference to a property of the alert to group on
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfig {
+    /**
+     * Should triage incidents be declined when alerts are resolved?
+     */
+    autoDeclineEnabled: boolean;
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetAlertRouteIncidentConfigConditionGroup[];
+    /**
+     * Whether incident creation is enabled for this alert route
+     */
+    enabled: boolean;
+    incidentTemplate: outputs.GetAlertRouteIncidentConfigIncidentTemplate;
+    /**
+     * The template an alert route applies to the incidents it creates. Disabling incident creation clears it.
+     */
+    template: outputs.GetAlertRouteIncidentConfigTemplate;
+}
+
+export interface GetAlertRouteIncidentConfigConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetAlertRouteIncidentConfigConditionGroupCondition[];
+}
+
+export interface GetAlertRouteIncidentConfigConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetAlertRouteIncidentConfigConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteIncidentConfigConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteIncidentConfigConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigIncidentTemplate {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigIncidentTemplateArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteIncidentConfigIncidentTemplateValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteIncidentConfigIncidentTemplateArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigIncidentTemplateValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplate {
+    /**
+     * Custom fields configuration
+     */
+    customFields: outputs.GetAlertRouteIncidentConfigTemplateCustomField[];
+    incidentMode: outputs.GetAlertRouteIncidentConfigTemplateIncidentMode;
+    incidentType: outputs.GetAlertRouteIncidentConfigTemplateIncidentType;
+    name: outputs.GetAlertRouteIncidentConfigTemplateName;
+    severity: outputs.GetAlertRouteIncidentConfigTemplateSeverity;
+    startInTriage: outputs.GetAlertRouteIncidentConfigTemplateStartInTriage;
+    summary: outputs.GetAlertRouteIncidentConfigTemplateSummary;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateCustomField {
+    /**
+     * Binding for the custom field
+     */
+    binding: outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBinding;
+    /**
+     * ID of the custom field
+     */
+    customFieldId: string;
+    /**
+     * The strategy to use when multiple alerts match this route. Possible values are: `first-wins`, `last-wins`, `append`.
+     */
+    mergeStrategy: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateCustomFieldBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteIncidentConfigTemplateCustomFieldBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteIncidentConfigTemplateCustomFieldBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateCustomFieldBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateIncidentMode {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigTemplateIncidentModeArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteIncidentConfigTemplateIncidentModeValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteIncidentConfigTemplateIncidentModeArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateIncidentModeValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateIncidentType {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteIncidentConfigTemplateIncidentTypeValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteIncidentConfigTemplateIncidentTypeArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateIncidentTypeValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateName {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigTemplateNameArrayValue[];
+    /**
+     * Whether this attribute should be autogenerated using AI
+     */
+    autogenerated: boolean;
+    /**
+     * The literal or reference parameter value
+     */
+    value: outputs.GetAlertRouteIncidentConfigTemplateNameValue;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateNameArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateNameValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateSeverity {
+    binding: outputs.GetAlertRouteIncidentConfigTemplateSeverityBinding;
+    /**
+     * Strategy for merging severity when multiple alerts create/update the same incident. Possible values are: `first-wins`, `max`.
+     */
+    mergeStrategy: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateSeverityBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteIncidentConfigTemplateSeverityBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteIncidentConfigTemplateSeverityBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateSeverityBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateStartInTriage {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigTemplateStartInTriageArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteIncidentConfigTemplateStartInTriageValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteIncidentConfigTemplateStartInTriageArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateStartInTriageValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateSummary {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues: outputs.GetAlertRouteIncidentConfigTemplateSummaryArrayValue[];
+    /**
+     * Whether this attribute should be autogenerated using AI
+     */
+    autogenerated: boolean;
+    /**
+     * The literal or reference parameter value
+     */
+    value: outputs.GetAlertRouteIncidentConfigTemplateSummaryValue;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateSummaryArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteIncidentConfigTemplateSummaryValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfig {
+    /**
+     * The destinations (Slack/Teams channels) alert messages are sent to
+     */
+    destinations: outputs.GetAlertRouteMessageConfigDestination[];
+    template: outputs.GetAlertRouteMessageConfigTemplate;
+}
+
+export interface GetAlertRouteMessageConfigDestination {
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetAlertRouteMessageConfigDestinationConditionGroup[];
+    msTeamsTargets: outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargets;
+    slackTargets: outputs.GetAlertRouteMessageConfigDestinationSlackTargets;
+}
+
+export interface GetAlertRouteMessageConfigDestinationConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetAlertRouteMessageConfigDestinationConditionGroupCondition[];
+}
+
+export interface GetAlertRouteMessageConfigDestinationConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfigDestinationConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfigDestinationMsTeamsTargets {
+    binding: outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBinding;
+    /**
+     * The visibility of the channel
+     */
+    channelVisibility: string;
+    /**
+     * Whether grouped alerts should render as a single group-summary message per channel
+     */
+    groupAlertsSummary: boolean;
+}
+
+export interface GetAlertRouteMessageConfigDestinationMsTeamsTargetsBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfigDestinationMsTeamsTargetsBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfigDestinationSlackTargets {
+    binding: outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBinding;
+    /**
+     * The visibility of the channel
+     */
+    channelVisibility: string;
+    /**
+     * Whether grouped alerts should render as a single group-summary message per channel
+     */
+    groupAlertsSummary: boolean;
+}
+
+export interface GetAlertRouteMessageConfigDestinationSlackTargetsBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteMessageConfigDestinationSlackTargetsBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteMessageConfigDestinationSlackTargetsBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfigDestinationSlackTargetsBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfigTemplate {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetAlertRouteMessageConfigTemplateArrayValue[];
+    expressionRef: string;
+    value: outputs.GetAlertRouteMessageConfigTemplateValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetAlertRouteMessageConfigTemplateArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetAlertRouteMessageConfigTemplateValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
 export interface GetAlertSourceAttributeArrayValue {
     /**
      * A fixed value. A catalog entry ID is a literal, not a reference.
@@ -18511,6 +19619,634 @@ export interface GetEscalationPathSequencesNodeNotifyChannelTarget {
     urgency: string;
 }
 
+export interface GetEscalationPathTemplateExpression {
+    elseBranch: outputs.GetEscalationPathTemplateExpressionElseBranch;
+    /**
+     * The human readable label of the expression
+     */
+    label: string;
+    operations: outputs.GetEscalationPathTemplateExpressionOperation[];
+    /**
+     * A short ID that can be used to reference the expression
+     */
+    reference: string;
+    /**
+     * The root reference for this expression (i.e. where the expression starts)
+     */
+    rootReference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionElseBranch {
+    result: outputs.GetEscalationPathTemplateExpressionElseBranchResult;
+}
+
+export interface GetEscalationPathTemplateExpressionElseBranchResult {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetEscalationPathTemplateExpressionElseBranchResultArrayValue[];
+    expressionRef: string;
+    value: outputs.GetEscalationPathTemplateExpressionElseBranchResultValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathTemplateExpressionElseBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionElseBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperation {
+    branches: outputs.GetEscalationPathTemplateExpressionOperationBranches;
+    /**
+     * The cast target of this operation, set when the operation type is `cast`
+     */
+    cast: outputs.GetEscalationPathTemplateExpressionOperationCast;
+    concatenate: outputs.GetEscalationPathTemplateExpressionOperationConcatenate;
+    filter: outputs.GetEscalationPathTemplateExpressionOperationFilter;
+    navigate: outputs.GetEscalationPathTemplateExpressionOperationNavigate;
+    /**
+     * The type of the operation. Possible values are: `navigate`, `filter`, `concatenate`, `count`, `min`, `max`, `sum`, `random`, `first`, `parse`, `branches`, `cast`.
+     */
+    operationType: string;
+    parse: outputs.GetEscalationPathTemplateExpressionOperationParse;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranches {
+    /**
+     * The branches to apply for this operation
+     */
+    branches: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranch[];
+    returns: outputs.GetEscalationPathTemplateExpressionOperationBranchesReturns;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranch {
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroup[];
+    result: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResult;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupCondition[];
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchResult {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultArrayValue[];
+    expressionRef: string;
+    value: outputs.GetEscalationPathTemplateExpressionOperationBranchesBranchResultValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchResultArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesBranchResultValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationBranchesReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationCast {
+    returns: outputs.GetEscalationPathTemplateExpressionOperationCastReturns;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationCastReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationConcatenate {
+    /**
+     * The reference within the scope to concatenate with
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationFilter {
+    /**
+     * The condition groups to apply in this filter. Only one group needs to be satisfied for the filter to pass.
+     */
+    conditionGroups: outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroup[];
+}
+
+export interface GetEscalationPathTemplateExpressionOperationFilterConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupCondition[];
+}
+
+export interface GetEscalationPathTemplateExpressionOperationFilterConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationFilterConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationNavigate {
+    /**
+     * The reference within the scope to navigate to
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationParse {
+    returns: outputs.GetEscalationPathTemplateExpressionOperationParseReturns;
+    /**
+     * Source expression that is evaluated to a result
+     */
+    source: string;
+}
+
+export interface GetEscalationPathTemplateExpressionOperationParseReturns {
+    /**
+     * Whether the return value should be single or multi-value
+     */
+    array: boolean;
+    /**
+     * Expected return type of this expression (what to try casting the result to)
+     */
+    type: string;
+}
+
+export interface GetEscalationPathTemplateParams {
+    /**
+     * Whether this parameter is an array
+     */
+    array: boolean;
+    /**
+     * A string describing the param
+     */
+    description: string;
+    /**
+     * Human readable label for this parameter
+     */
+    label: string;
+    /**
+     * Whether this parameter is optional
+     */
+    optional: boolean;
+    /**
+     * The type of the parameter
+     */
+    type: string;
+}
+
+export interface GetEscalationPathTemplateRepeatConfig {
+    /**
+     * When true, incident activity resets the repeat timer.
+     */
+    delayRepeatOnActivity: boolean;
+    /**
+     * Number of seconds we'll wait before repeating an escalation.
+     */
+    repeatAfterSeconds: number;
+}
+
+export interface GetEscalationPathTemplateSequences {
+    /**
+     * The nodes in this sequence, in the order they run.
+     */
+    nodes: outputs.GetEscalationPathTemplateSequencesNode[];
+}
+
+export interface GetEscalationPathTemplateSequencesNode {
+    /**
+     * Send the escalation down one of two sequences, depending on what `if` tests. A branch must be the last node in its sequence.
+     */
+    branch: outputs.GetEscalationPathTemplateSequencesNodeBranch;
+    delay: outputs.GetEscalationPathTemplateSequencesNodeDelay;
+    /**
+     * Reassign the escalation to another escalation path, continuing from that path's first node.
+     */
+    escalationPath: outputs.GetEscalationPathTemplateSequencesNodeEscalationPath;
+    /**
+     * An id for this node, unique within the escalation path, so a `loop` can name it.
+     */
+    id: string;
+    level: outputs.GetEscalationPathTemplateSequencesNodeLevel;
+    /**
+     * Go back to an earlier node and run from there again. A loop must be the last node in its sequence, or be followed by a single `escalationPath` node to reassign to once it has run out of repeats.
+     */
+    loop: outputs.GetEscalationPathTemplateSequencesNodeLoop;
+    notifyChannel: outputs.GetEscalationPathTemplateSequencesNodeNotifyChannel;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeBranch {
+    /**
+     * The key of the sequence to continue down when the condition is not met.
+     */
+    else: string;
+    /**
+     * What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
+     */
+    if: outputs.GetEscalationPathTemplateSequencesNodeBranchIf;
+    /**
+     * The key of the sequence to continue down when the condition is met.
+     */
+    then: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeBranchIf {
+    /**
+     * Alert priority ids, met when the escalation came in at one of them.
+     */
+    priorityOneOfs: string[];
+    /**
+     * The `id` of one of this escalation path's `workingHours`, met while those hours are active.
+     */
+    workingHoursActive: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeDelay {
+    /**
+     * If the delay is relative to a time window, this defines whether we advance when the window is active or inactive. Possible values are: `active`, `inactive`.
+     */
+    delayIntervalCondition: string;
+    /**
+     * How long to delay before advancing to the next node in the path, in seconds
+     */
+    delaySeconds: number;
+    /**
+     * If the delay is relative to a time window, this identifies which window it is relative to
+     */
+    delayWeekdayIntervalConfigId: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeEscalationPath {
+    /**
+     * The ID of the escalation path to reassign to
+     */
+    escalationPathId: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLevel {
+    /**
+     * Controls the behaviour of acknowledgements for this level, with 'first' cancelling all other escalations on the same level when someone acks. Possible values are: `all`, `first`.
+     */
+    ackMode: string;
+    retryConfig: outputs.GetEscalationPathTemplateSequencesNodeLevelRetryConfig;
+    roundRobinConfig: outputs.GetEscalationPathTemplateSequencesNodeLevelRoundRobinConfig;
+    /**
+     * The targets (users or schedules), each concrete or a parameter binding.
+     */
+    targets: outputs.GetEscalationPathTemplateSequencesNodeLevelTarget[];
+    /**
+     * If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+     */
+    timeToAckIntervalCondition: string;
+    /**
+     * How long should we wait for this level to acknowledge before proceeding to the next node in the path?
+     */
+    timeToAckSeconds: number;
+    /**
+     * If the time to ack is relative to a time window, this identifies which window it is relative to
+     */
+    timeToAckWeekdayIntervalConfigId: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLevelRetryConfig {
+    /**
+     * The total number of times we page this level, counting the initial page. For example, 3 means three notifications in total. Must be between 2 and 10.
+     */
+    attempts: number;
+    /**
+     * How long we wait between attempts at this level, in seconds. Must be a whole number of minutes (divisible by 60).
+     */
+    intervalSeconds: number;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLevelRoundRobinConfig {
+    /**
+     * Whether round robin is enabled for this level
+     */
+    enabled: boolean;
+    /**
+     * How long should we wait before rotating to the next target in a round robin, if not set will stick with a single target per level.
+     */
+    rotateAfterSeconds: number;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLevelTarget {
+    /**
+     * Who this target resolves to, decided per templated path. Its `value.reference` names one of the template's `params`, or one of its `expressions`.
+     */
+    binding: outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBinding;
+    /**
+     * Uniquely identifies a concrete target. Omitted when binding is set.
+     */
+    id: string;
+    /**
+     * Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
+     */
+    scheduleMode: string;
+    /**
+     * For schedule targets, identifies which rota on the schedule the scheduleMode applies to.
+     */
+    selectedRotaId: string;
+    /**
+     * Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
+     */
+    type: string;
+    /**
+     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     */
+    urgency: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLevelTargetBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetEscalationPathTemplateSequencesNodeLevelTargetBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLevelTargetBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLevelTargetBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeLoop {
+    /**
+     * The `id` of the node to repeat from.
+     */
+    backTo: string;
+    /**
+     * How many times to repeat these nodes
+     */
+    times: number;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeNotifyChannel {
+    /**
+     * The channels to notify, each concrete or a parameter binding.
+     */
+    targets: outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTarget[];
+    /**
+     * If the time to ack is relative to a time window, this defines whether we move when the window is active or inactive. Possible values are: `active`, `inactive`.
+     */
+    timeToAckIntervalCondition: string;
+    /**
+     * How long should we wait for this level to acknowledge before moving on to the next node in the path?
+     */
+    timeToAckSeconds: number;
+    /**
+     * If the time to ack is relative to a time window, this identifies which window it is relative to
+     */
+    timeToAckWeekdayIntervalConfigId: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeNotifyChannelTarget {
+    /**
+     * Who this target resolves to, decided per templated path. Its `value.reference` names one of the template's `params`, or one of its `expressions`.
+     */
+    binding: outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBinding;
+    /**
+     * Uniquely identifies a concrete target. Omitted when binding is set.
+     */
+    id: string;
+    /**
+     * Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currentlyOnCall`, `allUsersForRota`, `allUsers`, `currentlyOnCallForRota`, `nextOnCallForRota`, `nextOnCall`.
+     */
+    scheduleMode: string;
+    /**
+     * For schedule targets, identifies which rota on the schedule the scheduleMode applies to.
+     */
+    selectedRotaId: string;
+    /**
+     * Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slackChannel`, `msteamsChannel`.
+     */
+    type: string;
+    /**
+     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     */
+    urgency: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateSequencesNodeNotifyChannelTargetBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetEscalationPathTemplateWorkingHour {
+    /**
+     * The unique identifier for this set of working intervals
+     */
+    id: string;
+    /**
+     * A human readable label for this set of working intervals
+     */
+    name: string;
+    /**
+     * How to interpret all the intervals
+     */
+    timezone: string;
+    weekdayIntervals: outputs.GetEscalationPathTemplateWorkingHourWeekdayInterval[];
+}
+
+export interface GetEscalationPathTemplateWorkingHourWeekdayInterval {
+    /**
+     * End time of the interval, in 24hr format
+     */
+    endTime: string;
+    /**
+     * Start time of the interval, in 24hr format
+     */
+    startTime: string;
+    /**
+     * Weekdays for use within a schedule or escalation path. Possible values are: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
+     */
+    weekday: string;
+}
+
 export interface GetEscalationPathWorkingHour {
     /**
      * The unique identifier for this set of working intervals
@@ -19627,6 +21363,150 @@ export interface GetIpAllowlistAllowlist {
      * An IP address or a CIDR IP prefix to allow
      */
     value: string;
+}
+
+export interface GetMaintenanceWindowAlertConditionGroup {
+    /**
+     * All conditions in this list must be satisfied for the group to be satisfied
+     */
+    conditions: outputs.GetMaintenanceWindowAlertConditionGroupCondition[];
+}
+
+export interface GetMaintenanceWindowAlertConditionGroupCondition {
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBinding[];
+    subject: string;
+}
+
+export interface GetMaintenanceWindowAlertConditionGroupConditionParamBinding {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingArrayValue[];
+    expressionRef: string;
+    value: outputs.GetMaintenanceWindowAlertConditionGroupConditionParamBindingValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetMaintenanceWindowAlertConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetMaintenanceWindowAlertConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetMaintenanceWindowEscalationTarget {
+    /**
+     * Escalation paths to route alerts to
+     */
+    escalationPaths: outputs.GetMaintenanceWindowEscalationTargetEscalationPaths;
+    /**
+     * Users to notify directly
+     */
+    users: outputs.GetMaintenanceWindowEscalationTargetUsers;
+}
+
+export interface GetMaintenanceWindowEscalationTargetEscalationPaths {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetMaintenanceWindowEscalationTargetEscalationPathsArrayValue[];
+    expressionRef: string;
+    value: outputs.GetMaintenanceWindowEscalationTargetEscalationPathsValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetMaintenanceWindowEscalationTargetEscalationPathsArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetMaintenanceWindowEscalationTargetEscalationPathsValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetMaintenanceWindowEscalationTargetUsers {
+    /**
+     * If array*value is set, this helps render the values
+     */
+    arrayValues: outputs.GetMaintenanceWindowEscalationTargetUsersArrayValue[];
+    expressionRef: string;
+    value: outputs.GetMaintenanceWindowEscalationTargetUsersValue;
+    valueLiteral: string;
+    valueReference: string;
+    values: string[];
+}
+
+export interface GetMaintenanceWindowEscalationTargetUsersArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetMaintenanceWindowEscalationTargetUsersValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference: string;
+}
+
+export interface GetMaintenanceWindowNotifyChannel {
+    /**
+     * The external provider channel ID (e.g. Slack channel ID)
+     */
+    channelId: string;
+    /**
+     * Human readable name of the channel
+     */
+    channelName: string;
+    /**
+     * The type of channel (e.g. public, private)
+     */
+    channelType: string;
 }
 
 export interface GetPayConfigOneOffRule {

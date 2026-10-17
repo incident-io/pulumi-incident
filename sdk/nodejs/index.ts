@@ -100,6 +100,11 @@ export const getAlertAttribute: typeof import("./getAlertAttribute").getAlertAtt
 export const getAlertAttributeOutput: typeof import("./getAlertAttribute").getAlertAttributeOutput = null as any;
 utilities.lazyLoad(exports, ["getAlertAttribute","getAlertAttributeOutput"], () => require("./getAlertAttribute"));
 
+export { GetAlertRouteArgs, GetAlertRouteResult, GetAlertRouteOutputArgs } from "./getAlertRoute";
+export const getAlertRoute: typeof import("./getAlertRoute").getAlertRoute = null as any;
+export const getAlertRouteOutput: typeof import("./getAlertRoute").getAlertRouteOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertRoute","getAlertRouteOutput"], () => require("./getAlertRoute"));
+
 export { GetAlertSourceArgs, GetAlertSourceResult, GetAlertSourceOutputArgs } from "./getAlertSource";
 export const getAlertSource: typeof import("./getAlertSource").getAlertSource = null as any;
 export const getAlertSourceOutput: typeof import("./getAlertSource").getAlertSourceOutput = null as any;
@@ -165,6 +170,11 @@ export const getEscalationPathBeta: typeof import("./getEscalationPathBeta").get
 export const getEscalationPathBetaOutput: typeof import("./getEscalationPathBeta").getEscalationPathBetaOutput = null as any;
 utilities.lazyLoad(exports, ["getEscalationPathBeta","getEscalationPathBetaOutput"], () => require("./getEscalationPathBeta"));
 
+export { GetEscalationPathTemplateArgs, GetEscalationPathTemplateResult, GetEscalationPathTemplateOutputArgs } from "./getEscalationPathTemplate";
+export const getEscalationPathTemplate: typeof import("./getEscalationPathTemplate").getEscalationPathTemplate = null as any;
+export const getEscalationPathTemplateOutput: typeof import("./getEscalationPathTemplate").getEscalationPathTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getEscalationPathTemplate","getEscalationPathTemplateOutput"], () => require("./getEscalationPathTemplate"));
+
 export { GetIncidentFormArgs, GetIncidentFormResult, GetIncidentFormOutputArgs } from "./getIncidentForm";
 export const getIncidentForm: typeof import("./getIncidentForm").getIncidentForm = null as any;
 export const getIncidentFormOutput: typeof import("./getIncidentForm").getIncidentFormOutput = null as any;
@@ -194,6 +204,11 @@ export { GetIpAllowlistResult } from "./getIpAllowlist";
 export const getIpAllowlist: typeof import("./getIpAllowlist").getIpAllowlist = null as any;
 export const getIpAllowlistOutput: typeof import("./getIpAllowlist").getIpAllowlistOutput = null as any;
 utilities.lazyLoad(exports, ["getIpAllowlist","getIpAllowlistOutput"], () => require("./getIpAllowlist"));
+
+export { GetMaintenanceWindowArgs, GetMaintenanceWindowResult, GetMaintenanceWindowOutputArgs } from "./getMaintenanceWindow";
+export const getMaintenanceWindow: typeof import("./getMaintenanceWindow").getMaintenanceWindow = null as any;
+export const getMaintenanceWindowOutput: typeof import("./getMaintenanceWindow").getMaintenanceWindowOutput = null as any;
+utilities.lazyLoad(exports, ["getMaintenanceWindow","getMaintenanceWindowOutput"], () => require("./getMaintenanceWindow"));
 
 export { GetPayConfigArgs, GetPayConfigResult, GetPayConfigOutputArgs } from "./getPayConfig";
 export const getPayConfig: typeof import("./getPayConfig").getPayConfig = null as any;
