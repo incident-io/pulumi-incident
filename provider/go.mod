@@ -1,9 +1,9 @@
 module github.com/incident-io/pulumi-incident/provider
 
-go 1.27.1
+go 1.27.3
 
 require (
-	github.com/incident-io/terraform-provider-incident/v7 v7.7.0
+	github.com/incident-io/terraform-provider-incident/v7 v7.7.1
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.138.0
 )
 
