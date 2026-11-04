@@ -28037,7 +28037,7 @@ func (o CatalogEntriesEntriesAttributeValuesMapOutput) MapIndex(k pulumi.StringI
 	}).(CatalogEntriesEntriesAttributeValuesOutput)
 }
 
-type CatalogEntryAttributeValue struct {
+type CatalogEntryAttributeValueType struct {
 	// The value of this element of the array, in a format suitable for this attribute type.
 	ArrayValues []string `pulumi:"arrayValues"`
 	// The ID of this attribute, usually loaded from the incident*catalog*type_attribute resource.
@@ -28046,18 +28046,18 @@ type CatalogEntryAttributeValue struct {
 	Value *string `pulumi:"value"`
 }
 
-// CatalogEntryAttributeValueInput is an input type that accepts CatalogEntryAttributeValueArgs and CatalogEntryAttributeValueOutput values.
-// You can construct a concrete instance of `CatalogEntryAttributeValueInput` via:
+// CatalogEntryAttributeValueTypeInput is an input type that accepts CatalogEntryAttributeValueTypeArgs and CatalogEntryAttributeValueTypeOutput values.
+// You can construct a concrete instance of `CatalogEntryAttributeValueTypeInput` via:
 //
-//	CatalogEntryAttributeValueArgs{...}
-type CatalogEntryAttributeValueInput interface {
+//	CatalogEntryAttributeValueTypeArgs{...}
+type CatalogEntryAttributeValueTypeInput interface {
 	pulumi.Input
 
-	ToCatalogEntryAttributeValueOutput() CatalogEntryAttributeValueOutput
-	ToCatalogEntryAttributeValueOutputWithContext(context.Context) CatalogEntryAttributeValueOutput
+	ToCatalogEntryAttributeValueTypeOutput() CatalogEntryAttributeValueTypeOutput
+	ToCatalogEntryAttributeValueTypeOutputWithContext(context.Context) CatalogEntryAttributeValueTypeOutput
 }
 
-type CatalogEntryAttributeValueArgs struct {
+type CatalogEntryAttributeValueTypeArgs struct {
 	// The value of this element of the array, in a format suitable for this attribute type.
 	ArrayValues pulumi.StringArrayInput `pulumi:"arrayValues"`
 	// The ID of this attribute, usually loaded from the incident*catalog*type_attribute resource.
@@ -28066,90 +28066,90 @@ type CatalogEntryAttributeValueArgs struct {
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (CatalogEntryAttributeValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CatalogEntryAttributeValue)(nil)).Elem()
+func (CatalogEntryAttributeValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (i CatalogEntryAttributeValueArgs) ToCatalogEntryAttributeValueOutput() CatalogEntryAttributeValueOutput {
-	return i.ToCatalogEntryAttributeValueOutputWithContext(context.Background())
+func (i CatalogEntryAttributeValueTypeArgs) ToCatalogEntryAttributeValueTypeOutput() CatalogEntryAttributeValueTypeOutput {
+	return i.ToCatalogEntryAttributeValueTypeOutputWithContext(context.Background())
 }
 
-func (i CatalogEntryAttributeValueArgs) ToCatalogEntryAttributeValueOutputWithContext(ctx context.Context) CatalogEntryAttributeValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntryAttributeValueOutput)
+func (i CatalogEntryAttributeValueTypeArgs) ToCatalogEntryAttributeValueTypeOutputWithContext(ctx context.Context) CatalogEntryAttributeValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntryAttributeValueTypeOutput)
 }
 
-// CatalogEntryAttributeValueArrayInput is an input type that accepts CatalogEntryAttributeValueArray and CatalogEntryAttributeValueArrayOutput values.
-// You can construct a concrete instance of `CatalogEntryAttributeValueArrayInput` via:
+// CatalogEntryAttributeValueTypeArrayInput is an input type that accepts CatalogEntryAttributeValueTypeArray and CatalogEntryAttributeValueTypeArrayOutput values.
+// You can construct a concrete instance of `CatalogEntryAttributeValueTypeArrayInput` via:
 //
-//	CatalogEntryAttributeValueArray{ CatalogEntryAttributeValueArgs{...} }
-type CatalogEntryAttributeValueArrayInput interface {
+//	CatalogEntryAttributeValueTypeArray{ CatalogEntryAttributeValueTypeArgs{...} }
+type CatalogEntryAttributeValueTypeArrayInput interface {
 	pulumi.Input
 
-	ToCatalogEntryAttributeValueArrayOutput() CatalogEntryAttributeValueArrayOutput
-	ToCatalogEntryAttributeValueArrayOutputWithContext(context.Context) CatalogEntryAttributeValueArrayOutput
+	ToCatalogEntryAttributeValueTypeArrayOutput() CatalogEntryAttributeValueTypeArrayOutput
+	ToCatalogEntryAttributeValueTypeArrayOutputWithContext(context.Context) CatalogEntryAttributeValueTypeArrayOutput
 }
 
-type CatalogEntryAttributeValueArray []CatalogEntryAttributeValueInput
+type CatalogEntryAttributeValueTypeArray []CatalogEntryAttributeValueTypeInput
 
-func (CatalogEntryAttributeValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CatalogEntryAttributeValue)(nil)).Elem()
+func (CatalogEntryAttributeValueTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (i CatalogEntryAttributeValueArray) ToCatalogEntryAttributeValueArrayOutput() CatalogEntryAttributeValueArrayOutput {
-	return i.ToCatalogEntryAttributeValueArrayOutputWithContext(context.Background())
+func (i CatalogEntryAttributeValueTypeArray) ToCatalogEntryAttributeValueTypeArrayOutput() CatalogEntryAttributeValueTypeArrayOutput {
+	return i.ToCatalogEntryAttributeValueTypeArrayOutputWithContext(context.Background())
 }
 
-func (i CatalogEntryAttributeValueArray) ToCatalogEntryAttributeValueArrayOutputWithContext(ctx context.Context) CatalogEntryAttributeValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntryAttributeValueArrayOutput)
+func (i CatalogEntryAttributeValueTypeArray) ToCatalogEntryAttributeValueTypeArrayOutputWithContext(ctx context.Context) CatalogEntryAttributeValueTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogEntryAttributeValueTypeArrayOutput)
 }
 
-type CatalogEntryAttributeValueOutput struct{ *pulumi.OutputState }
+type CatalogEntryAttributeValueTypeOutput struct{ *pulumi.OutputState }
 
-func (CatalogEntryAttributeValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CatalogEntryAttributeValue)(nil)).Elem()
+func (CatalogEntryAttributeValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (o CatalogEntryAttributeValueOutput) ToCatalogEntryAttributeValueOutput() CatalogEntryAttributeValueOutput {
+func (o CatalogEntryAttributeValueTypeOutput) ToCatalogEntryAttributeValueTypeOutput() CatalogEntryAttributeValueTypeOutput {
 	return o
 }
 
-func (o CatalogEntryAttributeValueOutput) ToCatalogEntryAttributeValueOutputWithContext(ctx context.Context) CatalogEntryAttributeValueOutput {
+func (o CatalogEntryAttributeValueTypeOutput) ToCatalogEntryAttributeValueTypeOutputWithContext(ctx context.Context) CatalogEntryAttributeValueTypeOutput {
 	return o
 }
 
 // The value of this element of the array, in a format suitable for this attribute type.
-func (o CatalogEntryAttributeValueOutput) ArrayValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CatalogEntryAttributeValue) []string { return v.ArrayValues }).(pulumi.StringArrayOutput)
+func (o CatalogEntryAttributeValueTypeOutput) ArrayValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogEntryAttributeValueType) []string { return v.ArrayValues }).(pulumi.StringArrayOutput)
 }
 
 // The ID of this attribute, usually loaded from the incident*catalog*type_attribute resource.
-func (o CatalogEntryAttributeValueOutput) Attribute() pulumi.StringOutput {
-	return o.ApplyT(func(v CatalogEntryAttributeValue) string { return v.Attribute }).(pulumi.StringOutput)
+func (o CatalogEntryAttributeValueTypeOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogEntryAttributeValueType) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
 // The value of this attribute, in a format suitable for this attribute type.
-func (o CatalogEntryAttributeValueOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CatalogEntryAttributeValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o CatalogEntryAttributeValueTypeOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogEntryAttributeValueType) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type CatalogEntryAttributeValueArrayOutput struct{ *pulumi.OutputState }
+type CatalogEntryAttributeValueTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (CatalogEntryAttributeValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CatalogEntryAttributeValue)(nil)).Elem()
+func (CatalogEntryAttributeValueTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (o CatalogEntryAttributeValueArrayOutput) ToCatalogEntryAttributeValueArrayOutput() CatalogEntryAttributeValueArrayOutput {
+func (o CatalogEntryAttributeValueTypeArrayOutput) ToCatalogEntryAttributeValueTypeArrayOutput() CatalogEntryAttributeValueTypeArrayOutput {
 	return o
 }
 
-func (o CatalogEntryAttributeValueArrayOutput) ToCatalogEntryAttributeValueArrayOutputWithContext(ctx context.Context) CatalogEntryAttributeValueArrayOutput {
+func (o CatalogEntryAttributeValueTypeArrayOutput) ToCatalogEntryAttributeValueTypeArrayOutputWithContext(ctx context.Context) CatalogEntryAttributeValueTypeArrayOutput {
 	return o
 }
 
-func (o CatalogEntryAttributeValueArrayOutput) Index(i pulumi.IntInput) CatalogEntryAttributeValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogEntryAttributeValue {
-		return vs[0].([]CatalogEntryAttributeValue)[vs[1].(int)]
-	}).(CatalogEntryAttributeValueOutput)
+func (o CatalogEntryAttributeValueTypeArrayOutput) Index(i pulumi.IntInput) CatalogEntryAttributeValueTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CatalogEntryAttributeValueType {
+		return vs[0].([]CatalogEntryAttributeValueType)[vs[1].(int)]
+	}).(CatalogEntryAttributeValueTypeOutput)
 }
 
 type CustomFieldFilterBy struct {
@@ -72181,8 +72181,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntriesEntriesMapInput)(nil)).Elem(), CatalogEntriesEntriesMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntriesEntriesAttributeValuesInput)(nil)).Elem(), CatalogEntriesEntriesAttributeValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntriesEntriesAttributeValuesMapInput)(nil)).Elem(), CatalogEntriesEntriesAttributeValuesMap{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntryAttributeValueInput)(nil)).Elem(), CatalogEntryAttributeValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntryAttributeValueArrayInput)(nil)).Elem(), CatalogEntryAttributeValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntryAttributeValueTypeInput)(nil)).Elem(), CatalogEntryAttributeValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogEntryAttributeValueTypeArrayInput)(nil)).Elem(), CatalogEntryAttributeValueTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomFieldFilterByInput)(nil)).Elem(), CustomFieldFilterByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomFieldFilterByPtrInput)(nil)).Elem(), CustomFieldFilterByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomFieldFixedFilterInput)(nil)).Elem(), CustomFieldFixedFilterArgs{})
@@ -73176,8 +73176,8 @@ func init() {
 	pulumi.RegisterOutputType(CatalogEntriesEntriesMapOutput{})
 	pulumi.RegisterOutputType(CatalogEntriesEntriesAttributeValuesOutput{})
 	pulumi.RegisterOutputType(CatalogEntriesEntriesAttributeValuesMapOutput{})
-	pulumi.RegisterOutputType(CatalogEntryAttributeValueOutput{})
-	pulumi.RegisterOutputType(CatalogEntryAttributeValueArrayOutput{})
+	pulumi.RegisterOutputType(CatalogEntryAttributeValueTypeOutput{})
+	pulumi.RegisterOutputType(CatalogEntryAttributeValueTypeArrayOutput{})
 	pulumi.RegisterOutputType(CustomFieldFilterByOutput{})
 	pulumi.RegisterOutputType(CustomFieldFilterByPtrOutput{})
 	pulumi.RegisterOutputType(CustomFieldFixedFilterOutput{})

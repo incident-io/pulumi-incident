@@ -92,8 +92,8 @@ import (
 //					CatalogTypeId: serviceTier.ID().ToIDOutput().ToStringOutput(),
 //					Name:          pulumi.String(val0),
 //					ExternalId:    pulumi.String(val0),
-//					AttributeValues: incident.CatalogEntryAttributeValueArray{
-//						&incident.CatalogEntryAttributeValueArgs{
+//					AttributeValues: incident.CatalogEntryAttributeValueTypeArray{
+//						&incident.CatalogEntryAttributeValueTypeArgs{
 //							Attribute: serviceTierDescription.ID().ToIDOutput().ToStringOutput(),
 //							Value:     pulumi.String(val0),
 //						},
@@ -113,8 +113,8 @@ type CatalogEntry struct {
 	pulumi.CustomResourceState
 
 	// Optional aliases that can be used to reference this entry
-	Aliases         pulumi.StringArrayOutput              `pulumi:"aliases"`
-	AttributeValues CatalogEntryAttributeValueArrayOutput `pulumi:"attributeValues"`
+	Aliases         pulumi.StringArrayOutput                  `pulumi:"aliases"`
+	AttributeValues CatalogEntryAttributeValueTypeArrayOutput `pulumi:"attributeValues"`
 	// ID of this catalog type
 	CatalogTypeId pulumi.StringOutput `pulumi:"catalogTypeId"`
 	// An optional alternative ID for this entry, which is ensured to be unique for the type
@@ -164,8 +164,8 @@ func GetCatalogEntry(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CatalogEntry resources.
 type catalogEntryState struct {
 	// Optional aliases that can be used to reference this entry
-	Aliases         []string                     `pulumi:"aliases"`
-	AttributeValues []CatalogEntryAttributeValue `pulumi:"attributeValues"`
+	Aliases         []string                         `pulumi:"aliases"`
+	AttributeValues []CatalogEntryAttributeValueType `pulumi:"attributeValues"`
 	// ID of this catalog type
 	CatalogTypeId *string `pulumi:"catalogTypeId"`
 	// An optional alternative ID for this entry, which is ensured to be unique for the type
@@ -181,7 +181,7 @@ type catalogEntryState struct {
 type CatalogEntryState struct {
 	// Optional aliases that can be used to reference this entry
 	Aliases         pulumi.StringArrayInput
-	AttributeValues CatalogEntryAttributeValueArrayInput
+	AttributeValues CatalogEntryAttributeValueTypeArrayInput
 	// ID of this catalog type
 	CatalogTypeId pulumi.StringPtrInput
 	// An optional alternative ID for this entry, which is ensured to be unique for the type
@@ -200,8 +200,8 @@ func (CatalogEntryState) ElementType() reflect.Type {
 
 type catalogEntryArgs struct {
 	// Optional aliases that can be used to reference this entry
-	Aliases         []string                     `pulumi:"aliases"`
-	AttributeValues []CatalogEntryAttributeValue `pulumi:"attributeValues"`
+	Aliases         []string                         `pulumi:"aliases"`
+	AttributeValues []CatalogEntryAttributeValueType `pulumi:"attributeValues"`
 	// ID of this catalog type
 	CatalogTypeId string `pulumi:"catalogTypeId"`
 	// An optional alternative ID for this entry, which is ensured to be unique for the type
@@ -218,7 +218,7 @@ type catalogEntryArgs struct {
 type CatalogEntryArgs struct {
 	// Optional aliases that can be used to reference this entry
 	Aliases         pulumi.StringArrayInput
-	AttributeValues CatalogEntryAttributeValueArrayInput
+	AttributeValues CatalogEntryAttributeValueTypeArrayInput
 	// ID of this catalog type
 	CatalogTypeId pulumi.StringInput
 	// An optional alternative ID for this entry, which is ensured to be unique for the type
@@ -323,8 +323,8 @@ func (o CatalogEntryOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CatalogEntry) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-func (o CatalogEntryOutput) AttributeValues() CatalogEntryAttributeValueArrayOutput {
-	return o.ApplyT(func(v *CatalogEntry) CatalogEntryAttributeValueArrayOutput { return v.AttributeValues }).(CatalogEntryAttributeValueArrayOutput)
+func (o CatalogEntryOutput) AttributeValues() CatalogEntryAttributeValueTypeArrayOutput {
+	return o.ApplyT(func(v *CatalogEntry) CatalogEntryAttributeValueTypeArrayOutput { return v.AttributeValues }).(CatalogEntryAttributeValueTypeArrayOutput)
 }
 
 // ID of this catalog type

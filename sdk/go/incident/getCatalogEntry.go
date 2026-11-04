@@ -36,8 +36,8 @@ type LookupCatalogEntryArgs struct {
 // A collection of values returned by getCatalogEntry.
 type LookupCatalogEntryResult struct {
 	// Optional aliases that can be used to reference this entry
-	Aliases         []string                        `pulumi:"aliases"`
-	AttributeValues []GetCatalogEntryAttributeValue `pulumi:"attributeValues"`
+	Aliases         []string                            `pulumi:"aliases"`
+	AttributeValues []GetCatalogEntryAttributeValueType `pulumi:"attributeValues"`
 	// ID of this catalog type
 	CatalogTypeId string `pulumi:"catalogTypeId"`
 	// An optional alternative ID for this entry, which is ensured to be unique for the type
@@ -89,8 +89,8 @@ func (o LookupCatalogEntryResultOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCatalogEntryResult) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupCatalogEntryResultOutput) AttributeValues() GetCatalogEntryAttributeValueArrayOutput {
-	return o.ApplyT(func(v LookupCatalogEntryResult) []GetCatalogEntryAttributeValue { return v.AttributeValues }).(GetCatalogEntryAttributeValueArrayOutput)
+func (o LookupCatalogEntryResultOutput) AttributeValues() GetCatalogEntryAttributeValueTypeArrayOutput {
+	return o.ApplyT(func(v LookupCatalogEntryResult) []GetCatalogEntryAttributeValueType { return v.AttributeValues }).(GetCatalogEntryAttributeValueTypeArrayOutput)
 }
 
 // ID of this catalog type

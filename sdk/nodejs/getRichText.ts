@@ -47,7 +47,7 @@ export function getRichText(args: GetRichTextArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetRichTextArgs {
     /**
-     * The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `jira`.
+     * The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `comment`, `jira`.
      */
     featureSet: string;
     /**
@@ -65,7 +65,7 @@ export interface GetRichTextResult {
      */
     readonly droppedContents: string[];
     /**
-     * The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `jira`.
+     * The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `comment`, `jira`.
      */
     readonly featureSet: string;
     /**
@@ -120,7 +120,7 @@ export function getRichTextOutput(args: GetRichTextOutputArgs, opts?: pulumi.Inv
  */
 export interface GetRichTextOutputArgs {
     /**
-     * The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `jira`.
+     * The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `comment`, `jira`.
      */
     featureSet: pulumi.Input<string>;
     /**

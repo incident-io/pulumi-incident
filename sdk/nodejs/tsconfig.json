@@ -30,6 +30,8 @@
         "apiKey.ts",
         "catalogEntries.ts",
         "catalogEntry.ts",
+        "catalogEntryAliases.ts",
+        "catalogEntryAttributeValue.ts",
         "catalogType.ts",
         "catalogTypeAttribute.ts",
         "config/index.ts",

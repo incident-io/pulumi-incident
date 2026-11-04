@@ -43,6 +43,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CatalogEntries{}
 	case "incident:index/catalogEntry:CatalogEntry":
 		r = &CatalogEntry{}
+	case "incident:index/catalogEntryAliases:CatalogEntryAliases":
+		r = &CatalogEntryAliases{}
+	case "incident:index/catalogEntryAttributeValue:CatalogEntryAttributeValue":
+		r = &CatalogEntryAttributeValue{}
 	case "incident:index/catalogType:CatalogType":
 		r = &CatalogType{}
 	case "incident:index/catalogTypeAttribute:CatalogTypeAttribute":
@@ -181,6 +185,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"incident",
 		"index/catalogEntry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/catalogEntryAliases",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/catalogEntryAttributeValue",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

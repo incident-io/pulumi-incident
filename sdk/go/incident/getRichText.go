@@ -67,7 +67,7 @@ func GetRichText(ctx *pulumi.Context, args *GetRichTextArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getRichText.
 type GetRichTextArgs struct {
-	// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `jira`.
+	// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `comment`, `jira`.
 	FeatureSet string `pulumi:"featureSet"`
 	// The markdown to parse. Template variables written as {{ name }} become variable placeholders, and support the omit*if*unset and truncate filters.
 	Markdown string `pulumi:"markdown"`
@@ -77,7 +77,7 @@ type GetRichTextArgs struct {
 type GetRichTextResult struct {
 	// Node and mark types dropped because the feature set doesn't permit them. Empty when nothing was dropped.
 	DroppedContents []string `pulumi:"droppedContents"`
-	// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `jira`.
+	// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `comment`, `jira`.
 	FeatureSet string `pulumi:"featureSet"`
 	// The document, encoded as JSON. Assign it to the rich text field you built it for, such as an alert source template's `title` or `description` literal.
 	Json string `pulumi:"json"`
@@ -92,7 +92,7 @@ func GetRichTextOutput(ctx *pulumi.Context, args GetRichTextOutputArgs, opts ...
 
 // A collection of arguments for invoking getRichText.
 type GetRichTextOutputArgs struct {
-	// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `jira`.
+	// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `comment`, `jira`.
 	FeatureSet pulumi.StringInput `pulumi:"featureSet"`
 	// The markdown to parse. Template variables written as {{ name }} become variable placeholders, and support the omit*if*unset and truncate filters.
 	Markdown pulumi.StringInput `pulumi:"markdown"`
@@ -122,7 +122,7 @@ func (o GetRichTextResultOutput) DroppedContents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRichTextResult) []string { return v.DroppedContents }).(pulumi.StringArrayOutput)
 }
 
-// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `jira`.
+// The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plainSingleLine`, `plainSingleLineWithSecrets`, `plainMultiLine`, `mrkdwn`, `rich`, `richWithImages`, `slackRichText`, `slackRichTextWithHeadings`, `basic`, `basicNoLinks`, `comment`, `jira`.
 func (o GetRichTextResultOutput) FeatureSet() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRichTextResult) string { return v.FeatureSet }).(pulumi.StringOutput)
 }

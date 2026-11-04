@@ -220,7 +220,7 @@ import (
 //			tierOne, err := incident.NewCatalogEntry(ctx, "tier_one", &incident.CatalogEntryArgs{
 //				CatalogTypeId:   serviceTier.ID().ToIDOutput().ToStringOutput(),
 //				Name:            pulumi.String("Tier 1"),
-//				AttributeValues: incident.CatalogEntryAttributeValueArray{},
+//				AttributeValues: incident.CatalogEntryAttributeValueTypeArray{},
 //			})
 //			if err != nil {
 //				return err

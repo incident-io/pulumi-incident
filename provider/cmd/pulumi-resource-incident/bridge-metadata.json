@@ -2934,6 +2934,22 @@
                     }
                 }
             },
+            "incident_catalog_entry_aliases": {
+                "current": "incident:index/catalogEntryAliases:CatalogEntryAliases",
+                "fields": {
+                    "aliases": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "incident_catalog_entry_attribute_value": {
+                "current": "incident:index/catalogEntryAttributeValue:CatalogEntryAttributeValue",
+                "fields": {
+                    "array_value": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "incident_catalog_type": {
                 "current": "incident:index/catalogType:CatalogType",
                 "fields": {
@@ -7870,6 +7886,12 @@
                 }
             },
             "incident_catalog_entry": {},
+            "incident_catalog_entry_aliases": {
+                "computeID": {
+                    "kind": "missing"
+                }
+            },
+            "incident_catalog_entry_attribute_value": {},
             "incident_catalog_type": {},
             "incident_catalog_type_attribute": {},
             "incident_custom_field": {},

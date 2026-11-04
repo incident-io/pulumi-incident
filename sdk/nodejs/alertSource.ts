@@ -213,7 +213,7 @@ export class AlertSource extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly secretToken: pulumi.Output<string>;
     /**
-     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
      */
     declare public readonly sourceType: pulumi.Output<string>;
     declare public readonly title: pulumi.Output<outputs.AlertSourceTitle | undefined>;
@@ -364,7 +364,7 @@ export interface AlertSourceState {
      */
     secretToken?: pulumi.Input<string | undefined>;
     /**
-     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
      */
     sourceType?: pulumi.Input<string | undefined>;
     title?: pulumi.Input<inputs.AlertSourceTitle | undefined>;
@@ -430,7 +430,7 @@ export interface AlertSourceArgs {
      */
     rateLimitSharding?: pulumi.Input<inputs.AlertSourceRateLimitSharding | undefined>;
     /**
-     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `vercel`, `wiz`, `zendesk`.
+     * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
      */
     sourceType: pulumi.Input<string>;
     title?: pulumi.Input<inputs.AlertSourceTitle | undefined>;

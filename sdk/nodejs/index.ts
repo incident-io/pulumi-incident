@@ -60,6 +60,16 @@ export type CatalogEntry = import("./catalogEntry").CatalogEntry;
 export const CatalogEntry: typeof import("./catalogEntry").CatalogEntry = null as any;
 utilities.lazyLoad(exports, ["CatalogEntry"], () => require("./catalogEntry"));
 
+export { CatalogEntryAliasesArgs, CatalogEntryAliasesState } from "./catalogEntryAliases";
+export type CatalogEntryAliases = import("./catalogEntryAliases").CatalogEntryAliases;
+export const CatalogEntryAliases: typeof import("./catalogEntryAliases").CatalogEntryAliases = null as any;
+utilities.lazyLoad(exports, ["CatalogEntryAliases"], () => require("./catalogEntryAliases"));
+
+export { CatalogEntryAttributeValueArgs, CatalogEntryAttributeValueState } from "./catalogEntryAttributeValue";
+export type CatalogEntryAttributeValue = import("./catalogEntryAttributeValue").CatalogEntryAttributeValue;
+export const CatalogEntryAttributeValue: typeof import("./catalogEntryAttributeValue").CatalogEntryAttributeValue = null as any;
+utilities.lazyLoad(exports, ["CatalogEntryAttributeValue"], () => require("./catalogEntryAttributeValue"));
+
 export { CatalogTypeArgs, CatalogTypeState } from "./catalogType";
 export type CatalogType = import("./catalogType").CatalogType;
 export const CatalogType: typeof import("./catalogType").CatalogType = null as any;
@@ -434,6 +444,10 @@ const _module = {
                 return new CatalogEntries(name, <any>undefined, { urn })
             case "incident:index/catalogEntry:CatalogEntry":
                 return new CatalogEntry(name, <any>undefined, { urn })
+            case "incident:index/catalogEntryAliases:CatalogEntryAliases":
+                return new CatalogEntryAliases(name, <any>undefined, { urn })
+            case "incident:index/catalogEntryAttributeValue:CatalogEntryAttributeValue":
+                return new CatalogEntryAttributeValue(name, <any>undefined, { urn })
             case "incident:index/catalogType:CatalogType":
                 return new CatalogType(name, <any>undefined, { urn })
             case "incident:index/catalogTypeAttribute:CatalogTypeAttribute":
@@ -504,6 +518,8 @@ pulumi.runtime.registerResourceModule("incident", "index/announcementTemplate", 
 pulumi.runtime.registerResourceModule("incident", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("incident", "index/catalogEntries", _module)
 pulumi.runtime.registerResourceModule("incident", "index/catalogEntry", _module)
+pulumi.runtime.registerResourceModule("incident", "index/catalogEntryAliases", _module)
+pulumi.runtime.registerResourceModule("incident", "index/catalogEntryAttributeValue", _module)
 pulumi.runtime.registerResourceModule("incident", "index/catalogType", _module)
 pulumi.runtime.registerResourceModule("incident", "index/catalogTypeAttribute", _module)
 pulumi.runtime.registerResourceModule("incident", "index/customField", _module)

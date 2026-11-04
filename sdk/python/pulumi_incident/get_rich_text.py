@@ -52,7 +52,7 @@ class GetRichTextResult:
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> _builtins.str:
         """
-        The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plain_single_line`, `plain_single_line_with_secrets`, `plain_multi_line`, `mrkdwn`, `rich`, `rich_with_images`, `slack_rich_text`, `slack_rich_text_with_headings`, `basic`, `basic_no_links`, `jira`.
+        The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plain_single_line`, `plain_single_line_with_secrets`, `plain_multi_line`, `mrkdwn`, `rich`, `rich_with_images`, `slack_rich_text`, `slack_rich_text_with_headings`, `basic`, `basic_no_links`, `comment`, `jira`.
         """
         return pulumi.get(self, "feature_set")
 
@@ -116,7 +116,7 @@ def get_rich_text(feature_set: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str feature_set: The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plain_single_line`, `plain_single_line_with_secrets`, `plain_multi_line`, `mrkdwn`, `rich`, `rich_with_images`, `slack_rich_text`, `slack_rich_text_with_headings`, `basic`, `basic_no_links`, `jira`.
+    :param _builtins.str feature_set: The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plain_single_line`, `plain_single_line_with_secrets`, `plain_multi_line`, `mrkdwn`, `rich`, `rich_with_images`, `slack_rich_text`, `slack_rich_text_with_headings`, `basic`, `basic_no_links`, `comment`, `jira`.
     :param _builtins.str markdown: The markdown to parse. Template variables written as {{ name }} become variable placeholders, and support the omit*if*unset and truncate filters.
     """
     __args__ = dict()
@@ -161,7 +161,7 @@ def get_rich_text_output(feature_set: pulumi.Input[Optional[_builtins.str]] = No
     ```
 
 
-    :param _builtins.str feature_set: The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plain_single_line`, `plain_single_line_with_secrets`, `plain_multi_line`, `mrkdwn`, `rich`, `rich_with_images`, `slack_rich_text`, `slack_rich_text_with_headings`, `basic`, `basic_no_links`, `jira`.
+    :param _builtins.str feature_set: The feature set of the field this document is destined for. Content the feature set doesn't permit is dropped, and reported in dropped_content. Possible values are: `plain_single_line`, `plain_single_line_with_secrets`, `plain_multi_line`, `mrkdwn`, `rich`, `rich_with_images`, `slack_rich_text`, `slack_rich_text_with_headings`, `basic`, `basic_no_links`, `comment`, `jira`.
     :param _builtins.str markdown: The markdown to parse. Template variables written as {{ name }} become variable placeholders, and support the omit*if*unset and truncate filters.
     """
     __args__ = dict()

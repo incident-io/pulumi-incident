@@ -17,6 +17,8 @@ from .announcement_template import *
 from .api_key import *
 from .catalog_entries import *
 from .catalog_entry import *
+from .catalog_entry_aliases import *
+from .catalog_entry_attribute_value import *
 from .catalog_type import *
 from .catalog_type_attribute import *
 from .custom_field import *
@@ -184,6 +186,22 @@ _utilities.register(
   "fqn": "pulumi_incident",
   "classes": {
    "incident:index/catalogEntry:CatalogEntry": "CatalogEntry"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/catalogEntryAliases",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/catalogEntryAliases:CatalogEntryAliases": "CatalogEntryAliases"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/catalogEntryAttributeValue",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/catalogEntryAttributeValue:CatalogEntryAttributeValue": "CatalogEntryAttributeValue"
   }
  },
  {

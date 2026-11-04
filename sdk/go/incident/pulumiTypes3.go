@@ -9103,7 +9103,7 @@ func (o GetAnnouncementTemplateFieldRichTextOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAnnouncementTemplateFieldRichText) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetCatalogEntryAttributeValue struct {
+type GetCatalogEntryAttributeValueType struct {
 	// The value of this element of the array, in a format suitable for this attribute type.
 	ArrayValues []string `pulumi:"arrayValues"`
 	// The ID of this attribute.
@@ -9112,18 +9112,18 @@ type GetCatalogEntryAttributeValue struct {
 	Value string `pulumi:"value"`
 }
 
-// GetCatalogEntryAttributeValueInput is an input type that accepts GetCatalogEntryAttributeValueArgs and GetCatalogEntryAttributeValueOutput values.
-// You can construct a concrete instance of `GetCatalogEntryAttributeValueInput` via:
+// GetCatalogEntryAttributeValueTypeInput is an input type that accepts GetCatalogEntryAttributeValueTypeArgs and GetCatalogEntryAttributeValueTypeOutput values.
+// You can construct a concrete instance of `GetCatalogEntryAttributeValueTypeInput` via:
 //
-//	GetCatalogEntryAttributeValueArgs{...}
-type GetCatalogEntryAttributeValueInput interface {
+//	GetCatalogEntryAttributeValueTypeArgs{...}
+type GetCatalogEntryAttributeValueTypeInput interface {
 	pulumi.Input
 
-	ToGetCatalogEntryAttributeValueOutput() GetCatalogEntryAttributeValueOutput
-	ToGetCatalogEntryAttributeValueOutputWithContext(context.Context) GetCatalogEntryAttributeValueOutput
+	ToGetCatalogEntryAttributeValueTypeOutput() GetCatalogEntryAttributeValueTypeOutput
+	ToGetCatalogEntryAttributeValueTypeOutputWithContext(context.Context) GetCatalogEntryAttributeValueTypeOutput
 }
 
-type GetCatalogEntryAttributeValueArgs struct {
+type GetCatalogEntryAttributeValueTypeArgs struct {
 	// The value of this element of the array, in a format suitable for this attribute type.
 	ArrayValues pulumi.StringArrayInput `pulumi:"arrayValues"`
 	// The ID of this attribute.
@@ -9132,90 +9132,90 @@ type GetCatalogEntryAttributeValueArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (GetCatalogEntryAttributeValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogEntryAttributeValue)(nil)).Elem()
+func (GetCatalogEntryAttributeValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (i GetCatalogEntryAttributeValueArgs) ToGetCatalogEntryAttributeValueOutput() GetCatalogEntryAttributeValueOutput {
-	return i.ToGetCatalogEntryAttributeValueOutputWithContext(context.Background())
+func (i GetCatalogEntryAttributeValueTypeArgs) ToGetCatalogEntryAttributeValueTypeOutput() GetCatalogEntryAttributeValueTypeOutput {
+	return i.ToGetCatalogEntryAttributeValueTypeOutputWithContext(context.Background())
 }
 
-func (i GetCatalogEntryAttributeValueArgs) ToGetCatalogEntryAttributeValueOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryAttributeValueOutput)
+func (i GetCatalogEntryAttributeValueTypeArgs) ToGetCatalogEntryAttributeValueTypeOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryAttributeValueTypeOutput)
 }
 
-// GetCatalogEntryAttributeValueArrayInput is an input type that accepts GetCatalogEntryAttributeValueArray and GetCatalogEntryAttributeValueArrayOutput values.
-// You can construct a concrete instance of `GetCatalogEntryAttributeValueArrayInput` via:
+// GetCatalogEntryAttributeValueTypeArrayInput is an input type that accepts GetCatalogEntryAttributeValueTypeArray and GetCatalogEntryAttributeValueTypeArrayOutput values.
+// You can construct a concrete instance of `GetCatalogEntryAttributeValueTypeArrayInput` via:
 //
-//	GetCatalogEntryAttributeValueArray{ GetCatalogEntryAttributeValueArgs{...} }
-type GetCatalogEntryAttributeValueArrayInput interface {
+//	GetCatalogEntryAttributeValueTypeArray{ GetCatalogEntryAttributeValueTypeArgs{...} }
+type GetCatalogEntryAttributeValueTypeArrayInput interface {
 	pulumi.Input
 
-	ToGetCatalogEntryAttributeValueArrayOutput() GetCatalogEntryAttributeValueArrayOutput
-	ToGetCatalogEntryAttributeValueArrayOutputWithContext(context.Context) GetCatalogEntryAttributeValueArrayOutput
+	ToGetCatalogEntryAttributeValueTypeArrayOutput() GetCatalogEntryAttributeValueTypeArrayOutput
+	ToGetCatalogEntryAttributeValueTypeArrayOutputWithContext(context.Context) GetCatalogEntryAttributeValueTypeArrayOutput
 }
 
-type GetCatalogEntryAttributeValueArray []GetCatalogEntryAttributeValueInput
+type GetCatalogEntryAttributeValueTypeArray []GetCatalogEntryAttributeValueTypeInput
 
-func (GetCatalogEntryAttributeValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogEntryAttributeValue)(nil)).Elem()
+func (GetCatalogEntryAttributeValueTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (i GetCatalogEntryAttributeValueArray) ToGetCatalogEntryAttributeValueArrayOutput() GetCatalogEntryAttributeValueArrayOutput {
-	return i.ToGetCatalogEntryAttributeValueArrayOutputWithContext(context.Background())
+func (i GetCatalogEntryAttributeValueTypeArray) ToGetCatalogEntryAttributeValueTypeArrayOutput() GetCatalogEntryAttributeValueTypeArrayOutput {
+	return i.ToGetCatalogEntryAttributeValueTypeArrayOutputWithContext(context.Background())
 }
 
-func (i GetCatalogEntryAttributeValueArray) ToGetCatalogEntryAttributeValueArrayOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryAttributeValueArrayOutput)
+func (i GetCatalogEntryAttributeValueTypeArray) ToGetCatalogEntryAttributeValueTypeArrayOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogEntryAttributeValueTypeArrayOutput)
 }
 
-type GetCatalogEntryAttributeValueOutput struct{ *pulumi.OutputState }
+type GetCatalogEntryAttributeValueTypeOutput struct{ *pulumi.OutputState }
 
-func (GetCatalogEntryAttributeValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogEntryAttributeValue)(nil)).Elem()
+func (GetCatalogEntryAttributeValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (o GetCatalogEntryAttributeValueOutput) ToGetCatalogEntryAttributeValueOutput() GetCatalogEntryAttributeValueOutput {
+func (o GetCatalogEntryAttributeValueTypeOutput) ToGetCatalogEntryAttributeValueTypeOutput() GetCatalogEntryAttributeValueTypeOutput {
 	return o
 }
 
-func (o GetCatalogEntryAttributeValueOutput) ToGetCatalogEntryAttributeValueOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueOutput {
+func (o GetCatalogEntryAttributeValueTypeOutput) ToGetCatalogEntryAttributeValueTypeOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueTypeOutput {
 	return o
 }
 
 // The value of this element of the array, in a format suitable for this attribute type.
-func (o GetCatalogEntryAttributeValueOutput) ArrayValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetCatalogEntryAttributeValue) []string { return v.ArrayValues }).(pulumi.StringArrayOutput)
+func (o GetCatalogEntryAttributeValueTypeOutput) ArrayValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogEntryAttributeValueType) []string { return v.ArrayValues }).(pulumi.StringArrayOutput)
 }
 
 // The ID of this attribute.
-func (o GetCatalogEntryAttributeValueOutput) Attribute() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogEntryAttributeValue) string { return v.Attribute }).(pulumi.StringOutput)
+func (o GetCatalogEntryAttributeValueTypeOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryAttributeValueType) string { return v.Attribute }).(pulumi.StringOutput)
 }
 
 // The value of this attribute, in a format suitable for this attribute type.
-func (o GetCatalogEntryAttributeValueOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogEntryAttributeValue) string { return v.Value }).(pulumi.StringOutput)
+func (o GetCatalogEntryAttributeValueTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCatalogEntryAttributeValueType) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetCatalogEntryAttributeValueArrayOutput struct{ *pulumi.OutputState }
+type GetCatalogEntryAttributeValueTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (GetCatalogEntryAttributeValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogEntryAttributeValue)(nil)).Elem()
+func (GetCatalogEntryAttributeValueTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCatalogEntryAttributeValueType)(nil)).Elem()
 }
 
-func (o GetCatalogEntryAttributeValueArrayOutput) ToGetCatalogEntryAttributeValueArrayOutput() GetCatalogEntryAttributeValueArrayOutput {
+func (o GetCatalogEntryAttributeValueTypeArrayOutput) ToGetCatalogEntryAttributeValueTypeArrayOutput() GetCatalogEntryAttributeValueTypeArrayOutput {
 	return o
 }
 
-func (o GetCatalogEntryAttributeValueArrayOutput) ToGetCatalogEntryAttributeValueArrayOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueArrayOutput {
+func (o GetCatalogEntryAttributeValueTypeArrayOutput) ToGetCatalogEntryAttributeValueTypeArrayOutputWithContext(ctx context.Context) GetCatalogEntryAttributeValueTypeArrayOutput {
 	return o
 }
 
-func (o GetCatalogEntryAttributeValueArrayOutput) Index(i pulumi.IntInput) GetCatalogEntryAttributeValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogEntryAttributeValue {
-		return vs[0].([]GetCatalogEntryAttributeValue)[vs[1].(int)]
-	}).(GetCatalogEntryAttributeValueOutput)
+func (o GetCatalogEntryAttributeValueTypeArrayOutput) Index(i pulumi.IntInput) GetCatalogEntryAttributeValueTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogEntryAttributeValueType {
+		return vs[0].([]GetCatalogEntryAttributeValueType)[vs[1].(int)]
+	}).(GetCatalogEntryAttributeValueTypeOutput)
 }
 
 type GetCustomFieldFilterBy struct {
@@ -32399,8 +32399,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAnnouncementTemplateFieldInput)(nil)).Elem(), GetAnnouncementTemplateFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAnnouncementTemplateFieldArrayInput)(nil)).Elem(), GetAnnouncementTemplateFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAnnouncementTemplateFieldRichTextInput)(nil)).Elem(), GetAnnouncementTemplateFieldRichTextArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryAttributeValueInput)(nil)).Elem(), GetCatalogEntryAttributeValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryAttributeValueArrayInput)(nil)).Elem(), GetCatalogEntryAttributeValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryAttributeValueTypeInput)(nil)).Elem(), GetCatalogEntryAttributeValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogEntryAttributeValueTypeArrayInput)(nil)).Elem(), GetCatalogEntryAttributeValueTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomFieldFilterByInput)(nil)).Elem(), GetCustomFieldFilterByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomFieldFixedFilterInput)(nil)).Elem(), GetCustomFieldFixedFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEscalationPathBetaParamBindingsInput)(nil)).Elem(), GetEscalationPathBetaParamBindingsArgs{})
@@ -32915,8 +32915,8 @@ func init() {
 	pulumi.RegisterOutputType(GetAnnouncementTemplateFieldOutput{})
 	pulumi.RegisterOutputType(GetAnnouncementTemplateFieldArrayOutput{})
 	pulumi.RegisterOutputType(GetAnnouncementTemplateFieldRichTextOutput{})
-	pulumi.RegisterOutputType(GetCatalogEntryAttributeValueOutput{})
-	pulumi.RegisterOutputType(GetCatalogEntryAttributeValueArrayOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryAttributeValueTypeOutput{})
+	pulumi.RegisterOutputType(GetCatalogEntryAttributeValueTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomFieldFilterByOutput{})
 	pulumi.RegisterOutputType(GetCustomFieldFixedFilterOutput{})
 	pulumi.RegisterOutputType(GetEscalationPathBetaParamBindingsOutput{})
