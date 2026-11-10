@@ -13,6 +13,173 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal string `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference string `pulumi:"reference"`
+}
+
+// GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput is an input type that accepts GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs and GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput values.
+// You can construct a concrete instance of `GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput` via:
+//
+//	GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs{...}
+type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput
+	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput
+}
+
+type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal pulumi.StringInput `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
+	return i.ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput)
+}
+
+// GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput is an input type that accepts GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray and GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput values.
+// You can construct a concrete instance of `GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput` via:
+//
+//	GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray{ GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs{...} }
+type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput
+	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput
+}
+
+type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray []GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput
+
+func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
+	return i.ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput)
+}
+
+type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
+	return o
+}
+
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
+	return o
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) Literal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue) string { return v.Literal }).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue) string { return v.Reference }).(pulumi.StringOutput)
+}
+
+type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
+	return o
+}
+
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) Index(i pulumi.IntInput) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue {
+		return vs[0].([]GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)[vs[1].(int)]
+	}).(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput)
+}
+
+type GetAlertSourceNamedExpressionFallbackElseIfResultValue struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal string `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference string `pulumi:"reference"`
+}
+
+// GetAlertSourceNamedExpressionFallbackElseIfResultValueInput is an input type that accepts GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs and GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput values.
+// You can construct a concrete instance of `GetAlertSourceNamedExpressionFallbackElseIfResultValueInput` via:
+//
+//	GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs{...}
+type GetAlertSourceNamedExpressionFallbackElseIfResultValueInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput
+	ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput
+}
+
+type GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs struct {
+	// A fixed value. A catalog entry ID is a literal, not a reference.
+	Literal pulumi.StringInput `pulumi:"literal"`
+	// A reference into the scope, such as `payload.team`.
+	Reference pulumi.StringInput `pulumi:"reference"`
+}
+
+func (GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultValue)(nil)).Elem()
+}
+
+func (i GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
+	return i.ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput)
+}
+
+type GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultValue)(nil)).Elem()
+}
+
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
+	return o
+}
+
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
+	return o
+}
+
+// A fixed value. A catalog entry ID is a literal, not a reference.
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) Literal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultValue) string { return v.Literal }).(pulumi.StringOutput)
+}
+
+// A reference into the scope, such as `payload.team`.
+func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) Reference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultValue) string { return v.Reference }).(pulumi.StringOutput)
+}
+
 type GetAlertSourceNamedExpressionFallbackElseResult struct {
 	// Several values, spelled out. Needed when they mix fixed values and references.
 	ArrayValues []GetAlertSourceNamedExpressionFallbackElseResultArrayValue `pulumi:"arrayValues"`
@@ -7959,6 +8126,67 @@ func (o GetAlertSourceRateLimitShardingOutput) ToGetAlertSourceRateLimitSharding
 // JSON path to a value that splits this source's rate limit into per-value buckets.
 func (o GetAlertSourceRateLimitShardingOutput) RateLimitShardKeyPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertSourceRateLimitSharding) string { return v.RateLimitShardKeyPath }).(pulumi.StringOutput)
+}
+
+type GetAlertSourceSnsOptions struct {
+	// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+	DeduplicationKeyPath string `pulumi:"deduplicationKeyPath"`
+	// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+	DeduplicationStrategy string `pulumi:"deduplicationStrategy"`
+}
+
+// GetAlertSourceSnsOptionsInput is an input type that accepts GetAlertSourceSnsOptionsArgs and GetAlertSourceSnsOptionsOutput values.
+// You can construct a concrete instance of `GetAlertSourceSnsOptionsInput` via:
+//
+//	GetAlertSourceSnsOptionsArgs{...}
+type GetAlertSourceSnsOptionsInput interface {
+	pulumi.Input
+
+	ToGetAlertSourceSnsOptionsOutput() GetAlertSourceSnsOptionsOutput
+	ToGetAlertSourceSnsOptionsOutputWithContext(context.Context) GetAlertSourceSnsOptionsOutput
+}
+
+type GetAlertSourceSnsOptionsArgs struct {
+	// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+	DeduplicationKeyPath pulumi.StringInput `pulumi:"deduplicationKeyPath"`
+	// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+	DeduplicationStrategy pulumi.StringInput `pulumi:"deduplicationStrategy"`
+}
+
+func (GetAlertSourceSnsOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceSnsOptions)(nil)).Elem()
+}
+
+func (i GetAlertSourceSnsOptionsArgs) ToGetAlertSourceSnsOptionsOutput() GetAlertSourceSnsOptionsOutput {
+	return i.ToGetAlertSourceSnsOptionsOutputWithContext(context.Background())
+}
+
+func (i GetAlertSourceSnsOptionsArgs) ToGetAlertSourceSnsOptionsOutputWithContext(ctx context.Context) GetAlertSourceSnsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceSnsOptionsOutput)
+}
+
+type GetAlertSourceSnsOptionsOutput struct{ *pulumi.OutputState }
+
+func (GetAlertSourceSnsOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertSourceSnsOptions)(nil)).Elem()
+}
+
+func (o GetAlertSourceSnsOptionsOutput) ToGetAlertSourceSnsOptionsOutput() GetAlertSourceSnsOptionsOutput {
+	return o
+}
+
+func (o GetAlertSourceSnsOptionsOutput) ToGetAlertSourceSnsOptionsOutputWithContext(ctx context.Context) GetAlertSourceSnsOptionsOutput {
+	return o
+}
+
+// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+func (o GetAlertSourceSnsOptionsOutput) DeduplicationKeyPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceSnsOptions) string { return v.DeduplicationKeyPath }).(pulumi.StringOutput)
+}
+
+// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+func (o GetAlertSourceSnsOptionsOutput) DeduplicationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertSourceSnsOptions) string { return v.DeduplicationStrategy }).(pulumi.StringOutput)
 }
 
 type GetAlertSourceTitle struct {
@@ -32262,6 +32490,9 @@ func (o GetWorkflowStepParamBindingValueOutput) Reference() pulumi.StringOutput 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultValueInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseResultInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseResultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseResultPtrInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseResultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseResultArrayValueInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseResultArrayValueArgs{})
@@ -32380,6 +32611,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourcePriorityArrayValueArrayInput)(nil)).Elem(), GetAlertSourcePriorityArrayValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourcePriorityValueInput)(nil)).Elem(), GetAlertSourcePriorityValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceRateLimitShardingInput)(nil)).Elem(), GetAlertSourceRateLimitShardingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceSnsOptionsInput)(nil)).Elem(), GetAlertSourceSnsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceTitleInput)(nil)).Elem(), GetAlertSourceTitleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceVisibleToTeamsInput)(nil)).Elem(), GetAlertSourceVisibleToTeamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceVisibleToTeamsArrayValueInput)(nil)).Elem(), GetAlertSourceVisibleToTeamsArrayValueArgs{})
@@ -32778,6 +33010,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowStepParamBindingArrayValueInput)(nil)).Elem(), GetWorkflowStepParamBindingArrayValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowStepParamBindingArrayValueArrayInput)(nil)).Elem(), GetWorkflowStepParamBindingArrayValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowStepParamBindingValueInput)(nil)).Elem(), GetWorkflowStepParamBindingValueArgs{})
+	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseResultOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseResultPtrOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseResultArrayValueOutput{})
@@ -32896,6 +33131,7 @@ func init() {
 	pulumi.RegisterOutputType(GetAlertSourcePriorityArrayValueArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertSourcePriorityValueOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceRateLimitShardingOutput{})
+	pulumi.RegisterOutputType(GetAlertSourceSnsOptionsOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceTitleOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceVisibleToTeamsOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceVisibleToTeamsArrayValueOutput{})

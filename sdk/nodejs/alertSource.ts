@@ -212,6 +212,7 @@ export class AlertSource extends pulumi.CustomResource {
      * The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
      */
     declare public /*out*/ readonly secretToken: pulumi.Output<string>;
+    declare public readonly snsOptions: pulumi.Output<outputs.AlertSourceSnsOptions | undefined>;
     /**
      * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
      */
@@ -259,6 +260,7 @@ export class AlertSource extends pulumi.CustomResource {
             resourceInputs["priority"] = state?.priority;
             resourceInputs["rateLimitSharding"] = state?.rateLimitSharding;
             resourceInputs["secretToken"] = state?.secretToken;
+            resourceInputs["snsOptions"] = state?.snsOptions;
             resourceInputs["sourceType"] = state?.sourceType;
             resourceInputs["title"] = state?.title;
             resourceInputs["unlockInDashboard"] = state?.unlockInDashboard;
@@ -285,6 +287,7 @@ export class AlertSource extends pulumi.CustomResource {
             resourceInputs["owningTeamIds"] = args?.owningTeamIds;
             resourceInputs["priority"] = args?.priority;
             resourceInputs["rateLimitSharding"] = args?.rateLimitSharding;
+            resourceInputs["snsOptions"] = args?.snsOptions;
             resourceInputs["sourceType"] = args?.sourceType;
             resourceInputs["title"] = args?.title;
             resourceInputs["unlockInDashboard"] = args?.unlockInDashboard;
@@ -363,6 +366,7 @@ export interface AlertSourceState {
      * The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
      */
     secretToken?: pulumi.Input<string | undefined>;
+    snsOptions?: pulumi.Input<inputs.AlertSourceSnsOptions | undefined>;
     /**
      * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
      */
@@ -429,6 +433,7 @@ export interface AlertSourceArgs {
      * Controls how this source's ingest rate limit is split into buckets.
      */
     rateLimitSharding?: pulumi.Input<inputs.AlertSourceRateLimitSharding | undefined>;
+    snsOptions?: pulumi.Input<inputs.AlertSourceSnsOptions | undefined>;
     /**
      * Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
      */

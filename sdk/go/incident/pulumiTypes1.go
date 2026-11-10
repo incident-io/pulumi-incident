@@ -11638,6 +11638,162 @@ func (o AlertSourceBetaRateLimitShardingPtrOutput) RateLimitShardKeyPath() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type AlertSourceBetaSnsOptions struct {
+	// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+	DeduplicationKeyPath *string `pulumi:"deduplicationKeyPath"`
+	// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+	DeduplicationStrategy string `pulumi:"deduplicationStrategy"`
+}
+
+// AlertSourceBetaSnsOptionsInput is an input type that accepts AlertSourceBetaSnsOptionsArgs and AlertSourceBetaSnsOptionsOutput values.
+// You can construct a concrete instance of `AlertSourceBetaSnsOptionsInput` via:
+//
+//	AlertSourceBetaSnsOptionsArgs{...}
+type AlertSourceBetaSnsOptionsInput interface {
+	pulumi.Input
+
+	ToAlertSourceBetaSnsOptionsOutput() AlertSourceBetaSnsOptionsOutput
+	ToAlertSourceBetaSnsOptionsOutputWithContext(context.Context) AlertSourceBetaSnsOptionsOutput
+}
+
+type AlertSourceBetaSnsOptionsArgs struct {
+	// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+	DeduplicationKeyPath pulumi.StringPtrInput `pulumi:"deduplicationKeyPath"`
+	// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+	DeduplicationStrategy pulumi.StringInput `pulumi:"deduplicationStrategy"`
+}
+
+func (AlertSourceBetaSnsOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertSourceBetaSnsOptions)(nil)).Elem()
+}
+
+func (i AlertSourceBetaSnsOptionsArgs) ToAlertSourceBetaSnsOptionsOutput() AlertSourceBetaSnsOptionsOutput {
+	return i.ToAlertSourceBetaSnsOptionsOutputWithContext(context.Background())
+}
+
+func (i AlertSourceBetaSnsOptionsArgs) ToAlertSourceBetaSnsOptionsOutputWithContext(ctx context.Context) AlertSourceBetaSnsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSourceBetaSnsOptionsOutput)
+}
+
+func (i AlertSourceBetaSnsOptionsArgs) ToAlertSourceBetaSnsOptionsPtrOutput() AlertSourceBetaSnsOptionsPtrOutput {
+	return i.ToAlertSourceBetaSnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AlertSourceBetaSnsOptionsArgs) ToAlertSourceBetaSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceBetaSnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSourceBetaSnsOptionsOutput).ToAlertSourceBetaSnsOptionsPtrOutputWithContext(ctx)
+}
+
+// AlertSourceBetaSnsOptionsPtrInput is an input type that accepts AlertSourceBetaSnsOptionsArgs, AlertSourceBetaSnsOptionsPtr and AlertSourceBetaSnsOptionsPtrOutput values.
+// You can construct a concrete instance of `AlertSourceBetaSnsOptionsPtrInput` via:
+//
+//	        AlertSourceBetaSnsOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertSourceBetaSnsOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAlertSourceBetaSnsOptionsPtrOutput() AlertSourceBetaSnsOptionsPtrOutput
+	ToAlertSourceBetaSnsOptionsPtrOutputWithContext(context.Context) AlertSourceBetaSnsOptionsPtrOutput
+}
+
+type alertSourceBetaSnsOptionsPtrType AlertSourceBetaSnsOptionsArgs
+
+func AlertSourceBetaSnsOptionsPtr(v *AlertSourceBetaSnsOptionsArgs) AlertSourceBetaSnsOptionsPtrInput {
+	return (*alertSourceBetaSnsOptionsPtrType)(v)
+}
+
+func (*alertSourceBetaSnsOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertSourceBetaSnsOptions)(nil)).Elem()
+}
+
+func (i *alertSourceBetaSnsOptionsPtrType) ToAlertSourceBetaSnsOptionsPtrOutput() AlertSourceBetaSnsOptionsPtrOutput {
+	return i.ToAlertSourceBetaSnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *alertSourceBetaSnsOptionsPtrType) ToAlertSourceBetaSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceBetaSnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSourceBetaSnsOptionsPtrOutput)
+}
+
+type AlertSourceBetaSnsOptionsOutput struct{ *pulumi.OutputState }
+
+func (AlertSourceBetaSnsOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertSourceBetaSnsOptions)(nil)).Elem()
+}
+
+func (o AlertSourceBetaSnsOptionsOutput) ToAlertSourceBetaSnsOptionsOutput() AlertSourceBetaSnsOptionsOutput {
+	return o
+}
+
+func (o AlertSourceBetaSnsOptionsOutput) ToAlertSourceBetaSnsOptionsOutputWithContext(ctx context.Context) AlertSourceBetaSnsOptionsOutput {
+	return o
+}
+
+func (o AlertSourceBetaSnsOptionsOutput) ToAlertSourceBetaSnsOptionsPtrOutput() AlertSourceBetaSnsOptionsPtrOutput {
+	return o.ToAlertSourceBetaSnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AlertSourceBetaSnsOptionsOutput) ToAlertSourceBetaSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceBetaSnsOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertSourceBetaSnsOptions) *AlertSourceBetaSnsOptions {
+		return &v
+	}).(AlertSourceBetaSnsOptionsPtrOutput)
+}
+
+// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+func (o AlertSourceBetaSnsOptionsOutput) DeduplicationKeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertSourceBetaSnsOptions) *string { return v.DeduplicationKeyPath }).(pulumi.StringPtrOutput)
+}
+
+// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+func (o AlertSourceBetaSnsOptionsOutput) DeduplicationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertSourceBetaSnsOptions) string { return v.DeduplicationStrategy }).(pulumi.StringOutput)
+}
+
+type AlertSourceBetaSnsOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertSourceBetaSnsOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertSourceBetaSnsOptions)(nil)).Elem()
+}
+
+func (o AlertSourceBetaSnsOptionsPtrOutput) ToAlertSourceBetaSnsOptionsPtrOutput() AlertSourceBetaSnsOptionsPtrOutput {
+	return o
+}
+
+func (o AlertSourceBetaSnsOptionsPtrOutput) ToAlertSourceBetaSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceBetaSnsOptionsPtrOutput {
+	return o
+}
+
+func (o AlertSourceBetaSnsOptionsPtrOutput) Elem() AlertSourceBetaSnsOptionsOutput {
+	return o.ApplyT(func(v *AlertSourceBetaSnsOptions) AlertSourceBetaSnsOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AlertSourceBetaSnsOptions
+		return ret
+	}).(AlertSourceBetaSnsOptionsOutput)
+}
+
+// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+func (o AlertSourceBetaSnsOptionsPtrOutput) DeduplicationKeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertSourceBetaSnsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeduplicationKeyPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+func (o AlertSourceBetaSnsOptionsPtrOutput) DeduplicationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertSourceBetaSnsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeduplicationStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
 type AlertSourceBetaTitle struct {
 	// Fixed content, which may interpolate the scope with `{{ variable }}`. Filters `truncate: N` and `omitIfUnset` are supported. For content needing formatting a template can't express, pass a document from `data.incident_rich_text` with `featureSet = "plainSingleLine"`.
 	Literal *string `pulumi:"literal"`
@@ -26117,6 +26273,162 @@ func (o AlertSourceRateLimitShardingPtrOutput) RateLimitShardKeyPath() pulumi.St
 			return nil
 		}
 		return &v.RateLimitShardKeyPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertSourceSnsOptions struct {
+	// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+	DeduplicationKeyPath *string `pulumi:"deduplicationKeyPath"`
+	// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+	DeduplicationStrategy string `pulumi:"deduplicationStrategy"`
+}
+
+// AlertSourceSnsOptionsInput is an input type that accepts AlertSourceSnsOptionsArgs and AlertSourceSnsOptionsOutput values.
+// You can construct a concrete instance of `AlertSourceSnsOptionsInput` via:
+//
+//	AlertSourceSnsOptionsArgs{...}
+type AlertSourceSnsOptionsInput interface {
+	pulumi.Input
+
+	ToAlertSourceSnsOptionsOutput() AlertSourceSnsOptionsOutput
+	ToAlertSourceSnsOptionsOutputWithContext(context.Context) AlertSourceSnsOptionsOutput
+}
+
+type AlertSourceSnsOptionsArgs struct {
+	// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+	DeduplicationKeyPath pulumi.StringPtrInput `pulumi:"deduplicationKeyPath"`
+	// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+	DeduplicationStrategy pulumi.StringInput `pulumi:"deduplicationStrategy"`
+}
+
+func (AlertSourceSnsOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertSourceSnsOptions)(nil)).Elem()
+}
+
+func (i AlertSourceSnsOptionsArgs) ToAlertSourceSnsOptionsOutput() AlertSourceSnsOptionsOutput {
+	return i.ToAlertSourceSnsOptionsOutputWithContext(context.Background())
+}
+
+func (i AlertSourceSnsOptionsArgs) ToAlertSourceSnsOptionsOutputWithContext(ctx context.Context) AlertSourceSnsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSourceSnsOptionsOutput)
+}
+
+func (i AlertSourceSnsOptionsArgs) ToAlertSourceSnsOptionsPtrOutput() AlertSourceSnsOptionsPtrOutput {
+	return i.ToAlertSourceSnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i AlertSourceSnsOptionsArgs) ToAlertSourceSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceSnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSourceSnsOptionsOutput).ToAlertSourceSnsOptionsPtrOutputWithContext(ctx)
+}
+
+// AlertSourceSnsOptionsPtrInput is an input type that accepts AlertSourceSnsOptionsArgs, AlertSourceSnsOptionsPtr and AlertSourceSnsOptionsPtrOutput values.
+// You can construct a concrete instance of `AlertSourceSnsOptionsPtrInput` via:
+//
+//	        AlertSourceSnsOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertSourceSnsOptionsPtrInput interface {
+	pulumi.Input
+
+	ToAlertSourceSnsOptionsPtrOutput() AlertSourceSnsOptionsPtrOutput
+	ToAlertSourceSnsOptionsPtrOutputWithContext(context.Context) AlertSourceSnsOptionsPtrOutput
+}
+
+type alertSourceSnsOptionsPtrType AlertSourceSnsOptionsArgs
+
+func AlertSourceSnsOptionsPtr(v *AlertSourceSnsOptionsArgs) AlertSourceSnsOptionsPtrInput {
+	return (*alertSourceSnsOptionsPtrType)(v)
+}
+
+func (*alertSourceSnsOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertSourceSnsOptions)(nil)).Elem()
+}
+
+func (i *alertSourceSnsOptionsPtrType) ToAlertSourceSnsOptionsPtrOutput() AlertSourceSnsOptionsPtrOutput {
+	return i.ToAlertSourceSnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *alertSourceSnsOptionsPtrType) ToAlertSourceSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceSnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertSourceSnsOptionsPtrOutput)
+}
+
+type AlertSourceSnsOptionsOutput struct{ *pulumi.OutputState }
+
+func (AlertSourceSnsOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertSourceSnsOptions)(nil)).Elem()
+}
+
+func (o AlertSourceSnsOptionsOutput) ToAlertSourceSnsOptionsOutput() AlertSourceSnsOptionsOutput {
+	return o
+}
+
+func (o AlertSourceSnsOptionsOutput) ToAlertSourceSnsOptionsOutputWithContext(ctx context.Context) AlertSourceSnsOptionsOutput {
+	return o
+}
+
+func (o AlertSourceSnsOptionsOutput) ToAlertSourceSnsOptionsPtrOutput() AlertSourceSnsOptionsPtrOutput {
+	return o.ToAlertSourceSnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o AlertSourceSnsOptionsOutput) ToAlertSourceSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceSnsOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertSourceSnsOptions) *AlertSourceSnsOptions {
+		return &v
+	}).(AlertSourceSnsOptionsPtrOutput)
+}
+
+// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+func (o AlertSourceSnsOptionsOutput) DeduplicationKeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertSourceSnsOptions) *string { return v.DeduplicationKeyPath }).(pulumi.StringPtrOutput)
+}
+
+// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+func (o AlertSourceSnsOptionsOutput) DeduplicationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertSourceSnsOptions) string { return v.DeduplicationStrategy }).(pulumi.StringOutput)
+}
+
+type AlertSourceSnsOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertSourceSnsOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertSourceSnsOptions)(nil)).Elem()
+}
+
+func (o AlertSourceSnsOptionsPtrOutput) ToAlertSourceSnsOptionsPtrOutput() AlertSourceSnsOptionsPtrOutput {
+	return o
+}
+
+func (o AlertSourceSnsOptionsPtrOutput) ToAlertSourceSnsOptionsPtrOutputWithContext(ctx context.Context) AlertSourceSnsOptionsPtrOutput {
+	return o
+}
+
+func (o AlertSourceSnsOptionsPtrOutput) Elem() AlertSourceSnsOptionsOutput {
+	return o.ApplyT(func(v *AlertSourceSnsOptions) AlertSourceSnsOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AlertSourceSnsOptions
+		return ret
+	}).(AlertSourceSnsOptionsOutput)
+}
+
+// For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+func (o AlertSourceSnsOptionsPtrOutput) DeduplicationKeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertSourceSnsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeduplicationKeyPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+func (o AlertSourceSnsOptionsPtrOutput) DeduplicationStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertSourceSnsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeduplicationStrategy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -71526,268 +71838,6 @@ func (o WorkflowConditionGroupConditionParamBindingArrayOutput) Index(i pulumi.I
 	}).(WorkflowConditionGroupConditionParamBindingOutput)
 }
 
-type WorkflowConditionGroupConditionParamBindingArrayValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal *string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference *string `pulumi:"reference"`
-}
-
-// WorkflowConditionGroupConditionParamBindingArrayValueInput is an input type that accepts WorkflowConditionGroupConditionParamBindingArrayValueArgs and WorkflowConditionGroupConditionParamBindingArrayValueOutput values.
-// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingArrayValueInput` via:
-//
-//	WorkflowConditionGroupConditionParamBindingArrayValueArgs{...}
-type WorkflowConditionGroupConditionParamBindingArrayValueInput interface {
-	pulumi.Input
-
-	ToWorkflowConditionGroupConditionParamBindingArrayValueOutput() WorkflowConditionGroupConditionParamBindingArrayValueOutput
-	ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingArrayValueOutput
-}
-
-type WorkflowConditionGroupConditionParamBindingArrayValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringPtrInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringPtrInput `pulumi:"reference"`
-}
-
-func (WorkflowConditionGroupConditionParamBindingArrayValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (i WorkflowConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowConditionGroupConditionParamBindingArrayValueOutput() WorkflowConditionGroupConditionParamBindingArrayValueOutput {
-	return i.ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Background())
-}
-
-func (i WorkflowConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingArrayValueOutput)
-}
-
-// WorkflowConditionGroupConditionParamBindingArrayValueArrayInput is an input type that accepts WorkflowConditionGroupConditionParamBindingArrayValueArray and WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput values.
-// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingArrayValueArrayInput` via:
-//
-//	WorkflowConditionGroupConditionParamBindingArrayValueArray{ WorkflowConditionGroupConditionParamBindingArrayValueArgs{...} }
-type WorkflowConditionGroupConditionParamBindingArrayValueArrayInput interface {
-	pulumi.Input
-
-	ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput
-	ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput
-}
-
-type WorkflowConditionGroupConditionParamBindingArrayValueArray []WorkflowConditionGroupConditionParamBindingArrayValueInput
-
-func (WorkflowConditionGroupConditionParamBindingArrayValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (i WorkflowConditionGroupConditionParamBindingArrayValueArray) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return i.ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Background())
-}
-
-func (i WorkflowConditionGroupConditionParamBindingArrayValueArray) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput)
-}
-
-type WorkflowConditionGroupConditionParamBindingArrayValueOutput struct{ *pulumi.OutputState }
-
-func (WorkflowConditionGroupConditionParamBindingArrayValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueOutput() WorkflowConditionGroupConditionParamBindingArrayValueOutput {
-	return o
-}
-
-func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueOutput {
-	return o
-}
-
-// If set, this is the literal value of the step parameter
-func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) Literal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingArrayValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) Reference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingArrayValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
-}
-
-type WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput struct{ *pulumi.OutputState }
-
-func (WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
-}
-
-func (o WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o
-}
-
-func (o WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
-	return o
-}
-
-func (o WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) Index(i pulumi.IntInput) WorkflowConditionGroupConditionParamBindingArrayValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowConditionGroupConditionParamBindingArrayValue {
-		return vs[0].([]WorkflowConditionGroupConditionParamBindingArrayValue)[vs[1].(int)]
-	}).(WorkflowConditionGroupConditionParamBindingArrayValueOutput)
-}
-
-type WorkflowConditionGroupConditionParamBindingValue struct {
-	// If set, this is the literal value of the step parameter
-	Literal *string `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference *string `pulumi:"reference"`
-}
-
-// WorkflowConditionGroupConditionParamBindingValueInput is an input type that accepts WorkflowConditionGroupConditionParamBindingValueArgs and WorkflowConditionGroupConditionParamBindingValueOutput values.
-// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingValueInput` via:
-//
-//	WorkflowConditionGroupConditionParamBindingValueArgs{...}
-type WorkflowConditionGroupConditionParamBindingValueInput interface {
-	pulumi.Input
-
-	ToWorkflowConditionGroupConditionParamBindingValueOutput() WorkflowConditionGroupConditionParamBindingValueOutput
-	ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingValueOutput
-}
-
-type WorkflowConditionGroupConditionParamBindingValueArgs struct {
-	// If set, this is the literal value of the step parameter
-	Literal pulumi.StringPtrInput `pulumi:"literal"`
-	// If set, this is the reference into the trigger scope that is the value of this parameter
-	Reference pulumi.StringPtrInput `pulumi:"reference"`
-}
-
-func (WorkflowConditionGroupConditionParamBindingValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValueOutput() WorkflowConditionGroupConditionParamBindingValueOutput {
-	return i.ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(context.Background())
-}
-
-func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingValueOutput)
-}
-
-func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return i.ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
-}
-
-func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingValueOutput).ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx)
-}
-
-// WorkflowConditionGroupConditionParamBindingValuePtrInput is an input type that accepts WorkflowConditionGroupConditionParamBindingValueArgs, WorkflowConditionGroupConditionParamBindingValuePtr and WorkflowConditionGroupConditionParamBindingValuePtrOutput values.
-// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingValuePtrInput` via:
-//
-//	        WorkflowConditionGroupConditionParamBindingValueArgs{...}
-//
-//	or:
-//
-//	        nil
-type WorkflowConditionGroupConditionParamBindingValuePtrInput interface {
-	pulumi.Input
-
-	ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput
-	ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput
-}
-
-type workflowConditionGroupConditionParamBindingValuePtrType WorkflowConditionGroupConditionParamBindingValueArgs
-
-func WorkflowConditionGroupConditionParamBindingValuePtr(v *WorkflowConditionGroupConditionParamBindingValueArgs) WorkflowConditionGroupConditionParamBindingValuePtrInput {
-	return (*workflowConditionGroupConditionParamBindingValuePtrType)(v)
-}
-
-func (*workflowConditionGroupConditionParamBindingValuePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (i *workflowConditionGroupConditionParamBindingValuePtrType) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return i.ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
-}
-
-func (i *workflowConditionGroupConditionParamBindingValuePtrType) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingValuePtrOutput)
-}
-
-type WorkflowConditionGroupConditionParamBindingValueOutput struct{ *pulumi.OutputState }
-
-func (WorkflowConditionGroupConditionParamBindingValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValueOutput() WorkflowConditionGroupConditionParamBindingValueOutput {
-	return o
-}
-
-func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValueOutput {
-	return o
-}
-
-func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return o.ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
-}
-
-func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowConditionGroupConditionParamBindingValue) *WorkflowConditionGroupConditionParamBindingValue {
-		return &v
-	}).(WorkflowConditionGroupConditionParamBindingValuePtrOutput)
-}
-
-// If set, this is the literal value of the step parameter
-func (o WorkflowConditionGroupConditionParamBindingValueOutput) Literal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o WorkflowConditionGroupConditionParamBindingValueOutput) Reference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
-}
-
-type WorkflowConditionGroupConditionParamBindingValuePtrOutput struct{ *pulumi.OutputState }
-
-func (WorkflowConditionGroupConditionParamBindingValuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
-}
-
-func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return o
-}
-
-func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
-	return o
-}
-
-func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) Elem() WorkflowConditionGroupConditionParamBindingValueOutput {
-	return o.ApplyT(func(v *WorkflowConditionGroupConditionParamBindingValue) WorkflowConditionGroupConditionParamBindingValue {
-		if v != nil {
-			return *v
-		}
-		var ret WorkflowConditionGroupConditionParamBindingValue
-		return ret
-	}).(WorkflowConditionGroupConditionParamBindingValueOutput)
-}
-
-// If set, this is the literal value of the step parameter
-func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) Literal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkflowConditionGroupConditionParamBindingValue) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Literal
-	}).(pulumi.StringPtrOutput)
-}
-
-// If set, this is the reference into the trigger scope that is the value of this parameter
-func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) Reference() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkflowConditionGroupConditionParamBindingValue) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Reference
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaNamedExpressionFallbackElseIfConditionGroupConditionInput)(nil)).Elem(), AlertSourceBetaNamedExpressionFallbackElseIfConditionGroupConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaNamedExpressionFallbackElseIfConditionGroupConditionArrayInput)(nil)).Elem(), AlertSourceBetaNamedExpressionFallbackElseIfConditionGroupConditionArray{})
@@ -71951,6 +72001,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaPriorityValuePtrInput)(nil)).Elem(), AlertSourceBetaPriorityValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaRateLimitShardingInput)(nil)).Elem(), AlertSourceBetaRateLimitShardingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaRateLimitShardingPtrInput)(nil)).Elem(), AlertSourceBetaRateLimitShardingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaSnsOptionsInput)(nil)).Elem(), AlertSourceBetaSnsOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaSnsOptionsPtrInput)(nil)).Elem(), AlertSourceBetaSnsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaTitleInput)(nil)).Elem(), AlertSourceBetaTitleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaTitlePtrInput)(nil)).Elem(), AlertSourceBetaTitleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceBetaVisibleToTeamsInput)(nil)).Elem(), AlertSourceBetaVisibleToTeamsArgs{})
@@ -72153,6 +72205,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourcePriorityValuePtrInput)(nil)).Elem(), AlertSourcePriorityValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceRateLimitShardingInput)(nil)).Elem(), AlertSourceRateLimitShardingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceRateLimitShardingPtrInput)(nil)).Elem(), AlertSourceRateLimitShardingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceSnsOptionsInput)(nil)).Elem(), AlertSourceSnsOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceSnsOptionsPtrInput)(nil)).Elem(), AlertSourceSnsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceTitleInput)(nil)).Elem(), AlertSourceTitleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceTitlePtrInput)(nil)).Elem(), AlertSourceTitleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertSourceVisibleToTeamsInput)(nil)).Elem(), AlertSourceVisibleToTeamsArgs{})
@@ -72780,10 +72834,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionArrayInput)(nil)).Elem(), WorkflowConditionGroupConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValueInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingArrayValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValueArrayInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingArrayValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValueInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValuePtrInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingValueArgs{})
 	pulumi.RegisterOutputType(AlertSourceBetaNamedExpressionFallbackElseIfConditionGroupConditionOutput{})
 	pulumi.RegisterOutputType(AlertSourceBetaNamedExpressionFallbackElseIfConditionGroupConditionArrayOutput{})
 	pulumi.RegisterOutputType(AlertSourceBetaNamedExpressionFallbackElseIfConditionGroupConditionParamOutput{})
@@ -72946,6 +72996,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertSourceBetaPriorityValuePtrOutput{})
 	pulumi.RegisterOutputType(AlertSourceBetaRateLimitShardingOutput{})
 	pulumi.RegisterOutputType(AlertSourceBetaRateLimitShardingPtrOutput{})
+	pulumi.RegisterOutputType(AlertSourceBetaSnsOptionsOutput{})
+	pulumi.RegisterOutputType(AlertSourceBetaSnsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AlertSourceBetaTitleOutput{})
 	pulumi.RegisterOutputType(AlertSourceBetaTitlePtrOutput{})
 	pulumi.RegisterOutputType(AlertSourceBetaVisibleToTeamsOutput{})
@@ -73148,6 +73200,8 @@ func init() {
 	pulumi.RegisterOutputType(AlertSourcePriorityValuePtrOutput{})
 	pulumi.RegisterOutputType(AlertSourceRateLimitShardingOutput{})
 	pulumi.RegisterOutputType(AlertSourceRateLimitShardingPtrOutput{})
+	pulumi.RegisterOutputType(AlertSourceSnsOptionsOutput{})
+	pulumi.RegisterOutputType(AlertSourceSnsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AlertSourceTitleOutput{})
 	pulumi.RegisterOutputType(AlertSourceTitlePtrOutput{})
 	pulumi.RegisterOutputType(AlertSourceVisibleToTeamsOutput{})
@@ -73775,8 +73829,4 @@ func init() {
 	pulumi.RegisterOutputType(WorkflowConditionGroupConditionArrayOutput{})
 	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingOutput{})
 	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingArrayOutput{})
-	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingArrayValueOutput{})
-	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput{})
-	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingValueOutput{})
-	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingValuePtrOutput{})
 }

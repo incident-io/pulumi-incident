@@ -8451,6 +8451,17 @@ export interface AlertSourceBetaRateLimitSharding {
     rateLimitShardKeyPath: pulumi.Input<string>;
 }
 
+export interface AlertSourceBetaSnsOptions {
+    /**
+     * For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+     */
+    deduplicationKeyPath?: pulumi.Input<string | undefined>;
+    /**
+     * How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+     */
+    deduplicationStrategy: pulumi.Input<string>;
+}
+
 export interface AlertSourceBetaTitle {
     /**
      * Fixed content, which may interpolate the scope with `{{ variable }}`. Filters `truncate: N` and `omitIfUnset` are supported. For content needing formatting a template can't express, pass a document from `data.incident_rich_text` with `featureSet = "plainSingleLine"`.
@@ -9912,6 +9923,17 @@ export interface AlertSourceRateLimitSharding {
      * JSON path to a value that splits this source's rate limit into per-value buckets.
      */
     rateLimitShardKeyPath: pulumi.Input<string>;
+}
+
+export interface AlertSourceSnsOptions {
+    /**
+     * For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+     */
+    deduplicationKeyPath?: pulumi.Input<string | undefined>;
+    /**
+     * How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `messageId`, `automatic`, `custom`.
+     */
+    deduplicationStrategy: pulumi.Input<string>;
 }
 
 export interface AlertSourceTitle {

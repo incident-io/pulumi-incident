@@ -597,6 +597,7 @@ __all__ = [
     'AlertSourceBetaPriorityArrayValue',
     'AlertSourceBetaPriorityValue',
     'AlertSourceBetaRateLimitSharding',
+    'AlertSourceBetaSnsOptions',
     'AlertSourceBetaTitle',
     'AlertSourceBetaVisibleToTeams',
     'AlertSourceBetaVisibleToTeamsArrayValue',
@@ -698,6 +699,7 @@ __all__ = [
     'AlertSourcePriorityArrayValue',
     'AlertSourcePriorityValue',
     'AlertSourceRateLimitSharding',
+    'AlertSourceSnsOptions',
     'AlertSourceTitle',
     'AlertSourceVisibleToTeams',
     'AlertSourceVisibleToTeamsArrayValue',
@@ -1587,6 +1589,7 @@ __all__ = [
     'GetAlertSourcePriorityArrayValueResult',
     'GetAlertSourcePriorityValueResult',
     'GetAlertSourceRateLimitShardingResult',
+    'GetAlertSourceSnsOptionsResult',
     'GetAlertSourceTitleResult',
     'GetAlertSourceVisibleToTeamsResult',
     'GetAlertSourceVisibleToTeamsArrayValueResult',
@@ -30134,6 +30137,55 @@ class AlertSourceBetaRateLimitSharding(dict):
 
 
 @pulumi.output_type
+class AlertSourceBetaSnsOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deduplicationStrategy":
+            suggest = "deduplication_strategy"
+        elif key == "deduplicationKeyPath":
+            suggest = "deduplication_key_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertSourceBetaSnsOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertSourceBetaSnsOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertSourceBetaSnsOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deduplication_strategy: _builtins.str,
+                 deduplication_key_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str deduplication_strategy: How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `message_id`, `automatic`, `custom`.
+        :param _builtins.str deduplication_key_path: For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+        """
+        pulumi.set(__self__, "deduplication_strategy", deduplication_strategy)
+        if deduplication_key_path is not None:
+            pulumi.set(__self__, "deduplication_key_path", deduplication_key_path)
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationStrategy")
+    def deduplication_strategy(self) -> _builtins.str:
+        """
+        How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `message_id`, `automatic`, `custom`.
+        """
+        return pulumi.get(self, "deduplication_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationKeyPath")
+    def deduplication_key_path(self) -> Optional[_builtins.str]:
+        """
+        For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+        """
+        return pulumi.get(self, "deduplication_key_path")
+
+
+@pulumi.output_type
 class AlertSourceBetaTitle(dict):
     def __init__(__self__, *,
                  literal: Optional[_builtins.str] = None,
@@ -35015,6 +35067,55 @@ class AlertSourceRateLimitSharding(dict):
         JSON path to a value that splits this source's rate limit into per-value buckets.
         """
         return pulumi.get(self, "rate_limit_shard_key_path")
+
+
+@pulumi.output_type
+class AlertSourceSnsOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deduplicationStrategy":
+            suggest = "deduplication_strategy"
+        elif key == "deduplicationKeyPath":
+            suggest = "deduplication_key_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertSourceSnsOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertSourceSnsOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertSourceSnsOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deduplication_strategy: _builtins.str,
+                 deduplication_key_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str deduplication_strategy: How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `message_id`, `automatic`, `custom`.
+        :param _builtins.str deduplication_key_path: For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+        """
+        pulumi.set(__self__, "deduplication_strategy", deduplication_strategy)
+        if deduplication_key_path is not None:
+            pulumi.set(__self__, "deduplication_key_path", deduplication_key_path)
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationStrategy")
+    def deduplication_strategy(self) -> _builtins.str:
+        """
+        How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `message_id`, `automatic`, `custom`.
+        """
+        return pulumi.get(self, "deduplication_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationKeyPath")
+    def deduplication_key_path(self) -> Optional[_builtins.str]:
+        """
+        For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+        """
+        return pulumi.get(self, "deduplication_key_path")
 
 
 @pulumi.output_type
@@ -73199,6 +73300,35 @@ class GetAlertSourceRateLimitShardingResult(dict):
         JSON path to a value that splits this source's rate limit into per-value buckets.
         """
         return pulumi.get(self, "rate_limit_shard_key_path")
+
+
+@pulumi.output_type
+class GetAlertSourceSnsOptionsResult(dict):
+    def __init__(__self__, *,
+                 deduplication_key_path: _builtins.str,
+                 deduplication_strategy: _builtins.str):
+        """
+        :param _builtins.str deduplication_key_path: For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+        :param _builtins.str deduplication_strategy: How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `message_id`, `automatic`, `custom`.
+        """
+        pulumi.set(__self__, "deduplication_key_path", deduplication_key_path)
+        pulumi.set(__self__, "deduplication_strategy", deduplication_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationKeyPath")
+    def deduplication_key_path(self) -> _builtins.str:
+        """
+        For the custom strategy, a JSON path into the SNS payload that gives the deduplication key. When the path doesn't resolve, the message makes its own alert.
+        """
+        return pulumi.get(self, "deduplication_key_path")
+
+    @_builtins.property
+    @pulumi.getter(name="deduplicationStrategy")
+    def deduplication_strategy(self) -> _builtins.str:
+        """
+        How messages are grouped into alerts. message*id: every SNS message makes its own alert (Grafana notifications are grouped by their group key). automatic: CloudWatch alarms are grouped by alarm name, as the CloudWatch source does by default, and Inspector, GuardDuty and AWS Health events by the finding or event they are about. Every other message makes its own alert. custom: messages are grouped by the value at deduplication*key_path. New sources start on automatic. Possible values are: `message_id`, `automatic`, `custom`.
+        """
+        return pulumi.get(self, "deduplication_strategy")
 
 
 @pulumi.output_type

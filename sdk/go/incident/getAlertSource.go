@@ -108,7 +108,8 @@ type LookupAlertSourceResult struct {
 	// Controls how this source's ingest rate limit is split into buckets.
 	RateLimitSharding GetAlertSourceRateLimitSharding `pulumi:"rateLimitSharding"`
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
-	SecretToken string `pulumi:"secretToken"`
+	SecretToken string                   `pulumi:"secretToken"`
+	SnsOptions  GetAlertSourceSnsOptions `pulumi:"snsOptions"`
 	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
 	SourceType string              `pulumi:"sourceType"`
 	Title      GetAlertSourceTitle `pulumi:"title"`
@@ -245,6 +246,10 @@ func (o LookupAlertSourceResultOutput) RateLimitSharding() GetAlertSourceRateLim
 // The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
 func (o LookupAlertSourceResultOutput) SecretToken() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAlertSourceResult) string { return v.SecretToken }).(pulumi.StringOutput)
+}
+
+func (o LookupAlertSourceResultOutput) SnsOptions() GetAlertSourceSnsOptionsOutput {
+	return o.ApplyT(func(v LookupAlertSourceResult) GetAlertSourceSnsOptions { return v.SnsOptions }).(GetAlertSourceSnsOptionsOutput)
 }
 
 // Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.

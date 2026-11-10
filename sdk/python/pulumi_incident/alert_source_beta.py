@@ -38,6 +38,7 @@ class AlertSourceBetaArgs:
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  priority: pulumi.Input[Optional['AlertSourceBetaPriorityArgs']] = None,
                  rate_limit_sharding: pulumi.Input[Optional['AlertSourceBetaRateLimitShardingArgs']] = None,
+                 sns_options: pulumi.Input[Optional['AlertSourceBetaSnsOptionsArgs']] = None,
                  title: pulumi.Input[Optional['AlertSourceBetaTitleArgs']] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
                  visible_to_teams: pulumi.Input[Optional['AlertSourceBetaVisibleToTeamsArgs']] = None):
@@ -90,6 +91,8 @@ class AlertSourceBetaArgs:
             pulumi.set(__self__, "priority", priority)
         if rate_limit_sharding is not None:
             pulumi.set(__self__, "rate_limit_sharding", rate_limit_sharding)
+        if sns_options is not None:
+            pulumi.set(__self__, "sns_options", sns_options)
         if title is not None:
             pulumi.set(__self__, "title", title)
         if unlock_in_dashboard is not None:
@@ -284,6 +287,15 @@ class AlertSourceBetaArgs:
         pulumi.set(self, "rate_limit_sharding", value)
 
     @_builtins.property
+    @pulumi.getter(name="snsOptions")
+    def sns_options(self) -> pulumi.Input[Optional['AlertSourceBetaSnsOptionsArgs']]:
+        return pulumi.get(self, "sns_options")
+
+    @sns_options.setter
+    def sns_options(self, value: pulumi.Input[Optional['AlertSourceBetaSnsOptionsArgs']]):
+        pulumi.set(self, "sns_options", value)
+
+    @_builtins.property
     @pulumi.getter
     def title(self) -> pulumi.Input[Optional['AlertSourceBetaTitleArgs']]:
         return pulumi.get(self, "title")
@@ -336,6 +348,7 @@ class _AlertSourceBetaState:
                  priority: pulumi.Input[Optional['AlertSourceBetaPriorityArgs']] = None,
                  rate_limit_sharding: pulumi.Input[Optional['AlertSourceBetaRateLimitShardingArgs']] = None,
                  secret_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_options: pulumi.Input[Optional['AlertSourceBetaSnsOptionsArgs']] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional['AlertSourceBetaTitleArgs']] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -399,6 +412,8 @@ class _AlertSourceBetaState:
             pulumi.set(__self__, "rate_limit_sharding", rate_limit_sharding)
         if secret_token is not None:
             pulumi.set(__self__, "secret_token", secret_token)
+        if sns_options is not None:
+            pulumi.set(__self__, "sns_options", sns_options)
         if source_type is not None:
             pulumi.set(__self__, "source_type", source_type)
         if title is not None:
@@ -621,6 +636,15 @@ class _AlertSourceBetaState:
         pulumi.set(self, "secret_token", value)
 
     @_builtins.property
+    @pulumi.getter(name="snsOptions")
+    def sns_options(self) -> pulumi.Input[Optional['AlertSourceBetaSnsOptionsArgs']]:
+        return pulumi.get(self, "sns_options")
+
+    @sns_options.setter
+    def sns_options(self, value: pulumi.Input[Optional['AlertSourceBetaSnsOptionsArgs']]):
+        pulumi.set(self, "sns_options", value)
+
+    @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -697,6 +721,7 @@ class AlertSourceBeta(pulumi.CustomResource):
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  priority: pulumi.Input[Optional[Union['AlertSourceBetaPriorityArgs', 'AlertSourceBetaPriorityArgsDict']]] = None,
                  rate_limit_sharding: pulumi.Input[Optional[Union['AlertSourceBetaRateLimitShardingArgs', 'AlertSourceBetaRateLimitShardingArgsDict']]] = None,
+                 sns_options: pulumi.Input[Optional[Union['AlertSourceBetaSnsOptionsArgs', 'AlertSourceBetaSnsOptionsArgsDict']]] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[Union['AlertSourceBetaTitleArgs', 'AlertSourceBetaTitleArgsDict']]] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -790,6 +815,7 @@ class AlertSourceBeta(pulumi.CustomResource):
                  owning_team_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  priority: pulumi.Input[Optional[Union['AlertSourceBetaPriorityArgs', 'AlertSourceBetaPriorityArgsDict']]] = None,
                  rate_limit_sharding: pulumi.Input[Optional[Union['AlertSourceBetaRateLimitShardingArgs', 'AlertSourceBetaRateLimitShardingArgsDict']]] = None,
+                 sns_options: pulumi.Input[Optional[Union['AlertSourceBetaSnsOptionsArgs', 'AlertSourceBetaSnsOptionsArgsDict']]] = None,
                  source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  title: pulumi.Input[Optional[Union['AlertSourceBetaTitleArgs', 'AlertSourceBetaTitleArgsDict']]] = None,
                  unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -819,6 +845,7 @@ class AlertSourceBeta(pulumi.CustomResource):
             __props__.__dict__["owning_team_ids"] = owning_team_ids
             __props__.__dict__["priority"] = priority
             __props__.__dict__["rate_limit_sharding"] = rate_limit_sharding
+            __props__.__dict__["sns_options"] = sns_options
             if source_type is None and not opts.urn:
                 raise TypeError("Missing required property 'source_type'")
             __props__.__dict__["source_type"] = source_type
@@ -860,6 +887,7 @@ class AlertSourceBeta(pulumi.CustomResource):
             priority: pulumi.Input[Optional[Union['AlertSourceBetaPriorityArgs', 'AlertSourceBetaPriorityArgsDict']]] = None,
             rate_limit_sharding: pulumi.Input[Optional[Union['AlertSourceBetaRateLimitShardingArgs', 'AlertSourceBetaRateLimitShardingArgsDict']]] = None,
             secret_token: pulumi.Input[Optional[_builtins.str]] = None,
+            sns_options: pulumi.Input[Optional[Union['AlertSourceBetaSnsOptionsArgs', 'AlertSourceBetaSnsOptionsArgsDict']]] = None,
             source_type: pulumi.Input[Optional[_builtins.str]] = None,
             title: pulumi.Input[Optional[Union['AlertSourceBetaTitleArgs', 'AlertSourceBetaTitleArgsDict']]] = None,
             unlock_in_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -912,6 +940,7 @@ class AlertSourceBeta(pulumi.CustomResource):
         __props__.__dict__["priority"] = priority
         __props__.__dict__["rate_limit_sharding"] = rate_limit_sharding
         __props__.__dict__["secret_token"] = secret_token
+        __props__.__dict__["sns_options"] = sns_options
         __props__.__dict__["source_type"] = source_type
         __props__.__dict__["title"] = title
         __props__.__dict__["unlock_in_dashboard"] = unlock_in_dashboard
@@ -1052,6 +1081,11 @@ class AlertSourceBeta(pulumi.CustomResource):
         The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
         """
         return pulumi.get(self, "secret_token")
+
+    @_builtins.property
+    @pulumi.getter(name="snsOptions")
+    def sns_options(self) -> pulumi.Output[Optional['outputs.AlertSourceBetaSnsOptions']]:
+        return pulumi.get(self, "sns_options")
 
     @_builtins.property
     @pulumi.getter(name="sourceType")

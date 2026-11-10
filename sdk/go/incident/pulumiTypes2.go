@@ -13,6 +13,268 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type WorkflowConditionGroupConditionParamBindingArrayValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowConditionGroupConditionParamBindingArrayValueInput is an input type that accepts WorkflowConditionGroupConditionParamBindingArrayValueArgs and WorkflowConditionGroupConditionParamBindingArrayValueOutput values.
+// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingArrayValueInput` via:
+//
+//	WorkflowConditionGroupConditionParamBindingArrayValueArgs{...}
+type WorkflowConditionGroupConditionParamBindingArrayValueInput interface {
+	pulumi.Input
+
+	ToWorkflowConditionGroupConditionParamBindingArrayValueOutput() WorkflowConditionGroupConditionParamBindingArrayValueOutput
+	ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingArrayValueOutput
+}
+
+type WorkflowConditionGroupConditionParamBindingArrayValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowConditionGroupConditionParamBindingArrayValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowConditionGroupConditionParamBindingArrayValueOutput() WorkflowConditionGroupConditionParamBindingArrayValueOutput {
+	return i.ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowConditionGroupConditionParamBindingArrayValueArgs) ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingArrayValueOutput)
+}
+
+// WorkflowConditionGroupConditionParamBindingArrayValueArrayInput is an input type that accepts WorkflowConditionGroupConditionParamBindingArrayValueArray and WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput values.
+// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingArrayValueArrayInput` via:
+//
+//	WorkflowConditionGroupConditionParamBindingArrayValueArray{ WorkflowConditionGroupConditionParamBindingArrayValueArgs{...} }
+type WorkflowConditionGroupConditionParamBindingArrayValueArrayInput interface {
+	pulumi.Input
+
+	ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput
+	ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput
+}
+
+type WorkflowConditionGroupConditionParamBindingArrayValueArray []WorkflowConditionGroupConditionParamBindingArrayValueInput
+
+func (WorkflowConditionGroupConditionParamBindingArrayValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (i WorkflowConditionGroupConditionParamBindingArrayValueArray) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return i.ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(context.Background())
+}
+
+func (i WorkflowConditionGroupConditionParamBindingArrayValueArray) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput)
+}
+
+type WorkflowConditionGroupConditionParamBindingArrayValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowConditionGroupConditionParamBindingArrayValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueOutput() WorkflowConditionGroupConditionParamBindingArrayValueOutput {
+	return o
+}
+
+func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueOutput {
+	return o
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingArrayValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowConditionGroupConditionParamBindingArrayValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingArrayValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkflowConditionGroupConditionParamBindingArrayValue)(nil)).Elem()
+}
+
+func (o WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutput() WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) ToWorkflowConditionGroupConditionParamBindingArrayValueArrayOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput {
+	return o
+}
+
+func (o WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput) Index(i pulumi.IntInput) WorkflowConditionGroupConditionParamBindingArrayValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkflowConditionGroupConditionParamBindingArrayValue {
+		return vs[0].([]WorkflowConditionGroupConditionParamBindingArrayValue)[vs[1].(int)]
+	}).(WorkflowConditionGroupConditionParamBindingArrayValueOutput)
+}
+
+type WorkflowConditionGroupConditionParamBindingValue struct {
+	// If set, this is the literal value of the step parameter
+	Literal *string `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference *string `pulumi:"reference"`
+}
+
+// WorkflowConditionGroupConditionParamBindingValueInput is an input type that accepts WorkflowConditionGroupConditionParamBindingValueArgs and WorkflowConditionGroupConditionParamBindingValueOutput values.
+// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingValueInput` via:
+//
+//	WorkflowConditionGroupConditionParamBindingValueArgs{...}
+type WorkflowConditionGroupConditionParamBindingValueInput interface {
+	pulumi.Input
+
+	ToWorkflowConditionGroupConditionParamBindingValueOutput() WorkflowConditionGroupConditionParamBindingValueOutput
+	ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingValueOutput
+}
+
+type WorkflowConditionGroupConditionParamBindingValueArgs struct {
+	// If set, this is the literal value of the step parameter
+	Literal pulumi.StringPtrInput `pulumi:"literal"`
+	// If set, this is the reference into the trigger scope that is the value of this parameter
+	Reference pulumi.StringPtrInput `pulumi:"reference"`
+}
+
+func (WorkflowConditionGroupConditionParamBindingValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValueOutput() WorkflowConditionGroupConditionParamBindingValueOutput {
+	return i.ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(context.Background())
+}
+
+func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingValueOutput)
+}
+
+func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return i.ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowConditionGroupConditionParamBindingValueArgs) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingValueOutput).ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx)
+}
+
+// WorkflowConditionGroupConditionParamBindingValuePtrInput is an input type that accepts WorkflowConditionGroupConditionParamBindingValueArgs, WorkflowConditionGroupConditionParamBindingValuePtr and WorkflowConditionGroupConditionParamBindingValuePtrOutput values.
+// You can construct a concrete instance of `WorkflowConditionGroupConditionParamBindingValuePtrInput` via:
+//
+//	        WorkflowConditionGroupConditionParamBindingValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowConditionGroupConditionParamBindingValuePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput
+	ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput
+}
+
+type workflowConditionGroupConditionParamBindingValuePtrType WorkflowConditionGroupConditionParamBindingValueArgs
+
+func WorkflowConditionGroupConditionParamBindingValuePtr(v *WorkflowConditionGroupConditionParamBindingValueArgs) WorkflowConditionGroupConditionParamBindingValuePtrInput {
+	return (*workflowConditionGroupConditionParamBindingValuePtrType)(v)
+}
+
+func (*workflowConditionGroupConditionParamBindingValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (i *workflowConditionGroupConditionParamBindingValuePtrType) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return i.ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowConditionGroupConditionParamBindingValuePtrType) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+type WorkflowConditionGroupConditionParamBindingValueOutput struct{ *pulumi.OutputState }
+
+func (WorkflowConditionGroupConditionParamBindingValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValueOutput() WorkflowConditionGroupConditionParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValueOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValueOutput {
+	return o
+}
+
+func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowConditionGroupConditionParamBindingValueOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowConditionGroupConditionParamBindingValue) *WorkflowConditionGroupConditionParamBindingValue {
+		return &v
+	}).(WorkflowConditionGroupConditionParamBindingValuePtrOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowConditionGroupConditionParamBindingValueOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingValue) *string { return v.Literal }).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowConditionGroupConditionParamBindingValueOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowConditionGroupConditionParamBindingValue) *string { return v.Reference }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowConditionGroupConditionParamBindingValuePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowConditionGroupConditionParamBindingValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowConditionGroupConditionParamBindingValue)(nil)).Elem()
+}
+
+func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutput() WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) ToWorkflowConditionGroupConditionParamBindingValuePtrOutputWithContext(ctx context.Context) WorkflowConditionGroupConditionParamBindingValuePtrOutput {
+	return o
+}
+
+func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) Elem() WorkflowConditionGroupConditionParamBindingValueOutput {
+	return o.ApplyT(func(v *WorkflowConditionGroupConditionParamBindingValue) WorkflowConditionGroupConditionParamBindingValue {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowConditionGroupConditionParamBindingValue
+		return ret
+	}).(WorkflowConditionGroupConditionParamBindingValueOutput)
+}
+
+// If set, this is the literal value of the step parameter
+func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) Literal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowConditionGroupConditionParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Literal
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set, this is the reference into the trigger scope that is the value of this parameter
+func (o WorkflowConditionGroupConditionParamBindingValuePtrOutput) Reference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowConditionGroupConditionParamBindingValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reference
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkflowDelay struct {
 	// If this workflow is delayed, whether the conditions should be rechecked between trigger firing and execution
 	ConditionsApplyOverDelay bool `pulumi:"conditionsApplyOverDelay"`
@@ -55141,174 +55403,11 @@ func (o GetAlertSourceNamedExpressionFallbackElseIfResultOutput) Values() pulumi
 	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResult) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
-type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue struct {
-	// A fixed value. A catalog entry ID is a literal, not a reference.
-	Literal string `pulumi:"literal"`
-	// A reference into the scope, such as `payload.team`.
-	Reference string `pulumi:"reference"`
-}
-
-// GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput is an input type that accepts GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs and GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput values.
-// You can construct a concrete instance of `GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput` via:
-//
-//	GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs{...}
-type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput interface {
-	pulumi.Input
-
-	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput
-	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput
-}
-
-type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs struct {
-	// A fixed value. A catalog entry ID is a literal, not a reference.
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// A reference into the scope, such as `payload.team`.
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
-}
-
-func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
-	return i.ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(context.Background())
-}
-
-func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput)
-}
-
-// GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput is an input type that accepts GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray and GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput values.
-// You can construct a concrete instance of `GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput` via:
-//
-//	GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray{ GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs{...} }
-type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput interface {
-	pulumi.Input
-
-	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput
-	ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput
-}
-
-type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray []GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput
-
-func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
-}
-
-func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
-	return i.ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(context.Background())
-}
-
-func (i GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput)
-}
-
-type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput struct{ *pulumi.OutputState }
-
-func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
-}
-
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
-	return o
-}
-
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
-	return o
-}
-
-// A fixed value. A catalog entry ID is a literal, not a reference.
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// A reference into the scope, such as `payload.team`.
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue) string { return v.Reference }).(pulumi.StringOutput)
-}
-
-type GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput struct{ *pulumi.OutputState }
-
-func (GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)(nil)).Elem()
-}
-
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput() GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
-	return o
-}
-
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput {
-	return o
-}
-
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput) Index(i pulumi.IntInput) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue {
-		return vs[0].([]GetAlertSourceNamedExpressionFallbackElseIfResultArrayValue)[vs[1].(int)]
-	}).(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput)
-}
-
-type GetAlertSourceNamedExpressionFallbackElseIfResultValue struct {
-	// A fixed value. A catalog entry ID is a literal, not a reference.
-	Literal string `pulumi:"literal"`
-	// A reference into the scope, such as `payload.team`.
-	Reference string `pulumi:"reference"`
-}
-
-// GetAlertSourceNamedExpressionFallbackElseIfResultValueInput is an input type that accepts GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs and GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput values.
-// You can construct a concrete instance of `GetAlertSourceNamedExpressionFallbackElseIfResultValueInput` via:
-//
-//	GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs{...}
-type GetAlertSourceNamedExpressionFallbackElseIfResultValueInput interface {
-	pulumi.Input
-
-	ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput
-	ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput
-}
-
-type GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs struct {
-	// A fixed value. A catalog entry ID is a literal, not a reference.
-	Literal pulumi.StringInput `pulumi:"literal"`
-	// A reference into the scope, such as `payload.team`.
-	Reference pulumi.StringInput `pulumi:"reference"`
-}
-
-func (GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultValue)(nil)).Elem()
-}
-
-func (i GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
-	return i.ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(context.Background())
-}
-
-func (i GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput)
-}
-
-type GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput struct{ *pulumi.OutputState }
-
-func (GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultValue)(nil)).Elem()
-}
-
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutput() GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
-	return o
-}
-
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) ToGetAlertSourceNamedExpressionFallbackElseIfResultValueOutputWithContext(ctx context.Context) GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput {
-	return o
-}
-
-// A fixed value. A catalog entry ID is a literal, not a reference.
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) Literal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultValue) string { return v.Literal }).(pulumi.StringOutput)
-}
-
-// A reference into the scope, such as `payload.team`.
-func (o GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput) Reference() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertSourceNamedExpressionFallbackElseIfResultValue) string { return v.Reference }).(pulumi.StringOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValueInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingArrayValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingArrayValueArrayInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingArrayValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValueInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowConditionGroupConditionParamBindingValuePtrInput)(nil)).Elem(), WorkflowConditionGroupConditionParamBindingValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDelayInput)(nil)).Elem(), WorkflowDelayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowDelayPtrInput)(nil)).Elem(), WorkflowDelayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowExpressionInput)(nil)).Elem(), WorkflowExpressionArgs{})
@@ -56137,9 +56236,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfConditionParamArrayValueArrayInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfConditionParamArrayValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfConditionParamValueInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfConditionParamValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfResultArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertSourceNamedExpressionFallbackElseIfResultValueInput)(nil)).Elem(), GetAlertSourceNamedExpressionFallbackElseIfResultValueArgs{})
+	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingArrayValueOutput{})
+	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingArrayValueArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingValueOutput{})
+	pulumi.RegisterOutputType(WorkflowConditionGroupConditionParamBindingValuePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowDelayOutput{})
 	pulumi.RegisterOutputType(WorkflowDelayPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowExpressionOutput{})
@@ -56968,7 +57068,4 @@ func init() {
 	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfConditionParamArrayValueArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfConditionParamValueOutput{})
 	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfResultOutput{})
-	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueOutput{})
-	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfResultArrayValueArrayOutput{})
-	pulumi.RegisterOutputType(GetAlertSourceNamedExpressionFallbackElseIfResultValueOutput{})
 }

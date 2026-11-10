@@ -74,7 +74,8 @@ type AlertSourceBeta struct {
 	// Controls how this source's ingest rate limit is split into buckets.
 	RateLimitSharding AlertSourceBetaRateLimitShardingPtrOutput `pulumi:"rateLimitSharding"`
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
-	SecretToken pulumi.StringOutput `pulumi:"secretToken"`
+	SecretToken pulumi.StringOutput                `pulumi:"secretToken"`
+	SnsOptions  AlertSourceBetaSnsOptionsPtrOutput `pulumi:"snsOptions"`
 	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
 	SourceType pulumi.StringOutput           `pulumi:"sourceType"`
 	Title      AlertSourceBetaTitlePtrOutput `pulumi:"title"`
@@ -153,7 +154,8 @@ type alertSourceBetaState struct {
 	// Controls how this source's ingest rate limit is split into buckets.
 	RateLimitSharding *AlertSourceBetaRateLimitSharding `pulumi:"rateLimitSharding"`
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
-	SecretToken *string `pulumi:"secretToken"`
+	SecretToken *string                    `pulumi:"secretToken"`
+	SnsOptions  *AlertSourceBetaSnsOptions `pulumi:"snsOptions"`
 	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
 	SourceType *string               `pulumi:"sourceType"`
 	Title      *AlertSourceBetaTitle `pulumi:"title"`
@@ -197,6 +199,7 @@ type AlertSourceBetaState struct {
 	RateLimitSharding AlertSourceBetaRateLimitShardingPtrInput
 	// The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
 	SecretToken pulumi.StringPtrInput
+	SnsOptions  AlertSourceBetaSnsOptionsPtrInput
 	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
 	SourceType pulumi.StringPtrInput
 	Title      AlertSourceBetaTitlePtrInput
@@ -238,6 +241,7 @@ type alertSourceBetaArgs struct {
 	Priority      *AlertSourceBetaPriority `pulumi:"priority"`
 	// Controls how this source's ingest rate limit is split into buckets.
 	RateLimitSharding *AlertSourceBetaRateLimitSharding `pulumi:"rateLimitSharding"`
+	SnsOptions        *AlertSourceBetaSnsOptions        `pulumi:"snsOptions"`
 	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
 	SourceType string                `pulumi:"sourceType"`
 	Title      *AlertSourceBetaTitle `pulumi:"title"`
@@ -274,6 +278,7 @@ type AlertSourceBetaArgs struct {
 	Priority      AlertSourceBetaPriorityPtrInput
 	// Controls how this source's ingest rate limit is split into buckets.
 	RateLimitSharding AlertSourceBetaRateLimitShardingPtrInput
+	SnsOptions        AlertSourceBetaSnsOptionsPtrInput
 	// Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
 	SourceType pulumi.StringInput
 	Title      AlertSourceBetaTitlePtrInput
@@ -458,6 +463,10 @@ func (o AlertSourceBetaOutput) RateLimitSharding() AlertSourceBetaRateLimitShard
 // The token to use when sending alerts to this source. Only returned to callers with permission to update the source.
 func (o AlertSourceBetaOutput) SecretToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) pulumi.StringOutput { return v.SecretToken }).(pulumi.StringOutput)
+}
+
+func (o AlertSourceBetaOutput) SnsOptions() AlertSourceBetaSnsOptionsPtrOutput {
+	return o.ApplyT(func(v *AlertSourceBeta) AlertSourceBetaSnsOptionsPtrOutput { return v.SnsOptions }).(AlertSourceBetaSnsOptionsPtrOutput)
 }
 
 // Type of alert source. Possible values are: `alertmanager`, `appOptics`, `azureMonitor`, `azureDevops`, `bigPanda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrikeFalcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `gitGuardian`, `githubIssue`, `googleCloud`, `googleSecops`, `grafana`, `heartbeat`, `http`, `httpCustom`, `honeycomb`, `icinga2`, `incomingCalls`, `jira`, `jsm`, `logzio`, `monteCarlo`, `nagios`, `newRelic`, `opsgenie`, `prtg`, `pagerDuty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforceCase`, `sentry`, `sentryMetric`, `serviceNow`, `splunk`, `statusCake`, `statusPageViews`, `sumoLogic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.

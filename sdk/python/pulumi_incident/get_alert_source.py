@@ -28,7 +28,7 @@ class GetAlertSourceResult:
     """
     A collection of values returned by getAlertSource.
     """
-    def __init__(__self__, alert_events_url=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, source_type=None, title=None, unlock_in_dashboard=None, version=None, visible_to_teams=None):
+    def __init__(__self__, alert_events_url=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, sns_options=None, source_type=None, title=None, unlock_in_dashboard=None, version=None, visible_to_teams=None):
         if alert_events_url and not isinstance(alert_events_url, str):
             raise TypeError("Expected argument 'alert_events_url' to be a str")
         pulumi.set(__self__, "alert_events_url", alert_events_url)
@@ -89,6 +89,9 @@ class GetAlertSourceResult:
         if secret_token and not isinstance(secret_token, str):
             raise TypeError("Expected argument 'secret_token' to be a str")
         pulumi.set(__self__, "secret_token", secret_token)
+        if sns_options and not isinstance(sns_options, dict):
+            raise TypeError("Expected argument 'sns_options' to be a dict")
+        pulumi.set(__self__, "sns_options", sns_options)
         if source_type and not isinstance(source_type, str):
             raise TypeError("Expected argument 'source_type' to be a str")
         pulumi.set(__self__, "source_type", source_type)
@@ -248,6 +251,11 @@ class GetAlertSourceResult:
         return pulumi.get(self, "secret_token")
 
     @_builtins.property
+    @pulumi.getter(name="snsOptions")
+    def sns_options(self) -> 'outputs.GetAlertSourceSnsOptionsResult':
+        return pulumi.get(self, "sns_options")
+
+    @_builtins.property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> _builtins.str:
         """
@@ -308,6 +316,7 @@ class AwaitableGetAlertSourceResult(GetAlertSourceResult):
             priority=self.priority,
             rate_limit_sharding=self.rate_limit_sharding,
             secret_token=self.secret_token,
+            sns_options=self.sns_options,
             source_type=self.source_type,
             title=self.title,
             unlock_in_dashboard=self.unlock_in_dashboard,
@@ -374,6 +383,7 @@ def get_alert_source(id: Optional[_builtins.str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         rate_limit_sharding=pulumi.get(__ret__, 'rate_limit_sharding'),
         secret_token=pulumi.get(__ret__, 'secret_token'),
+        sns_options=pulumi.get(__ret__, 'sns_options'),
         source_type=pulumi.get(__ret__, 'source_type'),
         title=pulumi.get(__ret__, 'title'),
         unlock_in_dashboard=pulumi.get(__ret__, 'unlock_in_dashboard'),
@@ -437,6 +447,7 @@ def get_alert_source_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] 
         priority=pulumi.get(__response__, 'priority'),
         rate_limit_sharding=pulumi.get(__response__, 'rate_limit_sharding'),
         secret_token=pulumi.get(__response__, 'secret_token'),
+        sns_options=pulumi.get(__response__, 'sns_options'),
         source_type=pulumi.get(__response__, 'source_type'),
         title=pulumi.get(__response__, 'title'),
         unlock_in_dashboard=pulumi.get(__response__, 'unlock_in_dashboard'),
