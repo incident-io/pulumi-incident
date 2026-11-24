@@ -79,6 +79,15 @@ import * as utilities from "./utilities";
  *     tokenVersion: 2,
  *     rotationGracePeriodMinutes: 60,
  * });
+ * // A key can expire. incident.io only changes a key's expiry when it rotates the key, so
+ * // moving expires_at on an existing key goes with a change to token_version, which rotates
+ * // it with the new expiry.
+ * const expiring = new incident.ApiKey("expiring", {
+ *     name: "Quarterly audit export",
+ *     roleNames: ["viewer"],
+ *     expiresAt: "2027-03-31T00:00:00Z",
+ *     tokenVersion: 1,
+ * });
  * // A key can be scoped to particular teams instead of the whole account. team_ids says
  * // which teams, and team_role_names says what the key may do for them, so the two go
  * // together: set both, or neither. An account with no account-level roles leaves
@@ -158,6 +167,10 @@ export class ApiKey extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
+     * When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+     */
+    declare public readonly expiresAt: pulumi.Output<string>;
+    /**
      * When the key was last used to authenticate a request
      */
     declare public /*out*/ readonly lastUsedAt: pulumi.Output<string>;
@@ -167,6 +180,8 @@ export class ApiKey extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+     *
+     * API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
      */
     declare public readonly roleNames: pulumi.Output<string[]>;
     /**
@@ -215,6 +230,7 @@ export class ApiKey extends pulumi.CustomResource {
             const state = argsOrState as ApiKeyState | undefined;
             resourceInputs["comments"] = state?.comments;
             resourceInputs["createdAt"] = state?.createdAt;
+            resourceInputs["expiresAt"] = state?.expiresAt;
             resourceInputs["lastUsedAt"] = state?.lastUsedAt;
             resourceInputs["name"] = state?.name;
             resourceInputs["roleNames"] = state?.roleNames;
@@ -228,6 +244,7 @@ export class ApiKey extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
             resourceInputs["comments"] = args?.comments;
+            resourceInputs["expiresAt"] = args?.expiresAt;
             resourceInputs["name"] = args?.name;
             resourceInputs["roleNames"] = args?.roleNames;
             resourceInputs["rotationGracePeriodMinutes"] = args?.rotationGracePeriodMinutes;
@@ -260,6 +277,10 @@ export interface ApiKeyState {
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
+     * When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+     */
+    expiresAt?: pulumi.Input<string | undefined>;
+    /**
      * When the key was last used to authenticate a request
      */
     lastUsedAt?: pulumi.Input<string | undefined>;
@@ -269,6 +290,8 @@ export interface ApiKeyState {
     name?: pulumi.Input<string | undefined>;
     /**
      * Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+     *
+     * API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
      */
     roleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -312,11 +335,17 @@ export interface ApiKeyArgs {
      */
     comments?: pulumi.Input<string | undefined>;
     /**
+     * When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+     */
+    expiresAt?: pulumi.Input<string | undefined>;
+    /**
      * The name of the API key, for the user's reference
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+     *
+     * API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
      */
     roleNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

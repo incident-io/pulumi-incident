@@ -22,6 +22,7 @@ __all__ = ['AlertSourceArgs', 'AlertSource']
 class AlertSourceArgs:
     def __init__(__self__, *,
                  source_type: pulumi.Input[_builtins.str],
+                 ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional['AlertSourceDescriptionArgs']] = None,
@@ -46,9 +47,12 @@ class AlertSourceArgs:
         The set of arguments for constructing a AlertSource resource.
 
         :param pulumi.Input[_builtins.str] source_type: Type of alert source. Possible values are: `alertmanager`, `app_optics`, `azure_monitor`, `azure_devops`, `big_panda`, `bugsnag`, `checkly`, `chronosphere`, `cloudwatch`, `cloudflare`, `coralogix`, `cronitor`, `crowdstrike_falcon`, `dash0`, `datadog`, `dynatrace`, `elasticsearch`, `email`, `expel`, `git_guardian`, `github_issue`, `google_cloud`, `google_secops`, `grafana`, `heartbeat`, `http`, `http_custom`, `honeycomb`, `icinga2`, `incoming_calls`, `jira`, `jsm`, `logzio`, `monte_carlo`, `nagios`, `new_relic`, `opsgenie`, `prtg`, `pager_duty`, `panther`, `pingdom`, `posthog`, `runscope`, `sns`, `salesforce_case`, `sentry`, `sentry_metric`, `service_now`, `splunk`, `status_cake`, `status_page_views`, `sumo_logic`, `uptime`, `upwind`, `vercel`, `wiz`, `zendesk`.
-        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+        :param pulumi.Input[_builtins.bool] ai_titles_enabled: Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
         :param pulumi.Input[_builtins.int] auto_resolve_timeout_minutes: How long to wait before automatically resolving alerts from this source
         :param pulumi.Input[_builtins.bool] disabled: Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+               
+               Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
         :param pulumi.Input[Sequence[pulumi.Input['AlertSourceFilterConditionGroupArgs']]] filter_condition_groups: Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.
         :param pulumi.Input[_builtins.str] fixed_team_id: When set, the team every alert from this source is attributed to. The team attribute is managed from this field: it is not returned by the attribute endpoints and cannot be bound directly. While set, an `AlertSourceAttribute` resource binding the organisation's team attribute is rejected at apply time: the binding is managed from this field.
         :param pulumi.Input[_builtins.bool] is_private: Whether alerts from this source are private
@@ -59,6 +63,8 @@ class AlertSourceArgs:
         :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         """
         pulumi.set(__self__, "source_type", source_type)
+        if ai_titles_enabled is not None:
+            pulumi.set(__self__, "ai_titles_enabled", ai_titles_enabled)
         if auto_resolve_incident_alerts is not None:
             pulumi.set(__self__, "auto_resolve_incident_alerts", auto_resolve_incident_alerts)
         if auto_resolve_timeout_minutes is not None:
@@ -113,10 +119,22 @@ class AlertSourceArgs:
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="aiTitlesEnabled")
+    def ai_titles_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+        """
+        return pulumi.get(self, "ai_titles_enabled")
+
+    @ai_titles_enabled.setter
+    def ai_titles_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ai_titles_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="autoResolveIncidentAlerts")
     def auto_resolve_incident_alerts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+        Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
         """
         return pulumi.get(self, "auto_resolve_incident_alerts")
 
@@ -150,6 +168,8 @@ class AlertSourceArgs:
     def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+
+        Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
         """
         return pulumi.get(self, "disabled")
 
@@ -329,6 +349,7 @@ class AlertSourceArgs:
 @pulumi.input_type
 class _AlertSourceState:
     def __init__(__self__, *,
+                 ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  alert_events_url: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -357,10 +378,13 @@ class _AlertSourceState:
         """
         Input properties used for looking up and filtering AlertSource resources.
 
+        :param pulumi.Input[_builtins.bool] ai_titles_enabled: Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
         :param pulumi.Input[_builtins.str] alert_events_url: The URL to send alert events to
-        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
         :param pulumi.Input[_builtins.int] auto_resolve_timeout_minutes: How long to wait before automatically resolving alerts from this source
         :param pulumi.Input[_builtins.bool] disabled: Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+               
+               Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
         :param pulumi.Input[_builtins.str] email_address: Email address this alert source receives alerts to
         :param pulumi.Input[Sequence[pulumi.Input['AlertSourceFilterConditionGroupArgs']]] filter_condition_groups: Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.
         :param pulumi.Input[_builtins.str] fixed_team_id: When set, the team every alert from this source is attributed to. The team attribute is managed from this field: it is not returned by the attribute endpoints and cannot be bound directly. While set, an `AlertSourceAttribute` resource binding the organisation's team attribute is rejected at apply time: the binding is managed from this field.
@@ -374,6 +398,8 @@ class _AlertSourceState:
         :param pulumi.Input[_builtins.bool] unlock_in_dashboard: Whether to leave this resource unlocked in the incident.io dashboard, so people can edit it there. Defaults to `false`: Terraform claims what it manages, and a claimed resource cannot be edited in the dashboard. Set it to `true` to leave the resource unclaimed — pair that with `lifecycle { ignore_changes = [...] }` naming the attributes people edit, or the next apply reverts them. Setting it on a resource Terraform already claimed hands that resource back, and someone disconnecting one in the dashboard shows as no change.
         :param pulumi.Input[_builtins.int] version: The source's current version, which increments on every write. Pass it back as expected_version to reject a write built from a stale read.
         """
+        if ai_titles_enabled is not None:
+            pulumi.set(__self__, "ai_titles_enabled", ai_titles_enabled)
         if alert_events_url is not None:
             pulumi.set(__self__, "alert_events_url", alert_events_url)
         if auto_resolve_incident_alerts is not None:
@@ -426,6 +452,18 @@ class _AlertSourceState:
             pulumi.set(__self__, "visible_to_teams", visible_to_teams)
 
     @_builtins.property
+    @pulumi.getter(name="aiTitlesEnabled")
+    def ai_titles_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+        """
+        return pulumi.get(self, "ai_titles_enabled")
+
+    @ai_titles_enabled.setter
+    def ai_titles_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ai_titles_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="alertEventsUrl")
     def alert_events_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -441,7 +479,7 @@ class _AlertSourceState:
     @pulumi.getter(name="autoResolveIncidentAlerts")
     def auto_resolve_incident_alerts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+        Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
         """
         return pulumi.get(self, "auto_resolve_incident_alerts")
 
@@ -475,6 +513,8 @@ class _AlertSourceState:
     def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+
+        Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
         """
         return pulumi.get(self, "disabled")
 
@@ -705,6 +745,7 @@ class AlertSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[Union['AlertSourceDescriptionArgs', 'AlertSourceDescriptionArgsDict']]] = None,
@@ -839,9 +880,12 @@ class AlertSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+        :param pulumi.Input[_builtins.bool] ai_titles_enabled: Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
         :param pulumi.Input[_builtins.int] auto_resolve_timeout_minutes: How long to wait before automatically resolving alerts from this source
         :param pulumi.Input[_builtins.bool] disabled: Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+               
+               Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertSourceFilterConditionGroupArgs', 'AlertSourceFilterConditionGroupArgsDict']]]] filter_condition_groups: Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.
         :param pulumi.Input[_builtins.str] fixed_team_id: When set, the team every alert from this source is attributed to. The team attribute is managed from this field: it is not returned by the attribute endpoints and cannot be bound directly. While set, an `AlertSourceAttribute` resource binding the organisation's team attribute is rejected at apply time: the binding is managed from this field.
         :param pulumi.Input[_builtins.bool] is_private: Whether alerts from this source are private
@@ -983,6 +1027,7 @@ class AlertSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[Union['AlertSourceDescriptionArgs', 'AlertSourceDescriptionArgsDict']]] = None,
@@ -1013,6 +1058,7 @@ class AlertSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertSourceArgs.__new__(AlertSourceArgs)
 
+            __props__.__dict__["ai_titles_enabled"] = ai_titles_enabled
             __props__.__dict__["auto_resolve_incident_alerts"] = auto_resolve_incident_alerts
             __props__.__dict__["auto_resolve_timeout_minutes"] = auto_resolve_timeout_minutes
             __props__.__dict__["description"] = description
@@ -1052,6 +1098,7 @@ class AlertSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             alert_events_url: pulumi.Input[Optional[_builtins.str]] = None,
             auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
             auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1084,10 +1131,13 @@ class AlertSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] ai_titles_enabled: Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
         :param pulumi.Input[_builtins.str] alert_events_url: The URL to send alert events to
-        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+        :param pulumi.Input[_builtins.bool] auto_resolve_incident_alerts: Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
         :param pulumi.Input[_builtins.int] auto_resolve_timeout_minutes: How long to wait before automatically resolving alerts from this source
         :param pulumi.Input[_builtins.bool] disabled: Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+               
+               Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
         :param pulumi.Input[_builtins.str] email_address: Email address this alert source receives alerts to
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertSourceFilterConditionGroupArgs', 'AlertSourceFilterConditionGroupArgsDict']]]] filter_condition_groups: Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.
         :param pulumi.Input[_builtins.str] fixed_team_id: When set, the team every alert from this source is attributed to. The team attribute is managed from this field: it is not returned by the attribute endpoints and cannot be bound directly. While set, an `AlertSourceAttribute` resource binding the organisation's team attribute is rejected at apply time: the binding is managed from this field.
@@ -1105,6 +1155,7 @@ class AlertSource(pulumi.CustomResource):
 
         __props__ = _AlertSourceState.__new__(_AlertSourceState)
 
+        __props__.__dict__["ai_titles_enabled"] = ai_titles_enabled
         __props__.__dict__["alert_events_url"] = alert_events_url
         __props__.__dict__["auto_resolve_incident_alerts"] = auto_resolve_incident_alerts
         __props__.__dict__["auto_resolve_timeout_minutes"] = auto_resolve_timeout_minutes
@@ -1133,6 +1184,14 @@ class AlertSource(pulumi.CustomResource):
         return AlertSource(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
+    @pulumi.getter(name="aiTitlesEnabled")
+    def ai_titles_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+        """
+        return pulumi.get(self, "ai_titles_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="alertEventsUrl")
     def alert_events_url(self) -> pulumi.Output[_builtins.str]:
         """
@@ -1144,7 +1203,7 @@ class AlertSource(pulumi.CustomResource):
     @pulumi.getter(name="autoResolveIncidentAlerts")
     def auto_resolve_incident_alerts(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+        Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
         """
         return pulumi.get(self, "auto_resolve_incident_alerts")
 
@@ -1166,6 +1225,8 @@ class AlertSource(pulumi.CustomResource):
     def disabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+
+        Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
         """
         return pulumi.get(self, "disabled")
 

@@ -20,6 +20,7 @@ __all__ = ['ApiKeyArgs', 'ApiKey']
 class ApiKeyArgs:
     def __init__(__self__, *,
                  comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rotation_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -31,8 +32,11 @@ class ApiKeyArgs:
         The set of arguments for constructing a ApiKey resource.
 
         :param pulumi.Input[_builtins.str] comments: Freeform notes about this API key
+        :param pulumi.Input[_builtins.str] expires_at: When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
         :param pulumi.Input[_builtins.str] name: The name of the API key, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] role_names: Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+               
+               API key role name. Possible values are: `viewer`, `incident_creator`, `incident_editor`, `manage_settings`, `glossary_entries_manage`, `global_access`, `catalog_viewer`, `catalog_editor`, `incident_memberships_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `workflows_editor`, `workflows_viewer`, `private_workflows_editor`, `private_escalation_workflows_editor`, `on_call_editor`, `on_call_viewer`, `escalation_creator`, `post_incident_flow_opt_out`, `security_settings_editor`, `investigation_download`, `team_memberships_manage`, `status_page_publisher`, `status_page_viewer`, `postmortems_manage`, `api_keys_manage`, `notification_methods_manage`, `notification_methods_unredacted_viewer`, `incident_workload_viewer`, `incident_workload_private_viewer`, `act_on_behalf_of_users`, `secrets_manage`, `secrets_use`, `call_transcripts_viewer`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`, `policies_viewer`, `policy_findings_manage`, `pay_reports_viewer`, `pay_reports_editor`, `pay_configs_viewer`, `pay_configs_editor`, `investigations_editor`, `telemetry_viewer`, `documents_viewer`, `user_sessions_revoke`, `users_viewer`, `access_control_manage`.
         :param pulumi.Input[_builtins.int] rotation_grace_period_minutes: How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `token_version` rotates the key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams to scope the `team_role_names` to. If provided, `team_role_names` must also be a non-empty array, and vice versa. Pass an empty array if the key should not be scoped to any teams.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_role_names: Roles to grant for the teams specified in `team_ids`. If provided, `team_ids` must also be a non-empty array, and vice versa. Pass an empty array if no team-level roles are needed.
@@ -43,6 +47,8 @@ class ApiKeyArgs:
         """
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
+        if expires_at is not None:
+            pulumi.set(__self__, "expires_at", expires_at)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if role_names is not None:
@@ -71,6 +77,18 @@ class ApiKeyArgs:
         pulumi.set(self, "comments", value)
 
     @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+        """
+        return pulumi.get(self, "expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expires_at", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -87,6 +105,8 @@ class ApiKeyArgs:
     def role_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+
+        API key role name. Possible values are: `viewer`, `incident_creator`, `incident_editor`, `manage_settings`, `glossary_entries_manage`, `global_access`, `catalog_viewer`, `catalog_editor`, `incident_memberships_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `workflows_editor`, `workflows_viewer`, `private_workflows_editor`, `private_escalation_workflows_editor`, `on_call_editor`, `on_call_viewer`, `escalation_creator`, `post_incident_flow_opt_out`, `security_settings_editor`, `investigation_download`, `team_memberships_manage`, `status_page_publisher`, `status_page_viewer`, `postmortems_manage`, `api_keys_manage`, `notification_methods_manage`, `notification_methods_unredacted_viewer`, `incident_workload_viewer`, `incident_workload_private_viewer`, `act_on_behalf_of_users`, `secrets_manage`, `secrets_use`, `call_transcripts_viewer`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`, `policies_viewer`, `policy_findings_manage`, `pay_reports_viewer`, `pay_reports_editor`, `pay_configs_viewer`, `pay_configs_editor`, `investigations_editor`, `telemetry_viewer`, `documents_viewer`, `user_sessions_revoke`, `users_viewer`, `access_control_manage`.
         """
         return pulumi.get(self, "role_names")
 
@@ -162,6 +182,7 @@ class _ApiKeyState:
     def __init__(__self__, *,
                  comments: pulumi.Input[Optional[_builtins.str]] = None,
                  created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  last_used_at: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -177,9 +198,12 @@ class _ApiKeyState:
 
         :param pulumi.Input[_builtins.str] comments: Freeform notes about this API key
         :param pulumi.Input[_builtins.str] created_at: When the API key was created
+        :param pulumi.Input[_builtins.str] expires_at: When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
         :param pulumi.Input[_builtins.str] last_used_at: When the key was last used to authenticate a request
         :param pulumi.Input[_builtins.str] name: The name of the API key, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] role_names: Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+               
+               API key role name. Possible values are: `viewer`, `incident_creator`, `incident_editor`, `manage_settings`, `glossary_entries_manage`, `global_access`, `catalog_viewer`, `catalog_editor`, `incident_memberships_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `workflows_editor`, `workflows_viewer`, `private_workflows_editor`, `private_escalation_workflows_editor`, `on_call_editor`, `on_call_viewer`, `escalation_creator`, `post_incident_flow_opt_out`, `security_settings_editor`, `investigation_download`, `team_memberships_manage`, `status_page_publisher`, `status_page_viewer`, `postmortems_manage`, `api_keys_manage`, `notification_methods_manage`, `notification_methods_unredacted_viewer`, `incident_workload_viewer`, `incident_workload_private_viewer`, `act_on_behalf_of_users`, `secrets_manage`, `secrets_use`, `call_transcripts_viewer`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`, `policies_viewer`, `policy_findings_manage`, `pay_reports_viewer`, `pay_reports_editor`, `pay_configs_viewer`, `pay_configs_editor`, `investigations_editor`, `telemetry_viewer`, `documents_viewer`, `user_sessions_revoke`, `users_viewer`, `access_control_manage`.
         :param pulumi.Input[_builtins.int] rotation_grace_period_minutes: How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `token_version` rotates the key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams to scope the `team_role_names` to. If provided, `team_role_names` must also be a non-empty array, and vice versa. Pass an empty array if the key should not be scoped to any teams.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_role_names: Roles to grant for the teams specified in `team_ids`. If provided, `team_ids` must also be a non-empty array, and vice versa. Pass an empty array if no team-level roles are needed.
@@ -194,6 +218,8 @@ class _ApiKeyState:
             pulumi.set(__self__, "comments", comments)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if expires_at is not None:
+            pulumi.set(__self__, "expires_at", expires_at)
         if last_used_at is not None:
             pulumi.set(__self__, "last_used_at", last_used_at)
         if name is not None:
@@ -240,6 +266,18 @@ class _ApiKeyState:
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+        """
+        return pulumi.get(self, "expires_at")
+
+    @expires_at.setter
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expires_at", value)
+
+    @_builtins.property
     @pulumi.getter(name="lastUsedAt")
     def last_used_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -268,6 +306,8 @@ class _ApiKeyState:
     def role_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+
+        API key role name. Possible values are: `viewer`, `incident_creator`, `incident_editor`, `manage_settings`, `glossary_entries_manage`, `global_access`, `catalog_viewer`, `catalog_editor`, `incident_memberships_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `workflows_editor`, `workflows_viewer`, `private_workflows_editor`, `private_escalation_workflows_editor`, `on_call_editor`, `on_call_viewer`, `escalation_creator`, `post_incident_flow_opt_out`, `security_settings_editor`, `investigation_download`, `team_memberships_manage`, `status_page_publisher`, `status_page_viewer`, `postmortems_manage`, `api_keys_manage`, `notification_methods_manage`, `notification_methods_unredacted_viewer`, `incident_workload_viewer`, `incident_workload_private_viewer`, `act_on_behalf_of_users`, `secrets_manage`, `secrets_use`, `call_transcripts_viewer`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`, `policies_viewer`, `policy_findings_manage`, `pay_reports_viewer`, `pay_reports_editor`, `pay_configs_viewer`, `pay_configs_editor`, `investigations_editor`, `telemetry_viewer`, `documents_viewer`, `user_sessions_revoke`, `users_viewer`, `access_control_manage`.
         """
         return pulumi.get(self, "role_names")
 
@@ -369,6 +409,7 @@ class ApiKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rotation_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -450,6 +491,14 @@ class ApiKey(pulumi.CustomResource):
             role_names=["viewer"],
             token_version=2,
             rotation_grace_period_minutes=60)
+        # A key can expire. incident.io only changes a key's expiry when it rotates the key, so
+        # moving expires_at on an existing key goes with a change to token_version, which rotates
+        # it with the new expiry.
+        expiring = incident.ApiKey("expiring",
+            name="Quarterly audit export",
+            role_names=["viewer"],
+            expires_at="2027-03-31T00:00:00Z",
+            token_version=1)
         # A key can be scoped to particular teams instead of the whole account. team_ids says
         # which teams, and team_role_names says what the key may do for them, so the two go
         # together: set both, or neither. An account with no account-level roles leaves
@@ -494,8 +543,11 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comments: Freeform notes about this API key
+        :param pulumi.Input[_builtins.str] expires_at: When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
         :param pulumi.Input[_builtins.str] name: The name of the API key, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] role_names: Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+               
+               API key role name. Possible values are: `viewer`, `incident_creator`, `incident_editor`, `manage_settings`, `glossary_entries_manage`, `global_access`, `catalog_viewer`, `catalog_editor`, `incident_memberships_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `workflows_editor`, `workflows_viewer`, `private_workflows_editor`, `private_escalation_workflows_editor`, `on_call_editor`, `on_call_viewer`, `escalation_creator`, `post_incident_flow_opt_out`, `security_settings_editor`, `investigation_download`, `team_memberships_manage`, `status_page_publisher`, `status_page_viewer`, `postmortems_manage`, `api_keys_manage`, `notification_methods_manage`, `notification_methods_unredacted_viewer`, `incident_workload_viewer`, `incident_workload_private_viewer`, `act_on_behalf_of_users`, `secrets_manage`, `secrets_use`, `call_transcripts_viewer`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`, `policies_viewer`, `policy_findings_manage`, `pay_reports_viewer`, `pay_reports_editor`, `pay_configs_viewer`, `pay_configs_editor`, `investigations_editor`, `telemetry_viewer`, `documents_viewer`, `user_sessions_revoke`, `users_viewer`, `access_control_manage`.
         :param pulumi.Input[_builtins.int] rotation_grace_period_minutes: How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `token_version` rotates the key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams to scope the `team_role_names` to. If provided, `team_role_names` must also be a non-empty array, and vice versa. Pass an empty array if the key should not be scoped to any teams.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_role_names: Roles to grant for the teams specified in `team_ids`. If provided, `team_ids` must also be a non-empty array, and vice versa. Pass an empty array if no team-level roles are needed.
@@ -583,6 +635,14 @@ class ApiKey(pulumi.CustomResource):
             role_names=["viewer"],
             token_version=2,
             rotation_grace_period_minutes=60)
+        # A key can expire. incident.io only changes a key's expiry when it rotates the key, so
+        # moving expires_at on an existing key goes with a change to token_version, which rotates
+        # it with the new expiry.
+        expiring = incident.ApiKey("expiring",
+            name="Quarterly audit export",
+            role_names=["viewer"],
+            expires_at="2027-03-31T00:00:00Z",
+            token_version=1)
         # A key can be scoped to particular teams instead of the whole account. team_ids says
         # which teams, and team_role_names says what the key may do for them, so the two go
         # together: set both, or neither. An account with no account-level roles leaves
@@ -640,6 +700,7 @@ class ApiKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rotation_grace_period_minutes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -657,6 +718,7 @@ class ApiKey(pulumi.CustomResource):
             __props__ = ApiKeyArgs.__new__(ApiKeyArgs)
 
             __props__.__dict__["comments"] = comments
+            __props__.__dict__["expires_at"] = expires_at
             __props__.__dict__["name"] = name
             __props__.__dict__["role_names"] = role_names
             __props__.__dict__["rotation_grace_period_minutes"] = rotation_grace_period_minutes
@@ -682,6 +744,7 @@ class ApiKey(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comments: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
+            expires_at: pulumi.Input[Optional[_builtins.str]] = None,
             last_used_at: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             role_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -701,9 +764,12 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comments: Freeform notes about this API key
         :param pulumi.Input[_builtins.str] created_at: When the API key was created
+        :param pulumi.Input[_builtins.str] expires_at: When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
         :param pulumi.Input[_builtins.str] last_used_at: When the key was last used to authenticate a request
         :param pulumi.Input[_builtins.str] name: The name of the API key, for the user's reference
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] role_names: Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+               
+               API key role name. Possible values are: `viewer`, `incident_creator`, `incident_editor`, `manage_settings`, `glossary_entries_manage`, `global_access`, `catalog_viewer`, `catalog_editor`, `incident_memberships_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `workflows_editor`, `workflows_viewer`, `private_workflows_editor`, `private_escalation_workflows_editor`, `on_call_editor`, `on_call_viewer`, `escalation_creator`, `post_incident_flow_opt_out`, `security_settings_editor`, `investigation_download`, `team_memberships_manage`, `status_page_publisher`, `status_page_viewer`, `postmortems_manage`, `api_keys_manage`, `notification_methods_manage`, `notification_methods_unredacted_viewer`, `incident_workload_viewer`, `incident_workload_private_viewer`, `act_on_behalf_of_users`, `secrets_manage`, `secrets_use`, `call_transcripts_viewer`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`, `policies_viewer`, `policy_findings_manage`, `pay_reports_viewer`, `pay_reports_editor`, `pay_configs_viewer`, `pay_configs_editor`, `investigations_editor`, `telemetry_viewer`, `documents_viewer`, `user_sessions_revoke`, `users_viewer`, `access_control_manage`.
         :param pulumi.Input[_builtins.int] rotation_grace_period_minutes: How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `token_version` rotates the key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_ids: IDs of teams to scope the `team_role_names` to. If provided, `team_role_names` must also be a non-empty array, and vice versa. Pass an empty array if the key should not be scoped to any teams.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] team_role_names: Roles to grant for the teams specified in `team_ids`. If provided, `team_ids` must also be a non-empty array, and vice versa. Pass an empty array if no team-level roles are needed.
@@ -720,6 +786,7 @@ class ApiKey(pulumi.CustomResource):
 
         __props__.__dict__["comments"] = comments
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["expires_at"] = expires_at
         __props__.__dict__["last_used_at"] = last_used_at
         __props__.__dict__["name"] = name
         __props__.__dict__["role_names"] = role_names
@@ -749,6 +816,14 @@ class ApiKey(pulumi.CustomResource):
         return pulumi.get(self, "created_at")
 
     @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+        """
+        return pulumi.get(self, "expires_at")
+
+    @_builtins.property
     @pulumi.getter(name="lastUsedAt")
     def last_used_at(self) -> pulumi.Output[_builtins.str]:
         """
@@ -769,6 +844,8 @@ class ApiKey(pulumi.CustomResource):
     def role_names(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+
+        API key role name. Possible values are: `viewer`, `incident_creator`, `incident_editor`, `manage_settings`, `glossary_entries_manage`, `global_access`, `catalog_viewer`, `catalog_editor`, `incident_memberships_editor`, `schedules_editor`, `schedules_reader`, `schedule_overrides_editor`, `workflows_editor`, `workflows_viewer`, `private_workflows_editor`, `private_escalation_workflows_editor`, `on_call_editor`, `on_call_viewer`, `escalation_creator`, `post_incident_flow_opt_out`, `security_settings_editor`, `investigation_download`, `team_memberships_manage`, `status_page_publisher`, `status_page_viewer`, `postmortems_manage`, `api_keys_manage`, `notification_methods_manage`, `notification_methods_unredacted_viewer`, `incident_workload_viewer`, `incident_workload_private_viewer`, `act_on_behalf_of_users`, `secrets_manage`, `secrets_use`, `call_transcripts_viewer`, `heartbeats_ping`, `telemetry_query_restricted`, `telemetry_data_source_update`, `policies_viewer`, `policy_findings_manage`, `pay_reports_viewer`, `pay_reports_editor`, `pay_configs_viewer`, `pay_configs_editor`, `investigations_editor`, `telemetry_viewer`, `documents_viewer`, `user_sessions_revoke`, `users_viewer`, `access_control_manage`.
         """
         return pulumi.get(self, "role_names")
 

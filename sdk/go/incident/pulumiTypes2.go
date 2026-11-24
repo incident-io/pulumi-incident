@@ -9513,13 +9513,15 @@ func (o GetAlertRouteGroupingConfigOutput) Default() GetAlertRouteGroupingConfig
 type GetAlertRouteGroupingConfigDefault struct {
 	// Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
 	AiEnabled bool `pulumi:"aiEnabled"`
-	// Whether grouping is enabled
+	// Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+	AiInstructions string `pulumi:"aiInstructions"`
+	// Whether this alert route is enabled or not
 	Enabled bool `pulumi:"enabled"`
 	// Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
 	GroupingKeys []GetAlertRouteGroupingConfigDefaultGroupingKey `pulumi:"groupingKeys"`
 	// How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
 	WindowSeconds int `pulumi:"windowSeconds"`
-	// Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+	// Controls how the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
 	WindowType string `pulumi:"windowType"`
 }
 
@@ -9537,13 +9539,15 @@ type GetAlertRouteGroupingConfigDefaultInput interface {
 type GetAlertRouteGroupingConfigDefaultArgs struct {
 	// Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
 	AiEnabled pulumi.BoolInput `pulumi:"aiEnabled"`
-	// Whether grouping is enabled
+	// Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+	AiInstructions pulumi.StringInput `pulumi:"aiInstructions"`
+	// Whether this alert route is enabled or not
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
 	GroupingKeys GetAlertRouteGroupingConfigDefaultGroupingKeyArrayInput `pulumi:"groupingKeys"`
 	// How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
 	WindowSeconds pulumi.IntInput `pulumi:"windowSeconds"`
-	// Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+	// Controls how the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
 	WindowType pulumi.StringInput `pulumi:"windowType"`
 }
 
@@ -9578,7 +9582,12 @@ func (o GetAlertRouteGroupingConfigDefaultOutput) AiEnabled() pulumi.BoolOutput 
 	return o.ApplyT(func(v GetAlertRouteGroupingConfigDefault) bool { return v.AiEnabled }).(pulumi.BoolOutput)
 }
 
-// Whether grouping is enabled
+// Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+func (o GetAlertRouteGroupingConfigDefaultOutput) AiInstructions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRouteGroupingConfigDefault) string { return v.AiInstructions }).(pulumi.StringOutput)
+}
+
+// Whether this alert route is enabled or not
 func (o GetAlertRouteGroupingConfigDefaultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAlertRouteGroupingConfigDefault) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -9595,7 +9604,7 @@ func (o GetAlertRouteGroupingConfigDefaultOutput) WindowSeconds() pulumi.IntOutp
 	return o.ApplyT(func(v GetAlertRouteGroupingConfigDefault) int { return v.WindowSeconds }).(pulumi.IntOutput)
 }
 
-// Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+// Controls how the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
 func (o GetAlertRouteGroupingConfigDefaultOutput) WindowType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertRouteGroupingConfigDefault) string { return v.WindowType }).(pulumi.StringOutput)
 }

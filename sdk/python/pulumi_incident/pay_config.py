@@ -31,13 +31,13 @@ class PayConfigArgs:
         """
         The set of arguments for constructing a PayConfig resource.
 
-        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for any time no rule covers, in the lowest denomination of the currency
+        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         :param pulumi.Input[_builtins.str] currency: Currency this config pays in, in ISO 4217 format, such as `GBP`.
-        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         :param pulumi.Input[_builtins.str] timezone: IANA timezone this config's rules are interpreted in, such as `Europe/London`.
         :param pulumi.Input[_builtins.str] name: Human readable name for this pay config
         :param pulumi.Input[Sequence[pulumi.Input['PayConfigOneOffRuleArgs']]] one_off_rules: Rules that apply over a single window of time, such as a public holiday. These take precedence over the weekly rules and may not overlap each other. Changing the list changes the rules in place, position by position.
-        :param pulumi.Input[Sequence[pulumi.Input['PayConfigWeeklyRuleArgs']]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+        :param pulumi.Input[Sequence[pulumi.Input['PayConfigWeeklyRuleArgs']]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
         """
         pulumi.set(__self__, "base_rate_cents", base_rate_cents)
         pulumi.set(__self__, "currency", currency)
@@ -54,7 +54,7 @@ class PayConfigArgs:
     @pulumi.getter(name="baseRateCents")
     def base_rate_cents(self) -> pulumi.Input[_builtins.int]:
         """
-        Rate paid for any time no rule covers, in the lowest denomination of the currency
+        Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         """
         return pulumi.get(self, "base_rate_cents")
 
@@ -78,7 +78,7 @@ class PayConfigArgs:
     @pulumi.getter(name="rateTimeUnit")
     def rate_time_unit(self) -> pulumi.Input[_builtins.str]:
         """
-        The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         """
         return pulumi.get(self, "rate_time_unit")
 
@@ -126,7 +126,7 @@ class PayConfigArgs:
     @pulumi.getter(name="weeklyRules")
     def weekly_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PayConfigWeeklyRuleArgs']]]]:
         """
-        Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+        Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
         """
         return pulumi.get(self, "weekly_rules")
 
@@ -151,16 +151,16 @@ class _PayConfigState:
         """
         Input properties used for looking up and filtering PayConfig resources.
 
-        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for any time no rule covers, in the lowest denomination of the currency
+        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         :param pulumi.Input[_builtins.str] created_at: When this pay config was created.
         :param pulumi.Input[_builtins.str] currency: Currency this config pays in, in ISO 4217 format, such as `GBP`.
         :param pulumi.Input[_builtins.str] name: Human readable name for this pay config
         :param pulumi.Input[Sequence[pulumi.Input['PayConfigOneOffRuleArgs']]] one_off_rules: Rules that apply over a single window of time, such as a public holiday. These take precedence over the weekly rules and may not overlap each other. Changing the list changes the rules in place, position by position.
         :param pulumi.Input[_builtins.str] published_at: When a published report first priced against this config. Once set, editing the config needs the schedule*pay*configs.update_published scope. Null until then.
-        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         :param pulumi.Input[_builtins.str] timezone: IANA timezone this config's rules are interpreted in, such as `Europe/London`.
         :param pulumi.Input[_builtins.str] updated_at: When this pay config, or one of its rules, was last changed.
-        :param pulumi.Input[Sequence[pulumi.Input['PayConfigWeeklyRuleArgs']]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+        :param pulumi.Input[Sequence[pulumi.Input['PayConfigWeeklyRuleArgs']]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
         """
         if base_rate_cents is not None:
             pulumi.set(__self__, "base_rate_cents", base_rate_cents)
@@ -187,7 +187,7 @@ class _PayConfigState:
     @pulumi.getter(name="baseRateCents")
     def base_rate_cents(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Rate paid for any time no rule covers, in the lowest denomination of the currency
+        Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         """
         return pulumi.get(self, "base_rate_cents")
 
@@ -259,7 +259,7 @@ class _PayConfigState:
     @pulumi.getter(name="rateTimeUnit")
     def rate_time_unit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         """
         return pulumi.get(self, "rate_time_unit")
 
@@ -295,7 +295,7 @@ class _PayConfigState:
     @pulumi.getter(name="weeklyRules")
     def weekly_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PayConfigWeeklyRuleArgs']]]]:
         """
-        Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+        Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
         """
         return pulumi.get(self, "weekly_rules")
 
@@ -430,13 +430,13 @@ class PayConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for any time no rule covers, in the lowest denomination of the currency
+        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         :param pulumi.Input[_builtins.str] currency: Currency this config pays in, in ISO 4217 format, such as `GBP`.
         :param pulumi.Input[_builtins.str] name: Human readable name for this pay config
         :param pulumi.Input[Sequence[pulumi.Input[Union['PayConfigOneOffRuleArgs', 'PayConfigOneOffRuleArgsDict']]]] one_off_rules: Rules that apply over a single window of time, such as a public holiday. These take precedence over the weekly rules and may not overlap each other. Changing the list changes the rules in place, position by position.
-        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         :param pulumi.Input[_builtins.str] timezone: IANA timezone this config's rules are interpreted in, such as `Europe/London`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PayConfigWeeklyRuleArgs', 'PayConfigWeeklyRuleArgsDict']]]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PayConfigWeeklyRuleArgs', 'PayConfigWeeklyRuleArgsDict']]]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
         """
         ...
     @overload
@@ -630,16 +630,16 @@ class PayConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for any time no rule covers, in the lowest denomination of the currency
+        :param pulumi.Input[_builtins.int] base_rate_cents: Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         :param pulumi.Input[_builtins.str] created_at: When this pay config was created.
         :param pulumi.Input[_builtins.str] currency: Currency this config pays in, in ISO 4217 format, such as `GBP`.
         :param pulumi.Input[_builtins.str] name: Human readable name for this pay config
         :param pulumi.Input[Sequence[pulumi.Input[Union['PayConfigOneOffRuleArgs', 'PayConfigOneOffRuleArgsDict']]]] one_off_rules: Rules that apply over a single window of time, such as a public holiday. These take precedence over the weekly rules and may not overlap each other. Changing the list changes the rules in place, position by position.
         :param pulumi.Input[_builtins.str] published_at: When a published report first priced against this config. Once set, editing the config needs the schedule*pay*configs.update_published scope. Null until then.
-        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        :param pulumi.Input[_builtins.str] rate_time_unit: The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         :param pulumi.Input[_builtins.str] timezone: IANA timezone this config's rules are interpreted in, such as `Europe/London`.
         :param pulumi.Input[_builtins.str] updated_at: When this pay config, or one of its rules, was last changed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PayConfigWeeklyRuleArgs', 'PayConfigWeeklyRuleArgsDict']]]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PayConfigWeeklyRuleArgs', 'PayConfigWeeklyRuleArgsDict']]]] weekly_rules: Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -661,7 +661,7 @@ class PayConfig(pulumi.CustomResource):
     @pulumi.getter(name="baseRateCents")
     def base_rate_cents(self) -> pulumi.Output[_builtins.int]:
         """
-        Rate paid for any time no rule covers, in the lowest denomination of the currency
+        Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         """
         return pulumi.get(self, "base_rate_cents")
 
@@ -709,7 +709,7 @@ class PayConfig(pulumi.CustomResource):
     @pulumi.getter(name="rateTimeUnit")
     def rate_time_unit(self) -> pulumi.Output[_builtins.str]:
         """
-        The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         """
         return pulumi.get(self, "rate_time_unit")
 
@@ -733,7 +733,7 @@ class PayConfig(pulumi.CustomResource):
     @pulumi.getter(name="weeklyRules")
     def weekly_rules(self) -> pulumi.Output[Sequence['outputs.PayConfigWeeklyRule']]:
         """
-        Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+        Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
         """
         return pulumi.get(self, "weekly_rules")
 

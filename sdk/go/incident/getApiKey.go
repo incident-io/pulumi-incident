@@ -99,6 +99,8 @@ type LookupApiKeyResult struct {
 	Comments string `pulumi:"comments"`
 	// When the API key was created
 	CreatedAt string `pulumi:"createdAt"`
+	// When this API key stops working. If it's not set, the key never expires.
+	ExpiresAt string `pulumi:"expiresAt"`
 	// Unique identifier for this API key
 	Id string `pulumi:"id"`
 	// When the key was last used to authenticate a request
@@ -155,6 +157,11 @@ func (o LookupApiKeyResultOutput) Comments() pulumi.StringOutput {
 // When the API key was created
 func (o LookupApiKeyResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// When this API key stops working. If it's not set, the key never expires.
+func (o LookupApiKeyResultOutput) ExpiresAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApiKeyResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
 }
 
 // Unique identifier for this API key

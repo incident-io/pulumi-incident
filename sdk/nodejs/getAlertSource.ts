@@ -65,6 +65,10 @@ export interface GetAlertSourceArgs {
  */
 export interface GetAlertSourceResult {
     /**
+     * Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+     */
+    readonly aiTitlesEnabled: boolean;
+    /**
      * The URL to send alert events to
      */
     readonly alertEventsUrl: string;

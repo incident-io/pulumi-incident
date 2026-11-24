@@ -60173,7 +60173,7 @@ type PolicyDebrief struct {
 	DueDateConfig PolicyDebriefDueDateConfig `pulumi:"dueDateConfig"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	Requirements []PolicyDebriefRequirement `pulumi:"requirements"`
-	// Requires the policies.run*on*private scope
+	// Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `pulumi:"runOnPrivateIncidents"`
 }
 
@@ -60192,7 +60192,7 @@ type PolicyDebriefArgs struct {
 	DueDateConfig PolicyDebriefDueDateConfigInput `pulumi:"dueDateConfig"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	Requirements PolicyDebriefRequirementArrayInput `pulumi:"requirements"`
-	// Requires the policies.run*on*private scope
+	// Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents pulumi.BoolPtrInput `pulumi:"runOnPrivateIncidents"`
 }
 
@@ -60282,7 +60282,7 @@ func (o PolicyDebriefOutput) Requirements() PolicyDebriefRequirementArrayOutput 
 	return o.ApplyT(func(v PolicyDebrief) []PolicyDebriefRequirement { return v.Requirements }).(PolicyDebriefRequirementArrayOutput)
 }
 
-// Requires the policies.run*on*private scope
+// Requires the policies.run.private_incidents scope
 func (o PolicyDebriefOutput) RunOnPrivateIncidents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyDebrief) *bool { return v.RunOnPrivateIncidents }).(pulumi.BoolPtrOutput)
 }
@@ -60330,7 +60330,7 @@ func (o PolicyDebriefPtrOutput) Requirements() PolicyDebriefRequirementArrayOutp
 	}).(PolicyDebriefRequirementArrayOutput)
 }
 
-// Requires the policies.run*on*private scope
+// Requires the policies.run.private_incidents scope
 func (o PolicyDebriefPtrOutput) RunOnPrivateIncidents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyDebrief) *bool {
 		if v == nil {
@@ -65665,7 +65665,7 @@ type PolicyFollowUp struct {
 	DueDateConfig PolicyFollowUpDueDateConfig `pulumi:"dueDateConfig"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	Requirements []PolicyFollowUpRequirement `pulumi:"requirements"`
-	// Requires the policies.run*on*private scope
+	// Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `pulumi:"runOnPrivateIncidents"`
 }
 
@@ -65684,7 +65684,7 @@ type PolicyFollowUpArgs struct {
 	DueDateConfig PolicyFollowUpDueDateConfigInput `pulumi:"dueDateConfig"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	Requirements PolicyFollowUpRequirementArrayInput `pulumi:"requirements"`
-	// Requires the policies.run*on*private scope
+	// Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents pulumi.BoolPtrInput `pulumi:"runOnPrivateIncidents"`
 }
 
@@ -65774,7 +65774,7 @@ func (o PolicyFollowUpOutput) Requirements() PolicyFollowUpRequirementArrayOutpu
 	return o.ApplyT(func(v PolicyFollowUp) []PolicyFollowUpRequirement { return v.Requirements }).(PolicyFollowUpRequirementArrayOutput)
 }
 
-// Requires the policies.run*on*private scope
+// Requires the policies.run.private_incidents scope
 func (o PolicyFollowUpOutput) RunOnPrivateIncidents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyFollowUp) *bool { return v.RunOnPrivateIncidents }).(pulumi.BoolPtrOutput)
 }
@@ -65822,7 +65822,7 @@ func (o PolicyFollowUpPtrOutput) Requirements() PolicyFollowUpRequirementArrayOu
 	}).(PolicyFollowUpRequirementArrayOutput)
 }
 
-// Requires the policies.run*on*private scope
+// Requires the policies.run.private_incidents scope
 func (o PolicyFollowUpPtrOutput) RunOnPrivateIncidents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyFollowUp) *bool {
 		if v == nil {
@@ -67550,7 +67550,7 @@ type PolicyPostMortem struct {
 	DueDateConfig PolicyPostMortemDueDateConfig `pulumi:"dueDateConfig"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	Requirements []PolicyPostMortemRequirement `pulumi:"requirements"`
-	// Requires the policies.run*on*private scope
+	// Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents *bool `pulumi:"runOnPrivateIncidents"`
 }
 
@@ -67569,7 +67569,7 @@ type PolicyPostMortemArgs struct {
 	DueDateConfig PolicyPostMortemDueDateConfigInput `pulumi:"dueDateConfig"`
 	// Groups of prerequisite conditions. All conditions in at least one group must be satisfied
 	Requirements PolicyPostMortemRequirementArrayInput `pulumi:"requirements"`
-	// Requires the policies.run*on*private scope
+	// Requires the policies.run.private_incidents scope
 	RunOnPrivateIncidents pulumi.BoolPtrInput `pulumi:"runOnPrivateIncidents"`
 }
 
@@ -67659,7 +67659,7 @@ func (o PolicyPostMortemOutput) Requirements() PolicyPostMortemRequirementArrayO
 	return o.ApplyT(func(v PolicyPostMortem) []PolicyPostMortemRequirement { return v.Requirements }).(PolicyPostMortemRequirementArrayOutput)
 }
 
-// Requires the policies.run*on*private scope
+// Requires the policies.run.private_incidents scope
 func (o PolicyPostMortemOutput) RunOnPrivateIncidents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPostMortem) *bool { return v.RunOnPrivateIncidents }).(pulumi.BoolPtrOutput)
 }
@@ -67707,7 +67707,7 @@ func (o PolicyPostMortemPtrOutput) Requirements() PolicyPostMortemRequirementArr
 	}).(PolicyPostMortemRequirementArrayOutput)
 }
 
-// Requires the policies.run*on*private scope
+// Requires the policies.run.private_incidents scope
 func (o PolicyPostMortemPtrOutput) RunOnPrivateIncidents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyPostMortem) *bool {
 		if v == nil {
@@ -71030,7 +71030,7 @@ func (o StatusPageStructureItemGroupComponentArrayOutput) Index(i pulumi.IntInpu
 }
 
 type TeamGroupingPreferenceDefault struct {
-	// How a team's alerts are grouped together, on every alert route
+	// How alerts are grouped together
 	Settings TeamGroupingPreferenceDefaultSettings `pulumi:"settings"`
 }
 
@@ -71046,7 +71046,7 @@ type TeamGroupingPreferenceDefaultInput interface {
 }
 
 type TeamGroupingPreferenceDefaultArgs struct {
-	// How a team's alerts are grouped together, on every alert route
+	// How alerts are grouped together
 	Settings TeamGroupingPreferenceDefaultSettingsInput `pulumi:"settings"`
 }
 
@@ -71127,7 +71127,7 @@ func (o TeamGroupingPreferenceDefaultOutput) ToTeamGroupingPreferenceDefaultPtrO
 	}).(TeamGroupingPreferenceDefaultPtrOutput)
 }
 
-// How a team's alerts are grouped together, on every alert route
+// How alerts are grouped together
 func (o TeamGroupingPreferenceDefaultOutput) Settings() TeamGroupingPreferenceDefaultSettingsOutput {
 	return o.ApplyT(func(v TeamGroupingPreferenceDefault) TeamGroupingPreferenceDefaultSettings { return v.Settings }).(TeamGroupingPreferenceDefaultSettingsOutput)
 }
@@ -71156,7 +71156,7 @@ func (o TeamGroupingPreferenceDefaultPtrOutput) Elem() TeamGroupingPreferenceDef
 	}).(TeamGroupingPreferenceDefaultOutput)
 }
 
-// How a team's alerts are grouped together, on every alert route
+// How alerts are grouped together
 func (o TeamGroupingPreferenceDefaultPtrOutput) Settings() TeamGroupingPreferenceDefaultSettingsPtrOutput {
 	return o.ApplyT(func(v *TeamGroupingPreferenceDefault) *TeamGroupingPreferenceDefaultSettings {
 		if v == nil {
@@ -71169,13 +71169,15 @@ func (o TeamGroupingPreferenceDefaultPtrOutput) Settings() TeamGroupingPreferenc
 type TeamGroupingPreferenceDefaultSettings struct {
 	// Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
 	AiEnabled *bool `pulumi:"aiEnabled"`
-	// Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+	// Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+	AiInstructions *string `pulumi:"aiInstructions"`
+	// Whether these alerts are grouped. When false, none of them are grouped.
 	Enabled bool `pulumi:"enabled"`
-	// Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+	// Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
 	GroupingKeys []TeamGroupingPreferenceDefaultSettingsGroupingKey `pulumi:"groupingKeys"`
 	// How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
 	WindowSeconds *int `pulumi:"windowSeconds"`
-	// How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+	// How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
 	WindowType *string `pulumi:"windowType"`
 }
 
@@ -71193,13 +71195,15 @@ type TeamGroupingPreferenceDefaultSettingsInput interface {
 type TeamGroupingPreferenceDefaultSettingsArgs struct {
 	// Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
 	AiEnabled pulumi.BoolPtrInput `pulumi:"aiEnabled"`
-	// Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+	// Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+	AiInstructions pulumi.StringPtrInput `pulumi:"aiInstructions"`
+	// Whether these alerts are grouped. When false, none of them are grouped.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+	// Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
 	GroupingKeys TeamGroupingPreferenceDefaultSettingsGroupingKeyArrayInput `pulumi:"groupingKeys"`
 	// How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
 	WindowSeconds pulumi.IntPtrInput `pulumi:"windowSeconds"`
-	// How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+	// How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
 	WindowType pulumi.StringPtrInput `pulumi:"windowType"`
 }
 
@@ -71285,12 +71289,17 @@ func (o TeamGroupingPreferenceDefaultSettingsOutput) AiEnabled() pulumi.BoolPtrO
 	return o.ApplyT(func(v TeamGroupingPreferenceDefaultSettings) *bool { return v.AiEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+// Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+func (o TeamGroupingPreferenceDefaultSettingsOutput) AiInstructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TeamGroupingPreferenceDefaultSettings) *string { return v.AiInstructions }).(pulumi.StringPtrOutput)
+}
+
+// Whether these alerts are grouped. When false, none of them are grouped.
 func (o TeamGroupingPreferenceDefaultSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TeamGroupingPreferenceDefaultSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+// Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
 func (o TeamGroupingPreferenceDefaultSettingsOutput) GroupingKeys() TeamGroupingPreferenceDefaultSettingsGroupingKeyArrayOutput {
 	return o.ApplyT(func(v TeamGroupingPreferenceDefaultSettings) []TeamGroupingPreferenceDefaultSettingsGroupingKey {
 		return v.GroupingKeys
@@ -71302,7 +71311,7 @@ func (o TeamGroupingPreferenceDefaultSettingsOutput) WindowSeconds() pulumi.IntP
 	return o.ApplyT(func(v TeamGroupingPreferenceDefaultSettings) *int { return v.WindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-// How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+// How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
 func (o TeamGroupingPreferenceDefaultSettingsOutput) WindowType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TeamGroupingPreferenceDefaultSettings) *string { return v.WindowType }).(pulumi.StringPtrOutput)
 }
@@ -71341,7 +71350,17 @@ func (o TeamGroupingPreferenceDefaultSettingsPtrOutput) AiEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+// Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+func (o TeamGroupingPreferenceDefaultSettingsPtrOutput) AiInstructions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamGroupingPreferenceDefaultSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AiInstructions
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether these alerts are grouped. When false, none of them are grouped.
 func (o TeamGroupingPreferenceDefaultSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TeamGroupingPreferenceDefaultSettings) *bool {
 		if v == nil {
@@ -71351,7 +71370,7 @@ func (o TeamGroupingPreferenceDefaultSettingsPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+// Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
 func (o TeamGroupingPreferenceDefaultSettingsPtrOutput) GroupingKeys() TeamGroupingPreferenceDefaultSettingsGroupingKeyArrayOutput {
 	return o.ApplyT(func(v *TeamGroupingPreferenceDefaultSettings) []TeamGroupingPreferenceDefaultSettingsGroupingKey {
 		if v == nil {
@@ -71371,7 +71390,7 @@ func (o TeamGroupingPreferenceDefaultSettingsPtrOutput) WindowSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+// How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
 func (o TeamGroupingPreferenceDefaultSettingsPtrOutput) WindowType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamGroupingPreferenceDefaultSettings) *string {
 		if v == nil {

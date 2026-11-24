@@ -43,14 +43,18 @@ import (
 type AlertSourceBeta struct {
 	pulumi.CustomResourceState
 
+	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+	AiTitlesEnabled pulumi.BoolOutput `pulumi:"aiTitlesEnabled"`
 	// The URL to send alert events to
 	AlertEventsUrl pulumi.StringOutput `pulumi:"alertEventsUrl"`
-	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts pulumi.BoolOutput `pulumi:"autoResolveIncidentAlerts"`
 	// How long to wait before automatically resolving alerts from this source
 	AutoResolveTimeoutMinutes pulumi.IntPtrOutput                 `pulumi:"autoResolveTimeoutMinutes"`
 	Description               AlertSourceBetaDescriptionPtrOutput `pulumi:"description"`
 	// Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+	//
+	// Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
 	Disabled pulumi.BoolOutput `pulumi:"disabled"`
 	// Email address this alert source receives alerts to
 	EmailAddress pulumi.StringOutput                  `pulumi:"emailAddress"`
@@ -123,14 +127,18 @@ func GetAlertSourceBeta(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertSourceBeta resources.
 type alertSourceBetaState struct {
+	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+	AiTitlesEnabled *bool `pulumi:"aiTitlesEnabled"`
 	// The URL to send alert events to
 	AlertEventsUrl *string `pulumi:"alertEventsUrl"`
-	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts *bool `pulumi:"autoResolveIncidentAlerts"`
 	// How long to wait before automatically resolving alerts from this source
 	AutoResolveTimeoutMinutes *int                        `pulumi:"autoResolveTimeoutMinutes"`
 	Description               *AlertSourceBetaDescription `pulumi:"description"`
 	// Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+	//
+	// Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
 	Disabled *bool `pulumi:"disabled"`
 	// Email address this alert source receives alerts to
 	EmailAddress *string                      `pulumi:"emailAddress"`
@@ -167,14 +175,18 @@ type alertSourceBetaState struct {
 }
 
 type AlertSourceBetaState struct {
+	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+	AiTitlesEnabled pulumi.BoolPtrInput
 	// The URL to send alert events to
 	AlertEventsUrl pulumi.StringPtrInput
-	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts pulumi.BoolPtrInput
 	// How long to wait before automatically resolving alerts from this source
 	AutoResolveTimeoutMinutes pulumi.IntPtrInput
 	Description               AlertSourceBetaDescriptionPtrInput
 	// Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+	//
+	// Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
 	Disabled pulumi.BoolPtrInput
 	// Email address this alert source receives alerts to
 	EmailAddress pulumi.StringPtrInput
@@ -215,12 +227,16 @@ func (AlertSourceBetaState) ElementType() reflect.Type {
 }
 
 type alertSourceBetaArgs struct {
-	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+	AiTitlesEnabled *bool `pulumi:"aiTitlesEnabled"`
+	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts *bool `pulumi:"autoResolveIncidentAlerts"`
 	// How long to wait before automatically resolving alerts from this source
 	AutoResolveTimeoutMinutes *int                        `pulumi:"autoResolveTimeoutMinutes"`
 	Description               *AlertSourceBetaDescription `pulumi:"description"`
 	// Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+	//
+	// Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
 	Disabled     *bool                        `pulumi:"disabled"`
 	EmailOptions *AlertSourceBetaEmailOptions `pulumi:"emailOptions"`
 	// Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.
@@ -252,12 +268,16 @@ type alertSourceBetaArgs struct {
 
 // The set of arguments for constructing a AlertSourceBeta resource.
 type AlertSourceBetaArgs struct {
-	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+	AiTitlesEnabled pulumi.BoolPtrInput
+	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts pulumi.BoolPtrInput
 	// How long to wait before automatically resolving alerts from this source
 	AutoResolveTimeoutMinutes pulumi.IntPtrInput
 	Description               AlertSourceBetaDescriptionPtrInput
 	// Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+	//
+	// Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
 	Disabled     pulumi.BoolPtrInput
 	EmailOptions AlertSourceBetaEmailOptionsPtrInput
 	// Conditions an incoming event must match to be ingested from this source, evaluated against the event's payload and this source's expressions.
@@ -374,12 +394,17 @@ func (o AlertSourceBetaOutput) ToAlertSourceBetaOutputWithContext(ctx context.Co
 	return o
 }
 
+// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+func (o AlertSourceBetaOutput) AiTitlesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AlertSourceBeta) pulumi.BoolOutput { return v.AiTitlesEnabled }).(pulumi.BoolOutput)
+}
+
 // The URL to send alert events to
 func (o AlertSourceBetaOutput) AlertEventsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) pulumi.StringOutput { return v.AlertEventsUrl }).(pulumi.StringOutput)
 }
 
-// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 func (o AlertSourceBetaOutput) AutoResolveIncidentAlerts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) pulumi.BoolOutput { return v.AutoResolveIncidentAlerts }).(pulumi.BoolOutput)
 }
@@ -394,6 +419,8 @@ func (o AlertSourceBetaOutput) Description() AlertSourceBetaDescriptionPtrOutput
 }
 
 // Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+//
+// Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
 func (o AlertSourceBetaOutput) Disabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) pulumi.BoolOutput { return v.Disabled }).(pulumi.BoolOutput)
 }

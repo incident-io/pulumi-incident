@@ -66,7 +66,7 @@ class GetPayConfigResult:
     @pulumi.getter(name="baseRateCents")
     def base_rate_cents(self) -> _builtins.int:
         """
-        Rate paid for any time no rule covers, in the lowest denomination of the currency
+        Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
         """
         return pulumi.get(self, "base_rate_cents")
 
@@ -122,7 +122,7 @@ class GetPayConfigResult:
     @pulumi.getter(name="rateTimeUnit")
     def rate_time_unit(self) -> _builtins.str:
         """
-        The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+        The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
         """
         return pulumi.get(self, "rate_time_unit")
 
@@ -146,7 +146,7 @@ class GetPayConfigResult:
     @pulumi.getter(name="weeklyRules")
     def weekly_rules(self) -> Sequence['outputs.GetPayConfigWeeklyRuleResult']:
         """
-        Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it.
+        Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it.
         """
         return pulumi.get(self, "weekly_rules")
 

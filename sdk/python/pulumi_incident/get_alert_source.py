@@ -28,7 +28,10 @@ class GetAlertSourceResult:
     """
     A collection of values returned by getAlertSource.
     """
-    def __init__(__self__, alert_events_url=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, sns_options=None, source_type=None, title=None, unlock_in_dashboard=None, version=None, visible_to_teams=None):
+    def __init__(__self__, ai_titles_enabled=None, alert_events_url=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, sns_options=None, source_type=None, title=None, unlock_in_dashboard=None, version=None, visible_to_teams=None):
+        if ai_titles_enabled and not isinstance(ai_titles_enabled, bool):
+            raise TypeError("Expected argument 'ai_titles_enabled' to be a bool")
+        pulumi.set(__self__, "ai_titles_enabled", ai_titles_enabled)
         if alert_events_url and not isinstance(alert_events_url, str):
             raise TypeError("Expected argument 'alert_events_url' to be a str")
         pulumi.set(__self__, "alert_events_url", alert_events_url)
@@ -107,6 +110,14 @@ class GetAlertSourceResult:
         if visible_to_teams and not isinstance(visible_to_teams, dict):
             raise TypeError("Expected argument 'visible_to_teams' to be a dict")
         pulumi.set(__self__, "visible_to_teams", visible_to_teams)
+
+    @_builtins.property
+    @pulumi.getter(name="aiTitlesEnabled")
+    def ai_titles_enabled(self) -> _builtins.bool:
+        """
+        Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+        """
+        return pulumi.get(self, "ai_titles_enabled")
 
     @_builtins.property
     @pulumi.getter(name="alertEventsUrl")
@@ -296,6 +307,7 @@ class AwaitableGetAlertSourceResult(GetAlertSourceResult):
         if False:
             yield self
         return GetAlertSourceResult(
+            ai_titles_enabled=self.ai_titles_enabled,
             alert_events_url=self.alert_events_url,
             auto_resolve_incident_alerts=self.auto_resolve_incident_alerts,
             auto_resolve_timeout_minutes=self.auto_resolve_timeout_minutes,
@@ -363,6 +375,7 @@ def get_alert_source(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('incident:index/getAlertSource:getAlertSource', __args__, opts=opts, typ=GetAlertSourceResult).value
 
     return AwaitableGetAlertSourceResult(
+        ai_titles_enabled=pulumi.get(__ret__, 'ai_titles_enabled'),
         alert_events_url=pulumi.get(__ret__, 'alert_events_url'),
         auto_resolve_incident_alerts=pulumi.get(__ret__, 'auto_resolve_incident_alerts'),
         auto_resolve_timeout_minutes=pulumi.get(__ret__, 'auto_resolve_timeout_minutes'),
@@ -427,6 +440,7 @@ def get_alert_source_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('incident:index/getAlertSource:getAlertSource', __args__, opts=opts, typ=GetAlertSourceResult)
     return __ret__.apply(lambda __response__: GetAlertSourceResult(
+        ai_titles_enabled=pulumi.get(__response__, 'ai_titles_enabled'),
         alert_events_url=pulumi.get(__response__, 'alert_events_url'),
         auto_resolve_incident_alerts=pulumi.get(__response__, 'auto_resolve_incident_alerts'),
         auto_resolve_timeout_minutes=pulumi.get(__response__, 'auto_resolve_timeout_minutes'),

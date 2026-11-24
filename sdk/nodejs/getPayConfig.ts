@@ -59,7 +59,7 @@ export interface GetPayConfigArgs {
  */
 export interface GetPayConfigResult {
     /**
-     * Rate paid for any time no rule covers, in the lowest denomination of the currency
+     * Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
      */
     readonly baseRateCents: number;
     /**
@@ -87,7 +87,7 @@ export interface GetPayConfigResult {
      */
     readonly publishedAt: string;
     /**
-     * The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+     * The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
      */
     readonly rateTimeUnit: string;
     /**
@@ -99,7 +99,7 @@ export interface GetPayConfigResult {
      */
     readonly updatedAt: string;
     /**
-     * Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it.
+     * Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it.
      */
     readonly weeklyRules: outputs.GetPayConfigWeeklyRule[];
 }

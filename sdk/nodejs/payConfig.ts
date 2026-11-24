@@ -146,7 +146,7 @@ export class PayConfig extends pulumi.CustomResource {
     }
 
     /**
-     * Rate paid for any time no rule covers, in the lowest denomination of the currency
+     * Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
      */
     declare public readonly baseRateCents: pulumi.Output<number>;
     /**
@@ -170,7 +170,7 @@ export class PayConfig extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly publishedAt: pulumi.Output<string>;
     /**
-     * The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+     * The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
      */
     declare public readonly rateTimeUnit: pulumi.Output<string>;
     /**
@@ -182,7 +182,7 @@ export class PayConfig extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
-     * Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+     * Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
      */
     declare public readonly weeklyRules: pulumi.Output<outputs.PayConfigWeeklyRule[]>;
 
@@ -244,7 +244,7 @@ export class PayConfig extends pulumi.CustomResource {
  */
 export interface PayConfigState {
     /**
-     * Rate paid for any time no rule covers, in the lowest denomination of the currency
+     * Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
      */
     baseRateCents?: pulumi.Input<number | undefined>;
     /**
@@ -268,7 +268,7 @@ export interface PayConfigState {
      */
     publishedAt?: pulumi.Input<string | undefined>;
     /**
-     * The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+     * The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
      */
     rateTimeUnit?: pulumi.Input<string | undefined>;
     /**
@@ -280,7 +280,7 @@ export interface PayConfigState {
      */
     updatedAt?: pulumi.Input<string | undefined>;
     /**
-     * Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+     * Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
      */
     weeklyRules?: pulumi.Input<pulumi.Input<inputs.PayConfigWeeklyRule>[] | undefined>;
 }
@@ -290,7 +290,7 @@ export interface PayConfigState {
  */
 export interface PayConfigArgs {
     /**
-     * Rate paid for any time no rule covers, in the lowest denomination of the currency
+     * Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
      */
     baseRateCents: pulumi.Input<number>;
     /**
@@ -306,7 +306,7 @@ export interface PayConfigArgs {
      */
     oneOffRules?: pulumi.Input<pulumi.Input<inputs.PayConfigOneOffRule>[] | undefined>;
     /**
-     * The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+     * The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
      */
     rateTimeUnit: pulumi.Input<string>;
     /**
@@ -314,7 +314,7 @@ export interface PayConfigArgs {
      */
     timezone: pulumi.Input<string>;
     /**
-     * Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+     * Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
      */
     weeklyRules?: pulumi.Input<pulumi.Input<inputs.PayConfigWeeklyRule>[] | undefined>;
 }

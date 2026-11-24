@@ -72,7 +72,7 @@ type LookupPayConfigArgs struct {
 
 // A collection of values returned by getPayConfig.
 type LookupPayConfigResult struct {
-	// Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents int `pulumi:"baseRateCents"`
 	// When this pay config was created.
 	CreatedAt string `pulumi:"createdAt"`
@@ -86,13 +86,13 @@ type LookupPayConfigResult struct {
 	OneOffRules []GetPayConfigOneOffRule `pulumi:"oneOffRules"`
 	// When a published report first priced against this config. Once set, editing the config needs the schedule*pay*configs.update_published scope. Null until then.
 	PublishedAt string `pulumi:"publishedAt"`
-	// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+	// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 	RateTimeUnit string `pulumi:"rateTimeUnit"`
 	// IANA timezone this config's rules are interpreted in
 	Timezone string `pulumi:"timezone"`
 	// When this pay config, or one of its rules, was last changed.
 	UpdatedAt string `pulumi:"updatedAt"`
-	// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it.
+	// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it.
 	WeeklyRules []GetPayConfigWeeklyRule `pulumi:"weeklyRules"`
 }
 
@@ -128,7 +128,7 @@ func (o LookupPayConfigResultOutput) ToLookupPayConfigResultOutputWithContext(ct
 	return o
 }
 
-// Rate paid for any time no rule covers, in the lowest denomination of the currency
+// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 func (o LookupPayConfigResultOutput) BaseRateCents() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupPayConfigResult) int { return v.BaseRateCents }).(pulumi.IntOutput)
 }
@@ -163,7 +163,7 @@ func (o LookupPayConfigResultOutput) PublishedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPayConfigResult) string { return v.PublishedAt }).(pulumi.StringOutput)
 }
 
-// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 func (o LookupPayConfigResultOutput) RateTimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPayConfigResult) string { return v.RateTimeUnit }).(pulumi.StringOutput)
 }
@@ -178,7 +178,7 @@ func (o LookupPayConfigResultOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPayConfigResult) string { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it.
+// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it.
 func (o LookupPayConfigResultOutput) WeeklyRules() GetPayConfigWeeklyRuleArrayOutput {
 	return o.ApplyT(func(v LookupPayConfigResult) []GetPayConfigWeeklyRule { return v.WeeklyRules }).(GetPayConfigWeeklyRuleArrayOutput)
 }

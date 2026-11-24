@@ -75,6 +75,8 @@ type LookupAlertSourceArgs struct {
 
 // A collection of values returned by getAlertSource.
 type LookupAlertSourceResult struct {
+	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+	AiTitlesEnabled bool `pulumi:"aiTitlesEnabled"`
 	// The URL to send alert events to
 	AlertEventsUrl string `pulumi:"alertEventsUrl"`
 	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
@@ -152,6 +154,11 @@ func (o LookupAlertSourceResultOutput) ToLookupAlertSourceResultOutput() LookupA
 
 func (o LookupAlertSourceResultOutput) ToLookupAlertSourceResultOutputWithContext(ctx context.Context) LookupAlertSourceResultOutput {
 	return o
+}
+
+// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+func (o LookupAlertSourceResultOutput) AiTitlesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAlertSourceResult) bool { return v.AiTitlesEnabled }).(pulumi.BoolOutput)
 }
 
 // The URL to send alert events to

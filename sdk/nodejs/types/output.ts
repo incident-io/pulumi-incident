@@ -883,6 +883,10 @@ export interface AlertRouteGroupingConfigDefault {
      */
     aiEnabled: boolean;
     /**
+     * Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+     */
+    aiInstructions?: string;
+    /**
      * Whether grouping is enabled
      */
     enabled: boolean;
@@ -895,7 +899,7 @@ export interface AlertRouteGroupingConfigDefault {
      */
     windowSeconds?: number;
     /**
-     * Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     * Controls how the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
      */
     windowType?: string;
 }
@@ -12039,7 +12043,11 @@ export interface GetAlertRouteGroupingConfigDefault {
      */
     aiEnabled: boolean;
     /**
-     * Whether grouping is enabled
+     * Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+     */
+    aiInstructions: string;
+    /**
+     * Whether this alert route is enabled or not
      */
     enabled: boolean;
     /**
@@ -12051,7 +12059,7 @@ export interface GetAlertRouteGroupingConfigDefault {
      */
     windowSeconds: number;
     /**
-     * Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     * Controls how the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
      */
     windowType: string;
 }
@@ -23938,7 +23946,7 @@ export interface PolicyDebrief {
      */
     requirements: outputs.PolicyDebriefRequirement[];
     /**
-     * Requires the policies.run*on*private scope
+     * Requires the policies.run.private_incidents scope
      */
     runOnPrivateIncidents: boolean;
 }
@@ -24482,7 +24490,7 @@ export interface PolicyFollowUp {
      */
     requirements: outputs.PolicyFollowUpRequirement[];
     /**
-     * Requires the policies.run*on*private scope
+     * Requires the policies.run.private_incidents scope
      */
     runOnPrivateIncidents: boolean;
 }
@@ -24671,7 +24679,7 @@ export interface PolicyPostMortem {
      */
     requirements: outputs.PolicyPostMortemRequirement[];
     /**
-     * Requires the policies.run*on*private scope
+     * Requires the policies.run.private_incidents scope
      */
     runOnPrivateIncidents: boolean;
 }
@@ -25003,7 +25011,7 @@ export interface StatusPageStructureItemGroupComponent {
 
 export interface TeamGroupingPreferenceDefault {
     /**
-     * How a team's alerts are grouped together, on every alert route
+     * How alerts are grouped together
      */
     settings: outputs.TeamGroupingPreferenceDefaultSettings;
 }
@@ -25014,11 +25022,15 @@ export interface TeamGroupingPreferenceDefaultSettings {
      */
     aiEnabled: boolean;
     /**
-     * Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+     * Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+     */
+    aiInstructions?: string;
+    /**
+     * Whether these alerts are grouped. When false, none of them are grouped.
      */
     enabled: boolean;
     /**
-     * Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+     * Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
      */
     groupingKeys?: outputs.TeamGroupingPreferenceDefaultSettingsGroupingKey[];
     /**
@@ -25026,7 +25038,7 @@ export interface TeamGroupingPreferenceDefaultSettings {
      */
     windowSeconds?: number;
     /**
-     * How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     * How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
      */
     windowType?: string;
 }

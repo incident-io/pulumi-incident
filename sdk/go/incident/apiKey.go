@@ -101,6 +101,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// A key can expire. incident.io only changes a key's expiry when it rotates the key, so
+//			// moving expires_at on an existing key goes with a change to token_version, which rotates
+//			// it with the new expiry.
+//			_, err = incident.NewApiKey(ctx, "expiring", &incident.ApiKeyArgs{
+//				Name: pulumi.String("Quarterly audit export"),
+//				RoleNames: pulumi.StringArray{
+//					pulumi.String("viewer"),
+//				},
+//				ExpiresAt:    pulumi.String("2027-03-31T00:00:00Z"),
+//				TokenVersion: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			// A key can be scoped to particular teams instead of the whole account. team_ids says
 //			// which teams, and team_role_names says what the key may do for them, so the two go
 //			// together: set both, or neither. An account with no account-level roles leaves
@@ -163,11 +177,15 @@ type ApiKey struct {
 	Comments pulumi.StringPtrOutput `pulumi:"comments"`
 	// When the API key was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+	ExpiresAt pulumi.StringOutput `pulumi:"expiresAt"`
 	// When the key was last used to authenticate a request
 	LastUsedAt pulumi.StringOutput `pulumi:"lastUsedAt"`
 	// The name of the API key, for the user's reference
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+	//
+	// API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
 	RoleNames pulumi.StringArrayOutput `pulumi:"roleNames"`
 	// How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `tokenVersion` rotates the key.
 	RotationGracePeriodMinutes pulumi.IntOutput `pulumi:"rotationGracePeriodMinutes"`
@@ -225,11 +243,15 @@ type apiKeyState struct {
 	Comments *string `pulumi:"comments"`
 	// When the API key was created
 	CreatedAt *string `pulumi:"createdAt"`
+	// When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+	ExpiresAt *string `pulumi:"expiresAt"`
 	// When the key was last used to authenticate a request
 	LastUsedAt *string `pulumi:"lastUsedAt"`
 	// The name of the API key, for the user's reference
 	Name *string `pulumi:"name"`
 	// Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+	//
+	// API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
 	RoleNames []string `pulumi:"roleNames"`
 	// How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `tokenVersion` rotates the key.
 	RotationGracePeriodMinutes *int `pulumi:"rotationGracePeriodMinutes"`
@@ -254,11 +276,15 @@ type ApiKeyState struct {
 	Comments pulumi.StringPtrInput
 	// When the API key was created
 	CreatedAt pulumi.StringPtrInput
+	// When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+	ExpiresAt pulumi.StringPtrInput
 	// When the key was last used to authenticate a request
 	LastUsedAt pulumi.StringPtrInput
 	// The name of the API key, for the user's reference
 	Name pulumi.StringPtrInput
 	// Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+	//
+	// API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
 	RoleNames pulumi.StringArrayInput
 	// How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `tokenVersion` rotates the key.
 	RotationGracePeriodMinutes pulumi.IntPtrInput
@@ -285,9 +311,13 @@ func (ApiKeyState) ElementType() reflect.Type {
 type apiKeyArgs struct {
 	// Freeform notes about this API key
 	Comments *string `pulumi:"comments"`
+	// When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+	ExpiresAt *string `pulumi:"expiresAt"`
 	// The name of the API key, for the user's reference
 	Name *string `pulumi:"name"`
 	// Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+	//
+	// API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
 	RoleNames []string `pulumi:"roleNames"`
 	// How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `tokenVersion` rotates the key.
 	RotationGracePeriodMinutes *int `pulumi:"rotationGracePeriodMinutes"`
@@ -307,9 +337,13 @@ type apiKeyArgs struct {
 type ApiKeyArgs struct {
 	// Freeform notes about this API key
 	Comments pulumi.StringPtrInput
+	// When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+	ExpiresAt pulumi.StringPtrInput
 	// The name of the API key, for the user's reference
 	Name pulumi.StringPtrInput
 	// Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+	//
+	// API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
 	RoleNames pulumi.StringArrayInput
 	// How long the previous token keeps working after a rotation, in minutes, giving whatever holds it a window to pick up the new one. Defaults to 30. Set it to 0 to retire the old token immediately, at the cost of breaking anything still using it. incident.io documents an hour as the longest a rotated token stays valid, so it may reject a longer period. Only read when a change to `tokenVersion` rotates the key.
 	RotationGracePeriodMinutes pulumi.IntPtrInput
@@ -422,6 +456,11 @@ func (o ApiKeyOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// When the API key stops working. Leave it out for a key that never expires. It must be in the future and within your organization's maximum lifetime for API keys.
+func (o ApiKeyOutput) ExpiresAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ExpiresAt }).(pulumi.StringOutput)
+}
+
 // When the key was last used to authenticate a request
 func (o ApiKeyOutput) LastUsedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.LastUsedAt }).(pulumi.StringOutput)
@@ -433,6 +472,8 @@ func (o ApiKeyOutput) Name() pulumi.StringOutput {
 }
 
 // Account-level roles to assign to the API key. These roles apply across the entire account, not scoped to specific teams. Pass an empty array if no account-level roles are needed.
+//
+// API key role name. Possible values are: `viewer`, `incidentCreator`, `incidentEditor`, `manageSettings`, `glossaryEntriesManage`, `globalAccess`, `catalogViewer`, `catalogEditor`, `incidentMembershipsEditor`, `schedulesEditor`, `schedulesReader`, `scheduleOverridesEditor`, `workflowsEditor`, `workflowsViewer`, `privateWorkflowsEditor`, `privateEscalationWorkflowsEditor`, `onCallEditor`, `onCallViewer`, `escalationCreator`, `postIncidentFlowOptOut`, `securitySettingsEditor`, `investigationDownload`, `teamMembershipsManage`, `statusPagePublisher`, `statusPageViewer`, `postmortemsManage`, `apiKeysManage`, `notificationMethodsManage`, `notificationMethodsUnredactedViewer`, `incidentWorkloadViewer`, `incidentWorkloadPrivateViewer`, `actOnBehalfOfUsers`, `secretsManage`, `secretsUse`, `callTranscriptsViewer`, `heartbeatsPing`, `telemetryQueryRestricted`, `telemetryDataSourceUpdate`, `policiesViewer`, `policyFindingsManage`, `payReportsViewer`, `payReportsEditor`, `payConfigsViewer`, `payConfigsEditor`, `investigationsEditor`, `telemetryViewer`, `documentsViewer`, `userSessionsRevoke`, `usersViewer`, `accessControlManage`.
 func (o ApiKeyOutput) RoleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringArrayOutput { return v.RoleNames }).(pulumi.StringArrayOutput)
 }

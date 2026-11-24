@@ -161,6 +161,8 @@ class TeamGroupingPreference(pulumi.CustomResource):
 
         A team's grouping preference takes priority over the default grouping of any alert route its alerts match. A team without one groups by each route's own settings.
 
+        This API manages a preference's default only, and an update keeps its branches. Use the Alert Grouping Preferences API to manage branches.
+
         A team has at most one preference, and it cannot move to another team: changing `team_id` destroys the
         preference and creates one for the new team. The settings use the field names of an alert route's
         `grouping_config`, so a team's preference can be written by copying the route block it replaces.
@@ -246,6 +248,8 @@ class TeamGroupingPreference(pulumi.CustomResource):
         Manage how each team's alerts are grouped, on every alert route.
 
         A team's grouping preference takes priority over the default grouping of any alert route its alerts match. A team without one groups by each route's own settings.
+
+        This API manages a preference's default only, and an update keeps its branches. Use the Alert Grouping Preferences API to manage branches.
 
         A team has at most one preference, and it cannot move to another team: changing `team_id` destroys the
         preference and creates one for the new team. The settings use the field names of an alert route's

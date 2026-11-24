@@ -6911,6 +6911,10 @@ class AlertRouteGroupingConfigDefaultArgsDict(TypedDict):
     """
     **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
     """
+    ai_instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+    """
     grouping_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRouteGroupingConfigDefaultGroupingKeyArgsDict']]]]]
     """
     Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
@@ -6921,7 +6925,7 @@ class AlertRouteGroupingConfigDefaultArgsDict(TypedDict):
     """
     window_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+    Controls how the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
     """
 
 @pulumi.input_type
@@ -6929,19 +6933,23 @@ class AlertRouteGroupingConfigDefaultArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  ai_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ai_instructions: pulumi.Input[Optional[_builtins.str]] = None,
                  grouping_keys: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRouteGroupingConfigDefaultGroupingKeyArgs']]]] = None,
                  window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  window_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether grouping is enabled
         :param pulumi.Input[_builtins.bool] ai_enabled: **Beta:** AI alert grouping is in beta, so contact support to get access for your organisation before you set this to `true`. Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        :param pulumi.Input[_builtins.str] ai_instructions: Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRouteGroupingConfigDefaultGroupingKeyArgs']]] grouping_keys: Which attributes should this alert route use to group alerts? Only set when grouping is enabled.
         :param pulumi.Input[_builtins.int] window_seconds: How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
-        :param pulumi.Input[_builtins.str] window_type: Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        :param pulumi.Input[_builtins.str] window_type: Controls how the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if ai_enabled is not None:
             pulumi.set(__self__, "ai_enabled", ai_enabled)
+        if ai_instructions is not None:
+            pulumi.set(__self__, "ai_instructions", ai_instructions)
         if grouping_keys is not None:
             pulumi.set(__self__, "grouping_keys", grouping_keys)
         if window_seconds is not None:
@@ -6974,6 +6982,18 @@ class AlertRouteGroupingConfigDefaultArgs:
         pulumi.set(self, "ai_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="aiInstructions")
+    def ai_instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional instructions the model follows when AI groups alerts on this route, such as how the systems you run relate to each other. Up to 2000 characters.
+        """
+        return pulumi.get(self, "ai_instructions")
+
+    @ai_instructions.setter
+    def ai_instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ai_instructions", value)
+
+    @_builtins.property
     @pulumi.getter(name="groupingKeys")
     def grouping_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRouteGroupingConfigDefaultGroupingKeyArgs']]]]:
         """
@@ -7001,7 +7021,7 @@ class AlertRouteGroupingConfigDefaultArgs:
     @pulumi.getter(name="windowType")
     def window_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Controls how the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        Controls how the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later, regardless of any subsequent alerts. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
         """
         return pulumi.get(self, "window_type")
 
@@ -64149,7 +64169,7 @@ class PolicyDebriefArgsDict(TypedDict):
     """
     run_on_private_incidents: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Requires the policies.run*on*private scope
+    Requires the policies.run.private_incidents scope
     """
 
 @pulumi.input_type
@@ -64160,7 +64180,7 @@ class PolicyDebriefArgs:
                  run_on_private_incidents: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PolicyDebriefRequirementArgs']]] requirements: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
-        :param pulumi.Input[_builtins.bool] run_on_private_incidents: Requires the policies.run*on*private scope
+        :param pulumi.Input[_builtins.bool] run_on_private_incidents: Requires the policies.run.private_incidents scope
         """
         pulumi.set(__self__, "due_date_config", due_date_config)
         pulumi.set(__self__, "requirements", requirements)
@@ -64192,7 +64212,7 @@ class PolicyDebriefArgs:
     @pulumi.getter(name="runOnPrivateIncidents")
     def run_on_private_incidents(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Requires the policies.run*on*private scope
+        Requires the policies.run.private_incidents scope
         """
         return pulumi.get(self, "run_on_private_incidents")
 
@@ -66618,7 +66638,7 @@ class PolicyFollowUpArgsDict(TypedDict):
     """
     run_on_private_incidents: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Requires the policies.run*on*private scope
+    Requires the policies.run.private_incidents scope
     """
 
 @pulumi.input_type
@@ -66629,7 +66649,7 @@ class PolicyFollowUpArgs:
                  run_on_private_incidents: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PolicyFollowUpRequirementArgs']]] requirements: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
-        :param pulumi.Input[_builtins.bool] run_on_private_incidents: Requires the policies.run*on*private scope
+        :param pulumi.Input[_builtins.bool] run_on_private_incidents: Requires the policies.run.private_incidents scope
         """
         pulumi.set(__self__, "due_date_config", due_date_config)
         pulumi.set(__self__, "requirements", requirements)
@@ -66661,7 +66681,7 @@ class PolicyFollowUpArgs:
     @pulumi.getter(name="runOnPrivateIncidents")
     def run_on_private_incidents(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Requires the policies.run*on*private scope
+        Requires the policies.run.private_incidents scope
         """
         return pulumi.get(self, "run_on_private_incidents")
 
@@ -67490,7 +67510,7 @@ class PolicyPostMortemArgsDict(TypedDict):
     """
     run_on_private_incidents: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Requires the policies.run*on*private scope
+    Requires the policies.run.private_incidents scope
     """
 
 @pulumi.input_type
@@ -67501,7 +67521,7 @@ class PolicyPostMortemArgs:
                  run_on_private_incidents: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PolicyPostMortemRequirementArgs']]] requirements: Groups of prerequisite conditions. All conditions in at least one group must be satisfied
-        :param pulumi.Input[_builtins.bool] run_on_private_incidents: Requires the policies.run*on*private scope
+        :param pulumi.Input[_builtins.bool] run_on_private_incidents: Requires the policies.run.private_incidents scope
         """
         pulumi.set(__self__, "due_date_config", due_date_config)
         pulumi.set(__self__, "requirements", requirements)
@@ -67533,7 +67553,7 @@ class PolicyPostMortemArgs:
     @pulumi.getter(name="runOnPrivateIncidents")
     def run_on_private_incidents(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Requires the policies.run*on*private scope
+        Requires the policies.run.private_incidents scope
         """
         return pulumi.get(self, "run_on_private_incidents")
 
@@ -69006,7 +69026,7 @@ class StatusPageStructureItemGroupComponentArgs:
 class TeamGroupingPreferenceDefaultArgsDict(TypedDict):
     settings: pulumi.Input['TeamGroupingPreferenceDefaultSettingsArgsDict']
     """
-    How a team's alerts are grouped together, on every alert route
+    How alerts are grouped together
     """
 
 @pulumi.input_type
@@ -69014,7 +69034,7 @@ class TeamGroupingPreferenceDefaultArgs:
     def __init__(__self__, *,
                  settings: pulumi.Input['TeamGroupingPreferenceDefaultSettingsArgs']):
         """
-        :param pulumi.Input['TeamGroupingPreferenceDefaultSettingsArgs'] settings: How a team's alerts are grouped together, on every alert route
+        :param pulumi.Input['TeamGroupingPreferenceDefaultSettingsArgs'] settings: How alerts are grouped together
         """
         pulumi.set(__self__, "settings", settings)
 
@@ -69022,7 +69042,7 @@ class TeamGroupingPreferenceDefaultArgs:
     @pulumi.getter
     def settings(self) -> pulumi.Input['TeamGroupingPreferenceDefaultSettingsArgs']:
         """
-        How a team's alerts are grouped together, on every alert route
+        How alerts are grouped together
         """
         return pulumi.get(self, "settings")
 
@@ -69034,15 +69054,19 @@ class TeamGroupingPreferenceDefaultArgs:
 class TeamGroupingPreferenceDefaultSettingsArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
     """
-    Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+    Whether these alerts are grouped. When false, none of them are grouped.
     """
     ai_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
     """
+    ai_instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+    """
     grouping_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TeamGroupingPreferenceDefaultSettingsGroupingKeyArgsDict']]]]]
     """
-    Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+    Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
     """
     window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -69050,7 +69074,7 @@ class TeamGroupingPreferenceDefaultSettingsArgsDict(TypedDict):
     """
     window_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+    How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
     """
 
 @pulumi.input_type
@@ -69058,19 +69082,23 @@ class TeamGroupingPreferenceDefaultSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
                  ai_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ai_instructions: pulumi.Input[Optional[_builtins.str]] = None,
                  grouping_keys: pulumi.Input[Optional[Sequence[pulumi.Input['TeamGroupingPreferenceDefaultSettingsGroupingKeyArgs']]]] = None,
                  window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  window_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.bool] enabled: Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+        :param pulumi.Input[_builtins.bool] enabled: Whether these alerts are grouped. When false, none of them are grouped.
         :param pulumi.Input[_builtins.bool] ai_enabled: Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
-        :param pulumi.Input[Sequence[pulumi.Input['TeamGroupingPreferenceDefaultSettingsGroupingKeyArgs']]] grouping_keys: Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+        :param pulumi.Input[_builtins.str] ai_instructions: Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['TeamGroupingPreferenceDefaultSettingsGroupingKeyArgs']]] grouping_keys: Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
         :param pulumi.Input[_builtins.int] window_seconds: How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
-        :param pulumi.Input[_builtins.str] window_type: How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        :param pulumi.Input[_builtins.str] window_type: How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if ai_enabled is not None:
             pulumi.set(__self__, "ai_enabled", ai_enabled)
+        if ai_instructions is not None:
+            pulumi.set(__self__, "ai_instructions", ai_instructions)
         if grouping_keys is not None:
             pulumi.set(__self__, "grouping_keys", grouping_keys)
         if window_seconds is not None:
@@ -69082,7 +69110,7 @@ class TeamGroupingPreferenceDefaultSettingsArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Whether the team's alerts are grouped. When false, none of the team's alerts are grouped, regardless of any alert route grouping config.
+        Whether these alerts are grouped. When false, none of them are grouped.
         """
         return pulumi.get(self, "enabled")
 
@@ -69103,10 +69131,22 @@ class TeamGroupingPreferenceDefaultSettingsArgs:
         pulumi.set(self, "ai_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="aiInstructions")
+    def ai_instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+        """
+        return pulumi.get(self, "ai_instructions")
+
+    @ai_instructions.setter
+    def ai_instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ai_instructions", value)
+
+    @_builtins.property
     @pulumi.getter(name="groupingKeys")
     def grouping_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TeamGroupingPreferenceDefaultSettingsGroupingKeyArgs']]]]:
         """
-        Which alert attributes the team's alerts are grouped by. Only set when grouping is enabled.
+        Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
         """
         return pulumi.get(self, "grouping_keys")
 
@@ -69130,7 +69170,7 @@ class TeamGroupingPreferenceDefaultSettingsArgs:
     @pulumi.getter(name="windowType")
     def window_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        How the grouping window behaves. 'rolling' keeps the window open for window*seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window*seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
         """
         return pulumi.get(self, "window_type")
 

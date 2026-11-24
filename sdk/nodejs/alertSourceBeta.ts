@@ -52,11 +52,15 @@ export class AlertSourceBeta extends pulumi.CustomResource {
     }
 
     /**
+     * Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+     */
+    declare public readonly aiTitlesEnabled: pulumi.Output<boolean>;
+    /**
      * The URL to send alert events to
      */
     declare public /*out*/ readonly alertEventsUrl: pulumi.Output<string>;
     /**
-     * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+     * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
      */
     declare public readonly autoResolveIncidentAlerts: pulumi.Output<boolean>;
     /**
@@ -66,6 +70,8 @@ export class AlertSourceBeta extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<outputs.AlertSourceBetaDescription | undefined>;
     /**
      * Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+     *
+     * Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
      */
     declare public readonly disabled: pulumi.Output<boolean>;
     /**
@@ -138,6 +144,7 @@ export class AlertSourceBeta extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertSourceBetaState | undefined;
+            resourceInputs["aiTitlesEnabled"] = state?.aiTitlesEnabled;
             resourceInputs["alertEventsUrl"] = state?.alertEventsUrl;
             resourceInputs["autoResolveIncidentAlerts"] = state?.autoResolveIncidentAlerts;
             resourceInputs["autoResolveTimeoutMinutes"] = state?.autoResolveTimeoutMinutes;
@@ -168,6 +175,7 @@ export class AlertSourceBeta extends pulumi.CustomResource {
             if (args?.sourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
+            resourceInputs["aiTitlesEnabled"] = args?.aiTitlesEnabled;
             resourceInputs["autoResolveIncidentAlerts"] = args?.autoResolveIncidentAlerts;
             resourceInputs["autoResolveTimeoutMinutes"] = args?.autoResolveTimeoutMinutes;
             resourceInputs["description"] = args?.description;
@@ -206,11 +214,15 @@ export class AlertSourceBeta extends pulumi.CustomResource {
  */
 export interface AlertSourceBetaState {
     /**
+     * Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+     */
+    aiTitlesEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * The URL to send alert events to
      */
     alertEventsUrl?: pulumi.Input<string | undefined>;
     /**
-     * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+     * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
      */
     autoResolveIncidentAlerts?: pulumi.Input<boolean | undefined>;
     /**
@@ -220,6 +232,8 @@ export interface AlertSourceBetaState {
     description?: pulumi.Input<inputs.AlertSourceBetaDescription | undefined>;
     /**
      * Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+     *
+     * Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
      */
     disabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -285,7 +299,11 @@ export interface AlertSourceBetaState {
  */
 export interface AlertSourceBetaArgs {
     /**
-     * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
+     * Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
+     */
+    aiTitlesEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
      */
     autoResolveIncidentAlerts?: pulumi.Input<boolean | undefined>;
     /**
@@ -295,6 +313,8 @@ export interface AlertSourceBetaArgs {
     description?: pulumi.Input<inputs.AlertSourceBetaDescription | undefined>;
     /**
      * Whether monitoring is paused for this source. Only returned for source types that support being disabled.
+     *
+     * Only heartbeat sources can be paused, and only once one has received its first ping: the API refuses to disable a source that has never reported, so a new one can't be created paused. Leave the attribute unset to keep whatever the source is currently doing, so a pause made in the dashboard survives an unrelated apply.
      */
     disabled?: pulumi.Input<boolean | undefined>;
     emailOptions?: pulumi.Input<inputs.AlertSourceBetaEmailOptions | undefined>;

@@ -88,6 +88,10 @@ export interface GetApiKeyResult {
      */
     readonly createdAt: string;
     /**
+     * When this API key stops working. If it's not set, the key never expires.
+     */
+    readonly expiresAt: string;
+    /**
      * Unique identifier for this API key
      */
     readonly id: string;

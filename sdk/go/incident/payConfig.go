@@ -142,7 +142,7 @@ import (
 type PayConfig struct {
 	pulumi.CustomResourceState
 
-	// Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents pulumi.IntOutput `pulumi:"baseRateCents"`
 	// When this pay config was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -154,13 +154,13 @@ type PayConfig struct {
 	OneOffRules PayConfigOneOffRuleArrayOutput `pulumi:"oneOffRules"`
 	// When a published report first priced against this config. Once set, editing the config needs the schedule*pay*configs.update_published scope. Null until then.
 	PublishedAt pulumi.StringOutput `pulumi:"publishedAt"`
-	// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+	// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 	RateTimeUnit pulumi.StringOutput `pulumi:"rateTimeUnit"`
 	// IANA timezone this config's rules are interpreted in, such as `Europe/London`.
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
 	// When this pay config, or one of its rules, was last changed.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+	// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
 	WeeklyRules PayConfigWeeklyRuleArrayOutput `pulumi:"weeklyRules"`
 }
 
@@ -206,7 +206,7 @@ func GetPayConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PayConfig resources.
 type payConfigState struct {
-	// Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents *int `pulumi:"baseRateCents"`
 	// When this pay config was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -218,18 +218,18 @@ type payConfigState struct {
 	OneOffRules []PayConfigOneOffRule `pulumi:"oneOffRules"`
 	// When a published report first priced against this config. Once set, editing the config needs the schedule*pay*configs.update_published scope. Null until then.
 	PublishedAt *string `pulumi:"publishedAt"`
-	// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+	// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 	RateTimeUnit *string `pulumi:"rateTimeUnit"`
 	// IANA timezone this config's rules are interpreted in, such as `Europe/London`.
 	Timezone *string `pulumi:"timezone"`
 	// When this pay config, or one of its rules, was last changed.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+	// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
 	WeeklyRules []PayConfigWeeklyRule `pulumi:"weeklyRules"`
 }
 
 type PayConfigState struct {
-	// Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents pulumi.IntPtrInput
 	// When this pay config was created.
 	CreatedAt pulumi.StringPtrInput
@@ -241,13 +241,13 @@ type PayConfigState struct {
 	OneOffRules PayConfigOneOffRuleArrayInput
 	// When a published report first priced against this config. Once set, editing the config needs the schedule*pay*configs.update_published scope. Null until then.
 	PublishedAt pulumi.StringPtrInput
-	// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+	// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 	RateTimeUnit pulumi.StringPtrInput
 	// IANA timezone this config's rules are interpreted in, such as `Europe/London`.
 	Timezone pulumi.StringPtrInput
 	// When this pay config, or one of its rules, was last changed.
 	UpdatedAt pulumi.StringPtrInput
-	// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+	// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
 	WeeklyRules PayConfigWeeklyRuleArrayInput
 }
 
@@ -256,7 +256,7 @@ func (PayConfigState) ElementType() reflect.Type {
 }
 
 type payConfigArgs struct {
-	// Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents int `pulumi:"baseRateCents"`
 	// Currency this config pays in, in ISO 4217 format, such as `GBP`.
 	Currency string `pulumi:"currency"`
@@ -264,17 +264,17 @@ type payConfigArgs struct {
 	Name *string `pulumi:"name"`
 	// Rules that apply over a single window of time, such as a public holiday. These take precedence over the weekly rules and may not overlap each other. Changing the list changes the rules in place, position by position.
 	OneOffRules []PayConfigOneOffRule `pulumi:"oneOffRules"`
-	// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+	// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 	RateTimeUnit string `pulumi:"rateTimeUnit"`
 	// IANA timezone this config's rules are interpreted in, such as `Europe/London`.
 	Timezone string `pulumi:"timezone"`
-	// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+	// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
 	WeeklyRules []PayConfigWeeklyRule `pulumi:"weeklyRules"`
 }
 
 // The set of arguments for constructing a PayConfig resource.
 type PayConfigArgs struct {
-	// Rate paid for any time no rule covers, in the lowest denomination of the currency
+	// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 	BaseRateCents pulumi.IntInput
 	// Currency this config pays in, in ISO 4217 format, such as `GBP`.
 	Currency pulumi.StringInput
@@ -282,11 +282,11 @@ type PayConfigArgs struct {
 	Name pulumi.StringPtrInput
 	// Rules that apply over a single window of time, such as a public holiday. These take precedence over the weekly rules and may not overlap each other. Changing the list changes the rules in place, position by position.
 	OneOffRules PayConfigOneOffRuleArrayInput
-	// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+	// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 	RateTimeUnit pulumi.StringInput
 	// IANA timezone this config's rules are interpreted in, such as `Europe/London`.
 	Timezone pulumi.StringInput
-	// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+	// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
 	WeeklyRules PayConfigWeeklyRuleArrayInput
 }
 
@@ -377,7 +377,7 @@ func (o PayConfigOutput) ToPayConfigOutputWithContext(ctx context.Context) PayCo
 	return o
 }
 
-// Rate paid for any time no rule covers, in the lowest denomination of the currency
+// Rate paid for one unit of rate*time*unit, for any time no rule covers, in the lowest denomination of the currency
 func (o PayConfigOutput) BaseRateCents() pulumi.IntOutput {
 	return o.ApplyT(func(v *PayConfig) pulumi.IntOutput { return v.BaseRateCents }).(pulumi.IntOutput)
 }
@@ -407,7 +407,7 @@ func (o PayConfigOutput) PublishedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *PayConfig) pulumi.StringOutput { return v.PublishedAt }).(pulumi.StringOutput)
 }
 
-// The unit of time every rate on this config is quoted per. Pay is pro-rated by the second either way. Possible values are: `hour`, `day`.
+// The unit of time every rate on this config is quoted per: hour, day, or week. A day is 24 hours of shift time and a week is 7 days. Pay is pro-rated by the second. Possible values are: `hour`, `day`, `week`.
 func (o PayConfigOutput) RateTimeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v *PayConfig) pulumi.StringOutput { return v.RateTimeUnit }).(pulumi.StringOutput)
 }
@@ -422,7 +422,7 @@ func (o PayConfigOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *PayConfig) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Rules that apply every week, by day of week and time of day, in evaluation order. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
+// Rules that apply every week, by day of week and time of day, in evaluation order. Must be empty when rate*time*unit is week. The first rule that covers a shift prices it, so order matters. Changing the list changes the rules in place, position by position: a rule that moves keeps its position's ID rather than its own.
 func (o PayConfigOutput) WeeklyRules() PayConfigWeeklyRuleArrayOutput {
 	return o.ApplyT(func(v *PayConfig) PayConfigWeeklyRuleArrayOutput { return v.WeeklyRules }).(PayConfigWeeklyRuleArrayOutput)
 }

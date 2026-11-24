@@ -26,13 +26,16 @@ class GetApiKeyResult:
     """
     A collection of values returned by getApiKey.
     """
-    def __init__(__self__, comments=None, created_at=None, id=None, last_used_at=None, name=None, role_names=None, team_ids=None, team_role_names=None, token_last_issued_at=None):
+    def __init__(__self__, comments=None, created_at=None, expires_at=None, id=None, last_used_at=None, name=None, role_names=None, team_ids=None, team_role_names=None, token_last_issued_at=None):
         if comments and not isinstance(comments, str):
             raise TypeError("Expected argument 'comments' to be a str")
         pulumi.set(__self__, "comments", comments)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if expires_at and not isinstance(expires_at, str):
+            raise TypeError("Expected argument 'expires_at' to be a str")
+        pulumi.set(__self__, "expires_at", expires_at)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -70,6 +73,14 @@ class GetApiKeyResult:
         When the API key was created
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="expiresAt")
+    def expires_at(self) -> _builtins.str:
+        """
+        When this API key stops working. If it's not set, the key never expires.
+        """
+        return pulumi.get(self, "expires_at")
 
     @_builtins.property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetApiKeyResult(GetApiKeyResult):
         return GetApiKeyResult(
             comments=self.comments,
             created_at=self.created_at,
+            expires_at=self.expires_at,
             id=self.id,
             last_used_at=self.last_used_at,
             name=self.name,
@@ -205,6 +217,7 @@ def get_api_key(id: Optional[_builtins.str] = None,
     return AwaitableGetApiKeyResult(
         comments=pulumi.get(__ret__, 'comments'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        expires_at=pulumi.get(__ret__, 'expires_at'),
         id=pulumi.get(__ret__, 'id'),
         last_used_at=pulumi.get(__ret__, 'last_used_at'),
         name=pulumi.get(__ret__, 'name'),
@@ -271,6 +284,7 @@ def get_api_key_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = Non
     return __ret__.apply(lambda __response__: GetApiKeyResult(
         comments=pulumi.get(__response__, 'comments'),
         created_at=pulumi.get(__response__, 'created_at'),
+        expires_at=pulumi.get(__response__, 'expires_at'),
         id=pulumi.get(__response__, 'id'),
         last_used_at=pulumi.get(__response__, 'last_used_at'),
         name=pulumi.get(__response__, 'name'),
