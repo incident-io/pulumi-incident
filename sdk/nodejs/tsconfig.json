@@ -20,7 +20,9 @@
     },
     "files": [
         "alertAttribute.ts",
+        "alertGroupingPreference.ts",
         "alertRoute.ts",
+        "alertRules.ts",
         "alertSource.ts",
         "alertSourceAttribute.ts",
         "alertSourceAttributeBeta.ts",

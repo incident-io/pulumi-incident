@@ -28,13 +28,16 @@ class GetAlertSourceResult:
     """
     A collection of values returned by getAlertSource.
     """
-    def __init__(__self__, ai_titles_enabled=None, alert_events_url=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, sns_options=None, source_type=None, title=None, unlock_in_dashboard=None, version=None, visible_to_teams=None):
+    def __init__(__self__, ai_titles_enabled=None, alert_events_url=None, alertmanager_options=None, auto_resolve_incident_alerts=None, auto_resolve_timeout_minutes=None, description=None, disabled=None, email_address=None, email_options=None, filter_condition_groups=None, fixed_team_id=None, heartbeat_options=None, http_custom_options=None, id=None, is_private=None, jira_options=None, name=None, named_expressions=None, owning_team_ids=None, priority=None, rate_limit_sharding=None, secret_token=None, sns_options=None, source_type=None, title=None, unlock_in_dashboard=None, version=None, visible_to_teams=None):
         if ai_titles_enabled and not isinstance(ai_titles_enabled, bool):
             raise TypeError("Expected argument 'ai_titles_enabled' to be a bool")
         pulumi.set(__self__, "ai_titles_enabled", ai_titles_enabled)
         if alert_events_url and not isinstance(alert_events_url, str):
             raise TypeError("Expected argument 'alert_events_url' to be a str")
         pulumi.set(__self__, "alert_events_url", alert_events_url)
+        if alertmanager_options and not isinstance(alertmanager_options, dict):
+            raise TypeError("Expected argument 'alertmanager_options' to be a dict")
+        pulumi.set(__self__, "alertmanager_options", alertmanager_options)
         if auto_resolve_incident_alerts and not isinstance(auto_resolve_incident_alerts, bool):
             raise TypeError("Expected argument 'auto_resolve_incident_alerts' to be a bool")
         pulumi.set(__self__, "auto_resolve_incident_alerts", auto_resolve_incident_alerts)
@@ -126,6 +129,11 @@ class GetAlertSourceResult:
         The URL to send alert events to
         """
         return pulumi.get(self, "alert_events_url")
+
+    @_builtins.property
+    @pulumi.getter(name="alertmanagerOptions")
+    def alertmanager_options(self) -> 'outputs.GetAlertSourceAlertmanagerOptionsResult':
+        return pulumi.get(self, "alertmanager_options")
 
     @_builtins.property
     @pulumi.getter(name="autoResolveIncidentAlerts")
@@ -309,6 +317,7 @@ class AwaitableGetAlertSourceResult(GetAlertSourceResult):
         return GetAlertSourceResult(
             ai_titles_enabled=self.ai_titles_enabled,
             alert_events_url=self.alert_events_url,
+            alertmanager_options=self.alertmanager_options,
             auto_resolve_incident_alerts=self.auto_resolve_incident_alerts,
             auto_resolve_timeout_minutes=self.auto_resolve_timeout_minutes,
             description=self.description,
@@ -377,6 +386,7 @@ def get_alert_source(id: Optional[_builtins.str] = None,
     return AwaitableGetAlertSourceResult(
         ai_titles_enabled=pulumi.get(__ret__, 'ai_titles_enabled'),
         alert_events_url=pulumi.get(__ret__, 'alert_events_url'),
+        alertmanager_options=pulumi.get(__ret__, 'alertmanager_options'),
         auto_resolve_incident_alerts=pulumi.get(__ret__, 'auto_resolve_incident_alerts'),
         auto_resolve_timeout_minutes=pulumi.get(__ret__, 'auto_resolve_timeout_minutes'),
         description=pulumi.get(__ret__, 'description'),
@@ -442,6 +452,7 @@ def get_alert_source_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] 
     return __ret__.apply(lambda __response__: GetAlertSourceResult(
         ai_titles_enabled=pulumi.get(__response__, 'ai_titles_enabled'),
         alert_events_url=pulumi.get(__response__, 'alert_events_url'),
+        alertmanager_options=pulumi.get(__response__, 'alertmanager_options'),
         auto_resolve_incident_alerts=pulumi.get(__response__, 'auto_resolve_incident_alerts'),
         auto_resolve_timeout_minutes=pulumi.get(__response__, 'auto_resolve_timeout_minutes'),
         description=pulumi.get(__response__, 'description'),

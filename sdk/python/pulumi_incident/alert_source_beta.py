@@ -23,6 +23,7 @@ class AlertSourceBetaArgs:
     def __init__(__self__, *,
                  source_type: pulumi.Input[_builtins.str],
                  ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alertmanager_options: pulumi.Input[Optional['AlertSourceBetaAlertmanagerOptionsArgs']] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional['AlertSourceBetaDescriptionArgs']] = None,
@@ -65,6 +66,8 @@ class AlertSourceBetaArgs:
         pulumi.set(__self__, "source_type", source_type)
         if ai_titles_enabled is not None:
             pulumi.set(__self__, "ai_titles_enabled", ai_titles_enabled)
+        if alertmanager_options is not None:
+            pulumi.set(__self__, "alertmanager_options", alertmanager_options)
         if auto_resolve_incident_alerts is not None:
             pulumi.set(__self__, "auto_resolve_incident_alerts", auto_resolve_incident_alerts)
         if auto_resolve_timeout_minutes is not None:
@@ -129,6 +132,15 @@ class AlertSourceBetaArgs:
     @ai_titles_enabled.setter
     def ai_titles_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ai_titles_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alertmanagerOptions")
+    def alertmanager_options(self) -> pulumi.Input[Optional['AlertSourceBetaAlertmanagerOptionsArgs']]:
+        return pulumi.get(self, "alertmanager_options")
+
+    @alertmanager_options.setter
+    def alertmanager_options(self, value: pulumi.Input[Optional['AlertSourceBetaAlertmanagerOptionsArgs']]):
+        pulumi.set(self, "alertmanager_options", value)
 
     @_builtins.property
     @pulumi.getter(name="autoResolveIncidentAlerts")
@@ -351,6 +363,7 @@ class _AlertSourceBetaState:
     def __init__(__self__, *,
                  ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  alert_events_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 alertmanager_options: pulumi.Input[Optional['AlertSourceBetaAlertmanagerOptionsArgs']] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional['AlertSourceBetaDescriptionArgs']] = None,
@@ -402,6 +415,8 @@ class _AlertSourceBetaState:
             pulumi.set(__self__, "ai_titles_enabled", ai_titles_enabled)
         if alert_events_url is not None:
             pulumi.set(__self__, "alert_events_url", alert_events_url)
+        if alertmanager_options is not None:
+            pulumi.set(__self__, "alertmanager_options", alertmanager_options)
         if auto_resolve_incident_alerts is not None:
             pulumi.set(__self__, "auto_resolve_incident_alerts", auto_resolve_incident_alerts)
         if auto_resolve_timeout_minutes is not None:
@@ -474,6 +489,15 @@ class _AlertSourceBetaState:
     @alert_events_url.setter
     def alert_events_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_events_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alertmanagerOptions")
+    def alertmanager_options(self) -> pulumi.Input[Optional['AlertSourceBetaAlertmanagerOptionsArgs']]:
+        return pulumi.get(self, "alertmanager_options")
+
+    @alertmanager_options.setter
+    def alertmanager_options(self, value: pulumi.Input[Optional['AlertSourceBetaAlertmanagerOptionsArgs']]):
+        pulumi.set(self, "alertmanager_options", value)
 
     @_builtins.property
     @pulumi.getter(name="autoResolveIncidentAlerts")
@@ -746,6 +770,7 @@ class AlertSourceBeta(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alertmanager_options: pulumi.Input[Optional[Union['AlertSourceBetaAlertmanagerOptionsArgs', 'AlertSourceBetaAlertmanagerOptionsArgsDict']]] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[Union['AlertSourceBetaDescriptionArgs', 'AlertSourceBetaDescriptionArgsDict']]] = None,
@@ -844,6 +869,7 @@ class AlertSourceBeta(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alertmanager_options: pulumi.Input[Optional[Union['AlertSourceBetaAlertmanagerOptionsArgs', 'AlertSourceBetaAlertmanagerOptionsArgsDict']]] = None,
                  auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[Union['AlertSourceBetaDescriptionArgs', 'AlertSourceBetaDescriptionArgsDict']]] = None,
@@ -875,6 +901,7 @@ class AlertSourceBeta(pulumi.CustomResource):
             __props__ = AlertSourceBetaArgs.__new__(AlertSourceBetaArgs)
 
             __props__.__dict__["ai_titles_enabled"] = ai_titles_enabled
+            __props__.__dict__["alertmanager_options"] = alertmanager_options
             __props__.__dict__["auto_resolve_incident_alerts"] = auto_resolve_incident_alerts
             __props__.__dict__["auto_resolve_timeout_minutes"] = auto_resolve_timeout_minutes
             __props__.__dict__["description"] = description
@@ -916,6 +943,7 @@ class AlertSourceBeta(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             ai_titles_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             alert_events_url: pulumi.Input[Optional[_builtins.str]] = None,
+            alertmanager_options: pulumi.Input[Optional[Union['AlertSourceBetaAlertmanagerOptionsArgs', 'AlertSourceBetaAlertmanagerOptionsArgsDict']]] = None,
             auto_resolve_incident_alerts: pulumi.Input[Optional[_builtins.bool]] = None,
             auto_resolve_timeout_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             description: pulumi.Input[Optional[Union['AlertSourceBetaDescriptionArgs', 'AlertSourceBetaDescriptionArgsDict']]] = None,
@@ -973,6 +1001,7 @@ class AlertSourceBeta(pulumi.CustomResource):
 
         __props__.__dict__["ai_titles_enabled"] = ai_titles_enabled
         __props__.__dict__["alert_events_url"] = alert_events_url
+        __props__.__dict__["alertmanager_options"] = alertmanager_options
         __props__.__dict__["auto_resolve_incident_alerts"] = auto_resolve_incident_alerts
         __props__.__dict__["auto_resolve_timeout_minutes"] = auto_resolve_timeout_minutes
         __props__.__dict__["description"] = description
@@ -1014,6 +1043,11 @@ class AlertSourceBeta(pulumi.CustomResource):
         The URL to send alert events to
         """
         return pulumi.get(self, "alert_events_url")
+
+    @_builtins.property
+    @pulumi.getter(name="alertmanagerOptions")
+    def alertmanager_options(self) -> pulumi.Output[Optional['outputs.AlertSourceBetaAlertmanagerOptions']]:
+        return pulumi.get(self, "alertmanager_options")
 
     @_builtins.property
     @pulumi.getter(name="autoResolveIncidentAlerts")

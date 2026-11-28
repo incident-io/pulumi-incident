@@ -7,7 +7,9 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from .alert_attribute import *
+from .alert_grouping_preference import *
 from .alert_route import *
+from .alert_rules import *
 from .alert_source import *
 from .alert_source_attribute import *
 from .alert_source_attribute_beta import *
@@ -110,10 +112,26 @@ _utilities.register(
  },
  {
   "pkg": "incident",
+  "mod": "index/alertGroupingPreference",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/alertGroupingPreference:AlertGroupingPreference": "AlertGroupingPreference"
+  }
+ },
+ {
+  "pkg": "incident",
   "mod": "index/alertRoute",
   "fqn": "pulumi_incident",
   "classes": {
    "incident:index/alertRoute:AlertRoute": "AlertRoute"
+  }
+ },
+ {
+  "pkg": "incident",
+  "mod": "index/alertRules",
+  "fqn": "pulumi_incident",
+  "classes": {
+   "incident:index/alertRules:AlertRules": "AlertRules"
   }
  },
  {

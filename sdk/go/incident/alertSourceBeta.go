@@ -46,7 +46,8 @@ type AlertSourceBeta struct {
 	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
 	AiTitlesEnabled pulumi.BoolOutput `pulumi:"aiTitlesEnabled"`
 	// The URL to send alert events to
-	AlertEventsUrl pulumi.StringOutput `pulumi:"alertEventsUrl"`
+	AlertEventsUrl      pulumi.StringOutput                         `pulumi:"alertEventsUrl"`
+	AlertmanagerOptions AlertSourceBetaAlertmanagerOptionsPtrOutput `pulumi:"alertmanagerOptions"`
 	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts pulumi.BoolOutput `pulumi:"autoResolveIncidentAlerts"`
 	// How long to wait before automatically resolving alerts from this source
@@ -130,7 +131,8 @@ type alertSourceBetaState struct {
 	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
 	AiTitlesEnabled *bool `pulumi:"aiTitlesEnabled"`
 	// The URL to send alert events to
-	AlertEventsUrl *string `pulumi:"alertEventsUrl"`
+	AlertEventsUrl      *string                             `pulumi:"alertEventsUrl"`
+	AlertmanagerOptions *AlertSourceBetaAlertmanagerOptions `pulumi:"alertmanagerOptions"`
 	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts *bool `pulumi:"autoResolveIncidentAlerts"`
 	// How long to wait before automatically resolving alerts from this source
@@ -178,7 +180,8 @@ type AlertSourceBetaState struct {
 	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
 	AiTitlesEnabled pulumi.BoolPtrInput
 	// The URL to send alert events to
-	AlertEventsUrl pulumi.StringPtrInput
+	AlertEventsUrl      pulumi.StringPtrInput
+	AlertmanagerOptions AlertSourceBetaAlertmanagerOptionsPtrInput
 	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts pulumi.BoolPtrInput
 	// How long to wait before automatically resolving alerts from this source
@@ -228,7 +231,8 @@ func (AlertSourceBetaState) ElementType() reflect.Type {
 
 type alertSourceBetaArgs struct {
 	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
-	AiTitlesEnabled *bool `pulumi:"aiTitlesEnabled"`
+	AiTitlesEnabled     *bool                               `pulumi:"aiTitlesEnabled"`
+	AlertmanagerOptions *AlertSourceBetaAlertmanagerOptions `pulumi:"alertmanagerOptions"`
 	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts *bool `pulumi:"autoResolveIncidentAlerts"`
 	// How long to wait before automatically resolving alerts from this source
@@ -269,7 +273,8 @@ type alertSourceBetaArgs struct {
 // The set of arguments for constructing a AlertSourceBeta resource.
 type AlertSourceBetaArgs struct {
 	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
-	AiTitlesEnabled pulumi.BoolPtrInput
+	AiTitlesEnabled     pulumi.BoolPtrInput
+	AlertmanagerOptions AlertSourceBetaAlertmanagerOptionsPtrInput
 	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
 	AutoResolveIncidentAlerts pulumi.BoolPtrInput
 	// How long to wait before automatically resolving alerts from this source
@@ -402,6 +407,10 @@ func (o AlertSourceBetaOutput) AiTitlesEnabled() pulumi.BoolOutput {
 // The URL to send alert events to
 func (o AlertSourceBetaOutput) AlertEventsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertSourceBeta) pulumi.StringOutput { return v.AlertEventsUrl }).(pulumi.StringOutput)
+}
+
+func (o AlertSourceBetaOutput) AlertmanagerOptions() AlertSourceBetaAlertmanagerOptionsPtrOutput {
+	return o.ApplyT(func(v *AlertSourceBeta) AlertSourceBetaAlertmanagerOptionsPtrOutput { return v.AlertmanagerOptions }).(AlertSourceBetaAlertmanagerOptionsPtrOutput)
 }
 
 // Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.

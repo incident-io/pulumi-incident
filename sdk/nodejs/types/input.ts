@@ -5,6 +5,1384 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AlertGroupingPreferenceBranch {
+    /**
+     * The branch matches an alert when every condition in any one group holds
+     */
+    conditionGroups: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceBranchConditionGroup>[]>;
+    /**
+     * Identifier for this branch, a ULID. Omit it on a new branch and one is assigned. Send the ID you read back on every update: alert groups are keyed on it.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * How alerts are grouped together
+     */
+    settings: pulumi.Input<inputs.AlertGroupingPreferenceBranchSettings>;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceBranchConditionGroupCondition>[]>;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceBranchConditionGroupConditionParamBinding>[]>;
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceBranchSettings {
+    /**
+     * Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+     */
+    aiInstructions?: pulumi.Input<string | undefined>;
+    /**
+     * Whether these alerts are grouped. When false, none of them are grouped.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+     */
+    groupingKeys?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceBranchSettingsGroupingKey>[] | undefined>;
+    /**
+     * How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+     */
+    windowSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     */
+    windowType?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceBranchSettingsGroupingKey {
+    /**
+     * A reference to a property of the alert to group on
+     */
+    reference: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceDefault {
+    /**
+     * How alerts are grouped together
+     */
+    settings: pulumi.Input<inputs.AlertGroupingPreferenceDefaultSettings>;
+}
+
+export interface AlertGroupingPreferenceDefaultSettings {
+    /**
+     * Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+     */
+    aiInstructions?: pulumi.Input<string | undefined>;
+    /**
+     * Whether these alerts are grouped. When false, none of them are grouped.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+     */
+    groupingKeys?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceDefaultSettingsGroupingKey>[] | undefined>;
+    /**
+     * How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+     */
+    windowSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     */
+    windowType?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceDefaultSettingsGroupingKey {
+    /**
+     * A reference to a property of the alert to group on
+     */
+    reference: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpression {
+    /**
+     * What this expression produces when nothing else matched.
+     */
+    fallback?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallback | undefined>;
+    /**
+     * What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+     */
+    label?: pulumi.Input<string | undefined>;
+    /**
+     * A name for this expression, unique within this resource, referenced by expression_ref.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * An ordered pipeline. Each operation feeds the next.
+     */
+    operations?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperation>[] | undefined>;
+    /**
+     * Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+     */
+    startFrom?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallback {
+    /**
+     * The unconditional default for the shorthand above.
+     */
+    else?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElse | undefined>;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIf>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * Shorthand for a branching fallback.
+     */
+    if?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIf | undefined>;
+    /**
+     * A flat, unconditional value.
+     */
+    result?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackResult | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElse {
+    /**
+     * The value to fall back to. Required when the block is present.
+     */
+    result?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseResult | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfResult | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupCondition>[]>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackElseResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfResult | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupCondition>[]>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionFallbackResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperation {
+    /**
+     * A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+     */
+    branches?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranches | undefined>;
+    /**
+     * Converts the current value to another type.
+     */
+    cast?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationCast | undefined>;
+    /**
+     * Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+     */
+    concatenate?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationConcatenate | undefined>;
+    /**
+     * Counts the values.
+     */
+    count?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationCount | undefined>;
+    /**
+     * Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+     */
+    filter?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilter | undefined>;
+    /**
+     * Takes the first value.
+     */
+    first?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFirst | undefined>;
+    /**
+     * Takes the largest value.
+     */
+    max?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationMax | undefined>;
+    /**
+     * Takes the smallest value.
+     */
+    min?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationMin | undefined>;
+    /**
+     * Follows an attribute of the current value.
+     */
+    navigate?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationNavigate | undefined>;
+    /**
+     * Evaluates a function against the current value.
+     */
+    parse?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationParse | undefined>;
+    /**
+     * Takes one value at random.
+     */
+    random?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationRandom | undefined>;
+    /**
+     * Adds the values together.
+     */
+    sum?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationSum | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranches {
+    /**
+     * Whether each branch returns several values rather than one.
+     */
+    array?: pulumi.Input<boolean | undefined>;
+    /**
+     * The type every branch result returns. Required when the block is present.
+     */
+    as?: pulumi.Input<string | undefined>;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIf>[] | undefined>;
+    /**
+     * The first branch to try.
+     */
+    if?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIf | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResult | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupCondition>[]>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfResult | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupCondition>[]>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationCast {
+    /**
+     * The type to convert to. Take it from the resource that defines the type rather than writing it out.
+     */
+    as: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationConcatenate {
+    /**
+     * The reference whose values are added.
+     */
+    with: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationCount {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilter {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterCondition>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupCondition>[]>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFirst {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationMax {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationMin {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationNavigate {
+    /**
+     * The catalog attribute to follow.
+     */
+    to: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationParse {
+    /**
+     * Whether this returns several values rather than one.
+     */
+    array?: pulumi.Input<boolean | undefined>;
+    /**
+     * The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+     */
+    as: pulumi.Input<string>;
+    /**
+     * JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+     */
+    function: pulumi.Input<string>;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationRandom {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationSum {
+}
+
 export interface AlertRouteAlertSource {
     /**
      * The alert source ID that will match for the route
@@ -2154,6 +3532,2411 @@ export interface AlertRouteMessageTemplateValue {
      * If set, this is the reference into the trigger scope that is the value of this parameter
      */
     reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlock {
+    /**
+     * One or two branches: an if branch, and optionally an else branch with no condition groups
+     */
+    branches?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranch>[] | undefined>;
+    /**
+     * Identifier for this block, unique within the set. Choose a readable key and send the same one on every update, so the block keeps its identity.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The alert message template for this block, in place of the set's: its ID, or a reference. Leave it out to use the set's template.
+     */
+    messageTemplate?: pulumi.Input<inputs.AlertRulesBlockMessageTemplate | undefined>;
+}
+
+export interface AlertRulesBlockBranch {
+    /**
+     * The actions to take when the branch holds
+     */
+    actions?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchAction>[] | undefined>;
+    /**
+     * Branches nested one level deep. Each runs when this branch ran and its own conditions hold, and cannot nest further.
+     */
+    branches?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranch>[] | undefined>;
+    /**
+     * The branch holds when every condition in any one group holds. A branch with no groups always holds.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchConditionGroup>[] | undefined>;
+    /**
+     * Identifier for this branch, unique within the set. Choose a readable key and send the same one on every update: alert groups are keyed on it.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchAction {
+    /**
+     * Create an incident from the alert, or attach it to the incident its group already has. Set when type is `createIncident`.
+     */
+    createIncident?: pulumi.Input<inputs.AlertRulesBlockBranchActionCreateIncident | undefined>;
+    /**
+     * Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+     */
+    escalate?: pulumi.Input<inputs.AlertRulesBlockBranchActionEscalate | undefined>;
+    /**
+     * Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * Post the alert to Microsoft Teams channels. Set when type is `postMicrosoftTeams`.
+     */
+    postMicrosoftTeams?: pulumi.Input<inputs.AlertRulesBlockBranchActionPostMicrosoftTeams | undefined>;
+    /**
+     * Post the alert to Slack channels. Set when type is `postSlack`.
+     */
+    postSlack?: pulumi.Input<inputs.AlertRulesBlockBranchActionPostSlack | undefined>;
+    /**
+     * Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `postSlack`, `postMicrosoftTeams`, `createIncident`, `investigate`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncident {
+    /**
+     * Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+     */
+    autoDecline?: pulumi.Input<boolean | undefined>;
+    /**
+     * The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+     */
+    incidentTemplate?: pulumi.Input<inputs.AlertRulesBlockBranchActionCreateIncidentIncidentTemplate | undefined>;
+    /**
+     * Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+     */
+    isPrivate?: pulumi.Input<boolean | undefined>;
+    /**
+     * The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+     */
+    membershipTeams?: pulumi.Input<inputs.AlertRulesBlockBranchActionCreateIncidentMembershipTeams | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentIncidentTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentMembershipTeams {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalate {
+    /**
+     * Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+     */
+    autoCancel?: pulumi.Input<boolean | undefined>;
+    /**
+     * The escalation paths to page: escalation path IDs in `values`, or an `expressionRef` that finds them, such as from the alert's team.
+     */
+    escalationPaths?: pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateEscalationPaths | undefined>;
+    /**
+     * How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+     */
+    gracePeriodSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `onPriorityIncrease`, `onEachNewAlert`.
+     */
+    mode?: pulumi.Input<string | undefined>;
+    /**
+     * The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+     */
+    urgency?: pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateUrgency | undefined>;
+    /**
+     * The users to page: user IDs in `values`, or a reference.
+     */
+    users?: pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateUsers | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateEscalationPaths {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateEscalationPathsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateEscalationPathsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateEscalationPathsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateEscalationPathsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUrgency {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateUrgencyArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateUrgencyValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUrgencyArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUrgencyValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUsers {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateUsersArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchActionEscalateUsersValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUsersArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUsersValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeams {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility?: pulumi.Input<string | undefined>;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: pulumi.Input<inputs.AlertRulesBlockBranchActionPostMicrosoftTeamsChannels>;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeamsChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionPostSlack {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility?: pulumi.Input<string | undefined>;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: pulumi.Input<inputs.AlertRulesBlockBranchActionPostSlackChannels>;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchActionPostSlackChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchActionPostSlackChannelsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchActionPostSlackChannelsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionPostSlackChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchActionPostSlackChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranch {
+    /**
+     * The actions to take when the branch holds
+     */
+    actions?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchAction>[] | undefined>;
+    /**
+     * The branch holds when every condition in any one group holds. A branch with no groups always holds.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchConditionGroup>[] | undefined>;
+    /**
+     * Identifier for this branch, unique within the set
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchBranchAction {
+    /**
+     * Create an incident from the alert, or attach it to the incident its group already has. Set when type is `createIncident`.
+     */
+    createIncident?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionCreateIncident | undefined>;
+    /**
+     * Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+     */
+    escalate?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalate | undefined>;
+    /**
+     * Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+     */
+    id?: pulumi.Input<string | undefined>;
+    /**
+     * Post the alert to Microsoft Teams channels. Set when type is `postMicrosoftTeams`.
+     */
+    postMicrosoftTeams?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeams | undefined>;
+    /**
+     * Post the alert to Slack channels. Set when type is `postSlack`.
+     */
+    postSlack?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostSlack | undefined>;
+    /**
+     * Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `postSlack`, `postMicrosoftTeams`, `createIncident`, `investigate`.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncident {
+    /**
+     * Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+     */
+    autoDecline?: pulumi.Input<boolean | undefined>;
+    /**
+     * The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+     */
+    incidentTemplate?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplate | undefined>;
+    /**
+     * Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+     */
+    isPrivate?: pulumi.Input<boolean | undefined>;
+    /**
+     * The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+     */
+    membershipTeams?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeams | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeams {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalate {
+    /**
+     * Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+     */
+    autoCancel?: pulumi.Input<boolean | undefined>;
+    /**
+     * The escalation paths to page: escalation path IDs in `values`, or an `expressionRef` that finds them, such as from the alert's team.
+     */
+    escalationPaths?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateEscalationPaths | undefined>;
+    /**
+     * How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+     */
+    gracePeriodSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `onPriorityIncrease`, `onEachNewAlert`.
+     */
+    mode?: pulumi.Input<string | undefined>;
+    /**
+     * The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+     */
+    urgency?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateUrgency | undefined>;
+    /**
+     * The users to page: user IDs in `values`, or a reference.
+     */
+    users?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateUsers | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateEscalationPaths {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateEscalationPathsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateEscalationPathsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUrgency {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateUrgencyValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUrgencyValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUsers {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateUsersArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionEscalateUsersValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUsersArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUsersValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeams {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility?: pulumi.Input<string | undefined>;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannels>;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlack {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility?: pulumi.Input<string | undefined>;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostSlackChannels>;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlackChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchActionPostSlackChannelsValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlackChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchConditionGroupCondition>[]>;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchConditionGroupConditionParamBinding>[]>;
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchConditionGroupCondition>[]>;
+}
+
+export interface AlertRulesBlockBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchConditionGroupConditionParamBinding>[]>;
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesBlockBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValue>[] | undefined>;
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockBranchConditionGroupConditionParamBindingValue | undefined>;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockMessageTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesBlockMessageTemplateArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesBlockMessageTemplateValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesBlockMessageTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesBlockMessageTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesMessageTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesMessageTemplateArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesMessageTemplateValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesMessageTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesMessageTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpression {
+    /**
+     * What this expression produces when nothing else matched.
+     */
+    fallback?: pulumi.Input<inputs.AlertRulesNamedExpressionFallback | undefined>;
+    /**
+     * What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+     */
+    label?: pulumi.Input<string | undefined>;
+    /**
+     * A name for this expression, unique within this resource, referenced by expression_ref.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * An ordered pipeline. Each operation feeds the next.
+     */
+    operations?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperation>[] | undefined>;
+    /**
+     * Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+     */
+    startFrom?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallback {
+    /**
+     * The unconditional default for the shorthand above.
+     */
+    else?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElse | undefined>;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIf>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * Shorthand for a branching fallback.
+     */
+    if?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIf | undefined>;
+    /**
+     * A flat, unconditional value.
+     */
+    result?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackResult | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElse {
+    /**
+     * The value to fall back to. Required when the block is present.
+     */
+    result?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseResult | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfResult | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupCondition>[]>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackElseResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfResult | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionGroupCondition>[]>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionFallbackResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionFallbackResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionFallbackResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperation {
+    /**
+     * A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+     */
+    branches?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranches | undefined>;
+    /**
+     * Converts the current value to another type.
+     */
+    cast?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationCast | undefined>;
+    /**
+     * Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+     */
+    concatenate?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationConcatenate | undefined>;
+    /**
+     * Counts the values.
+     */
+    count?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationCount | undefined>;
+    /**
+     * Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+     */
+    filter?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilter | undefined>;
+    /**
+     * Takes the first value.
+     */
+    first?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationFirst | undefined>;
+    /**
+     * Takes the largest value.
+     */
+    max?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationMax | undefined>;
+    /**
+     * Takes the smallest value.
+     */
+    min?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationMin | undefined>;
+    /**
+     * Follows an attribute of the current value.
+     */
+    navigate?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationNavigate | undefined>;
+    /**
+     * Evaluates a function against the current value.
+     */
+    parse?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationParse | undefined>;
+    /**
+     * Takes one value at random.
+     */
+    random?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationRandom | undefined>;
+    /**
+     * Adds the values together.
+     */
+    sum?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationSum | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranches {
+    /**
+     * Whether each branch returns several values rather than one.
+     */
+    array?: pulumi.Input<boolean | undefined>;
+    /**
+     * The type every branch result returns. Required when the block is present.
+     */
+    as?: pulumi.Input<string | undefined>;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIf>[] | undefined>;
+    /**
+     * The first branch to try.
+     */
+    if?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIf | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfResult | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupCondition>[]>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesElseIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfCondition>[] | undefined>;
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfResult | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupCondition>[]>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfResultArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationBranchesIfResultValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationCast {
+    /**
+     * The type to convert to. Take it from the resource that defines the type rather than writing it out.
+     */
+    as: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationConcatenate {
+    /**
+     * The reference whose values are added.
+     */
+    with: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationCount {
+}
+
+export interface AlertRulesNamedExpressionOperationFilter {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionGroup>[] | undefined>;
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterCondition>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionGroupCondition>[]>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: pulumi.Input<string>;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionGroupConditionParam>[] | undefined>;
+    /**
+     * The reference this condition tests.
+     */
+    subject: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: pulumi.Input<pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionParamArrayValue>[] | undefined>;
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: pulumi.Input<string | undefined>;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: pulumi.Input<inputs.AlertRulesNamedExpressionOperationFilterConditionParamValue | undefined>;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: pulumi.Input<string | undefined>;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: pulumi.Input<string | undefined>;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: pulumi.Input<string | undefined>;
+}
+
+export interface AlertRulesNamedExpressionOperationFirst {
+}
+
+export interface AlertRulesNamedExpressionOperationMax {
+}
+
+export interface AlertRulesNamedExpressionOperationMin {
+}
+
+export interface AlertRulesNamedExpressionOperationNavigate {
+    /**
+     * The catalog attribute to follow.
+     */
+    to: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationParse {
+    /**
+     * Whether this returns several values rather than one.
+     */
+    array?: pulumi.Input<boolean | undefined>;
+    /**
+     * The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+     */
+    as: pulumi.Input<string>;
+    /**
+     * JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+     */
+    function: pulumi.Input<string>;
+}
+
+export interface AlertRulesNamedExpressionOperationRandom {
+}
+
+export interface AlertRulesNamedExpressionOperationSum {
+}
+
+export interface AlertSourceAlertmanagerOptions {
+    /**
+     * Whether to create one alert per evaluation group or one alert per series within a group
+     */
+    oneAlertPerGroup: pulumi.Input<boolean>;
 }
 
 export interface AlertSourceAttributeArrayValue {
@@ -7052,6 +10835,13 @@ export interface AlertSourceAttributeValue {
     reference?: pulumi.Input<string | undefined>;
 }
 
+export interface AlertSourceBetaAlertmanagerOptions {
+    /**
+     * Whether to create one alert per evaluation group or one alert per series within a group
+     */
+    oneAlertPerGroup: pulumi.Input<boolean>;
+}
+
 export interface AlertSourceBetaDescription {
     /**
      * Fixed content, which may interpolate the scope with `{{ variable }}`. Filters `truncate: N` and `omitIfUnset` are supported. For content needing formatting a template can't express, pass a document from `data.incident_rich_text` with `featureSet = "rich"`.
@@ -10290,7 +14080,7 @@ export interface EscalationPathBetaSequencesNodeBranch {
      */
     if: pulumi.Input<inputs.EscalationPathBetaSequencesNodeBranchIf>;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: pulumi.Input<string>;
 }
@@ -10393,7 +14183,7 @@ export interface EscalationPathBetaSequencesNodeLevelTarget {
      */
     type: pulumi.Input<string>;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: pulumi.Input<string>;
 }
@@ -10446,7 +14236,7 @@ export interface EscalationPathBetaSequencesNodeNotifyChannelTarget {
      */
     type: pulumi.Input<string>;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: pulumi.Input<string>;
 }
@@ -10581,7 +14371,7 @@ export interface EscalationPathSequencesNodeBranch {
      */
     if: pulumi.Input<inputs.EscalationPathSequencesNodeBranchIf>;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: pulumi.Input<string>;
 }
@@ -10684,7 +14474,7 @@ export interface EscalationPathSequencesNodeLevelTarget {
      */
     type: pulumi.Input<string>;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: pulumi.Input<string>;
 }
@@ -10737,7 +14527,7 @@ export interface EscalationPathSequencesNodeNotifyChannelTarget {
      */
     type: pulumi.Input<string>;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: pulumi.Input<string>;
 }
@@ -11207,7 +14997,7 @@ export interface EscalationPathTemplateSequencesNodeBranch {
      */
     if: pulumi.Input<inputs.EscalationPathTemplateSequencesNodeBranchIf>;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: pulumi.Input<string>;
 }
@@ -11314,7 +15104,7 @@ export interface EscalationPathTemplateSequencesNodeLevelTarget {
      */
     type: pulumi.Input<string>;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: pulumi.Input<string>;
 }
@@ -11420,7 +15210,7 @@ export interface EscalationPathTemplateSequencesNodeNotifyChannelTarget {
      */
     type: pulumi.Input<string>;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: pulumi.Input<string>;
 }

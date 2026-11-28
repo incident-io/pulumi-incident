@@ -72,6 +72,7 @@ export interface GetAlertSourceResult {
      * The URL to send alert events to
      */
     readonly alertEventsUrl: string;
+    readonly alertmanagerOptions: outputs.GetAlertSourceAlertmanagerOptions;
     /**
      * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
      */

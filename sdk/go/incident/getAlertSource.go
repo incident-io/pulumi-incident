@@ -78,7 +78,8 @@ type LookupAlertSourceResult struct {
 	// Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
 	AiTitlesEnabled bool `pulumi:"aiTitlesEnabled"`
 	// The URL to send alert events to
-	AlertEventsUrl string `pulumi:"alertEventsUrl"`
+	AlertEventsUrl      string                            `pulumi:"alertEventsUrl"`
+	AlertmanagerOptions GetAlertSourceAlertmanagerOptions `pulumi:"alertmanagerOptions"`
 	// Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.
 	AutoResolveIncidentAlerts bool `pulumi:"autoResolveIncidentAlerts"`
 	// How long to wait before automatically resolving alerts from this source
@@ -164,6 +165,10 @@ func (o LookupAlertSourceResultOutput) AiTitlesEnabled() pulumi.BoolOutput {
 // The URL to send alert events to
 func (o LookupAlertSourceResultOutput) AlertEventsUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAlertSourceResult) string { return v.AlertEventsUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupAlertSourceResultOutput) AlertmanagerOptions() GetAlertSourceAlertmanagerOptionsOutput {
+	return o.ApplyT(func(v LookupAlertSourceResult) GetAlertSourceAlertmanagerOptions { return v.AlertmanagerOptions }).(GetAlertSourceAlertmanagerOptionsOutput)
 }
 
 // Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto*resolve*timeout_minutes.

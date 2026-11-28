@@ -162,6 +162,7 @@ export class AlertSource extends pulumi.CustomResource {
      * The URL to send alert events to
      */
     declare public /*out*/ readonly alertEventsUrl: pulumi.Output<string>;
+    declare public readonly alertmanagerOptions: pulumi.Output<outputs.AlertSourceAlertmanagerOptions | undefined>;
     /**
      * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
      */
@@ -249,6 +250,7 @@ export class AlertSource extends pulumi.CustomResource {
             const state = argsOrState as AlertSourceState | undefined;
             resourceInputs["aiTitlesEnabled"] = state?.aiTitlesEnabled;
             resourceInputs["alertEventsUrl"] = state?.alertEventsUrl;
+            resourceInputs["alertmanagerOptions"] = state?.alertmanagerOptions;
             resourceInputs["autoResolveIncidentAlerts"] = state?.autoResolveIncidentAlerts;
             resourceInputs["autoResolveTimeoutMinutes"] = state?.autoResolveTimeoutMinutes;
             resourceInputs["description"] = state?.description;
@@ -279,6 +281,7 @@ export class AlertSource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceType'");
             }
             resourceInputs["aiTitlesEnabled"] = args?.aiTitlesEnabled;
+            resourceInputs["alertmanagerOptions"] = args?.alertmanagerOptions;
             resourceInputs["autoResolveIncidentAlerts"] = args?.autoResolveIncidentAlerts;
             resourceInputs["autoResolveTimeoutMinutes"] = args?.autoResolveTimeoutMinutes;
             resourceInputs["description"] = args?.description;
@@ -324,6 +327,7 @@ export interface AlertSourceState {
      * The URL to send alert events to
      */
     alertEventsUrl?: pulumi.Input<string | undefined>;
+    alertmanagerOptions?: pulumi.Input<inputs.AlertSourceAlertmanagerOptions | undefined>;
     /**
      * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
      */
@@ -405,6 +409,7 @@ export interface AlertSourceArgs {
      * Whether to improve the titles of alerts from this source with AI. We create one title format for each kind of alert and reuse it, so the same alert gets a consistent title each time it fires.
      */
     aiTitlesEnabled?: pulumi.Input<boolean | undefined>;
+    alertmanagerOptions?: pulumi.Input<inputs.AlertSourceAlertmanagerOptions | undefined>;
     /**
      * Whether alerts from this source keep counting down to auto-resolve while attached to an incident. Defaults to true. Has no effect without auto_resolve_timeout_minutes.
      */

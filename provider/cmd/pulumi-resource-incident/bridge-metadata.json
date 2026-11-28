@@ -5,6 +5,411 @@
                 "current": "incident:index/alertAttribute:AlertAttribute",
                 "majorVersion": 1
             },
+            "incident_alert_grouping_preference": {
+                "current": "incident:index/alertGroupingPreference:AlertGroupingPreference",
+                "majorVersion": 1,
+                "fields": {
+                    "branch": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "condition_groups": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "conditions": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "param_bindings": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "array_value": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "values": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "settings": {
+                                    "fields": {
+                                        "grouping_keys": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "fields": {
+                            "settings": {
+                                "fields": {
+                                    "grouping_keys": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "named_expression": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "fallback": {
+                                    "fields": {
+                                        "else": {
+                                            "fields": {
+                                                "result": {
+                                                    "fields": {
+                                                        "array_value": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "else_if": {
+                                            "maxItemsOne": false,
+                                            "elem": {
+                                                "fields": {
+                                                    "condition_groups": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "conditions": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "params": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "array_value": {
+                                                                                            "maxItemsOne": false
+                                                                                        },
+                                                                                        "values": {
+                                                                                            "maxItemsOne": false
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "conditions": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "params": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "array_value": {
+                                                                                "maxItemsOne": false
+                                                                            },
+                                                                            "values": {
+                                                                                "maxItemsOne": false
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "result": {
+                                                        "fields": {
+                                                            "array_value": {
+                                                                "maxItemsOne": false
+                                                            },
+                                                            "values": {
+                                                                "maxItemsOne": false
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "if": {
+                                            "fields": {
+                                                "condition_groups": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "conditions": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "params": {
+                                                                            "maxItemsOne": false,
+                                                                            "elem": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "conditions": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "params": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "result": {
+                                                    "fields": {
+                                                        "array_value": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "result": {
+                                            "fields": {
+                                                "array_value": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "values": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "operation": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "branches": {
+                                                "fields": {
+                                                    "else_if": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "condition_groups": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "conditions": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "params": {
+                                                                                            "maxItemsOne": false,
+                                                                                            "elem": {
+                                                                                                "fields": {
+                                                                                                    "array_value": {
+                                                                                                        "maxItemsOne": false
+                                                                                                    },
+                                                                                                    "values": {
+                                                                                                        "maxItemsOne": false
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "conditions": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "params": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "array_value": {
+                                                                                            "maxItemsOne": false
+                                                                                        },
+                                                                                        "values": {
+                                                                                            "maxItemsOne": false
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "result": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "if": {
+                                                        "fields": {
+                                                            "condition_groups": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "conditions": {
+                                                                            "maxItemsOne": false,
+                                                                            "elem": {
+                                                                                "fields": {
+                                                                                    "params": {
+                                                                                        "maxItemsOne": false,
+                                                                                        "elem": {
+                                                                                            "fields": {
+                                                                                                "array_value": {
+                                                                                                    "maxItemsOne": false
+                                                                                                },
+                                                                                                "values": {
+                                                                                                    "maxItemsOne": false
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "conditions": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "params": {
+                                                                            "maxItemsOne": false,
+                                                                            "elem": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "result": {
+                                                                "fields": {
+                                                                    "array_value": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "values": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "filter": {
+                                                "fields": {
+                                                    "condition_groups": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "conditions": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "params": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "array_value": {
+                                                                                            "maxItemsOne": false
+                                                                                        },
+                                                                                        "values": {
+                                                                                            "maxItemsOne": false
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "conditions": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "params": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "array_value": {
+                                                                                "maxItemsOne": false
+                                                                            },
+                                                                            "values": {
+                                                                                "maxItemsOne": false
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "incident_alert_route": {
                 "current": "incident:index/alertRoute:AlertRoute",
                 "majorVersion": 1,
@@ -581,6 +986,640 @@
                     },
                     "owning_team_ids": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "incident_alert_rules": {
+                "current": "incident:index/alertRules:AlertRules",
+                "majorVersion": 1,
+                "fields": {
+                    "block": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "branch": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "actions": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "create_incident": {
+                                                            "fields": {
+                                                                "incident_template": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "membership_teams": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "escalate": {
+                                                            "fields": {
+                                                                "escalation_paths": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "urgency": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "users": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "post_microsoft_teams": {
+                                                            "fields": {
+                                                                "channels": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "post_slack": {
+                                                            "fields": {
+                                                                "channels": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "branch": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "actions": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "create_incident": {
+                                                                        "fields": {
+                                                                            "incident_template": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "membership_teams": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "escalate": {
+                                                                        "fields": {
+                                                                            "escalation_paths": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "urgency": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "users": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "post_microsoft_teams": {
+                                                                        "fields": {
+                                                                            "channels": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "post_slack": {
+                                                                        "fields": {
+                                                                            "channels": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "condition_groups": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "conditions": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "param_bindings": {
+                                                                                    "maxItemsOne": false,
+                                                                                    "elem": {
+                                                                                        "fields": {
+                                                                                            "array_value": {
+                                                                                                "maxItemsOne": false
+                                                                                            },
+                                                                                            "values": {
+                                                                                                "maxItemsOne": false
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "condition_groups": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "conditions": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "param_bindings": {
+                                                                        "maxItemsOne": false,
+                                                                        "elem": {
+                                                                            "fields": {
+                                                                                "array_value": {
+                                                                                    "maxItemsOne": false
+                                                                                },
+                                                                                "values": {
+                                                                                    "maxItemsOne": false
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "message_template": {
+                                    "fields": {
+                                        "array_value": {
+                                            "maxItemsOne": false
+                                        },
+                                        "values": {
+                                            "maxItemsOne": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "message_template": {
+                        "fields": {
+                            "array_value": {
+                                "maxItemsOne": false
+                            },
+                            "values": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    },
+                    "named_expression": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "fallback": {
+                                    "fields": {
+                                        "else": {
+                                            "fields": {
+                                                "result": {
+                                                    "fields": {
+                                                        "array_value": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "else_if": {
+                                            "maxItemsOne": false,
+                                            "elem": {
+                                                "fields": {
+                                                    "condition_groups": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "conditions": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "params": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "array_value": {
+                                                                                            "maxItemsOne": false
+                                                                                        },
+                                                                                        "values": {
+                                                                                            "maxItemsOne": false
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "conditions": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "params": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "array_value": {
+                                                                                "maxItemsOne": false
+                                                                            },
+                                                                            "values": {
+                                                                                "maxItemsOne": false
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "result": {
+                                                        "fields": {
+                                                            "array_value": {
+                                                                "maxItemsOne": false
+                                                            },
+                                                            "values": {
+                                                                "maxItemsOne": false
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "if": {
+                                            "fields": {
+                                                "condition_groups": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "conditions": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "params": {
+                                                                            "maxItemsOne": false,
+                                                                            "elem": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "conditions": {
+                                                    "maxItemsOne": false,
+                                                    "elem": {
+                                                        "fields": {
+                                                            "params": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "result": {
+                                                    "fields": {
+                                                        "array_value": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "result": {
+                                            "fields": {
+                                                "array_value": {
+                                                    "maxItemsOne": false
+                                                },
+                                                "values": {
+                                                    "maxItemsOne": false
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "operation": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "branches": {
+                                                "fields": {
+                                                    "else_if": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "condition_groups": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "conditions": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "params": {
+                                                                                            "maxItemsOne": false,
+                                                                                            "elem": {
+                                                                                                "fields": {
+                                                                                                    "array_value": {
+                                                                                                        "maxItemsOne": false
+                                                                                                    },
+                                                                                                    "values": {
+                                                                                                        "maxItemsOne": false
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "conditions": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "params": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "array_value": {
+                                                                                            "maxItemsOne": false
+                                                                                        },
+                                                                                        "values": {
+                                                                                            "maxItemsOne": false
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "result": {
+                                                                    "fields": {
+                                                                        "array_value": {
+                                                                            "maxItemsOne": false
+                                                                        },
+                                                                        "values": {
+                                                                            "maxItemsOne": false
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "if": {
+                                                        "fields": {
+                                                            "condition_groups": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "conditions": {
+                                                                            "maxItemsOne": false,
+                                                                            "elem": {
+                                                                                "fields": {
+                                                                                    "params": {
+                                                                                        "maxItemsOne": false,
+                                                                                        "elem": {
+                                                                                            "fields": {
+                                                                                                "array_value": {
+                                                                                                    "maxItemsOne": false
+                                                                                                },
+                                                                                                "values": {
+                                                                                                    "maxItemsOne": false
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "conditions": {
+                                                                "maxItemsOne": false,
+                                                                "elem": {
+                                                                    "fields": {
+                                                                        "params": {
+                                                                            "maxItemsOne": false,
+                                                                            "elem": {
+                                                                                "fields": {
+                                                                                    "array_value": {
+                                                                                        "maxItemsOne": false
+                                                                                    },
+                                                                                    "values": {
+                                                                                        "maxItemsOne": false
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            "result": {
+                                                                "fields": {
+                                                                    "array_value": {
+                                                                        "maxItemsOne": false
+                                                                    },
+                                                                    "values": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "filter": {
+                                                "fields": {
+                                                    "condition_groups": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "conditions": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "params": {
+                                                                                "maxItemsOne": false,
+                                                                                "elem": {
+                                                                                    "fields": {
+                                                                                        "array_value": {
+                                                                                            "maxItemsOne": false
+                                                                                        },
+                                                                                        "values": {
+                                                                                            "maxItemsOne": false
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "conditions": {
+                                                        "maxItemsOne": false,
+                                                        "elem": {
+                                                            "fields": {
+                                                                "params": {
+                                                                    "maxItemsOne": false,
+                                                                    "elem": {
+                                                                        "fields": {
+                                                                            "array_value": {
+                                                                                "maxItemsOne": false
+                                                                            },
+                                                                            "values": {
+                                                                                "maxItemsOne": false
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -7938,7 +8977,9 @@
     "default-resource-schema-fixups": {
         "resources": {
             "incident_alert_attribute": {},
+            "incident_alert_grouping_preference": {},
             "incident_alert_route": {},
+            "incident_alert_rules": {},
             "incident_alert_source": {},
             "incident_alert_source_attribute": {
                 "computeID": {

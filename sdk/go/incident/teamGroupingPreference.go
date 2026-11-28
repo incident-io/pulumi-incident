@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// > **Deprecated:** use `AlertGroupingPreference` with `kind = "team"`, which also manages the
+// team's grouping branches. This resource keeps working. That resource's page explains how to move a preference
+// over with a `moved` block.
+//
 // Manage how each team's alerts are grouped, on every alert route.
 //
 // A team's grouping preference takes priority over the default grouping of any alert route its alerts match. A team without one groups by each route's own settings.

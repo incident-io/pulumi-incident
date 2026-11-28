@@ -10,10 +10,20 @@ export type AlertAttribute = import("./alertAttribute").AlertAttribute;
 export const AlertAttribute: typeof import("./alertAttribute").AlertAttribute = null as any;
 utilities.lazyLoad(exports, ["AlertAttribute"], () => require("./alertAttribute"));
 
+export { AlertGroupingPreferenceArgs, AlertGroupingPreferenceState } from "./alertGroupingPreference";
+export type AlertGroupingPreference = import("./alertGroupingPreference").AlertGroupingPreference;
+export const AlertGroupingPreference: typeof import("./alertGroupingPreference").AlertGroupingPreference = null as any;
+utilities.lazyLoad(exports, ["AlertGroupingPreference"], () => require("./alertGroupingPreference"));
+
 export { AlertRouteArgs, AlertRouteState } from "./alertRoute";
 export type AlertRoute = import("./alertRoute").AlertRoute;
 export const AlertRoute: typeof import("./alertRoute").AlertRoute = null as any;
 utilities.lazyLoad(exports, ["AlertRoute"], () => require("./alertRoute"));
+
+export { AlertRulesArgs, AlertRulesState } from "./alertRules";
+export type AlertRules = import("./alertRules").AlertRules;
+export const AlertRules: typeof import("./alertRules").AlertRules = null as any;
+utilities.lazyLoad(exports, ["AlertRules"], () => require("./alertRules"));
 
 export { AlertSourceArgs, AlertSourceState } from "./alertSource";
 export type AlertSource = import("./alertSource").AlertSource;
@@ -424,8 +434,12 @@ const _module = {
         switch (type) {
             case "incident:index/alertAttribute:AlertAttribute":
                 return new AlertAttribute(name, <any>undefined, { urn })
+            case "incident:index/alertGroupingPreference:AlertGroupingPreference":
+                return new AlertGroupingPreference(name, <any>undefined, { urn })
             case "incident:index/alertRoute:AlertRoute":
                 return new AlertRoute(name, <any>undefined, { urn })
+            case "incident:index/alertRules:AlertRules":
+                return new AlertRules(name, <any>undefined, { urn })
             case "incident:index/alertSource:AlertSource":
                 return new AlertSource(name, <any>undefined, { urn })
             case "incident:index/alertSourceAttribute:AlertSourceAttribute":
@@ -508,7 +522,9 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("incident", "index/alertAttribute", _module)
+pulumi.runtime.registerResourceModule("incident", "index/alertGroupingPreference", _module)
 pulumi.runtime.registerResourceModule("incident", "index/alertRoute", _module)
+pulumi.runtime.registerResourceModule("incident", "index/alertRules", _module)
 pulumi.runtime.registerResourceModule("incident", "index/alertSource", _module)
 pulumi.runtime.registerResourceModule("incident", "index/alertSourceAttribute", _module)
 pulumi.runtime.registerResourceModule("incident", "index/alertSourceAttributeBeta", _module)

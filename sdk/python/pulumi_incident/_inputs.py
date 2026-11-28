@@ -15,6 +15,194 @@ else:
 from . import _utilities
 
 __all__ = [
+    'AlertGroupingPreferenceBranchArgs',
+    'AlertGroupingPreferenceBranchArgsDict',
+    'AlertGroupingPreferenceBranchConditionGroupArgs',
+    'AlertGroupingPreferenceBranchConditionGroupArgsDict',
+    'AlertGroupingPreferenceBranchConditionGroupConditionArgs',
+    'AlertGroupingPreferenceBranchConditionGroupConditionArgsDict',
+    'AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgs',
+    'AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgsDict',
+    'AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgs',
+    'AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgsDict',
+    'AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgs',
+    'AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgsDict',
+    'AlertGroupingPreferenceBranchSettingsArgs',
+    'AlertGroupingPreferenceBranchSettingsArgsDict',
+    'AlertGroupingPreferenceBranchSettingsGroupingKeyArgs',
+    'AlertGroupingPreferenceBranchSettingsGroupingKeyArgsDict',
+    'AlertGroupingPreferenceDefaultArgs',
+    'AlertGroupingPreferenceDefaultArgsDict',
+    'AlertGroupingPreferenceDefaultSettingsArgs',
+    'AlertGroupingPreferenceDefaultSettingsArgsDict',
+    'AlertGroupingPreferenceDefaultSettingsGroupingKeyArgs',
+    'AlertGroupingPreferenceDefaultSettingsGroupingKeyArgsDict',
+    'AlertGroupingPreferenceNamedExpressionArgs',
+    'AlertGroupingPreferenceNamedExpressionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseResultArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseResultArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfResultArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfResultArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackResultArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackResultArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionFallbackResultValueArgs',
+    'AlertGroupingPreferenceNamedExpressionFallbackResultValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationCastArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationCastArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationConcatenateArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationConcatenateArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationCountArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationCountArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationFirstArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationFirstArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationMaxArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationMaxArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationMinArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationMinArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationNavigateArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationNavigateArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationParseArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationParseArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationRandomArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationRandomArgsDict',
+    'AlertGroupingPreferenceNamedExpressionOperationSumArgs',
+    'AlertGroupingPreferenceNamedExpressionOperationSumArgsDict',
     'AlertRouteAlertSourceArgs',
     'AlertRouteAlertSourceArgsDict',
     'AlertRouteAlertSourceConditionGroupArgs',
@@ -311,6 +499,316 @@ __all__ = [
     'AlertRouteMessageTemplateArrayValueArgsDict',
     'AlertRouteMessageTemplateValueArgs',
     'AlertRouteMessageTemplateValueArgsDict',
+    'AlertRulesBlockArgs',
+    'AlertRulesBlockArgsDict',
+    'AlertRulesBlockBranchArgs',
+    'AlertRulesBlockBranchArgsDict',
+    'AlertRulesBlockBranchActionArgs',
+    'AlertRulesBlockBranchActionArgsDict',
+    'AlertRulesBlockBranchActionCreateIncidentArgs',
+    'AlertRulesBlockBranchActionCreateIncidentArgsDict',
+    'AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgs',
+    'AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgsDict',
+    'AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgs',
+    'AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgsDict',
+    'AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgs',
+    'AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgsDict',
+    'AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgs',
+    'AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgsDict',
+    'AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgs',
+    'AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgsDict',
+    'AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgs',
+    'AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgsDict',
+    'AlertRulesBlockBranchActionEscalateArgs',
+    'AlertRulesBlockBranchActionEscalateArgsDict',
+    'AlertRulesBlockBranchActionEscalateEscalationPathsArgs',
+    'AlertRulesBlockBranchActionEscalateEscalationPathsArgsDict',
+    'AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgs',
+    'AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgsDict',
+    'AlertRulesBlockBranchActionEscalateEscalationPathsValueArgs',
+    'AlertRulesBlockBranchActionEscalateEscalationPathsValueArgsDict',
+    'AlertRulesBlockBranchActionEscalateUrgencyArgs',
+    'AlertRulesBlockBranchActionEscalateUrgencyArgsDict',
+    'AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgs',
+    'AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgsDict',
+    'AlertRulesBlockBranchActionEscalateUrgencyValueArgs',
+    'AlertRulesBlockBranchActionEscalateUrgencyValueArgsDict',
+    'AlertRulesBlockBranchActionEscalateUsersArgs',
+    'AlertRulesBlockBranchActionEscalateUsersArgsDict',
+    'AlertRulesBlockBranchActionEscalateUsersArrayValueArgs',
+    'AlertRulesBlockBranchActionEscalateUsersArrayValueArgsDict',
+    'AlertRulesBlockBranchActionEscalateUsersValueArgs',
+    'AlertRulesBlockBranchActionEscalateUsersValueArgsDict',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsArgs',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsArgsDict',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgs',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgsDict',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgs',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgsDict',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgs',
+    'AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgsDict',
+    'AlertRulesBlockBranchActionPostSlackArgs',
+    'AlertRulesBlockBranchActionPostSlackArgsDict',
+    'AlertRulesBlockBranchActionPostSlackChannelsArgs',
+    'AlertRulesBlockBranchActionPostSlackChannelsArgsDict',
+    'AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgs',
+    'AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgsDict',
+    'AlertRulesBlockBranchActionPostSlackChannelsValueArgs',
+    'AlertRulesBlockBranchActionPostSlackChannelsValueArgsDict',
+    'AlertRulesBlockBranchBranchArgs',
+    'AlertRulesBlockBranchBranchArgsDict',
+    'AlertRulesBlockBranchBranchActionArgs',
+    'AlertRulesBlockBranchBranchActionArgsDict',
+    'AlertRulesBlockBranchBranchActionCreateIncidentArgs',
+    'AlertRulesBlockBranchBranchActionCreateIncidentArgsDict',
+    'AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgs',
+    'AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgsDict',
+    'AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgs',
+    'AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgs',
+    'AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgsDict',
+    'AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgs',
+    'AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgsDict',
+    'AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgs',
+    'AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgs',
+    'AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateArgs',
+    'AlertRulesBlockBranchBranchActionEscalateArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgs',
+    'AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgs',
+    'AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgs',
+    'AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateUrgencyArgs',
+    'AlertRulesBlockBranchBranchActionEscalateUrgencyArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgs',
+    'AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgs',
+    'AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateUsersArgs',
+    'AlertRulesBlockBranchBranchActionEscalateUsersArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgs',
+    'AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchActionEscalateUsersValueArgs',
+    'AlertRulesBlockBranchBranchActionEscalateUsersValueArgsDict',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgs',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgsDict',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgs',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgsDict',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgs',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgs',
+    'AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgsDict',
+    'AlertRulesBlockBranchBranchActionPostSlackArgs',
+    'AlertRulesBlockBranchBranchActionPostSlackArgsDict',
+    'AlertRulesBlockBranchBranchActionPostSlackChannelsArgs',
+    'AlertRulesBlockBranchBranchActionPostSlackChannelsArgsDict',
+    'AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgs',
+    'AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgs',
+    'AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgsDict',
+    'AlertRulesBlockBranchBranchConditionGroupArgs',
+    'AlertRulesBlockBranchBranchConditionGroupArgsDict',
+    'AlertRulesBlockBranchBranchConditionGroupConditionArgs',
+    'AlertRulesBlockBranchBranchConditionGroupConditionArgsDict',
+    'AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgs',
+    'AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgsDict',
+    'AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgs',
+    'AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgsDict',
+    'AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgs',
+    'AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgsDict',
+    'AlertRulesBlockBranchConditionGroupArgs',
+    'AlertRulesBlockBranchConditionGroupArgsDict',
+    'AlertRulesBlockBranchConditionGroupConditionArgs',
+    'AlertRulesBlockBranchConditionGroupConditionArgsDict',
+    'AlertRulesBlockBranchConditionGroupConditionParamBindingArgs',
+    'AlertRulesBlockBranchConditionGroupConditionParamBindingArgsDict',
+    'AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgs',
+    'AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgsDict',
+    'AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgs',
+    'AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgsDict',
+    'AlertRulesBlockMessageTemplateArgs',
+    'AlertRulesBlockMessageTemplateArgsDict',
+    'AlertRulesBlockMessageTemplateArrayValueArgs',
+    'AlertRulesBlockMessageTemplateArrayValueArgsDict',
+    'AlertRulesBlockMessageTemplateValueArgs',
+    'AlertRulesBlockMessageTemplateValueArgsDict',
+    'AlertRulesMessageTemplateArgs',
+    'AlertRulesMessageTemplateArgsDict',
+    'AlertRulesMessageTemplateArrayValueArgs',
+    'AlertRulesMessageTemplateArrayValueArgsDict',
+    'AlertRulesMessageTemplateValueArgs',
+    'AlertRulesMessageTemplateValueArgsDict',
+    'AlertRulesNamedExpressionArgs',
+    'AlertRulesNamedExpressionArgsDict',
+    'AlertRulesNamedExpressionFallbackArgs',
+    'AlertRulesNamedExpressionFallbackArgsDict',
+    'AlertRulesNamedExpressionFallbackElseArgs',
+    'AlertRulesNamedExpressionFallbackElseArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfArgs',
+    'AlertRulesNamedExpressionFallbackElseIfArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionParamArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionParamArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgs',
+    'AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfResultArgs',
+    'AlertRulesNamedExpressionFallbackElseIfResultArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackElseIfResultValueArgs',
+    'AlertRulesNamedExpressionFallbackElseIfResultValueArgsDict',
+    'AlertRulesNamedExpressionFallbackElseResultArgs',
+    'AlertRulesNamedExpressionFallbackElseResultArgsDict',
+    'AlertRulesNamedExpressionFallbackElseResultArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackElseResultArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackElseResultValueArgs',
+    'AlertRulesNamedExpressionFallbackElseResultValueArgsDict',
+    'AlertRulesNamedExpressionFallbackIfArgs',
+    'AlertRulesNamedExpressionFallbackIfArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionParamArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionParamArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackIfConditionParamValueArgs',
+    'AlertRulesNamedExpressionFallbackIfConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionFallbackIfResultArgs',
+    'AlertRulesNamedExpressionFallbackIfResultArgsDict',
+    'AlertRulesNamedExpressionFallbackIfResultArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackIfResultArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackIfResultValueArgs',
+    'AlertRulesNamedExpressionFallbackIfResultValueArgsDict',
+    'AlertRulesNamedExpressionFallbackResultArgs',
+    'AlertRulesNamedExpressionFallbackResultArgsDict',
+    'AlertRulesNamedExpressionFallbackResultArrayValueArgs',
+    'AlertRulesNamedExpressionFallbackResultArrayValueArgsDict',
+    'AlertRulesNamedExpressionFallbackResultValueArgs',
+    'AlertRulesNamedExpressionFallbackResultValueArgsDict',
+    'AlertRulesNamedExpressionOperationArgs',
+    'AlertRulesNamedExpressionOperationArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesArgs',
+    'AlertRulesNamedExpressionOperationBranchesArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfResultArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfResultArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionParamArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionParamArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfResultArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfResultArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationBranchesIfResultValueArgs',
+    'AlertRulesNamedExpressionOperationBranchesIfResultValueArgsDict',
+    'AlertRulesNamedExpressionOperationCastArgs',
+    'AlertRulesNamedExpressionOperationCastArgsDict',
+    'AlertRulesNamedExpressionOperationConcatenateArgs',
+    'AlertRulesNamedExpressionOperationConcatenateArgsDict',
+    'AlertRulesNamedExpressionOperationCountArgs',
+    'AlertRulesNamedExpressionOperationCountArgsDict',
+    'AlertRulesNamedExpressionOperationFilterArgs',
+    'AlertRulesNamedExpressionOperationFilterArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionParamArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionParamArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgsDict',
+    'AlertRulesNamedExpressionOperationFilterConditionParamValueArgs',
+    'AlertRulesNamedExpressionOperationFilterConditionParamValueArgsDict',
+    'AlertRulesNamedExpressionOperationFirstArgs',
+    'AlertRulesNamedExpressionOperationFirstArgsDict',
+    'AlertRulesNamedExpressionOperationMaxArgs',
+    'AlertRulesNamedExpressionOperationMaxArgsDict',
+    'AlertRulesNamedExpressionOperationMinArgs',
+    'AlertRulesNamedExpressionOperationMinArgsDict',
+    'AlertRulesNamedExpressionOperationNavigateArgs',
+    'AlertRulesNamedExpressionOperationNavigateArgsDict',
+    'AlertRulesNamedExpressionOperationParseArgs',
+    'AlertRulesNamedExpressionOperationParseArgsDict',
+    'AlertRulesNamedExpressionOperationRandomArgs',
+    'AlertRulesNamedExpressionOperationRandomArgsDict',
+    'AlertRulesNamedExpressionOperationSumArgs',
+    'AlertRulesNamedExpressionOperationSumArgsDict',
+    'AlertSourceAlertmanagerOptionsArgs',
+    'AlertSourceAlertmanagerOptionsArgsDict',
     'AlertSourceAttributeArrayValueArgs',
     'AlertSourceAttributeArrayValueArgsDict',
     'AlertSourceAttributeBetaArrayValueArgs',
@@ -983,6 +1481,8 @@ __all__ = [
     'AlertSourceAttributeNamedExpressionOperationSumArgsDict',
     'AlertSourceAttributeValueArgs',
     'AlertSourceAttributeValueArgsDict',
+    'AlertSourceBetaAlertmanagerOptionsArgs',
+    'AlertSourceBetaAlertmanagerOptionsArgsDict',
     'AlertSourceBetaDescriptionArgs',
     'AlertSourceBetaDescriptionArgsDict',
     'AlertSourceBetaEmailOptionsArgs',
@@ -2920,6 +3420,6290 @@ __all__ = [
     'GetAlertSourceNamedExpressionOperationSumArgs',
     'GetAlertSourceNamedExpressionOperationSumArgsDict',
 ]
+
+class AlertGroupingPreferenceBranchArgsDict(TypedDict):
+    condition_groups: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupArgsDict']]]
+    """
+    The branch matches an alert when every condition in any one group holds
+    """
+    settings: pulumi.Input['AlertGroupingPreferenceBranchSettingsArgsDict']
+    """
+    How alerts are grouped together
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier for this branch, a ULID. Omit it on a new branch and one is assigned. Send the ID you read back on every update: alert groups are keyed on it.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupArgs']]],
+                 settings: pulumi.Input['AlertGroupingPreferenceBranchSettingsArgs'],
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupArgs']]] condition_groups: The branch matches an alert when every condition in any one group holds
+        :param pulumi.Input['AlertGroupingPreferenceBranchSettingsArgs'] settings: How alerts are grouped together
+        :param pulumi.Input[_builtins.str] id: Identifier for this branch, a ULID. Omit it on a new branch and one is assigned. Send the ID you read back on every update: alert groups are keyed on it.
+        """
+        pulumi.set(__self__, "condition_groups", condition_groups)
+        pulumi.set(__self__, "settings", settings)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupArgs']]]:
+        """
+        The branch matches an alert when every condition in any one group holds
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupArgs']]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> pulumi.Input['AlertGroupingPreferenceBranchSettingsArgs']:
+        """
+        How alerts are grouped together
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: pulumi.Input['AlertGroupingPreferenceBranchSettingsArgs']):
+        pulumi.set(self, "settings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier for this branch, a ULID. Omit it on a new branch and one is assigned. Send the ID you read back on every update: alert groups are keyed on it.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class AlertGroupingPreferenceBranchConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionArgsDict']]]
+    """
+    The prerequisite conditions that must all be satisfied
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionArgs']]] conditions: The prerequisite conditions that must all be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionArgs']]]:
+        """
+        The prerequisite conditions that must all be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertGroupingPreferenceBranchConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    The logical operation to be applied
+    """
+    param_bindings: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgsDict']]]
+    """
+    Bindings for the operation parameters
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The subject of the condition, on which the operation is applied
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 param_bindings: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgs']]],
+                 subject: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] operation: The logical operation to be applied
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgs']]] param_bindings: Bindings for the operation parameters
+        :param pulumi.Input[_builtins.str] subject: The subject of the condition, on which the operation is applied
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        The logical operation to be applied
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgs']]]:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @param_bindings.setter
+    def param_bindings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgs']]]):
+        pulumi.set(self, "param_bindings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The subject of the condition, on which the operation is applied
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+
+class AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgsDict']]]]]
+    """
+    The array of literal or reference parameter values
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgsDict']]]
+    """
+    The literal or reference parameter value
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, shorthand for `value = { reference = ... }`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgs']]] array_values: The array of literal or reference parameter values
+        :param pulumi.Input[_builtins.str] expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgs'] value: The literal or reference parameter value
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgs']]]]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgs']]:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the literal value of the step parameter
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the reference into the trigger scope that is the value of this parameter
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: If set, this is the literal value of the step parameter
+        :param pulumi.Input[_builtins.str] reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the literal value of the step parameter
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the reference into the trigger scope that is the value of this parameter
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: If set, this is the literal value of the step parameter
+        :param pulumi.Input[_builtins.str] reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceBranchSettingsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether these alerts are grouped. When false, none of them are grouped.
+    """
+    ai_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+    """
+    ai_instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+    """
+    grouping_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchSettingsGroupingKeyArgsDict']]]]]
+    """
+    Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+    """
+    window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+    """
+    window_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 ai_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ai_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_keys: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchSettingsGroupingKeyArgs']]]] = None,
+                 window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 window_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether these alerts are grouped. When false, none of them are grouped.
+        :param pulumi.Input[_builtins.bool] ai_enabled: Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        :param pulumi.Input[_builtins.str] ai_instructions: Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceBranchSettingsGroupingKeyArgs']]] grouping_keys: Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+        :param pulumi.Input[_builtins.int] window_seconds: How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+        :param pulumi.Input[_builtins.str] window_type: How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if ai_enabled is not None:
+            pulumi.set(__self__, "ai_enabled", ai_enabled)
+        if ai_instructions is not None:
+            pulumi.set(__self__, "ai_instructions", ai_instructions)
+        if grouping_keys is not None:
+            pulumi.set(__self__, "grouping_keys", grouping_keys)
+        if window_seconds is not None:
+            pulumi.set(__self__, "window_seconds", window_seconds)
+        if window_type is not None:
+            pulumi.set(__self__, "window_type", window_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether these alerts are grouped. When false, none of them are grouped.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aiEnabled")
+    def ai_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        """
+        return pulumi.get(self, "ai_enabled")
+
+    @ai_enabled.setter
+    def ai_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ai_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aiInstructions")
+    def ai_instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+        """
+        return pulumi.get(self, "ai_instructions")
+
+    @ai_instructions.setter
+    def ai_instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ai_instructions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupingKeys")
+    def grouping_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchSettingsGroupingKeyArgs']]]]:
+        """
+        Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+        """
+        return pulumi.get(self, "grouping_keys")
+
+    @grouping_keys.setter
+    def grouping_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceBranchSettingsGroupingKeyArgs']]]]):
+        pulumi.set(self, "grouping_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowSeconds")
+    def window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+        """
+        return pulumi.get(self, "window_seconds")
+
+    @window_seconds.setter
+    def window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "window_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowType")
+    def window_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        """
+        return pulumi.get(self, "window_type")
+
+    @window_type.setter
+    def window_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "window_type", value)
+
+
+class AlertGroupingPreferenceBranchSettingsGroupingKeyArgsDict(TypedDict):
+    reference: pulumi.Input[_builtins.str]
+    """
+    A reference to a property of the alert to group on
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceBranchSettingsGroupingKeyArgs:
+    def __init__(__self__, *,
+                 reference: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] reference: A reference to a property of the alert to group on
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[_builtins.str]:
+        """
+        A reference to a property of the alert to group on
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceDefaultArgsDict(TypedDict):
+    settings: pulumi.Input['AlertGroupingPreferenceDefaultSettingsArgsDict']
+    """
+    How alerts are grouped together
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceDefaultArgs:
+    def __init__(__self__, *,
+                 settings: pulumi.Input['AlertGroupingPreferenceDefaultSettingsArgs']):
+        """
+        :param pulumi.Input['AlertGroupingPreferenceDefaultSettingsArgs'] settings: How alerts are grouped together
+        """
+        pulumi.set(__self__, "settings", settings)
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> pulumi.Input['AlertGroupingPreferenceDefaultSettingsArgs']:
+        """
+        How alerts are grouped together
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: pulumi.Input['AlertGroupingPreferenceDefaultSettingsArgs']):
+        pulumi.set(self, "settings", value)
+
+
+class AlertGroupingPreferenceDefaultSettingsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether these alerts are grouped. When false, none of them are grouped.
+    """
+    ai_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+    """
+    ai_instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+    """
+    grouping_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceDefaultSettingsGroupingKeyArgsDict']]]]]
+    """
+    Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+    """
+    window_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+    """
+    window_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceDefaultSettingsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 ai_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ai_instructions: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_keys: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceDefaultSettingsGroupingKeyArgs']]]] = None,
+                 window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 window_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether these alerts are grouped. When false, none of them are grouped.
+        :param pulumi.Input[_builtins.bool] ai_enabled: Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        :param pulumi.Input[_builtins.str] ai_instructions: Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceDefaultSettingsGroupingKeyArgs']]] grouping_keys: Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+        :param pulumi.Input[_builtins.int] window_seconds: How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+        :param pulumi.Input[_builtins.str] window_type: How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if ai_enabled is not None:
+            pulumi.set(__self__, "ai_enabled", ai_enabled)
+        if ai_instructions is not None:
+            pulumi.set(__self__, "ai_instructions", ai_instructions)
+        if grouping_keys is not None:
+            pulumi.set(__self__, "grouping_keys", grouping_keys)
+        if window_seconds is not None:
+            pulumi.set(__self__, "window_seconds", window_seconds)
+        if window_type is not None:
+            pulumi.set(__self__, "window_type", window_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether these alerts are grouped. When false, none of them are grouped.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aiEnabled")
+    def ai_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+        """
+        return pulumi.get(self, "ai_enabled")
+
+    @ai_enabled.setter
+    def ai_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ai_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aiInstructions")
+    def ai_instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+        """
+        return pulumi.get(self, "ai_instructions")
+
+    @ai_instructions.setter
+    def ai_instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ai_instructions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupingKeys")
+    def grouping_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceDefaultSettingsGroupingKeyArgs']]]]:
+        """
+        Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+        """
+        return pulumi.get(self, "grouping_keys")
+
+    @grouping_keys.setter
+    def grouping_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceDefaultSettingsGroupingKeyArgs']]]]):
+        pulumi.set(self, "grouping_keys", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowSeconds")
+    def window_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+        """
+        return pulumi.get(self, "window_seconds")
+
+    @window_seconds.setter
+    def window_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "window_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowType")
+    def window_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How the grouping window behaves. 'rolling' keeps the window open for window_seconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes window_seconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+        """
+        return pulumi.get(self, "window_type")
+
+    @window_type.setter
+    def window_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "window_type", value)
+
+
+class AlertGroupingPreferenceDefaultSettingsGroupingKeyArgsDict(TypedDict):
+    reference: pulumi.Input[_builtins.str]
+    """
+    A reference to a property of the alert to group on
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceDefaultSettingsGroupingKeyArgs:
+    def __init__(__self__, *,
+                 reference: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] reference: A reference to a property of the alert to group on
+        """
+        pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[_builtins.str]:
+        """
+        A reference to a property of the alert to group on
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name for this expression, unique within this resource, referenced by expression_ref.
+    """
+    fallback: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackArgsDict']]]
+    """
+    What this expression produces when nothing else matched.
+    """
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+    """
+    operations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationArgsDict']]]]]
+    """
+    An ordered pipeline. Each operation feeds the next.
+    """
+    start_from: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 fallback: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackArgs']] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationArgs']]]] = None,
+                 start_from: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: A name for this expression, unique within this resource, referenced by expression_ref.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackArgs'] fallback: What this expression produces when nothing else matched.
+        :param pulumi.Input[_builtins.str] label: What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationArgs']]] operations: An ordered pipeline. Each operation feeds the next.
+        :param pulumi.Input[_builtins.str] start_from: Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+        """
+        pulumi.set(__self__, "name", name)
+        if fallback is not None:
+            pulumi.set(__self__, "fallback", fallback)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if operations is not None:
+            pulumi.set(__self__, "operations", operations)
+        if start_from is not None:
+            pulumi.set(__self__, "start_from", start_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A name for this expression, unique within this resource, referenced by expression_ref.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def fallback(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackArgs']]:
+        """
+        What this expression produces when nothing else matched.
+        """
+        return pulumi.get(self, "fallback")
+
+    @fallback.setter
+    def fallback(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackArgs']]):
+        pulumi.set(self, "fallback", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationArgs']]]]:
+        """
+        An ordered pipeline. Each operation feeds the next.
+        """
+        return pulumi.get(self, "operations")
+
+    @operations.setter
+    def operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationArgs']]]]):
+        pulumi.set(self, "operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startFrom")
+    def start_from(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+        """
+        return pulumi.get(self, "start_from")
+
+    @start_from.setter
+    def start_from(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_from", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackArgsDict(TypedDict):
+    else_: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseArgsDict']]]
+    """
+    The unconditional default for the shorthand above.
+    """
+    else_ifs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfArgsDict']]]]]
+    """
+    Tried in order, after if.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource.
+    """
+    if_: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfArgsDict']]]
+    """
+    Shorthand for a branching fallback.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultArgsDict']]]
+    """
+    A flat, unconditional value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackArgs:
+    def __init__(__self__, *,
+                 else_: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseArgs']] = None,
+                 else_ifs: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 if_: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfArgs']] = None,
+                 result: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultArgs']] = None):
+        """
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseArgs'] else_: The unconditional default for the shorthand above.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfArgs']]] else_ifs: Tried in order, after if.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfArgs'] if_: Shorthand for a branching fallback.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackResultArgs'] result: A flat, unconditional value.
+        """
+        if else_ is not None:
+            pulumi.set(__self__, "else_", else_)
+        if else_ifs is not None:
+            pulumi.set(__self__, "else_ifs", else_ifs)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if if_ is not None:
+            pulumi.set(__self__, "if_", if_)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="else")
+    def else_(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseArgs']]:
+        """
+        The unconditional default for the shorthand above.
+        """
+        return pulumi.get(self, "else_")
+
+    @else_.setter
+    def else_(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseArgs']]):
+        pulumi.set(self, "else_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elseIfs")
+    def else_ifs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfArgs']]]]:
+        """
+        Tried in order, after if.
+        """
+        return pulumi.get(self, "else_ifs")
+
+    @else_ifs.setter
+    def else_ifs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfArgs']]]]):
+        pulumi.set(self, "else_ifs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter(name="if")
+    def if_(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfArgs']]:
+        """
+        Shorthand for a branching fallback.
+        """
+        return pulumi.get(self, "if_")
+
+    @if_.setter
+    def if_(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfArgs']]):
+        pulumi.set(self, "if_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultArgs']]:
+        """
+        A flat, unconditional value.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseArgsDict(TypedDict):
+    result: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultArgsDict']]]
+    """
+    The value to fall back to. Required when the block is present.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseArgs:
+    def __init__(__self__, *,
+                 result: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultArgs']] = None):
+        """
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseResultArgs'] result: The value to fall back to. Required when the block is present.
+        """
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultArgs']]:
+        """
+        The value to fall back to. Required when the block is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackElseResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionFallbackResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionFallbackResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionFallbackResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationArgsDict(TypedDict):
+    branches: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesArgsDict']]]
+    """
+    A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+    """
+    cast: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCastArgsDict']]]
+    """
+    Converts the current value to another type.
+    """
+    concatenate: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationConcatenateArgsDict']]]
+    """
+    Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+    """
+    count: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCountArgsDict']]]
+    """
+    Counts the values.
+    """
+    filter: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterArgsDict']]]
+    """
+    Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+    """
+    first: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFirstArgsDict']]]
+    """
+    Takes the first value.
+    """
+    max: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMaxArgsDict']]]
+    """
+    Takes the largest value.
+    """
+    min: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMinArgsDict']]]
+    """
+    Takes the smallest value.
+    """
+    navigate: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationNavigateArgsDict']]]
+    """
+    Follows an attribute of the current value.
+    """
+    parse: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationParseArgsDict']]]
+    """
+    Evaluates a function against the current value.
+    """
+    random: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationRandomArgsDict']]]
+    """
+    Takes one value at random.
+    """
+    sum: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationSumArgsDict']]]
+    """
+    Adds the values together.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationArgs:
+    def __init__(__self__, *,
+                 branches: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesArgs']] = None,
+                 cast: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCastArgs']] = None,
+                 concatenate: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationConcatenateArgs']] = None,
+                 count: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCountArgs']] = None,
+                 filter: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterArgs']] = None,
+                 first: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFirstArgs']] = None,
+                 max: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMaxArgs']] = None,
+                 min: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMinArgs']] = None,
+                 navigate: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationNavigateArgs']] = None,
+                 parse: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationParseArgs']] = None,
+                 random: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationRandomArgs']] = None,
+                 sum: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationSumArgs']] = None):
+        """
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesArgs'] branches: A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationCastArgs'] cast: Converts the current value to another type.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationConcatenateArgs'] concatenate: Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationCountArgs'] count: Counts the values.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterArgs'] filter: Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFirstArgs'] first: Takes the first value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationMaxArgs'] max: Takes the largest value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationMinArgs'] min: Takes the smallest value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationNavigateArgs'] navigate: Follows an attribute of the current value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationParseArgs'] parse: Evaluates a function against the current value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationRandomArgs'] random: Takes one value at random.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationSumArgs'] sum: Adds the values together.
+        """
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if cast is not None:
+            pulumi.set(__self__, "cast", cast)
+        if concatenate is not None:
+            pulumi.set(__self__, "concatenate", concatenate)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if first is not None:
+            pulumi.set(__self__, "first", first)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if navigate is not None:
+            pulumi.set(__self__, "navigate", navigate)
+        if parse is not None:
+            pulumi.set(__self__, "parse", parse)
+        if random is not None:
+            pulumi.set(__self__, "random", random)
+        if sum is not None:
+            pulumi.set(__self__, "sum", sum)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesArgs']]:
+        """
+        A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+        """
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesArgs']]):
+        pulumi.set(self, "branches", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def cast(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCastArgs']]:
+        """
+        Converts the current value to another type.
+        """
+        return pulumi.get(self, "cast")
+
+    @cast.setter
+    def cast(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCastArgs']]):
+        pulumi.set(self, "cast", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def concatenate(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationConcatenateArgs']]:
+        """
+        Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+        """
+        return pulumi.get(self, "concatenate")
+
+    @concatenate.setter
+    def concatenate(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationConcatenateArgs']]):
+        pulumi.set(self, "concatenate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCountArgs']]:
+        """
+        Counts the values.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationCountArgs']]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterArgs']]:
+        """
+        Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def first(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFirstArgs']]:
+        """
+        Takes the first value.
+        """
+        return pulumi.get(self, "first")
+
+    @first.setter
+    def first(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFirstArgs']]):
+        pulumi.set(self, "first", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMaxArgs']]:
+        """
+        Takes the largest value.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMaxArgs']]):
+        pulumi.set(self, "max", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMinArgs']]:
+        """
+        Takes the smallest value.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationMinArgs']]):
+        pulumi.set(self, "min", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def navigate(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationNavigateArgs']]:
+        """
+        Follows an attribute of the current value.
+        """
+        return pulumi.get(self, "navigate")
+
+    @navigate.setter
+    def navigate(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationNavigateArgs']]):
+        pulumi.set(self, "navigate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parse(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationParseArgs']]:
+        """
+        Evaluates a function against the current value.
+        """
+        return pulumi.get(self, "parse")
+
+    @parse.setter
+    def parse(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationParseArgs']]):
+        pulumi.set(self, "parse", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def random(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationRandomArgs']]:
+        """
+        Takes one value at random.
+        """
+        return pulumi.get(self, "random")
+
+    @random.setter
+    def random(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationRandomArgs']]):
+        pulumi.set(self, "random", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sum(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationSumArgs']]:
+        """
+        Adds the values together.
+        """
+        return pulumi.get(self, "sum")
+
+    @sum.setter
+    def sum(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationSumArgs']]):
+        pulumi.set(self, "sum", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesArgsDict(TypedDict):
+    array: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether each branch returns several values rather than one.
+    """
+    as_: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type every branch result returns. Required when the block is present.
+    """
+    else_ifs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgsDict']]]]]
+    """
+    Tried in order, after if.
+    """
+    if_: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgsDict']]]
+    """
+    The first branch to try.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesArgs:
+    def __init__(__self__, *,
+                 array: pulumi.Input[Optional[_builtins.bool]] = None,
+                 as_: pulumi.Input[Optional[_builtins.str]] = None,
+                 else_ifs: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgs']]]] = None,
+                 if_: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] array: Whether each branch returns several values rather than one.
+        :param pulumi.Input[_builtins.str] as_: The type every branch result returns. Required when the block is present.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgs']]] else_ifs: Tried in order, after if.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgs'] if_: The first branch to try.
+        """
+        if array is not None:
+            pulumi.set(__self__, "array", array)
+        if as_ is not None:
+            pulumi.set(__self__, "as_", as_)
+        if else_ifs is not None:
+            pulumi.set(__self__, "else_ifs", else_ifs)
+        if if_ is not None:
+            pulumi.set(__self__, "if_", if_)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether each branch returns several values rather than one.
+        """
+        return pulumi.get(self, "array")
+
+    @array.setter
+    def array(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "array", value)
+
+    @_builtins.property
+    @pulumi.getter(name="as")
+    def as_(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type every branch result returns. Required when the block is present.
+        """
+        return pulumi.get(self, "as_")
+
+    @as_.setter
+    def as_(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "as_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elseIfs")
+    def else_ifs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgs']]]]:
+        """
+        Tried in order, after if.
+        """
+        return pulumi.get(self, "else_ifs")
+
+    @else_ifs.setter
+    def else_ifs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgs']]]]):
+        pulumi.set(self, "else_ifs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="if")
+    def if_(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgs']]:
+        """
+        The first branch to try.
+        """
+        return pulumi.get(self, "if_")
+
+    @if_.setter
+    def if_(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgs']]):
+        pulumi.set(self, "if_", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationCastArgsDict(TypedDict):
+    as_: pulumi.Input[_builtins.str]
+    """
+    The type to convert to. Take it from the resource that defines the type rather than writing it out.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationCastArgs:
+    def __init__(__self__, *,
+                 as_: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] as_: The type to convert to. Take it from the resource that defines the type rather than writing it out.
+        """
+        pulumi.set(__self__, "as_", as_)
+
+    @_builtins.property
+    @pulumi.getter(name="as")
+    def as_(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type to convert to. Take it from the resource that defines the type rather than writing it out.
+        """
+        return pulumi.get(self, "as_")
+
+    @as_.setter
+    def as_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "as_", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationConcatenateArgsDict(TypedDict):
+    with_: pulumi.Input[_builtins.str]
+    """
+    The reference whose values are added.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationConcatenateArgs:
+    def __init__(__self__, *,
+                 with_: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] with_: The reference whose values are added.
+        """
+        pulumi.set(__self__, "with_", with_)
+
+    @_builtins.property
+    @pulumi.getter(name="with")
+    def with_(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference whose values are added.
+        """
+        return pulumi.get(self, "with_")
+
+    @with_.setter
+    def with_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "with_", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationCountArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationCountArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationFirstArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationFirstArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertGroupingPreferenceNamedExpressionOperationMaxArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationMaxArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertGroupingPreferenceNamedExpressionOperationMinArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationMinArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertGroupingPreferenceNamedExpressionOperationNavigateArgsDict(TypedDict):
+    to: pulumi.Input[_builtins.str]
+    """
+    The catalog attribute to follow.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationNavigateArgs:
+    def __init__(__self__, *,
+                 to: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] to: The catalog attribute to follow.
+        """
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[_builtins.str]:
+        """
+        The catalog attribute to follow.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "to", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationParseArgsDict(TypedDict):
+    as_: pulumi.Input[_builtins.str]
+    """
+    The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+    """
+    function: pulumi.Input[_builtins.str]
+    """
+    JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+    """
+    array: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this returns several values rather than one.
+    """
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationParseArgs:
+    def __init__(__self__, *,
+                 as_: pulumi.Input[_builtins.str],
+                 function: pulumi.Input[_builtins.str],
+                 array: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] as_: The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+        :param pulumi.Input[_builtins.str] function: JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+        :param pulumi.Input[_builtins.bool] array: Whether this returns several values rather than one.
+        """
+        pulumi.set(__self__, "as_", as_)
+        pulumi.set(__self__, "function", function)
+        if array is not None:
+            pulumi.set(__self__, "array", array)
+
+    @_builtins.property
+    @pulumi.getter(name="as")
+    def as_(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+        """
+        return pulumi.get(self, "as_")
+
+    @as_.setter
+    def as_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "as_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def function(self) -> pulumi.Input[_builtins.str]:
+        """
+        JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+        """
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "function", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this returns several values rather than one.
+        """
+        return pulumi.get(self, "array")
+
+    @array.setter
+    def array(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "array", value)
+
+
+class AlertGroupingPreferenceNamedExpressionOperationRandomArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationRandomArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertGroupingPreferenceNamedExpressionOperationSumArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertGroupingPreferenceNamedExpressionOperationSumArgs:
+    def __init__(__self__):
+        pass
+
 
 class AlertRouteAlertSourceArgsDict(TypedDict):
     alert_source_id: pulumi.Input[_builtins.str]
@@ -12893,6 +19677,11048 @@ class AlertRouteMessageTemplateValueArgs:
     @reference.setter
     def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Identifier for this block, unique within the set. Choose a readable key and send the same one on every update, so the block keeps its identity.
+    """
+    branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchArgsDict']]]]]
+    """
+    One or two branches: an if branch, and optionally an else branch with no condition groups
+    """
+    message_template: NotRequired[pulumi.Input[Optional['AlertRulesBlockMessageTemplateArgsDict']]]
+    """
+    The alert message template for this block, in place of the set's: its ID, or a reference. Leave it out to use the set's template.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 branches: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchArgs']]]] = None,
+                 message_template: pulumi.Input[Optional['AlertRulesBlockMessageTemplateArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: Identifier for this block, unique within the set. Choose a readable key and send the same one on every update, so the block keeps its identity.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchArgs']]] branches: One or two branches: an if branch, and optionally an else branch with no condition groups
+        :param pulumi.Input['AlertRulesBlockMessageTemplateArgs'] message_template: The alert message template for this block, in place of the set's: its ID, or a reference. Leave it out to use the set's template.
+        """
+        pulumi.set(__self__, "id", id)
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if message_template is not None:
+            pulumi.set(__self__, "message_template", message_template)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier for this block, unique within the set. Choose a readable key and send the same one on every update, so the block keeps its identity.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchArgs']]]]:
+        """
+        One or two branches: an if branch, and optionally an else branch with no condition groups
+        """
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchArgs']]]]):
+        pulumi.set(self, "branches", value)
+
+    @_builtins.property
+    @pulumi.getter(name="messageTemplate")
+    def message_template(self) -> pulumi.Input[Optional['AlertRulesBlockMessageTemplateArgs']]:
+        """
+        The alert message template for this block, in place of the set's: its ID, or a reference. Leave it out to use the set's template.
+        """
+        return pulumi.get(self, "message_template")
+
+    @message_template.setter
+    def message_template(self, value: pulumi.Input[Optional['AlertRulesBlockMessageTemplateArgs']]):
+        pulumi.set(self, "message_template", value)
+
+
+class AlertRulesBlockBranchArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Identifier for this branch, unique within the set. Choose a readable key and send the same one on every update: alert groups are keyed on it.
+    """
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionArgsDict']]]]]
+    """
+    The actions to take when the branch holds
+    """
+    branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchArgsDict']]]]]
+    """
+    Branches nested one level deep. Each runs when this branch ran and its own conditions hold, and cannot nest further.
+    """
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupArgsDict']]]]]
+    """
+    The branch holds when every condition in any one group holds. A branch with no groups always holds.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionArgs']]]] = None,
+                 branches: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchArgs']]]] = None,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: Identifier for this branch, unique within the set. Choose a readable key and send the same one on every update: alert groups are keyed on it.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionArgs']]] actions: The actions to take when the branch holds
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchArgs']]] branches: Branches nested one level deep. Each runs when this branch ran and its own conditions hold, and cannot nest further.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupArgs']]] condition_groups: The branch holds when every condition in any one group holds. A branch with no groups always holds.
+        """
+        pulumi.set(__self__, "id", id)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier for this branch, unique within the set. Choose a readable key and send the same one on every update: alert groups are keyed on it.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionArgs']]]]:
+        """
+        The actions to take when the branch holds
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchArgs']]]]:
+        """
+        Branches nested one level deep. Each runs when this branch ran and its own conditions hold, and cannot nest further.
+        """
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchArgs']]]]):
+        pulumi.set(self, "branches", value)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupArgs']]]]:
+        """
+        The branch holds when every condition in any one group holds. A branch with no groups always holds.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+
+class AlertRulesBlockBranchActionArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `post_slack`, `post_microsoft_teams`, `create_incident`, `investigate`.
+    """
+    create_incident: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentArgsDict']]]
+    """
+    Create an incident from the alert, or attach it to the incident its group already has. Set when type is `create_incident`.
+    """
+    escalate: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateArgsDict']]]
+    """
+    Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+    """
+    post_microsoft_teams: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsArgsDict']]]
+    """
+    Post the alert to Microsoft Teams channels. Set when type is `post_microsoft_teams`.
+    """
+    post_slack: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackArgsDict']]]
+    """
+    Post the alert to Slack channels. Set when type is `post_slack`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 create_incident: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentArgs']] = None,
+                 escalate: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_microsoft_teams: pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsArgs']] = None,
+                 post_slack: pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `post_slack`, `post_microsoft_teams`, `create_incident`, `investigate`.
+        :param pulumi.Input['AlertRulesBlockBranchActionCreateIncidentArgs'] create_incident: Create an incident from the alert, or attach it to the incident its group already has. Set when type is `create_incident`.
+        :param pulumi.Input['AlertRulesBlockBranchActionEscalateArgs'] escalate: Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+        :param pulumi.Input[_builtins.str] id: Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+        :param pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsArgs'] post_microsoft_teams: Post the alert to Microsoft Teams channels. Set when type is `post_microsoft_teams`.
+        :param pulumi.Input['AlertRulesBlockBranchActionPostSlackArgs'] post_slack: Post the alert to Slack channels. Set when type is `post_slack`.
+        """
+        pulumi.set(__self__, "type", type)
+        if create_incident is not None:
+            pulumi.set(__self__, "create_incident", create_incident)
+        if escalate is not None:
+            pulumi.set(__self__, "escalate", escalate)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if post_microsoft_teams is not None:
+            pulumi.set(__self__, "post_microsoft_teams", post_microsoft_teams)
+        if post_slack is not None:
+            pulumi.set(__self__, "post_slack", post_slack)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `post_slack`, `post_microsoft_teams`, `create_incident`, `investigate`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createIncident")
+    def create_incident(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentArgs']]:
+        """
+        Create an incident from the alert, or attach it to the incident its group already has. Set when type is `create_incident`.
+        """
+        return pulumi.get(self, "create_incident")
+
+    @create_incident.setter
+    def create_incident(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentArgs']]):
+        pulumi.set(self, "create_incident", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def escalate(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateArgs']]:
+        """
+        Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+        """
+        return pulumi.get(self, "escalate")
+
+    @escalate.setter
+    def escalate(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateArgs']]):
+        pulumi.set(self, "escalate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postMicrosoftTeams")
+    def post_microsoft_teams(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsArgs']]:
+        """
+        Post the alert to Microsoft Teams channels. Set when type is `post_microsoft_teams`.
+        """
+        return pulumi.get(self, "post_microsoft_teams")
+
+    @post_microsoft_teams.setter
+    def post_microsoft_teams(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsArgs']]):
+        pulumi.set(self, "post_microsoft_teams", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postSlack")
+    def post_slack(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackArgs']]:
+        """
+        Post the alert to Slack channels. Set when type is `post_slack`.
+        """
+        return pulumi.get(self, "post_slack")
+
+    @post_slack.setter
+    def post_slack(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackArgs']]):
+        pulumi.set(self, "post_slack", value)
+
+
+class AlertRulesBlockBranchActionCreateIncidentArgsDict(TypedDict):
+    auto_decline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+    """
+    incident_template: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgsDict']]]
+    """
+    The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+    """
+    is_private: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+    """
+    membership_teams: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgsDict']]]
+    """
+    The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionCreateIncidentArgs:
+    def __init__(__self__, *,
+                 auto_decline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 incident_template: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgs']] = None,
+                 is_private: pulumi.Input[Optional[_builtins.bool]] = None,
+                 membership_teams: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] auto_decline: Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+        :param pulumi.Input['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgs'] incident_template: The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+        :param pulumi.Input[_builtins.bool] is_private: Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+        :param pulumi.Input['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgs'] membership_teams: The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+        """
+        if auto_decline is not None:
+            pulumi.set(__self__, "auto_decline", auto_decline)
+        if incident_template is not None:
+            pulumi.set(__self__, "incident_template", incident_template)
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
+        if membership_teams is not None:
+            pulumi.set(__self__, "membership_teams", membership_teams)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDecline")
+    def auto_decline(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+        """
+        return pulumi.get(self, "auto_decline")
+
+    @auto_decline.setter
+    def auto_decline(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_decline", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentTemplate")
+    def incident_template(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgs']]:
+        """
+        The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+        """
+        return pulumi.get(self, "incident_template")
+
+    @incident_template.setter
+    def incident_template(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgs']]):
+        pulumi.set(self, "incident_template", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+        """
+        return pulumi.get(self, "is_private")
+
+    @is_private.setter
+    def is_private(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_private", value)
+
+    @_builtins.property
+    @pulumi.getter(name="membershipTeams")
+    def membership_teams(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgs']]:
+        """
+        The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+        """
+        return pulumi.get(self, "membership_teams")
+
+    @membership_teams.setter
+    def membership_teams(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgs']]):
+        pulumi.set(self, "membership_teams", value)
+
+
+class AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionEscalateArgsDict(TypedDict):
+    auto_cancel: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+    """
+    escalation_paths: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsArgsDict']]]
+    """
+    The escalation paths to page: escalation path IDs in `values`, or an `expression_ref` that finds them, such as from the alert's team.
+    """
+    grace_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+    """
+    mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `on_priority_increase`, `on_each_new_alert`.
+    """
+    urgency: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyArgsDict']]]
+    """
+    The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+    """
+    users: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersArgsDict']]]
+    """
+    The users to page: user IDs in `values`, or a reference.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateArgs:
+    def __init__(__self__, *,
+                 auto_cancel: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escalation_paths: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsArgs']] = None,
+                 grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 urgency: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyArgs']] = None,
+                 users: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] auto_cancel: Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+        :param pulumi.Input['AlertRulesBlockBranchActionEscalateEscalationPathsArgs'] escalation_paths: The escalation paths to page: escalation path IDs in `values`, or an `expression_ref` that finds them, such as from the alert's team.
+        :param pulumi.Input[_builtins.int] grace_period_seconds: How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+        :param pulumi.Input[_builtins.str] mode: How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `on_priority_increase`, `on_each_new_alert`.
+        :param pulumi.Input['AlertRulesBlockBranchActionEscalateUrgencyArgs'] urgency: The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+        :param pulumi.Input['AlertRulesBlockBranchActionEscalateUsersArgs'] users: The users to page: user IDs in `values`, or a reference.
+        """
+        if auto_cancel is not None:
+            pulumi.set(__self__, "auto_cancel", auto_cancel)
+        if escalation_paths is not None:
+            pulumi.set(__self__, "escalation_paths", escalation_paths)
+        if grace_period_seconds is not None:
+            pulumi.set(__self__, "grace_period_seconds", grace_period_seconds)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if urgency is not None:
+            pulumi.set(__self__, "urgency", urgency)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter(name="autoCancel")
+    def auto_cancel(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+        """
+        return pulumi.get(self, "auto_cancel")
+
+    @auto_cancel.setter
+    def auto_cancel(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_cancel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="escalationPaths")
+    def escalation_paths(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsArgs']]:
+        """
+        The escalation paths to page: escalation path IDs in `values`, or an `expression_ref` that finds them, such as from the alert's team.
+        """
+        return pulumi.get(self, "escalation_paths")
+
+    @escalation_paths.setter
+    def escalation_paths(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsArgs']]):
+        pulumi.set(self, "escalation_paths", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gracePeriodSeconds")
+    def grace_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+        """
+        return pulumi.get(self, "grace_period_seconds")
+
+    @grace_period_seconds.setter
+    def grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "grace_period_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `on_priority_increase`, `on_each_new_alert`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def urgency(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyArgs']]:
+        """
+        The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+        """
+        return pulumi.get(self, "urgency")
+
+    @urgency.setter
+    def urgency(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyArgs']]):
+        pulumi.set(self, "urgency", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersArgs']]:
+        """
+        The users to page: user IDs in `values`, or a reference.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersArgs']]):
+        pulumi.set(self, "users", value)
+
+
+class AlertRulesBlockBranchActionEscalateEscalationPathsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateEscalationPathsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchActionEscalateEscalationPathsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateEscalationPathsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateEscalationPathsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionEscalateEscalationPathsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateEscalationPathsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionEscalateUrgencyArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateUrgencyArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchActionEscalateUrgencyValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUrgencyValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateUrgencyArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionEscalateUrgencyValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateUrgencyValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionEscalateUsersArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUsersArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateUsersArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUsersArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUsersArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchActionEscalateUsersValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUsersArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionEscalateUsersArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionEscalateUsersValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchActionEscalateUsersArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateUsersArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionEscalateUsersValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionEscalateUsersValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionPostMicrosoftTeamsArgsDict(TypedDict):
+    channels: pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgsDict']
+    """
+    The channels to post to: channel IDs in `values`, or a reference.
+    """
+    mode: pulumi.Input[_builtins.str]
+    """
+    per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+    """
+    channel_visibility: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostMicrosoftTeamsArgs:
+    def __init__(__self__, *,
+                 channels: pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgs'],
+                 mode: pulumi.Input[_builtins.str],
+                 channel_visibility: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgs'] channels: The channels to post to: channel IDs in `values`, or a reference.
+        :param pulumi.Input[_builtins.str] mode: per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        :param pulumi.Input[_builtins.str] channel_visibility: Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        pulumi.set(__self__, "channels", channels)
+        pulumi.set(__self__, "mode", mode)
+        if channel_visibility is not None:
+            pulumi.set(__self__, "channel_visibility", channel_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def channels(self) -> pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgs']:
+        """
+        The channels to post to: channel IDs in `values`, or a reference.
+        """
+        return pulumi.get(self, "channels")
+
+    @channels.setter
+    def channels(self, value: pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgs']):
+        pulumi.set(self, "channels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelVisibility")
+    def channel_visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        return pulumi.get(self, "channel_visibility")
+
+    @channel_visibility.setter
+    def channel_visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_visibility", value)
+
+
+class AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionPostSlackArgsDict(TypedDict):
+    channels: pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArgsDict']
+    """
+    The channels to post to: channel IDs in `values`, or a reference.
+    """
+    mode: pulumi.Input[_builtins.str]
+    """
+    per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+    """
+    channel_visibility: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostSlackArgs:
+    def __init__(__self__, *,
+                 channels: pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArgs'],
+                 mode: pulumi.Input[_builtins.str],
+                 channel_visibility: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArgs'] channels: The channels to post to: channel IDs in `values`, or a reference.
+        :param pulumi.Input[_builtins.str] mode: per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        :param pulumi.Input[_builtins.str] channel_visibility: Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        pulumi.set(__self__, "channels", channels)
+        pulumi.set(__self__, "mode", mode)
+        if channel_visibility is not None:
+            pulumi.set(__self__, "channel_visibility", channel_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def channels(self) -> pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArgs']:
+        """
+        The channels to post to: channel IDs in `values`, or a reference.
+        """
+        return pulumi.get(self, "channels")
+
+    @channels.setter
+    def channels(self, value: pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArgs']):
+        pulumi.set(self, "channels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelVisibility")
+    def channel_visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        return pulumi.get(self, "channel_visibility")
+
+    @channel_visibility.setter
+    def channel_visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_visibility", value)
+
+
+class AlertRulesBlockBranchActionPostSlackChannelsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackChannelsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostSlackChannelsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackChannelsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackChannelsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchActionPostSlackChannelsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostSlackChannelsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchActionPostSlackChannelsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchActionPostSlackChannelsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Identifier for this branch, unique within the set
+    """
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionArgsDict']]]]]
+    """
+    The actions to take when the branch holds
+    """
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupArgsDict']]]]]
+    """
+    The branch holds when every condition in any one group holds. A branch with no groups always holds.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionArgs']]]] = None,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: Identifier for this branch, unique within the set
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionArgs']]] actions: The actions to take when the branch holds
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupArgs']]] condition_groups: The branch holds when every condition in any one group holds. A branch with no groups always holds.
+        """
+        pulumi.set(__self__, "id", id)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier for this branch, unique within the set
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionArgs']]]]:
+        """
+        The actions to take when the branch holds
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupArgs']]]]:
+        """
+        The branch holds when every condition in any one group holds. A branch with no groups always holds.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+
+class AlertRulesBlockBranchBranchActionArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `post_slack`, `post_microsoft_teams`, `create_incident`, `investigate`.
+    """
+    create_incident: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentArgsDict']]]
+    """
+    Create an incident from the alert, or attach it to the incident its group already has. Set when type is `create_incident`.
+    """
+    escalate: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateArgsDict']]]
+    """
+    Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+    """
+    post_microsoft_teams: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgsDict']]]
+    """
+    Post the alert to Microsoft Teams channels. Set when type is `post_microsoft_teams`.
+    """
+    post_slack: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackArgsDict']]]
+    """
+    Post the alert to Slack channels. Set when type is `post_slack`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 create_incident: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentArgs']] = None,
+                 escalate: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateArgs']] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_microsoft_teams: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgs']] = None,
+                 post_slack: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `post_slack`, `post_microsoft_teams`, `create_incident`, `investigate`.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentArgs'] create_incident: Create an incident from the alert, or attach it to the incident its group already has. Set when type is `create_incident`.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionEscalateArgs'] escalate: Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+        :param pulumi.Input[_builtins.str] id: Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgs'] post_microsoft_teams: Post the alert to Microsoft Teams channels. Set when type is `post_microsoft_teams`.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackArgs'] post_slack: Post the alert to Slack channels. Set when type is `post_slack`.
+        """
+        pulumi.set(__self__, "type", type)
+        if create_incident is not None:
+            pulumi.set(__self__, "create_incident", create_incident)
+        if escalate is not None:
+            pulumi.set(__self__, "escalate", escalate)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if post_microsoft_teams is not None:
+            pulumi.set(__self__, "post_microsoft_teams", post_microsoft_teams)
+        if post_slack is not None:
+            pulumi.set(__self__, "post_slack", post_slack)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `post_slack`, `post_microsoft_teams`, `create_incident`, `investigate`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createIncident")
+    def create_incident(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentArgs']]:
+        """
+        Create an incident from the alert, or attach it to the incident its group already has. Set when type is `create_incident`.
+        """
+        return pulumi.get(self, "create_incident")
+
+    @create_incident.setter
+    def create_incident(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentArgs']]):
+        pulumi.set(self, "create_incident", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def escalate(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateArgs']]:
+        """
+        Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+        """
+        return pulumi.get(self, "escalate")
+
+    @escalate.setter
+    def escalate(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateArgs']]):
+        pulumi.set(self, "escalate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postMicrosoftTeams")
+    def post_microsoft_teams(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgs']]:
+        """
+        Post the alert to Microsoft Teams channels. Set when type is `post_microsoft_teams`.
+        """
+        return pulumi.get(self, "post_microsoft_teams")
+
+    @post_microsoft_teams.setter
+    def post_microsoft_teams(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgs']]):
+        pulumi.set(self, "post_microsoft_teams", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postSlack")
+    def post_slack(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackArgs']]:
+        """
+        Post the alert to Slack channels. Set when type is `post_slack`.
+        """
+        return pulumi.get(self, "post_slack")
+
+    @post_slack.setter
+    def post_slack(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackArgs']]):
+        pulumi.set(self, "post_slack", value)
+
+
+class AlertRulesBlockBranchBranchActionCreateIncidentArgsDict(TypedDict):
+    auto_decline: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+    """
+    incident_template: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgsDict']]]
+    """
+    The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+    """
+    is_private: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+    """
+    membership_teams: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgsDict']]]
+    """
+    The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionCreateIncidentArgs:
+    def __init__(__self__, *,
+                 auto_decline: pulumi.Input[Optional[_builtins.bool]] = None,
+                 incident_template: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgs']] = None,
+                 is_private: pulumi.Input[Optional[_builtins.bool]] = None,
+                 membership_teams: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] auto_decline: Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgs'] incident_template: The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+        :param pulumi.Input[_builtins.bool] is_private: Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgs'] membership_teams: The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+        """
+        if auto_decline is not None:
+            pulumi.set(__self__, "auto_decline", auto_decline)
+        if incident_template is not None:
+            pulumi.set(__self__, "incident_template", incident_template)
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
+        if membership_teams is not None:
+            pulumi.set(__self__, "membership_teams", membership_teams)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDecline")
+    def auto_decline(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+        """
+        return pulumi.get(self, "auto_decline")
+
+    @auto_decline.setter
+    def auto_decline(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_decline", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentTemplate")
+    def incident_template(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgs']]:
+        """
+        The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+        """
+        return pulumi.get(self, "incident_template")
+
+    @incident_template.setter
+    def incident_template(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgs']]):
+        pulumi.set(self, "incident_template", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+        """
+        return pulumi.get(self, "is_private")
+
+    @is_private.setter
+    def is_private(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_private", value)
+
+    @_builtins.property
+    @pulumi.getter(name="membershipTeams")
+    def membership_teams(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgs']]:
+        """
+        The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+        """
+        return pulumi.get(self, "membership_teams")
+
+    @membership_teams.setter
+    def membership_teams(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgs']]):
+        pulumi.set(self, "membership_teams", value)
+
+
+class AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateArgsDict(TypedDict):
+    auto_cancel: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+    """
+    escalation_paths: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgsDict']]]
+    """
+    The escalation paths to page: escalation path IDs in `values`, or an `expression_ref` that finds them, such as from the alert's team.
+    """
+    grace_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+    """
+    mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `on_priority_increase`, `on_each_new_alert`.
+    """
+    urgency: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyArgsDict']]]
+    """
+    The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+    """
+    users: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersArgsDict']]]
+    """
+    The users to page: user IDs in `values`, or a reference.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateArgs:
+    def __init__(__self__, *,
+                 auto_cancel: pulumi.Input[Optional[_builtins.bool]] = None,
+                 escalation_paths: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgs']] = None,
+                 grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 urgency: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyArgs']] = None,
+                 users: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] auto_cancel: Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgs'] escalation_paths: The escalation paths to page: escalation path IDs in `values`, or an `expression_ref` that finds them, such as from the alert's team.
+        :param pulumi.Input[_builtins.int] grace_period_seconds: How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+        :param pulumi.Input[_builtins.str] mode: How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `on_priority_increase`, `on_each_new_alert`.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUrgencyArgs'] urgency: The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUsersArgs'] users: The users to page: user IDs in `values`, or a reference.
+        """
+        if auto_cancel is not None:
+            pulumi.set(__self__, "auto_cancel", auto_cancel)
+        if escalation_paths is not None:
+            pulumi.set(__self__, "escalation_paths", escalation_paths)
+        if grace_period_seconds is not None:
+            pulumi.set(__self__, "grace_period_seconds", grace_period_seconds)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if urgency is not None:
+            pulumi.set(__self__, "urgency", urgency)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @_builtins.property
+    @pulumi.getter(name="autoCancel")
+    def auto_cancel(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+        """
+        return pulumi.get(self, "auto_cancel")
+
+    @auto_cancel.setter
+    def auto_cancel(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_cancel", value)
+
+    @_builtins.property
+    @pulumi.getter(name="escalationPaths")
+    def escalation_paths(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgs']]:
+        """
+        The escalation paths to page: escalation path IDs in `values`, or an `expression_ref` that finds them, such as from the alert's team.
+        """
+        return pulumi.get(self, "escalation_paths")
+
+    @escalation_paths.setter
+    def escalation_paths(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgs']]):
+        pulumi.set(self, "escalation_paths", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gracePeriodSeconds")
+    def grace_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+        """
+        return pulumi.get(self, "grace_period_seconds")
+
+    @grace_period_seconds.setter
+    def grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "grace_period_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `on_priority_increase`, `on_each_new_alert`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def urgency(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyArgs']]:
+        """
+        The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+        """
+        return pulumi.get(self, "urgency")
+
+    @urgency.setter
+    def urgency(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyArgs']]):
+        pulumi.set(self, "urgency", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def users(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersArgs']]:
+        """
+        The users to page: user IDs in `values`, or a reference.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersArgs']]):
+        pulumi.set(self, "users", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateEscalationPathsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateEscalationPathsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateUrgencyArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateUrgencyArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateUrgencyValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateUsersArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateUsersArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUsersValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionEscalateUsersValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateUsersArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionEscalateUsersValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionEscalateUsersValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgsDict(TypedDict):
+    channels: pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgsDict']
+    """
+    The channels to post to: channel IDs in `values`, or a reference.
+    """
+    mode: pulumi.Input[_builtins.str]
+    """
+    per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+    """
+    channel_visibility: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsArgs:
+    def __init__(__self__, *,
+                 channels: pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgs'],
+                 mode: pulumi.Input[_builtins.str],
+                 channel_visibility: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgs'] channels: The channels to post to: channel IDs in `values`, or a reference.
+        :param pulumi.Input[_builtins.str] mode: per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        :param pulumi.Input[_builtins.str] channel_visibility: Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        pulumi.set(__self__, "channels", channels)
+        pulumi.set(__self__, "mode", mode)
+        if channel_visibility is not None:
+            pulumi.set(__self__, "channel_visibility", channel_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def channels(self) -> pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgs']:
+        """
+        The channels to post to: channel IDs in `values`, or a reference.
+        """
+        return pulumi.get(self, "channels")
+
+    @channels.setter
+    def channels(self, value: pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgs']):
+        pulumi.set(self, "channels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelVisibility")
+    def channel_visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        return pulumi.get(self, "channel_visibility")
+
+    @channel_visibility.setter
+    def channel_visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_visibility", value)
+
+
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionPostSlackArgsDict(TypedDict):
+    channels: pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArgsDict']
+    """
+    The channels to post to: channel IDs in `values`, or a reference.
+    """
+    mode: pulumi.Input[_builtins.str]
+    """
+    per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+    """
+    channel_visibility: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostSlackArgs:
+    def __init__(__self__, *,
+                 channels: pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArgs'],
+                 mode: pulumi.Input[_builtins.str],
+                 channel_visibility: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArgs'] channels: The channels to post to: channel IDs in `values`, or a reference.
+        :param pulumi.Input[_builtins.str] mode: per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        :param pulumi.Input[_builtins.str] channel_visibility: Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        pulumi.set(__self__, "channels", channels)
+        pulumi.set(__self__, "mode", mode)
+        if channel_visibility is not None:
+            pulumi.set(__self__, "channel_visibility", channel_visibility)
+
+    @_builtins.property
+    @pulumi.getter
+    def channels(self) -> pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArgs']:
+        """
+        The channels to post to: channel IDs in `values`, or a reference.
+        """
+        return pulumi.get(self, "channels")
+
+    @channels.setter
+    def channels(self, value: pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArgs']):
+        pulumi.set(self, "channels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `per_alert`, `group_summary`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelVisibility")
+    def channel_visibility(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only post_slack supports it. Defaults to public. Possible values are: `public`, `private`.
+        """
+        return pulumi.get(self, "channel_visibility")
+
+    @channel_visibility.setter
+    def channel_visibility(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_visibility", value)
+
+
+class AlertRulesBlockBranchBranchActionPostSlackChannelsArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostSlackChannelsArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchActionPostSlackChannelsValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionArgsDict']]]
+    """
+    The prerequisite conditions that must all be satisfied
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionArgs']]] conditions: The prerequisite conditions that must all be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionArgs']]]:
+        """
+        The prerequisite conditions that must all be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesBlockBranchBranchConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    The logical operation to be applied
+    """
+    param_bindings: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgsDict']]]
+    """
+    Bindings for the operation parameters
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The subject of the condition, on which the operation is applied
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 param_bindings: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgs']]],
+                 subject: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] operation: The logical operation to be applied
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgs']]] param_bindings: Bindings for the operation parameters
+        :param pulumi.Input[_builtins.str] subject: The subject of the condition, on which the operation is applied
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        The logical operation to be applied
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgs']]]:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @param_bindings.setter
+    def param_bindings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgs']]]):
+        pulumi.set(self, "param_bindings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The subject of the condition, on which the operation is applied
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+
+class AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgsDict']]]]]
+    """
+    The array of literal or reference parameter values
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgsDict']]]
+    """
+    The literal or reference parameter value
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, shorthand for `value = { reference = ... }`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgs']]] array_values: The array of literal or reference parameter values
+        :param pulumi.Input[_builtins.str] expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgs'] value: The literal or reference parameter value
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgs']]]]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgs']]:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the literal value of the step parameter
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the reference into the trigger scope that is the value of this parameter
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: If set, this is the literal value of the step parameter
+        :param pulumi.Input[_builtins.str] reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the literal value of the step parameter
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the reference into the trigger scope that is the value of this parameter
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: If set, this is the literal value of the step parameter
+        :param pulumi.Input[_builtins.str] reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionArgsDict']]]
+    """
+    The prerequisite conditions that must all be satisfied
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionArgs']]] conditions: The prerequisite conditions that must all be satisfied
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionArgs']]]:
+        """
+        The prerequisite conditions that must all be satisfied
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesBlockBranchConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    The logical operation to be applied
+    """
+    param_bindings: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArgsDict']]]
+    """
+    Bindings for the operation parameters
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The subject of the condition, on which the operation is applied
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 param_bindings: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArgs']]],
+                 subject: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] operation: The logical operation to be applied
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArgs']]] param_bindings: Bindings for the operation parameters
+        :param pulumi.Input[_builtins.str] subject: The subject of the condition, on which the operation is applied
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "param_bindings", param_bindings)
+        pulumi.set(__self__, "subject", subject)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        The logical operation to be applied
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paramBindings")
+    def param_bindings(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArgs']]]:
+        """
+        Bindings for the operation parameters
+        """
+        return pulumi.get(self, "param_bindings")
+
+    @param_bindings.setter
+    def param_bindings(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArgs']]]):
+        pulumi.set(self, "param_bindings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The subject of the condition, on which the operation is applied
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+
+class AlertRulesBlockBranchConditionGroupConditionParamBindingArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgsDict']]]]]
+    """
+    The array of literal or reference parameter values
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgsDict']]]
+    """
+    The literal or reference parameter value
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, shorthand for `value = { reference = ... }`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchConditionGroupConditionParamBindingArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgs']]] array_values: The array of literal or reference parameter values
+        :param pulumi.Input[_builtins.str] expression_ref: The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        :param pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgs'] value: The literal or reference parameter value
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, shorthand for `value = { reference = ... }`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgs']]]]:
+        """
+        The array of literal or reference parameter values
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgs']]:
+        """
+        The literal or reference parameter value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, shorthand for `value = { reference = ... }`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values, shorthand for an `array_value` of literals. For a mix of literals and references, use `array_value`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the literal value of the step parameter
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the reference into the trigger scope that is the value of this parameter
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: If set, this is the literal value of the step parameter
+        :param pulumi.Input[_builtins.str] reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the literal value of the step parameter
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    If set, this is the reference into the trigger scope that is the value of this parameter
+    """
+
+@pulumi.input_type
+class AlertRulesBlockBranchConditionGroupConditionParamBindingValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: If set, this is the literal value of the step parameter
+        :param pulumi.Input[_builtins.str] reference: If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the literal value of the step parameter
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        If set, this is the reference into the trigger scope that is the value of this parameter
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockMessageTemplateArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockMessageTemplateArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesBlockMessageTemplateValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockMessageTemplateArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockMessageTemplateArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesBlockMessageTemplateValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesBlockMessageTemplateArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesBlockMessageTemplateValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockMessageTemplateArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesBlockMessageTemplateArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesBlockMessageTemplateValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesBlockMessageTemplateValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesBlockMessageTemplateArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockMessageTemplateArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesBlockMessageTemplateValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesBlockMessageTemplateValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesMessageTemplateArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesMessageTemplateArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesMessageTemplateValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesMessageTemplateArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesMessageTemplateArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesMessageTemplateValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesMessageTemplateArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesMessageTemplateValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesMessageTemplateArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesMessageTemplateArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesMessageTemplateValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesMessageTemplateValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesMessageTemplateArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesMessageTemplateArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesMessageTemplateValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesMessageTemplateValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A name for this expression, unique within this resource, referenced by expression_ref.
+    """
+    fallback: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackArgsDict']]]
+    """
+    What this expression produces when nothing else matched.
+    """
+    label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+    """
+    operations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationArgsDict']]]]]
+    """
+    An ordered pipeline. Each operation feeds the next.
+    """
+    start_from: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 fallback: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackArgs']] = None,
+                 label: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationArgs']]]] = None,
+                 start_from: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: A name for this expression, unique within this resource, referenced by expression_ref.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackArgs'] fallback: What this expression produces when nothing else matched.
+        :param pulumi.Input[_builtins.str] label: What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationArgs']]] operations: An ordered pipeline. Each operation feeds the next.
+        :param pulumi.Input[_builtins.str] start_from: Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+        """
+        pulumi.set(__self__, "name", name)
+        if fallback is not None:
+            pulumi.set(__self__, "fallback", fallback)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if operations is not None:
+            pulumi.set(__self__, "operations", operations)
+        if start_from is not None:
+            pulumi.set(__self__, "start_from", start_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A name for this expression, unique within this resource, referenced by expression_ref.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def fallback(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackArgs']]:
+        """
+        What this expression produces when nothing else matched.
+        """
+        return pulumi.get(self, "fallback")
+
+    @fallback.setter
+    def fallback(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackArgs']]):
+        pulumi.set(self, "fallback", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationArgs']]]]:
+        """
+        An ordered pipeline. Each operation feeds the next.
+        """
+        return pulumi.get(self, "operations")
+
+    @operations.setter
+    def operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationArgs']]]]):
+        pulumi.set(self, "operations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startFrom")
+    def start_from(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+        """
+        return pulumi.get(self, "start_from")
+
+    @start_from.setter
+    def start_from(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_from", value)
+
+
+class AlertRulesNamedExpressionFallbackArgsDict(TypedDict):
+    else_: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseArgsDict']]]
+    """
+    The unconditional default for the shorthand above.
+    """
+    else_ifs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfArgsDict']]]]]
+    """
+    Tried in order, after if.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource.
+    """
+    if_: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfArgsDict']]]
+    """
+    Shorthand for a branching fallback.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultArgsDict']]]
+    """
+    A flat, unconditional value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackArgs:
+    def __init__(__self__, *,
+                 else_: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseArgs']] = None,
+                 else_ifs: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 if_: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfArgs']] = None,
+                 result: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultArgs']] = None):
+        """
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackElseArgs'] else_: The unconditional default for the shorthand above.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfArgs']]] else_ifs: Tried in order, after if.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackIfArgs'] if_: Shorthand for a branching fallback.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackResultArgs'] result: A flat, unconditional value.
+        """
+        if else_ is not None:
+            pulumi.set(__self__, "else_", else_)
+        if else_ifs is not None:
+            pulumi.set(__self__, "else_ifs", else_ifs)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if if_ is not None:
+            pulumi.set(__self__, "if_", if_)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="else")
+    def else_(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseArgs']]:
+        """
+        The unconditional default for the shorthand above.
+        """
+        return pulumi.get(self, "else_")
+
+    @else_.setter
+    def else_(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseArgs']]):
+        pulumi.set(self, "else_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elseIfs")
+    def else_ifs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfArgs']]]]:
+        """
+        Tried in order, after if.
+        """
+        return pulumi.get(self, "else_ifs")
+
+    @else_ifs.setter
+    def else_ifs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfArgs']]]]):
+        pulumi.set(self, "else_ifs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter(name="if")
+    def if_(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfArgs']]:
+        """
+        Shorthand for a branching fallback.
+        """
+        return pulumi.get(self, "if_")
+
+    @if_.setter
+    def if_(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfArgs']]):
+        pulumi.set(self, "if_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultArgs']]:
+        """
+        A flat, unconditional value.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertRulesNamedExpressionFallbackElseArgsDict(TypedDict):
+    result: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultArgsDict']]]
+    """
+    The value to fall back to. Required when the block is present.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseArgs:
+    def __init__(__self__, *,
+                 result: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultArgs']] = None):
+        """
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackElseResultArgs'] result: The value to fall back to. Required when the block is present.
+        """
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultArgs']]:
+        """
+        The value to fall back to. Required when the block is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackElseIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackElseIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackElseIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackElseResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackElseResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackElseResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackElseResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackElseResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackElseResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackElseResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionFallbackResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionFallbackResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionFallbackResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionFallbackResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionFallbackResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionFallbackResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationArgsDict(TypedDict):
+    branches: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesArgsDict']]]
+    """
+    A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+    """
+    cast: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationCastArgsDict']]]
+    """
+    Converts the current value to another type.
+    """
+    concatenate: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationConcatenateArgsDict']]]
+    """
+    Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+    """
+    count: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationCountArgsDict']]]
+    """
+    Counts the values.
+    """
+    filter: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterArgsDict']]]
+    """
+    Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+    """
+    first: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationFirstArgsDict']]]
+    """
+    Takes the first value.
+    """
+    max: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationMaxArgsDict']]]
+    """
+    Takes the largest value.
+    """
+    min: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationMinArgsDict']]]
+    """
+    Takes the smallest value.
+    """
+    navigate: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationNavigateArgsDict']]]
+    """
+    Follows an attribute of the current value.
+    """
+    parse: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationParseArgsDict']]]
+    """
+    Evaluates a function against the current value.
+    """
+    random: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationRandomArgsDict']]]
+    """
+    Takes one value at random.
+    """
+    sum: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationSumArgsDict']]]
+    """
+    Adds the values together.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationArgs:
+    def __init__(__self__, *,
+                 branches: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesArgs']] = None,
+                 cast: pulumi.Input[Optional['AlertRulesNamedExpressionOperationCastArgs']] = None,
+                 concatenate: pulumi.Input[Optional['AlertRulesNamedExpressionOperationConcatenateArgs']] = None,
+                 count: pulumi.Input[Optional['AlertRulesNamedExpressionOperationCountArgs']] = None,
+                 filter: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterArgs']] = None,
+                 first: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFirstArgs']] = None,
+                 max: pulumi.Input[Optional['AlertRulesNamedExpressionOperationMaxArgs']] = None,
+                 min: pulumi.Input[Optional['AlertRulesNamedExpressionOperationMinArgs']] = None,
+                 navigate: pulumi.Input[Optional['AlertRulesNamedExpressionOperationNavigateArgs']] = None,
+                 parse: pulumi.Input[Optional['AlertRulesNamedExpressionOperationParseArgs']] = None,
+                 random: pulumi.Input[Optional['AlertRulesNamedExpressionOperationRandomArgs']] = None,
+                 sum: pulumi.Input[Optional['AlertRulesNamedExpressionOperationSumArgs']] = None):
+        """
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesArgs'] branches: A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+        :param pulumi.Input['AlertRulesNamedExpressionOperationCastArgs'] cast: Converts the current value to another type.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationConcatenateArgs'] concatenate: Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationCountArgs'] count: Counts the values.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationFilterArgs'] filter: Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationFirstArgs'] first: Takes the first value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationMaxArgs'] max: Takes the largest value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationMinArgs'] min: Takes the smallest value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationNavigateArgs'] navigate: Follows an attribute of the current value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationParseArgs'] parse: Evaluates a function against the current value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationRandomArgs'] random: Takes one value at random.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationSumArgs'] sum: Adds the values together.
+        """
+        if branches is not None:
+            pulumi.set(__self__, "branches", branches)
+        if cast is not None:
+            pulumi.set(__self__, "cast", cast)
+        if concatenate is not None:
+            pulumi.set(__self__, "concatenate", concatenate)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if first is not None:
+            pulumi.set(__self__, "first", first)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+        if navigate is not None:
+            pulumi.set(__self__, "navigate", navigate)
+        if parse is not None:
+            pulumi.set(__self__, "parse", parse)
+        if random is not None:
+            pulumi.set(__self__, "random", random)
+        if sum is not None:
+            pulumi.set(__self__, "sum", sum)
+
+    @_builtins.property
+    @pulumi.getter
+    def branches(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesArgs']]:
+        """
+        A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+        """
+        return pulumi.get(self, "branches")
+
+    @branches.setter
+    def branches(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesArgs']]):
+        pulumi.set(self, "branches", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def cast(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationCastArgs']]:
+        """
+        Converts the current value to another type.
+        """
+        return pulumi.get(self, "cast")
+
+    @cast.setter
+    def cast(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationCastArgs']]):
+        pulumi.set(self, "cast", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def concatenate(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationConcatenateArgs']]:
+        """
+        Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+        """
+        return pulumi.get(self, "concatenate")
+
+    @concatenate.setter
+    def concatenate(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationConcatenateArgs']]):
+        pulumi.set(self, "concatenate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationCountArgs']]:
+        """
+        Counts the values.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationCountArgs']]):
+        pulumi.set(self, "count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterArgs']]:
+        """
+        Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def first(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationFirstArgs']]:
+        """
+        Takes the first value.
+        """
+        return pulumi.get(self, "first")
+
+    @first.setter
+    def first(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFirstArgs']]):
+        pulumi.set(self, "first", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def max(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationMaxArgs']]:
+        """
+        Takes the largest value.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationMaxArgs']]):
+        pulumi.set(self, "max", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationMinArgs']]:
+        """
+        Takes the smallest value.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationMinArgs']]):
+        pulumi.set(self, "min", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def navigate(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationNavigateArgs']]:
+        """
+        Follows an attribute of the current value.
+        """
+        return pulumi.get(self, "navigate")
+
+    @navigate.setter
+    def navigate(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationNavigateArgs']]):
+        pulumi.set(self, "navigate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parse(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationParseArgs']]:
+        """
+        Evaluates a function against the current value.
+        """
+        return pulumi.get(self, "parse")
+
+    @parse.setter
+    def parse(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationParseArgs']]):
+        pulumi.set(self, "parse", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def random(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationRandomArgs']]:
+        """
+        Takes one value at random.
+        """
+        return pulumi.get(self, "random")
+
+    @random.setter
+    def random(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationRandomArgs']]):
+        pulumi.set(self, "random", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sum(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationSumArgs']]:
+        """
+        Adds the values together.
+        """
+        return pulumi.get(self, "sum")
+
+    @sum.setter
+    def sum(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationSumArgs']]):
+        pulumi.set(self, "sum", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesArgsDict(TypedDict):
+    array: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether each branch returns several values rather than one.
+    """
+    as_: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type every branch result returns. Required when the block is present.
+    """
+    else_ifs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfArgsDict']]]]]
+    """
+    Tried in order, after if.
+    """
+    if_: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfArgsDict']]]
+    """
+    The first branch to try.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesArgs:
+    def __init__(__self__, *,
+                 array: pulumi.Input[Optional[_builtins.bool]] = None,
+                 as_: pulumi.Input[Optional[_builtins.str]] = None,
+                 else_ifs: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfArgs']]]] = None,
+                 if_: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.bool] array: Whether each branch returns several values rather than one.
+        :param pulumi.Input[_builtins.str] as_: The type every branch result returns. Required when the block is present.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfArgs']]] else_ifs: Tried in order, after if.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfArgs'] if_: The first branch to try.
+        """
+        if array is not None:
+            pulumi.set(__self__, "array", array)
+        if as_ is not None:
+            pulumi.set(__self__, "as_", as_)
+        if else_ifs is not None:
+            pulumi.set(__self__, "else_ifs", else_ifs)
+        if if_ is not None:
+            pulumi.set(__self__, "if_", if_)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether each branch returns several values rather than one.
+        """
+        return pulumi.get(self, "array")
+
+    @array.setter
+    def array(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "array", value)
+
+    @_builtins.property
+    @pulumi.getter(name="as")
+    def as_(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type every branch result returns. Required when the block is present.
+        """
+        return pulumi.get(self, "as_")
+
+    @as_.setter
+    def as_(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "as_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elseIfs")
+    def else_ifs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfArgs']]]]:
+        """
+        Tried in order, after if.
+        """
+        return pulumi.get(self, "else_ifs")
+
+    @else_ifs.setter
+    def else_ifs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfArgs']]]]):
+        pulumi.set(self, "else_ifs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="if")
+    def if_(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfArgs']]:
+        """
+        The first branch to try.
+        """
+        return pulumi.get(self, "if_")
+
+    @if_.setter
+    def if_(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfArgs']]):
+        pulumi.set(self, "if_", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesElseIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+    result: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultArgsDict']]]
+    """
+    The value this branch produces. Required when the branch is present.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionArgs']]]] = None,
+                 result: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfResultArgs'] result: The value this branch produces. Required when the branch is present.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if result is not None:
+            pulumi.set(__self__, "result", result)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def result(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultArgs']]:
+        """
+        The value this branch produces. Required when the branch is present.
+        """
+        return pulumi.get(self, "result")
+
+    @result.setter
+    def result(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultArgs']]):
+        pulumi.set(self, "result", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfResultArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfResultArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfResultValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationBranchesIfResultValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfResultArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationBranchesIfResultValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationBranchesIfResultValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationCastArgsDict(TypedDict):
+    as_: pulumi.Input[_builtins.str]
+    """
+    The type to convert to. Take it from the resource that defines the type rather than writing it out.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationCastArgs:
+    def __init__(__self__, *,
+                 as_: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] as_: The type to convert to. Take it from the resource that defines the type rather than writing it out.
+        """
+        pulumi.set(__self__, "as_", as_)
+
+    @_builtins.property
+    @pulumi.getter(name="as")
+    def as_(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type to convert to. Take it from the resource that defines the type rather than writing it out.
+        """
+        return pulumi.get(self, "as_")
+
+    @as_.setter
+    def as_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "as_", value)
+
+
+class AlertRulesNamedExpressionOperationConcatenateArgsDict(TypedDict):
+    with_: pulumi.Input[_builtins.str]
+    """
+    The reference whose values are added.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationConcatenateArgs:
+    def __init__(__self__, *,
+                 with_: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] with_: The reference whose values are added.
+        """
+        pulumi.set(__self__, "with_", with_)
+
+    @_builtins.property
+    @pulumi.getter(name="with")
+    def with_(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference whose values are added.
+        """
+        return pulumi.get(self, "with_")
+
+    @with_.setter
+    def with_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "with_", value)
+
+
+class AlertRulesNamedExpressionOperationCountArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationCountArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertRulesNamedExpressionOperationFilterArgsDict(TypedDict):
+    condition_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupArgsDict']]]]]
+    """
+    Groups are OR'd; conditions within a group are AND'd.
+    """
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionArgsDict']]]]]
+    """
+    All of these must hold. Sugar for a single condition group.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterArgs:
+    def __init__(__self__, *,
+                 condition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupArgs']]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupArgs']]] condition_groups: Groups are OR'd; conditions within a group are AND'd.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionArgs']]] conditions: All of these must hold. Sugar for a single condition group.
+        """
+        if condition_groups is not None:
+            pulumi.set(__self__, "condition_groups", condition_groups)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionGroups")
+    def condition_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupArgs']]]]:
+        """
+        Groups are OR'd; conditions within a group are AND'd.
+        """
+        return pulumi.get(self, "condition_groups")
+
+    @condition_groups.setter
+    def condition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupArgs']]]]):
+        pulumi.set(self, "condition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionArgs']]]]:
+        """
+        All of these must hold. Sugar for a single condition group.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionGroupArgsDict(TypedDict):
+    conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgsDict']]]
+    """
+    All of these must hold for the group to hold.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionGroupArgs:
+    def __init__(__self__, *,
+                 conditions: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgs']]] conditions: All of these must hold for the group to hold.
+        """
+        pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgs']]]:
+        """
+        All of these must hold for the group to hold.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgsDict(TypedDict):
+    operation: pulumi.Input[_builtins.str]
+    """
+    How the subject is tested. The available operations depend on the subject's type.
+    """
+    subject: pulumi.Input[_builtins.str]
+    """
+    The reference this condition tests.
+    """
+    params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgsDict']]]]]
+    """
+    Positional parameters for the operation.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionArgs:
+    def __init__(__self__, *,
+                 operation: pulumi.Input[_builtins.str],
+                 subject: pulumi.Input[_builtins.str],
+                 params: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operation: How the subject is tested. The available operations depend on the subject's type.
+        :param pulumi.Input[_builtins.str] subject: The reference this condition tests.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgs']]] params: Positional parameters for the operation.
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "subject", subject)
+        if params is not None:
+            pulumi.set(__self__, "params", params)
+
+    @_builtins.property
+    @pulumi.getter
+    def operation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the subject is tested. The available operations depend on the subject's type.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[_builtins.str]:
+        """
+        The reference this condition tests.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "subject", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def params(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgs']]]]:
+        """
+        Positional parameters for the operation.
+        """
+        return pulumi.get(self, "params")
+
+    @params.setter
+    def params(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgs']]]]):
+        pulumi.set(self, "params", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionParamArgsDict(TypedDict):
+    array_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgsDict']]]]]
+    """
+    Several values, spelled out. Needed when they mix fixed values and references.
+    """
+    expression_ref: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of a named_expression in this resource, whose result becomes the value.
+    """
+    value: NotRequired[pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionParamValueArgsDict']]]
+    """
+    One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+    """
+    value_literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    value_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Several fixed values. For a mix of fixed values and references, use array_value.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionParamArgs:
+    def __init__(__self__, *,
+                 array_values: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgs']]]] = None,
+                 expression_ref: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionParamValueArgs']] = None,
+                 value_literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgs']]] array_values: Several values, spelled out. Needed when they mix fixed values and references.
+        :param pulumi.Input[_builtins.str] expression_ref: The name of a named_expression in this resource, whose result becomes the value.
+        :param pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamValueArgs'] value: One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        :param pulumi.Input[_builtins.str] value_literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] value_reference: A reference into the scope, such as `payload.team`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        if array_values is not None:
+            pulumi.set(__self__, "array_values", array_values)
+        if expression_ref is not None:
+            pulumi.set(__self__, "expression_ref", expression_ref)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_literal is not None:
+            pulumi.set(__self__, "value_literal", value_literal)
+        if value_reference is not None:
+            pulumi.set(__self__, "value_reference", value_reference)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="arrayValues")
+    def array_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgs']]]]:
+        """
+        Several values, spelled out. Needed when they mix fixed values and references.
+        """
+        return pulumi.get(self, "array_values")
+
+    @array_values.setter
+    def array_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgs']]]]):
+        pulumi.set(self, "array_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressionRef")
+    def expression_ref(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a named_expression in this resource, whose result becomes the value.
+        """
+        return pulumi.get(self, "expression_ref")
+
+    @expression_ref.setter
+    def expression_ref(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression_ref", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionParamValueArgs']]:
+        """
+        One value, spelled out. `value_literal` and `value_reference` are shorthand for this.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['AlertRulesNamedExpressionOperationFilterConditionParamValueArgs']]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueLiteral")
+    def value_literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "value_literal")
+
+    @value_literal.setter
+    def value_literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_literal", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueReference")
+    def value_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "value_reference")
+
+    @value_reference.setter
+    def value_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value_reference", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Several fixed values. For a mix of fixed values and references, use array_value.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionParamArrayValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationFilterConditionParamValueArgsDict(TypedDict):
+    literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A fixed value. A catalog entry ID is a literal, not a reference.
+    """
+    reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A reference into the scope, such as `payload.team`.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFilterConditionParamValueArgs:
+    def __init__(__self__, *,
+                 literal: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] literal: A fixed value. A catalog entry ID is a literal, not a reference.
+        :param pulumi.Input[_builtins.str] reference: A reference into the scope, such as `payload.team`.
+        """
+        if literal is not None:
+            pulumi.set(__self__, "literal", literal)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+
+    @_builtins.property
+    @pulumi.getter
+    def literal(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A fixed value. A catalog entry ID is a literal, not a reference.
+        """
+        return pulumi.get(self, "literal")
+
+    @literal.setter
+    def literal(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "literal", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A reference into the scope, such as `payload.team`.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reference", value)
+
+
+class AlertRulesNamedExpressionOperationFirstArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationFirstArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertRulesNamedExpressionOperationMaxArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationMaxArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertRulesNamedExpressionOperationMinArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationMinArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertRulesNamedExpressionOperationNavigateArgsDict(TypedDict):
+    to: pulumi.Input[_builtins.str]
+    """
+    The catalog attribute to follow.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationNavigateArgs:
+    def __init__(__self__, *,
+                 to: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] to: The catalog attribute to follow.
+        """
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[_builtins.str]:
+        """
+        The catalog attribute to follow.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "to", value)
+
+
+class AlertRulesNamedExpressionOperationParseArgsDict(TypedDict):
+    as_: pulumi.Input[_builtins.str]
+    """
+    The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+    """
+    function: pulumi.Input[_builtins.str]
+    """
+    JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+    """
+    array: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this returns several values rather than one.
+    """
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationParseArgs:
+    def __init__(__self__, *,
+                 as_: pulumi.Input[_builtins.str],
+                 function: pulumi.Input[_builtins.str],
+                 array: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] as_: The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+        :param pulumi.Input[_builtins.str] function: JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+        :param pulumi.Input[_builtins.bool] array: Whether this returns several values rather than one.
+        """
+        pulumi.set(__self__, "as_", as_)
+        pulumi.set(__self__, "function", function)
+        if array is not None:
+            pulumi.set(__self__, "array", array)
+
+    @_builtins.property
+    @pulumi.getter(name="as")
+    def as_(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+        """
+        return pulumi.get(self, "as_")
+
+    @as_.setter
+    def as_(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "as_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def function(self) -> pulumi.Input[_builtins.str]:
+        """
+        JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+        """
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "function", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def array(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this returns several values rather than one.
+        """
+        return pulumi.get(self, "array")
+
+    @array.setter
+    def array(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "array", value)
+
+
+class AlertRulesNamedExpressionOperationRandomArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationRandomArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertRulesNamedExpressionOperationSumArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AlertRulesNamedExpressionOperationSumArgs:
+    def __init__(__self__):
+        pass
+
+
+class AlertSourceAlertmanagerOptionsArgsDict(TypedDict):
+    one_alert_per_group: pulumi.Input[_builtins.bool]
+    """
+    Whether to create one alert per evaluation group or one alert per series within a group
+    """
+
+@pulumi.input_type
+class AlertSourceAlertmanagerOptionsArgs:
+    def __init__(__self__, *,
+                 one_alert_per_group: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] one_alert_per_group: Whether to create one alert per evaluation group or one alert per series within a group
+        """
+        pulumi.set(__self__, "one_alert_per_group", one_alert_per_group)
+
+    @_builtins.property
+    @pulumi.getter(name="oneAlertPerGroup")
+    def one_alert_per_group(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to create one alert per evaluation group or one alert per series within a group
+        """
+        return pulumi.get(self, "one_alert_per_group")
+
+    @one_alert_per_group.setter
+    def one_alert_per_group(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "one_alert_per_group", value)
 
 
 class AlertSourceAttributeArrayValueArgsDict(TypedDict):
@@ -35237,6 +53063,34 @@ class AlertSourceAttributeValueArgs:
         pulumi.set(self, "reference", value)
 
 
+class AlertSourceBetaAlertmanagerOptionsArgsDict(TypedDict):
+    one_alert_per_group: pulumi.Input[_builtins.bool]
+    """
+    Whether to create one alert per evaluation group or one alert per series within a group
+    """
+
+@pulumi.input_type
+class AlertSourceBetaAlertmanagerOptionsArgs:
+    def __init__(__self__, *,
+                 one_alert_per_group: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] one_alert_per_group: Whether to create one alert per evaluation group or one alert per series within a group
+        """
+        pulumi.set(__self__, "one_alert_per_group", one_alert_per_group)
+
+    @_builtins.property
+    @pulumi.getter(name="oneAlertPerGroup")
+    def one_alert_per_group(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to create one alert per evaluation group or one alert per series within a group
+        """
+        return pulumi.get(self, "one_alert_per_group")
+
+    @one_alert_per_group.setter
+    def one_alert_per_group(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "one_alert_per_group", value)
+
+
 class AlertSourceBetaDescriptionArgsDict(TypedDict):
     literal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -49968,7 +67822,7 @@ class EscalationPathBetaSequencesNodeBranchArgsDict(TypedDict):
     """
     then: pulumi.Input[_builtins.str]
     """
-    The key of the sequence to continue down when the condition is met.
+    The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
     """
     else_: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -49983,7 +67837,7 @@ class EscalationPathBetaSequencesNodeBranchArgs:
                  else_: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['EscalationPathBetaSequencesNodeBranchIfArgs'] if_: What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
-        :param pulumi.Input[_builtins.str] then: The key of the sequence to continue down when the condition is met.
+        :param pulumi.Input[_builtins.str] then: The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
         :param pulumi.Input[_builtins.str] else_: The key of the sequence to continue down when the condition is not met. Leave unset to end the escalation path instead.
         """
         pulumi.set(__self__, "if_", if_)
@@ -50007,7 +67861,7 @@ class EscalationPathBetaSequencesNodeBranchArgs:
     @pulumi.getter
     def then(self) -> pulumi.Input[_builtins.str]:
         """
-        The key of the sequence to continue down when the condition is met.
+        The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
         """
         return pulumi.get(self, "then")
 
@@ -50414,7 +68268,7 @@ class EscalationPathBetaSequencesNodeLevelTargetArgsDict(TypedDict):
     """
     urgency: pulumi.Input[_builtins.str]
     """
-    The urgency of this escalation path target. Possible values are: `high`, `low`.
+    The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
     """
     schedule_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -50436,7 +68290,7 @@ class EscalationPathBetaSequencesNodeLevelTargetArgs:
         """
         :param pulumi.Input[_builtins.str] id: Uniquely identifies an entity of this type
         :param pulumi.Input[_builtins.str] type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
-        :param pulumi.Input[_builtins.str] urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        :param pulumi.Input[_builtins.str] urgency: The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         :param pulumi.Input[_builtins.str] schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
         :param pulumi.Input[_builtins.str] selected_rota_id: For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
         """
@@ -50476,7 +68330,7 @@ class EscalationPathBetaSequencesNodeLevelTargetArgs:
     @pulumi.getter
     def urgency(self) -> pulumi.Input[_builtins.str]:
         """
-        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         """
         return pulumi.get(self, "urgency")
 
@@ -50655,7 +68509,7 @@ class EscalationPathBetaSequencesNodeNotifyChannelTargetArgsDict(TypedDict):
     """
     urgency: pulumi.Input[_builtins.str]
     """
-    The urgency of this escalation path target. Possible values are: `high`, `low`.
+    The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
     """
     schedule_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -50677,7 +68531,7 @@ class EscalationPathBetaSequencesNodeNotifyChannelTargetArgs:
         """
         :param pulumi.Input[_builtins.str] id: Uniquely identifies an entity of this type
         :param pulumi.Input[_builtins.str] type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
-        :param pulumi.Input[_builtins.str] urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        :param pulumi.Input[_builtins.str] urgency: The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         :param pulumi.Input[_builtins.str] schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
         :param pulumi.Input[_builtins.str] selected_rota_id: For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
         """
@@ -50717,7 +68571,7 @@ class EscalationPathBetaSequencesNodeNotifyChannelTargetArgs:
     @pulumi.getter
     def urgency(self) -> pulumi.Input[_builtins.str]:
         """
-        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         """
         return pulumi.get(self, "urgency")
 
@@ -51331,7 +69185,7 @@ class EscalationPathSequencesNodeBranchArgsDict(TypedDict):
     """
     then: pulumi.Input[_builtins.str]
     """
-    The key of the sequence to continue down when the condition is met.
+    The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
     """
     else_: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -51346,7 +69200,7 @@ class EscalationPathSequencesNodeBranchArgs:
                  else_: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['EscalationPathSequencesNodeBranchIfArgs'] if_: What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
-        :param pulumi.Input[_builtins.str] then: The key of the sequence to continue down when the condition is met.
+        :param pulumi.Input[_builtins.str] then: The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
         :param pulumi.Input[_builtins.str] else_: The key of the sequence to continue down when the condition is not met. Leave unset to end the escalation path instead.
         """
         pulumi.set(__self__, "if_", if_)
@@ -51370,7 +69224,7 @@ class EscalationPathSequencesNodeBranchArgs:
     @pulumi.getter
     def then(self) -> pulumi.Input[_builtins.str]:
         """
-        The key of the sequence to continue down when the condition is met.
+        The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
         """
         return pulumi.get(self, "then")
 
@@ -51777,7 +69631,7 @@ class EscalationPathSequencesNodeLevelTargetArgsDict(TypedDict):
     """
     urgency: pulumi.Input[_builtins.str]
     """
-    The urgency of this escalation path target. Possible values are: `high`, `low`.
+    The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
     """
     schedule_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -51799,7 +69653,7 @@ class EscalationPathSequencesNodeLevelTargetArgs:
         """
         :param pulumi.Input[_builtins.str] id: Uniquely identifies an entity of this type
         :param pulumi.Input[_builtins.str] type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
-        :param pulumi.Input[_builtins.str] urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        :param pulumi.Input[_builtins.str] urgency: The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         :param pulumi.Input[_builtins.str] schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
         :param pulumi.Input[_builtins.str] selected_rota_id: For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
         """
@@ -51839,7 +69693,7 @@ class EscalationPathSequencesNodeLevelTargetArgs:
     @pulumi.getter
     def urgency(self) -> pulumi.Input[_builtins.str]:
         """
-        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         """
         return pulumi.get(self, "urgency")
 
@@ -52018,7 +69872,7 @@ class EscalationPathSequencesNodeNotifyChannelTargetArgsDict(TypedDict):
     """
     urgency: pulumi.Input[_builtins.str]
     """
-    The urgency of this escalation path target. Possible values are: `high`, `low`.
+    The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
     """
     schedule_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -52040,7 +69894,7 @@ class EscalationPathSequencesNodeNotifyChannelTargetArgs:
         """
         :param pulumi.Input[_builtins.str] id: Uniquely identifies an entity of this type
         :param pulumi.Input[_builtins.str] type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
-        :param pulumi.Input[_builtins.str] urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        :param pulumi.Input[_builtins.str] urgency: The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         :param pulumi.Input[_builtins.str] schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Use currently*on*call to notify whoever is on call right now across the schedule, all*users to notify every user attached to the schedule, or all*users*for*rota / currently*on*call*for*rota / next*on*call*for*rota to scope to a specific rota (in which case selected*rota*id is required). next*on*call notifies whoever is next on call across the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
         :param pulumi.Input[_builtins.str] selected_rota_id: For schedule targets, identifies which rota on the schedule the schedule*mode applies to. Required when schedule*mode is all*users*for*rota, currently*on*call*for*rota, or next*on*call*for*rota; must be omitted for other schedule*mode values.
         """
@@ -52080,7 +69934,7 @@ class EscalationPathSequencesNodeNotifyChannelTargetArgs:
     @pulumi.getter
     def urgency(self) -> pulumi.Input[_builtins.str]:
         """
-        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         """
         return pulumi.get(self, "urgency")
 
@@ -54192,7 +72046,7 @@ class EscalationPathTemplateSequencesNodeBranchArgsDict(TypedDict):
     """
     then: pulumi.Input[_builtins.str]
     """
-    The key of the sequence to continue down when the condition is met.
+    The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
     """
     else_: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -54207,7 +72061,7 @@ class EscalationPathTemplateSequencesNodeBranchArgs:
                  else_: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['EscalationPathTemplateSequencesNodeBranchIfArgs'] if_: What the branch tests. Set exactly one of these: a branch tests one thing, so combining them means nesting a second branch inside the first.
-        :param pulumi.Input[_builtins.str] then: The key of the sequence to continue down when the condition is met.
+        :param pulumi.Input[_builtins.str] then: The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
         :param pulumi.Input[_builtins.str] else_: The key of the sequence to continue down when the condition is not met. Leave unset to end the escalation path instead.
         """
         pulumi.set(__self__, "if_", if_)
@@ -54231,7 +72085,7 @@ class EscalationPathTemplateSequencesNodeBranchArgs:
     @pulumi.getter
     def then(self) -> pulumi.Input[_builtins.str]:
         """
-        The key of the sequence to continue down when the condition is met.
+        The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
         """
         return pulumi.get(self, "then")
 
@@ -54634,7 +72488,7 @@ class EscalationPathTemplateSequencesNodeLevelTargetArgsDict(TypedDict):
     """
     urgency: pulumi.Input[_builtins.str]
     """
-    The urgency of this escalation path target. Possible values are: `high`, `low`.
+    The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
     """
     binding: NotRequired[pulumi.Input[Optional['EscalationPathTemplateSequencesNodeLevelTargetBindingArgsDict']]]
     """
@@ -54664,7 +72518,7 @@ class EscalationPathTemplateSequencesNodeLevelTargetArgs:
                  selected_rota_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
-        :param pulumi.Input[_builtins.str] urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        :param pulumi.Input[_builtins.str] urgency: The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         :param pulumi.Input['EscalationPathTemplateSequencesNodeLevelTargetBindingArgs'] binding: Who this target resolves to, decided per templated path. `value_reference` names one of the template's `params`, and `expression_ref` one of its `expressions`. Set exactly one of `id` and `binding`.
         :param pulumi.Input[_builtins.str] id: Uniquely identifies a concrete target. Omitted when binding is set. Set exactly one of `id` and `binding`.
         :param pulumi.Input[_builtins.str] schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
@@ -54697,7 +72551,7 @@ class EscalationPathTemplateSequencesNodeLevelTargetArgs:
     @pulumi.getter
     def urgency(self) -> pulumi.Input[_builtins.str]:
         """
-        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         """
         return pulumi.get(self, "urgency")
 
@@ -55123,7 +72977,7 @@ class EscalationPathTemplateSequencesNodeNotifyChannelTargetArgsDict(TypedDict):
     """
     urgency: pulumi.Input[_builtins.str]
     """
-    The urgency of this escalation path target. Possible values are: `high`, `low`.
+    The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
     """
     binding: NotRequired[pulumi.Input[Optional['EscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArgsDict']]]
     """
@@ -55153,7 +73007,7 @@ class EscalationPathTemplateSequencesNodeNotifyChannelTargetArgs:
                  selected_rota_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] type: Controls what type of entity this target identifies, such as EscalationPolicy or User. Possible values are: `schedule`, `user`, `slack_channel`, `msteams_channel`.
-        :param pulumi.Input[_builtins.str] urgency: The urgency of this escalation path target. Possible values are: `high`, `low`.
+        :param pulumi.Input[_builtins.str] urgency: The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         :param pulumi.Input['EscalationPathTemplateSequencesNodeNotifyChannelTargetBindingArgs'] binding: Who this target resolves to, decided per templated path. `value_reference` names one of the template's `params`, and `expression_ref` one of its `expressions`. Set exactly one of `id` and `binding`.
         :param pulumi.Input[_builtins.str] id: Uniquely identifies a concrete target. Omitted when binding is set. Set exactly one of `id` and `binding`.
         :param pulumi.Input[_builtins.str] schedule_mode: Only set for schedule targets, this specifies which users to fetch from the schedule. Possible values are: `currently_on_call`, `all_users_for_rota`, `all_users`, `currently_on_call_for_rota`, `next_on_call_for_rota`, `next_on_call`.
@@ -55186,7 +73040,7 @@ class EscalationPathTemplateSequencesNodeNotifyChannelTargetArgs:
     @pulumi.getter
     def urgency(self) -> pulumi.Input[_builtins.str]:
         """
-        The urgency of this escalation path target. Possible values are: `high`, `low`.
+        The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
         """
         return pulumi.get(self, "urgency")
 

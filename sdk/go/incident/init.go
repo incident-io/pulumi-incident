@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "incident:index/alertAttribute:AlertAttribute":
 		r = &AlertAttribute{}
+	case "incident:index/alertGroupingPreference:AlertGroupingPreference":
+		r = &AlertGroupingPreference{}
 	case "incident:index/alertRoute:AlertRoute":
 		r = &AlertRoute{}
+	case "incident:index/alertRules:AlertRules":
+		r = &AlertRules{}
 	case "incident:index/alertSource:AlertSource":
 		r = &AlertSource{}
 	case "incident:index/alertSourceAttribute:AlertSourceAttribute":
@@ -139,7 +143,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"incident",
+		"index/alertGroupingPreference",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
 		"index/alertRoute",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"incident",
+		"index/alertRules",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

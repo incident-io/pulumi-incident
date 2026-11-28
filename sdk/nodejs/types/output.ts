@@ -5,6 +5,1384 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
+export interface AlertGroupingPreferenceBranch {
+    /**
+     * The branch matches an alert when every condition in any one group holds
+     */
+    conditionGroups: outputs.AlertGroupingPreferenceBranchConditionGroup[];
+    /**
+     * Identifier for this branch, a ULID. Omit it on a new branch and one is assigned. Send the ID you read back on every update: alert groups are keyed on it.
+     */
+    id: string;
+    /**
+     * How alerts are grouped together
+     */
+    settings: outputs.AlertGroupingPreferenceBranchSettings;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.AlertGroupingPreferenceBranchConditionGroupCondition[];
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.AlertGroupingPreferenceBranchConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceBranchSettings {
+    /**
+     * Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled: boolean;
+    /**
+     * Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+     */
+    aiInstructions?: string;
+    /**
+     * Whether these alerts are grouped. When false, none of them are grouped.
+     */
+    enabled: boolean;
+    /**
+     * Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+     */
+    groupingKeys?: outputs.AlertGroupingPreferenceBranchSettingsGroupingKey[];
+    /**
+     * How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+     */
+    windowSeconds?: number;
+    /**
+     * How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     */
+    windowType?: string;
+}
+
+export interface AlertGroupingPreferenceBranchSettingsGroupingKey {
+    /**
+     * A reference to a property of the alert to group on
+     */
+    reference: string;
+}
+
+export interface AlertGroupingPreferenceDefault {
+    /**
+     * How alerts are grouped together
+     */
+    settings: outputs.AlertGroupingPreferenceDefaultSettings;
+}
+
+export interface AlertGroupingPreferenceDefaultSettings {
+    /**
+     * Use AI to group similar looking alerts. AI alert grouping can only group alerts that are attributed to the same team, so grouping keys must be empty or only contain the team alert attribute. Private alerts are not grouped unless AI incident access allows private incidents and alerts. Omit it on an update to keep the current value.
+     */
+    aiEnabled: boolean;
+    /**
+     * Optional instructions the model follows when AI groups these alerts, such as how the systems you run relate to each other. Up to 2000 characters.
+     */
+    aiInstructions?: string;
+    /**
+     * Whether these alerts are grouped. When false, none of them are grouped.
+     */
+    enabled: boolean;
+    /**
+     * Which alert attributes these alerts are grouped by. Only set when grouping is enabled.
+     */
+    groupingKeys?: outputs.AlertGroupingPreferenceDefaultSettingsGroupingKey[];
+    /**
+     * How long the grouping window is, in seconds. Must be between 60 (1 minute) and 172800 (48 hours). Only set when grouping is enabled.
+     */
+    windowSeconds?: number;
+    /**
+     * How the grouping window behaves. 'rolling' keeps the window open for windowSeconds after the most recent alert, so the group stays open as long as alerts keep arriving. 'fixed' opens the window when the first alert arrives and always closes windowSeconds later. Only set when grouping is enabled. Possible values are: `rolling`, `fixed`.
+     */
+    windowType?: string;
+}
+
+export interface AlertGroupingPreferenceDefaultSettingsGroupingKey {
+    /**
+     * A reference to a property of the alert to group on
+     */
+    reference: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpression {
+    /**
+     * What this expression produces when nothing else matched.
+     */
+    fallback?: outputs.AlertGroupingPreferenceNamedExpressionFallback;
+    /**
+     * What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+     */
+    label?: string;
+    /**
+     * A name for this expression, unique within this resource, referenced by expression_ref.
+     */
+    name: string;
+    /**
+     * An ordered pipeline. Each operation feeds the next.
+     */
+    operations?: outputs.AlertGroupingPreferenceNamedExpressionOperation[];
+    /**
+     * Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+     */
+    startFrom?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallback {
+    /**
+     * The unconditional default for the shorthand above.
+     */
+    else?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElse;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIf[];
+    /**
+     * The name of a namedExpression in this resource.
+     */
+    expressionRef?: string;
+    /**
+     * Shorthand for a branching fallback.
+     */
+    if?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIf;
+    /**
+     * A flat, unconditional value.
+     */
+    result?: outputs.AlertGroupingPreferenceNamedExpressionFallbackResult;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElse {
+    /**
+     * The value to fall back to. Required when the block is present.
+     */
+    result?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseResult;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfResult;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupCondition[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackElseResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackElseResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfResult;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupCondition[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionFallbackResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionFallbackResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionFallbackResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperation {
+    /**
+     * A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+     */
+    branches?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranches;
+    /**
+     * Converts the current value to another type.
+     */
+    cast?: outputs.AlertGroupingPreferenceNamedExpressionOperationCast;
+    /**
+     * Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+     */
+    concatenate?: outputs.AlertGroupingPreferenceNamedExpressionOperationConcatenate;
+    /**
+     * Counts the values.
+     */
+    count?: outputs.AlertGroupingPreferenceNamedExpressionOperationCount;
+    /**
+     * Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+     */
+    filter?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilter;
+    /**
+     * Takes the first value.
+     */
+    first?: outputs.AlertGroupingPreferenceNamedExpressionOperationFirst;
+    /**
+     * Takes the largest value.
+     */
+    max?: outputs.AlertGroupingPreferenceNamedExpressionOperationMax;
+    /**
+     * Takes the smallest value.
+     */
+    min?: outputs.AlertGroupingPreferenceNamedExpressionOperationMin;
+    /**
+     * Follows an attribute of the current value.
+     */
+    navigate?: outputs.AlertGroupingPreferenceNamedExpressionOperationNavigate;
+    /**
+     * Evaluates a function against the current value.
+     */
+    parse?: outputs.AlertGroupingPreferenceNamedExpressionOperationParse;
+    /**
+     * Takes one value at random.
+     */
+    random?: outputs.AlertGroupingPreferenceNamedExpressionOperationRandom;
+    /**
+     * Adds the values together.
+     */
+    sum?: outputs.AlertGroupingPreferenceNamedExpressionOperationSum;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranches {
+    /**
+     * Whether each branch returns several values rather than one.
+     */
+    array?: boolean;
+    /**
+     * The type every branch result returns. Required when the block is present.
+     */
+    as?: string;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIf[];
+    /**
+     * The first branch to try.
+     */
+    if?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIf;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResult;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupCondition[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfResult;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupCondition[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationBranchesIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationCast {
+    /**
+     * The type to convert to. Take it from the resource that defines the type rather than writing it out.
+     */
+    as: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationConcatenate {
+    /**
+     * The reference whose values are added.
+     */
+    with: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationCount {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilter {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterCondition[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupCondition[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFilterConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationFirst {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationMax {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationMin {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationNavigate {
+    /**
+     * The catalog attribute to follow.
+     */
+    to: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationParse {
+    /**
+     * Whether this returns several values rather than one.
+     */
+    array?: boolean;
+    /**
+     * The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+     */
+    as: string;
+    /**
+     * JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+     */
+    function: string;
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationRandom {
+}
+
+export interface AlertGroupingPreferenceNamedExpressionOperationSum {
+}
+
 export interface AlertRouteAlertSource {
     /**
      * The alert source ID that will match for the route
@@ -2154,6 +3532,2411 @@ export interface AlertRouteMessageTemplateValue {
      * If set, this is the reference into the trigger scope that is the value of this parameter
      */
     reference?: string;
+}
+
+export interface AlertRulesBlock {
+    /**
+     * One or two branches: an if branch, and optionally an else branch with no condition groups
+     */
+    branches?: outputs.AlertRulesBlockBranch[];
+    /**
+     * Identifier for this block, unique within the set. Choose a readable key and send the same one on every update, so the block keeps its identity.
+     */
+    id: string;
+    /**
+     * The alert message template for this block, in place of the set's: its ID, or a reference. Leave it out to use the set's template.
+     */
+    messageTemplate?: outputs.AlertRulesBlockMessageTemplate;
+}
+
+export interface AlertRulesBlockBranch {
+    /**
+     * The actions to take when the branch holds
+     */
+    actions?: outputs.AlertRulesBlockBranchAction[];
+    /**
+     * Branches nested one level deep. Each runs when this branch ran and its own conditions hold, and cannot nest further.
+     */
+    branches?: outputs.AlertRulesBlockBranchBranch[];
+    /**
+     * The branch holds when every condition in any one group holds. A branch with no groups always holds.
+     */
+    conditionGroups?: outputs.AlertRulesBlockBranchConditionGroup[];
+    /**
+     * Identifier for this branch, unique within the set. Choose a readable key and send the same one on every update: alert groups are keyed on it.
+     */
+    id: string;
+}
+
+export interface AlertRulesBlockBranchAction {
+    /**
+     * Create an incident from the alert, or attach it to the incident its group already has. Set when type is `createIncident`.
+     */
+    createIncident?: outputs.AlertRulesBlockBranchActionCreateIncident;
+    /**
+     * Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+     */
+    escalate?: outputs.AlertRulesBlockBranchActionEscalate;
+    /**
+     * Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+     */
+    id?: string;
+    /**
+     * Post the alert to Microsoft Teams channels. Set when type is `postMicrosoftTeams`.
+     */
+    postMicrosoftTeams?: outputs.AlertRulesBlockBranchActionPostMicrosoftTeams;
+    /**
+     * Post the alert to Slack channels. Set when type is `postSlack`.
+     */
+    postSlack?: outputs.AlertRulesBlockBranchActionPostSlack;
+    /**
+     * Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `postSlack`, `postMicrosoftTeams`, `createIncident`, `investigate`.
+     */
+    type: string;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncident {
+    /**
+     * Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+     */
+    autoDecline: boolean;
+    /**
+     * The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+     */
+    incidentTemplate?: outputs.AlertRulesBlockBranchActionCreateIncidentIncidentTemplate;
+    /**
+     * Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+     */
+    isPrivate: boolean;
+    /**
+     * The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+     */
+    membershipTeams?: outputs.AlertRulesBlockBranchActionCreateIncidentMembershipTeams;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentIncidentTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentIncidentTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentIncidentTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentMembershipTeams {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentMembershipTeamsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionCreateIncidentMembershipTeamsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionEscalate {
+    /**
+     * Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+     */
+    autoCancel: boolean;
+    /**
+     * The escalation paths to page: escalation path IDs in `values`, or an `expressionRef` that finds them, such as from the alert's team.
+     */
+    escalationPaths?: outputs.AlertRulesBlockBranchActionEscalateEscalationPaths;
+    /**
+     * How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+     */
+    gracePeriodSeconds: number;
+    /**
+     * How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `onPriorityIncrease`, `onEachNewAlert`.
+     */
+    mode: string;
+    /**
+     * The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+     */
+    urgency?: outputs.AlertRulesBlockBranchActionEscalateUrgency;
+    /**
+     * The users to page: user IDs in `values`, or a reference.
+     */
+    users?: outputs.AlertRulesBlockBranchActionEscalateUsers;
+}
+
+export interface AlertRulesBlockBranchActionEscalateEscalationPaths {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchActionEscalateEscalationPathsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchActionEscalateEscalationPathsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchActionEscalateEscalationPathsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionEscalateEscalationPathsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUrgency {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchActionEscalateUrgencyArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchActionEscalateUrgencyValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchActionEscalateUrgencyArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUrgencyValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUsers {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchActionEscalateUsersArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchActionEscalateUsersValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchActionEscalateUsersArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionEscalateUsersValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeams {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility: string;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: outputs.AlertRulesBlockBranchActionPostMicrosoftTeamsChannels;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: string;
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeamsChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionPostMicrosoftTeamsChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionPostSlack {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility: string;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: outputs.AlertRulesBlockBranchActionPostSlackChannels;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: string;
+}
+
+export interface AlertRulesBlockBranchActionPostSlackChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchActionPostSlackChannelsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchActionPostSlackChannelsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchActionPostSlackChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchActionPostSlackChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranch {
+    /**
+     * The actions to take when the branch holds
+     */
+    actions?: outputs.AlertRulesBlockBranchBranchAction[];
+    /**
+     * The branch holds when every condition in any one group holds. A branch with no groups always holds.
+     */
+    conditionGroups?: outputs.AlertRulesBlockBranchBranchConditionGroup[];
+    /**
+     * Identifier for this branch, unique within the set
+     */
+    id: string;
+}
+
+export interface AlertRulesBlockBranchBranchAction {
+    /**
+     * Create an incident from the alert, or attach it to the incident its group already has. Set when type is `createIncident`.
+     */
+    createIncident?: outputs.AlertRulesBlockBranchBranchActionCreateIncident;
+    /**
+     * Page escalation paths or users about the alert. Set escalation_paths, users, or both. Set when type is `escalate`.
+     */
+    escalate?: outputs.AlertRulesBlockBranchBranchActionEscalate;
+    /**
+     * Identifier for this action, unique within the set. Leave it out and the server assigns a new one on every apply, which Terraform doesn't store.
+     */
+    id?: string;
+    /**
+     * Post the alert to Microsoft Teams channels. Set when type is `postMicrosoftTeams`.
+     */
+    postMicrosoftTeams?: outputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeams;
+    /**
+     * Post the alert to Slack channels. Set when type is `postSlack`.
+     */
+    postSlack?: outputs.AlertRulesBlockBranchBranchActionPostSlack;
+    /**
+     * Which action to take. Set the attribute of the same name with its parameters. `investigate` has none. Possible values are: `escalate`, `postSlack`, `postMicrosoftTeams`, `createIncident`, `investigate`.
+     */
+    type: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncident {
+    /**
+     * Decline the incident if its alerts resolve before anyone accepts it. Defaults to false.
+     */
+    autoDecline: boolean;
+    /**
+     * The incident template to create from: its ID, or a reference. Leave it out to use the organisation's default template.
+     */
+    incidentTemplate?: outputs.AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplate;
+    /**
+     * Create the incident as private. A private alert, or a template whose incident type allows only private incidents, makes it private anyway. Defaults to false.
+     */
+    isPrivate: boolean;
+    /**
+     * The teams whose members can see the incident and join its channel when it is private: team catalog entry IDs in `values`, or a reference. Leave it out to use the template's teams.
+     */
+    membershipTeams?: outputs.AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeams;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentIncidentTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeams {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionCreateIncidentMembershipTeamsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalate {
+    /**
+     * Cancel the escalation when the alert resolves, or when every alert in its group resolves. Defaults to false.
+     */
+    autoCancel: boolean;
+    /**
+     * The escalation paths to page: escalation path IDs in `values`, or an `expressionRef` that finds them, such as from the alert's team.
+     */
+    escalationPaths?: outputs.AlertRulesBlockBranchBranchActionEscalateEscalationPaths;
+    /**
+     * How long an alert that joins a group with a live page waits before it pages. 0, the default, pages at once. Only used with on*each*new*alert. Allowed with on*priority_increase, which ignores it.
+     */
+    gracePeriodSeconds: number;
+    /**
+     * How an alert that joins a group pages. on*each*new*alert pages for every alert. on*priority*increase pages a target only when the alert's priority is above every live page the group already has to that target. Defaults to on*each*new*alert. Possible values are: `onPriorityIncrease`, `onEachNewAlert`.
+     */
+    mode: string;
+    /**
+     * The urgency to page at: the ID of an escalation urgency catalog entry, or a reference. Leave it out to page at the alert priority's default urgency.
+     */
+    urgency?: outputs.AlertRulesBlockBranchBranchActionEscalateUrgency;
+    /**
+     * The users to page: user IDs in `values`, or a reference.
+     */
+    users?: outputs.AlertRulesBlockBranchBranchActionEscalateUsers;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateEscalationPaths {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchBranchActionEscalateEscalationPathsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateEscalationPathsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateEscalationPathsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUrgency {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchBranchActionEscalateUrgencyValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUrgencyArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUrgencyValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUsers {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchActionEscalateUsersArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchBranchActionEscalateUsersValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUsersArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionEscalateUsersValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeams {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility: string;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: outputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannels;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostMicrosoftTeamsChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlack {
+    /**
+     * Whether the channels are public, or one private Slack channel entered by its ID. private needs channels to be exactly one literal Slack channel ID, and only postSlack supports it. Defaults to public. Possible values are: `public`, `private`.
+     */
+    channelVisibility: string;
+    /**
+     * The channels to post to: channel IDs in `values`, or a reference.
+     */
+    channels: outputs.AlertRulesBlockBranchBranchActionPostSlackChannels;
+    /**
+     * per*alert posts one message per alert. group*summary posts one message for the alert's group, and one per alert that is not grouped. Possible values are: `perAlert`, `groupSummary`.
+     */
+    mode: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlackChannels {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockBranchBranchActionPostSlackChannelsValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlackChannelsArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchActionPostSlackChannelsValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.AlertRulesBlockBranchBranchConditionGroupCondition[];
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.AlertRulesBlockBranchBranchConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchConditionGroup {
+    /**
+     * The prerequisite conditions that must all be satisfied
+     */
+    conditions: outputs.AlertRulesBlockBranchConditionGroupCondition[];
+}
+
+export interface AlertRulesBlockBranchConditionGroupCondition {
+    /**
+     * The logical operation to be applied
+     */
+    operation: string;
+    /**
+     * Bindings for the operation parameters
+     */
+    paramBindings: outputs.AlertRulesBlockBranchConditionGroupConditionParamBinding[];
+    /**
+     * The subject of the condition, on which the operation is applied
+     */
+    subject: string;
+}
+
+export interface AlertRulesBlockBranchConditionGroupConditionParamBinding {
+    /**
+     * The array of literal or reference parameter values
+     */
+    arrayValues?: outputs.AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValue[];
+    /**
+     * The name of an expression on this resource, whose result becomes the value. Shorthand for referencing `expressions["name"]`.
+     */
+    expressionRef?: string;
+    /**
+     * The literal or reference parameter value
+     */
+    value?: outputs.AlertRulesBlockBranchConditionGroupConditionParamBindingValue;
+    /**
+     * A fixed value, shorthand for `value = { literal = ... }`. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, shorthand for `value = { reference = ... }`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values, shorthand for an `arrayValue` of literals. For a mix of literals and references, use `arrayValue`.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockBranchConditionGroupConditionParamBindingArrayValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockBranchConditionGroupConditionParamBindingValue {
+    /**
+     * If set, this is the literal value of the step parameter
+     */
+    literal?: string;
+    /**
+     * If set, this is the reference into the trigger scope that is the value of this parameter
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockMessageTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesBlockMessageTemplateArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesBlockMessageTemplateValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesBlockMessageTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesBlockMessageTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesMessageTemplate {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesMessageTemplateArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesMessageTemplateValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesMessageTemplateArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesMessageTemplateValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpression {
+    /**
+     * What this expression produces when nothing else matched.
+     */
+    fallback?: outputs.AlertRulesNamedExpressionFallback;
+    /**
+     * What the dashboard shows for this expression. Defaults to the name. Set it when importing a source whose expressions were labelled in the dashboard, so those labels survive.
+     */
+    label?: string;
+    /**
+     * A name for this expression, unique within this resource, referenced by expression_ref.
+     */
+    name: string;
+    /**
+     * An ordered pipeline. Each operation feeds the next.
+     */
+    operations?: outputs.AlertRulesNamedExpressionOperation[];
+    /**
+     * Where the expression starts: "payload", "alert", "." for a branches-only expression, or a scope path. Required when the block is present.
+     */
+    startFrom?: string;
+}
+
+export interface AlertRulesNamedExpressionFallback {
+    /**
+     * The unconditional default for the shorthand above.
+     */
+    else?: outputs.AlertRulesNamedExpressionFallbackElse;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: outputs.AlertRulesNamedExpressionFallbackElseIf[];
+    /**
+     * The name of a namedExpression in this resource.
+     */
+    expressionRef?: string;
+    /**
+     * Shorthand for a branching fallback.
+     */
+    if?: outputs.AlertRulesNamedExpressionFallbackIf;
+    /**
+     * A flat, unconditional value.
+     */
+    result?: outputs.AlertRulesNamedExpressionFallbackResult;
+}
+
+export interface AlertRulesNamedExpressionFallbackElse {
+    /**
+     * The value to fall back to. Required when the block is present.
+     */
+    result?: outputs.AlertRulesNamedExpressionFallbackElseResult;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertRulesNamedExpressionFallbackElseIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertRulesNamedExpressionFallbackElseIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertRulesNamedExpressionFallbackElseIfResult;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionFallbackElseIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupCondition[];
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackElseIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackElseIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackElseIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackElseResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackElseResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackElseResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackElseResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertRulesNamedExpressionFallbackIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertRulesNamedExpressionFallbackIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertRulesNamedExpressionFallbackIfResult;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionFallbackIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertRulesNamedExpressionFallbackIfConditionGroupCondition[];
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionFallbackIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionFallbackResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionFallbackResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionFallbackResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionFallbackResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperation {
+    /**
+     * A lookup table, evaluated in order until one matches. Must be the only operation in its expression, with start*from = ".".
+     */
+    branches?: outputs.AlertRulesNamedExpressionOperationBranches;
+    /**
+     * Converts the current value to another type.
+     */
+    cast?: outputs.AlertRulesNamedExpressionOperationCast;
+    /**
+     * Adds the values behind another reference to the current value, keeping each value once. There is no delimiter, despite the name.
+     */
+    concatenate?: outputs.AlertRulesNamedExpressionOperationConcatenate;
+    /**
+     * Counts the values.
+     */
+    count?: outputs.AlertRulesNamedExpressionOperationCount;
+    /**
+     * Keeps the values matching these conditions. Inside a filter the value under test is bound as `input`.
+     */
+    filter?: outputs.AlertRulesNamedExpressionOperationFilter;
+    /**
+     * Takes the first value.
+     */
+    first?: outputs.AlertRulesNamedExpressionOperationFirst;
+    /**
+     * Takes the largest value.
+     */
+    max?: outputs.AlertRulesNamedExpressionOperationMax;
+    /**
+     * Takes the smallest value.
+     */
+    min?: outputs.AlertRulesNamedExpressionOperationMin;
+    /**
+     * Follows an attribute of the current value.
+     */
+    navigate?: outputs.AlertRulesNamedExpressionOperationNavigate;
+    /**
+     * Evaluates a function against the current value.
+     */
+    parse?: outputs.AlertRulesNamedExpressionOperationParse;
+    /**
+     * Takes one value at random.
+     */
+    random?: outputs.AlertRulesNamedExpressionOperationRandom;
+    /**
+     * Adds the values together.
+     */
+    sum?: outputs.AlertRulesNamedExpressionOperationSum;
+}
+
+export interface AlertRulesNamedExpressionOperationBranches {
+    /**
+     * Whether each branch returns several values rather than one.
+     */
+    array?: boolean;
+    /**
+     * The type every branch result returns. Required when the block is present.
+     */
+    as?: string;
+    /**
+     * Tried in order, after if.
+     */
+    elseIfs?: outputs.AlertRulesNamedExpressionOperationBranchesElseIf[];
+    /**
+     * The first branch to try.
+     */
+    if?: outputs.AlertRulesNamedExpressionOperationBranchesIf;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfResult;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupCondition[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationBranchesElseIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesElseIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIf {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertRulesNamedExpressionOperationBranchesIfCondition[];
+    /**
+     * The value this branch produces. Required when the branch is present.
+     */
+    result?: outputs.AlertRulesNamedExpressionOperationBranchesIfResult;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupCondition[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationBranchesIfConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfResult {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationBranchesIfResultArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationBranchesIfResultValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfResultArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationBranchesIfResultValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationCast {
+    /**
+     * The type to convert to. Take it from the resource that defines the type rather than writing it out.
+     */
+    as: string;
+}
+
+export interface AlertRulesNamedExpressionOperationConcatenate {
+    /**
+     * The reference whose values are added.
+     */
+    with: string;
+}
+
+export interface AlertRulesNamedExpressionOperationCount {
+}
+
+export interface AlertRulesNamedExpressionOperationFilter {
+    /**
+     * Groups are OR'd; conditions within a group are AND'd.
+     */
+    conditionGroups?: outputs.AlertRulesNamedExpressionOperationFilterConditionGroup[];
+    /**
+     * All of these must hold. Sugar for a single condition group.
+     */
+    conditions?: outputs.AlertRulesNamedExpressionOperationFilterCondition[];
+}
+
+export interface AlertRulesNamedExpressionOperationFilterCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionOperationFilterConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroup {
+    /**
+     * All of these must hold for the group to hold.
+     */
+    conditions: outputs.AlertRulesNamedExpressionOperationFilterConditionGroupCondition[];
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupCondition {
+    /**
+     * How the subject is tested. The available operations depend on the subject's type.
+     */
+    operation: string;
+    /**
+     * Positional parameters for the operation.
+     */
+    params?: outputs.AlertRulesNamedExpressionOperationFilterConditionGroupConditionParam[];
+    /**
+     * The reference this condition tests.
+     */
+    subject: string;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionGroupConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionParam {
+    /**
+     * Several values, spelled out. Needed when they mix fixed values and references.
+     */
+    arrayValues?: outputs.AlertRulesNamedExpressionOperationFilterConditionParamArrayValue[];
+    /**
+     * The name of a namedExpression in this resource, whose result becomes the value.
+     */
+    expressionRef?: string;
+    /**
+     * One value, spelled out. `valueLiteral` and `valueReference` are shorthand for this.
+     */
+    value?: outputs.AlertRulesNamedExpressionOperationFilterConditionParamValue;
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    valueLiteral?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    valueReference?: string;
+    /**
+     * Several fixed values. For a mix of fixed values and references, use array_value.
+     */
+    values?: string[];
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionParamArrayValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationFilterConditionParamValue {
+    /**
+     * A fixed value. A catalog entry ID is a literal, not a reference.
+     */
+    literal?: string;
+    /**
+     * A reference into the scope, such as `payload.team`.
+     */
+    reference?: string;
+}
+
+export interface AlertRulesNamedExpressionOperationFirst {
+}
+
+export interface AlertRulesNamedExpressionOperationMax {
+}
+
+export interface AlertRulesNamedExpressionOperationMin {
+}
+
+export interface AlertRulesNamedExpressionOperationNavigate {
+    /**
+     * The catalog attribute to follow.
+     */
+    to: string;
+}
+
+export interface AlertRulesNamedExpressionOperationParse {
+    /**
+     * Whether this returns several values rather than one.
+     */
+    array?: boolean;
+    /**
+     * The type this returns. Take it from the resource that defines the type rather than writing it out, e.g. `incident_catalog_type.service.attribute_type`.
+     */
+    as: string;
+    /**
+     * JavaScript evaluated against the current value, bound to `$`. 5 KiB limit.
+     */
+    function: string;
+}
+
+export interface AlertRulesNamedExpressionOperationRandom {
+}
+
+export interface AlertRulesNamedExpressionOperationSum {
+}
+
+export interface AlertSourceAlertmanagerOptions {
+    /**
+     * Whether to create one alert per evaluation group or one alert per series within a group
+     */
+    oneAlertPerGroup: boolean;
 }
 
 export interface AlertSourceAttributeArrayValue {
@@ -7052,6 +10835,13 @@ export interface AlertSourceAttributeValue {
     reference?: string;
 }
 
+export interface AlertSourceBetaAlertmanagerOptions {
+    /**
+     * Whether to create one alert per evaluation group or one alert per series within a group
+     */
+    oneAlertPerGroup: boolean;
+}
+
 export interface AlertSourceBetaDescription {
     /**
      * Fixed content, which may interpolate the scope with `{{ variable }}`. Filters `truncate: N` and `omitIfUnset` are supported. For content needing formatting a template can't express, pass a document from `data.incident_rich_text` with `featureSet = "rich"`.
@@ -10290,7 +14080,7 @@ export interface EscalationPathBetaSequencesNodeBranch {
      */
     if: outputs.EscalationPathBetaSequencesNodeBranchIf;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: string;
 }
@@ -10393,7 +14183,7 @@ export interface EscalationPathBetaSequencesNodeLevelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -10446,7 +14236,7 @@ export interface EscalationPathBetaSequencesNodeNotifyChannelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -10581,7 +14371,7 @@ export interface EscalationPathSequencesNodeBranch {
      */
     if: outputs.EscalationPathSequencesNodeBranchIf;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: string;
 }
@@ -10684,7 +14474,7 @@ export interface EscalationPathSequencesNodeLevelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -10737,7 +14527,7 @@ export interface EscalationPathSequencesNodeNotifyChannelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -11207,7 +14997,7 @@ export interface EscalationPathTemplateSequencesNodeBranch {
      */
     if: outputs.EscalationPathTemplateSequencesNodeBranchIf;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: string;
 }
@@ -11314,7 +15104,7 @@ export interface EscalationPathTemplateSequencesNodeLevelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -11420,7 +15210,7 @@ export interface EscalationPathTemplateSequencesNodeNotifyChannelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -12646,6 +16436,13 @@ export interface GetAlertRouteMessageConfigTemplateValue {
      * If set, this is the reference into the trigger scope that is the value of this parameter
      */
     reference: string;
+}
+
+export interface GetAlertSourceAlertmanagerOptions {
+    /**
+     * Whether to create one alert per evaluation group or one alert per series within a group
+     */
+    oneAlertPerGroup: boolean;
 }
 
 export interface GetAlertSourceAttributeArrayValue {
@@ -19220,7 +23017,7 @@ export interface GetEscalationPathBetaSequencesNodeBranch {
      */
     if: outputs.GetEscalationPathBetaSequencesNodeBranchIf;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: string;
 }
@@ -19323,7 +23120,7 @@ export interface GetEscalationPathBetaSequencesNodeLevelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -19376,7 +23173,7 @@ export interface GetEscalationPathBetaSequencesNodeNotifyChannelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -19499,7 +23296,7 @@ export interface GetEscalationPathSequencesNodeBranch {
      */
     if: outputs.GetEscalationPathSequencesNodeBranchIf;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: string;
 }
@@ -19602,7 +23399,7 @@ export interface GetEscalationPathSequencesNodeLevelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -19655,7 +23452,7 @@ export interface GetEscalationPathSequencesNodeNotifyChannelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -20020,7 +23817,7 @@ export interface GetEscalationPathTemplateSequencesNodeBranch {
      */
     if: outputs.GetEscalationPathTemplateSequencesNodeBranchIf;
     /**
-     * The key of the sequence to continue down when the condition is met.
+     * The key of the sequence to continue down when the condition is met. Name a sequence with no nodes to end the escalation path instead.
      */
     then: string;
 }
@@ -20127,7 +23924,7 @@ export interface GetEscalationPathTemplateSequencesNodeLevelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
@@ -20218,7 +24015,7 @@ export interface GetEscalationPathTemplateSequencesNodeNotifyChannelTarget {
      */
     type: string;
     /**
-     * The urgency of this escalation path target. Possible values are: `high`, `low`.
+     * The interruption level we notify this target at: high or low. Possible values are: `high`, `low`.
      */
     urgency: string;
 }
